@@ -11,244 +11,257 @@
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
         .pulse { animation: pulse 2s infinite; }
+        .pulse-fast { animation: pulse 1s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .glow-green { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+        .glow-yellow { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
+        .slide-in { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="min-h-screen text-white p-6">
+<body class="min-h-screen text-white p-4 md:p-6">
     <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-8">
+        <!-- Header with Live Status -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
             <div>
-                <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                     🎯 Alex Prime Dashboard
                 </h1>
-                <p class="text-gray-400 mt-1">Executive Director Agent • Real-time Performance Tracking</p>
+                <p class="text-gray-400 mt-1 text-sm">Executive Director Agent • Real-time Tracking</p>
             </div>
             <div class="flex items-center gap-4">
-                <div id="status-indicator" class="flex items-center gap-2 glass px-4 py-2 rounded-full">
-                    <span class="w-3 h-3 bg-green-500 rounded-full pulse"></span>
-                    <span id="status-text">Active</span>
+                <!-- LIVE STATUS INDICATOR -->
+                <div id="live-status" class="flex items-center gap-3 glass px-4 py-3 rounded-xl glow-green">
+                    <div class="relative">
+                        <span id="status-dot" class="w-4 h-4 bg-green-500 rounded-full block pulse-fast"></span>
+                        <span class="absolute inset-0 w-4 h-4 bg-green-500 rounded-full animate-ping opacity-50"></span>
+                    </div>
+                    <div>
+                        <div id="status-text" class="font-semibold text-green-400">ACTIVE</div>
+                        <div id="current-task" class="text-xs text-gray-400">Building dashboard...</div>
+                    </div>
                 </div>
-                <div class="text-right text-sm text-gray-400">
+                <div class="text-right text-sm text-gray-400 hidden md:block">
                     <div id="current-time"></div>
-                    <div id="uptime"></div>
+                    <div id="last-update">Last update: --</div>
                 </div>
             </div>
         </header>
 
         <!-- Quick Stats Row -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <div class="glass rounded-xl p-5 glow">
-                <div class="text-gray-400 text-sm">Today's Tasks</div>
-                <div class="text-3xl font-bold text-blue-400" id="tasks-today">0</div>
-                <div class="text-xs text-green-400 mt-1">↑ Active</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            <div class="glass rounded-xl p-4 md:p-5 glow">
+                <div class="text-gray-400 text-xs md:text-sm">In Progress</div>
+                <div class="text-2xl md:text-3xl font-bold text-orange-400" id="tasks-progress">1</div>
+                <div class="text-xs text-orange-300 mt-1">🔴 Active now</div>
             </div>
-            <div class="glass rounded-xl p-5">
-                <div class="text-gray-400 text-sm">Messages Processed</div>
-                <div class="text-3xl font-bold text-purple-400" id="messages-count">0</div>
-                <div class="text-xs text-gray-500 mt-1">Last 24h</div>
+            <div class="glass rounded-xl p-4 md:p-5">
+                <div class="text-gray-400 text-xs md:text-sm">Pending</div>
+                <div class="text-2xl md:text-3xl font-bold text-yellow-400" id="tasks-pending">5</div>
+                <div class="text-xs text-yellow-300 mt-1">🟡 Queued</div>
             </div>
-            <div class="glass rounded-xl p-5">
-                <div class="text-gray-400 text-sm">API Tokens Used</div>
-                <div class="text-3xl font-bold text-orange-400" id="tokens-used">0</div>
-                <div class="text-xs text-gray-500 mt-1">Estimated</div>
+            <div class="glass rounded-xl p-4 md:p-5">
+                <div class="text-gray-400 text-xs md:text-sm">Completed</div>
+                <div class="text-2xl md:text-3xl font-bold text-green-400" id="tasks-completed">8</div>
+                <div class="text-xs text-green-300 mt-1">✅ Done</div>
             </div>
-            <div class="glass rounded-xl p-5">
-                <div class="text-gray-400 text-sm">Cost Today</div>
-                <div class="text-3xl font-bold text-green-400" id="cost-today">$0.00</div>
-                <div class="text-xs text-gray-500 mt-1">API Usage</div>
+            <div class="glass rounded-xl p-4 md:p-5">
+                <div class="text-gray-400 text-xs md:text-sm">Est. Cost Today</div>
+                <div class="text-2xl md:text-3xl font-bold text-blue-400" id="cost-today">$6.25</div>
+                <div class="text-xs text-gray-500 mt-1">API usage</div>
             </div>
         </div>
 
-        <!-- Main Grid -->
+        <!-- Main Grid: Tasks + Status -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <!-- Activity Timeline -->
-            <div class="glass rounded-xl p-6 lg:col-span-2">
+            
+            <!-- IN PROGRESS - Prominent -->
+            <div class="glass rounded-xl p-6 glow-yellow lg:col-span-2">
                 <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    📊 Activity Timeline
+                    🔴 Currently Working On
                 </h2>
-                <canvas id="activityChart" height="200"></canvas>
+                <div id="in-progress-tasks" class="space-y-3">
+                    <div class="flex items-start gap-3 p-4 bg-orange-900/30 rounded-lg border border-orange-500/30 slide-in">
+                        <span class="w-3 h-3 bg-orange-500 rounded-full mt-1 pulse-fast"></span>
+                        <div class="flex-1">
+                            <div class="font-medium text-orange-300">Build enhanced dashboard with task tracking</div>
+                            <div class="text-sm text-gray-400 mt-1">Adding TODO visualization, live status indicator</div>
+                            <div class="text-xs text-gray-500 mt-2">Started: 2026-02-02 01:52 UTC</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="no-active" class="hidden text-gray-500 text-center py-8">
+                    <div class="text-4xl mb-2">😴</div>
+                    <div>No active tasks — Agent is idle</div>
+                </div>
             </div>
 
-            <!-- Current Status -->
+            <!-- Live Agent Info -->
             <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">⚡ Current State</h2>
-                <div class="space-y-4">
+                <h2 class="text-xl font-semibold mb-4">⚡ Agent Status</h2>
+                <div class="space-y-3">
                     <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Mode</span>
-                        <span class="text-blue-400 font-medium" id="current-mode">Ready</span>
+                        <span class="text-gray-400">State</span>
+                        <span id="agent-state" class="text-green-400 font-medium">Working</span>
                     </div>
                     <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Active Model</span>
-                        <span class="text-purple-400 font-medium" id="active-model">Claude Opus 4.5</span>
+                        <span class="text-gray-400">Model</span>
+                        <span class="text-purple-400 font-medium text-sm">Claude Opus 4.5</span>
                     </div>
                     <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
                         <span class="text-gray-400">Session</span>
-                        <span class="text-green-400 font-medium" id="session-id">main</span>
+                        <span class="text-blue-400 font-medium">main</span>
                     </div>
                     <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Last Heartbeat</span>
-                        <span class="text-yellow-400 font-medium" id="last-heartbeat">--:--</span>
+                        <span class="text-gray-400">Heartbeat</span>
+                        <span id="last-heartbeat" class="text-yellow-400 font-medium">--:--</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                        <span class="text-gray-400">Uptime</span>
+                        <span id="uptime" class="text-gray-300 font-medium">--</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Model Allocation Section -->
-        <div class="glass rounded-xl p-6 mb-6">
-            <h2 class="text-xl font-semibold mb-4">🤖 Model Allocation Strategy</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Primary Tasks -->
-                <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-xl p-4">
-                    <div class="text-2xl mb-2">💻</div>
-                    <h3 class="font-semibold text-blue-300">Coding & Development</h3>
-                    <div class="mt-3 space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Primary:</span>
-                            <span class="text-blue-400">Claude Opus 4.5</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Fallback:</span>
-                            <span class="text-gray-300">Kimi K2.5</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Fast Tasks:</span>
-                            <span class="text-gray-300">Groq Llama 3.3</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-4">
-                    <div class="text-2xl mb-2">🔍</div>
-                    <h3 class="font-semibold text-purple-300">Research & Analysis</h3>
-                    <div class="mt-3 space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Primary:</span>
-                            <span class="text-purple-400">Claude Opus 4.5</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Web Search:</span>
-                            <span class="text-gray-300">Brave API</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Summaries:</span>
-                            <span class="text-gray-300">Claude Sonnet</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-xl p-4">
-                    <div class="text-2xl mb-2">📱</div>
-                    <h3 class="font-semibold text-green-300">Social Media</h3>
-                    <div class="mt-3 space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Content:</span>
-                            <span class="text-green-400">Claude Opus 4.5</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Quick Posts:</span>
-                            <span class="text-gray-300">Groq Llama 3.3</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Images:</span>
-                            <span class="text-gray-300">Flux / DALL-E</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-orange-900/50 to-orange-800/30 rounded-xl p-4">
-                    <div class="text-2xl mb-2">💬</div>
-                    <h3 class="font-semibold text-orange-300">Chat & Communication</h3>
-                    <div class="mt-3 space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Primary:</span>
-                            <span class="text-orange-400">Claude Opus 4.5</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Quick Reply:</span>
-                            <span class="text-gray-300">Claude Haiku</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-400">Voice:</span>
-                            <span class="text-gray-300">ElevenLabs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tasks & Goals -->
+        <!-- Pending & Completed Tasks -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            <!-- Active Tasks -->
+            <!-- Pending Tasks -->
             <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">📋 Current Tasks</h2>
-                <div class="space-y-3" id="tasks-list">
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="flex-1">Dashboard Development</span>
-                        <span class="text-xs text-green-400">In Progress</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                    🟡 Pending Tasks
+                </h2>
+                <div id="pending-tasks" class="space-y-2 max-h-80 overflow-y-auto">
+                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
                         <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Model Optimization</span>
-                        <span class="text-xs text-yellow-400">Pending</span>
+                        <span class="flex-1">Vercel deployment</span>
+                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
-                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                        <span class="flex-1">API Cost Analysis</span>
-                        <span class="text-xs text-blue-400">Scheduled</span>
+                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
+                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                        <span class="flex-1">Profile drafts review</span>
+                        <span class="text-xs text-red-400 px-2 py-1 bg-red-900/30 rounded">High</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
+                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                        <span class="flex-1">Google Calendar integration</span>
+                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
+                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                        <span class="flex-1">Email monitoring setup</span>
+                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
+                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                        <span class="flex-1">Subagent pyramid</span>
+                        <span class="text-xs text-gray-400 px-2 py-1 bg-gray-700/50 rounded">Low</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Cost Breakdown -->
+            <!-- Completed Tasks -->
             <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">💰 Cost Breakdown</h2>
-                <canvas id="costChart" height="180"></canvas>
+                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                    ✅ Completed
+                </h2>
+                <div id="completed-tasks" class="space-y-2 max-h-80 overflow-y-auto">
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">Dashboard creation</span>
+                        <span class="text-xs text-gray-500">Feb 1</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">GitHub repo setup</span>
+                        <span class="text-xs text-gray-500">Feb 2</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">GitHub Pages deployment</span>
+                        <span class="text-xs text-gray-500">Feb 2</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">6-model fallback chain</span>
+                        <span class="text-xs text-gray-500">Feb 2</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">Daily summary cron</span>
+                        <span class="text-xs text-gray-500">Feb 1</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">Heartbeat status updates</span>
+                        <span class="text-xs text-gray-500">Feb 1</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">LLM providers configured</span>
+                        <span class="text-xs text-gray-500">Feb 1</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                        <span class="text-green-500">✓</span>
+                        <span class="flex-1 text-gray-300">Cloudflare tunnel setup</span>
+                        <span class="text-xs text-gray-500">Feb 1</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Anthropic Max Plan Info -->
+        <!-- Activity Chart & Model Info -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div class="glass rounded-xl p-6 lg:col-span-2">
+                <h2 class="text-xl font-semibold mb-4">📊 Task Completion Trend</h2>
+                <canvas id="activityChart" height="150"></canvas>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">🤖 Model Stack</h2>
+                <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/30">
+                        <div class="text-blue-400 font-medium">Primary</div>
+                        <div class="text-gray-300">Claude Opus 4.5</div>
+                    </div>
+                    <div class="p-3 bg-gray-800/50 rounded-lg">
+                        <div class="text-gray-400 font-medium">Fallback 1</div>
+                        <div class="text-gray-300">Groq Llama 3.3</div>
+                    </div>
+                    <div class="p-3 bg-gray-800/50 rounded-lg">
+                        <div class="text-gray-400 font-medium">Fallback 2</div>
+                        <div class="text-gray-300">NVIDIA Kimi K2.5</div>
+                    </div>
+                    <div class="p-3 bg-gray-800/50 rounded-lg">
+                        <div class="text-gray-400 font-medium">Fallback 3</div>
+                        <div class="text-gray-300">OpenRouter Llama/Qwen</div>
+                    </div>
+                    <div class="p-3 bg-gray-800/50 rounded-lg">
+                        <div class="text-gray-400 font-medium">Last Resort</div>
+                        <div class="text-gray-300">Moonshot Kimi K2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backlog Preview -->
         <div class="glass rounded-xl p-6 mb-6">
-            <h2 class="text-xl font-semibold mb-4">📊 Anthropic Pricing Analysis</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-800/50 rounded-xl p-5">
-                    <h3 class="text-lg font-semibold text-blue-400 mb-3">Claude Max Plan</h3>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li>✅ $100/month (5x Pro usage)</li>
-                        <li>✅ $200/month (20x Pro usage)</li>
-                        <li>✅ Priority access to features</li>
-                        <li>✅ Desktop + Mobile + Claude Code</li>
-                        <li>⚠️ Not true unlimited API access</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-800/50 rounded-xl p-5">
-                    <h3 class="text-lg font-semibold text-purple-400 mb-3">API Pricing (Pay-per-token)</h3>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li>🔷 Opus 4.5: $5/$25 per MTok</li>
-                        <li>🔷 Sonnet 4.5: $3/$15 per MTok</li>
-                        <li>🔷 Haiku 4.5: $1/$5 per MTok</li>
-                        <li>💡 Batch processing: 50% off</li>
-                        <li>💡 Prompt caching available</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-800/50 rounded-xl p-5">
-                    <h3 class="text-lg font-semibold text-green-400 mb-3">Recommendation</h3>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li>🎯 Keep $20/month Anthropic API</li>
-                        <li>🎯 Use free tiers strategically</li>
-                        <li>🎯 Groq for speed, NVIDIA for backup</li>
-                        <li>🎯 Max plan only if hitting limits</li>
-                        <li>💡 No true "unlimited API" exists</li>
-                    </ul>
-                </div>
+            <h2 class="text-xl font-semibold mb-4">📋 Backlog (Future Ideas)</h2>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Cost alerts</span>
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Multi-agent dashboard</span>
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Voice summaries</span>
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Twitter monitoring</span>
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Automated email drafts</span>
+                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Weekly reports</span>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="text-center text-gray-500 text-sm py-4">
-            Alex Prime Dashboard v1.0 • Built for Kabundji • Last Updated: <span id="last-update"></span>
+            Alex Prime Dashboard v2.0 • Built for Kabundji • 
+            <a href="https://github.com/ALEXPRIME000/alex-dashboard" class="text-blue-400 hover:underline">GitHub</a>
         </footer>
     </div>
 
@@ -257,78 +270,105 @@
         function updateTime() {
             const now = new Date();
             document.getElementById('current-time').textContent = now.toLocaleString();
-            document.getElementById('last-update').textContent = now.toLocaleDateString();
         }
         setInterval(updateTime, 1000);
         updateTime();
 
+        // Fetch live status
+        async function fetchStatus() {
+            try {
+                const res = await fetch('status.json?' + Date.now());
+                const data = await res.json();
+                
+                // Update status indicator
+                document.getElementById('status-text').textContent = data.status.toUpperCase();
+                document.getElementById('current-task').textContent = data.currentTask || 'Monitoring...';
+                document.getElementById('last-update').textContent = 'Updated: ' + new Date(data.lastUpdate).toLocaleTimeString();
+                document.getElementById('last-heartbeat').textContent = new Date(data.heartbeat?.lastCheck || Date.now()).toLocaleTimeString();
+                
+                // Update stats
+                if (data.stats) {
+                    document.getElementById('cost-today').textContent = '$' + (data.stats.costEstimated || 0).toFixed(2);
+                }
+                
+                // Status styling
+                const statusDiv = document.getElementById('live-status');
+                const statusDot = document.getElementById('status-dot');
+                const agentState = document.getElementById('agent-state');
+                
+                if (data.status === 'active' || data.status === 'working') {
+                    statusDiv.className = 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-green';
+                    statusDot.className = 'w-4 h-4 bg-green-500 rounded-full block pulse-fast';
+                    document.getElementById('status-text').className = 'font-semibold text-green-400';
+                    agentState.textContent = 'Working';
+                    agentState.className = 'text-green-400 font-medium';
+                } else if (data.status === 'idle') {
+                    statusDiv.className = 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-yellow';
+                    statusDot.className = 'w-4 h-4 bg-yellow-500 rounded-full block pulse';
+                    document.getElementById('status-text').className = 'font-semibold text-yellow-400';
+                    agentState.textContent = 'Idle';
+                    agentState.className = 'text-yellow-400 font-medium';
+                }
+            } catch (e) {
+                console.log('Status fetch error:', e);
+            }
+        }
+        
+        // Refresh status every 30 seconds
+        fetchStatus();
+        setInterval(fetchStatus, 30000);
+
         // Activity Chart
         const activityCtx = document.getElementById('activityChart').getContext('2d');
         new Chart(activityCtx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', 'Now'],
+                labels: ['Jan 31', 'Feb 1', 'Feb 2'],
                 datasets: [{
-                    label: 'Activity Level',
-                    data: [2, 1, 5, 8, 12, 15, 10],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    fill: true,
-                    tension: 0.4
+                    label: 'Completed',
+                    data: [2, 5, 3],
+                    backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                    borderRadius: 4
                 }, {
-                    label: 'Tasks Completed',
-                    data: [0, 0, 2, 5, 8, 12, 14],
-                    borderColor: '#10b981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    fill: true,
-                    tension: 0.4
+                    label: 'In Progress',
+                    data: [1, 2, 1],
+                    backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
-                plugins: { legend: { labels: { color: '#9ca3af' } } },
+                plugins: { 
+                    legend: { 
+                        position: 'top',
+                        labels: { color: '#9ca3af' } 
+                    } 
+                },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
-                    y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+                    x: { 
+                        grid: { color: 'rgba(255,255,255,0.1)' }, 
+                        ticks: { color: '#9ca3af' } 
+                    },
+                    y: { 
+                        grid: { color: 'rgba(255,255,255,0.1)' }, 
+                        ticks: { color: '#9ca3af' },
+                        beginAtZero: true
+                    }
                 }
             }
         });
 
-        // Cost Chart
-        const costCtx = document.getElementById('costChart').getContext('2d');
-        new Chart(costCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Claude Opus', 'Groq (Free)', 'NVIDIA (Free)', 'Web Search'],
-                datasets: [{
-                    data: [85, 0, 0, 15],
-                    backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { position: 'right', labels: { color: '#9ca3af' } } }
-            }
-        });
-
-        // Simulate live updates
-        let tasksCount = 14;
-        let messagesCount = 47;
-        let tokensUsed = 125000;
-        
-        document.getElementById('tasks-today').textContent = tasksCount;
-        document.getElementById('messages-count').textContent = messagesCount;
-        document.getElementById('tokens-used').textContent = (tokensUsed / 1000).toFixed(0) + 'K';
-        document.getElementById('cost-today').textContent = '$' + ((tokensUsed / 1000000) * 25).toFixed(2);
-        
-        // Update last heartbeat
-        setInterval(() => {
+        // Calculate uptime (simulated from session start)
+        const sessionStart = new Date('2026-01-31T13:42:00Z');
+        function updateUptime() {
             const now = new Date();
-            document.getElementById('last-heartbeat').textContent = 
-                now.getHours().toString().padStart(2, '0') + ':' + 
-                now.getMinutes().toString().padStart(2, '0');
-        }, 60000);
-        document.getElementById('last-heartbeat').textContent = new Date().toTimeString().slice(0,5);
+            const diff = now - sessionStart;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('uptime').textContent = `${days}d ${hours}h`;
+        }
+        updateUptime();
+        setInterval(updateUptime, 60000);
     </script>
 </body>
 </html>
