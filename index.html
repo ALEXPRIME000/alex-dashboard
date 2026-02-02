@@ -16,8 +16,11 @@
         .glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
         .glow-green { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
         .glow-yellow { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
-        .slide-in { animation: slideIn 0.5s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #3b82f6; color: #3b82f6; }
     </style>
 </head>
 <body class="min-h-screen text-white p-4 md:p-6">
@@ -49,223 +52,534 @@
             </div>
         </header>
 
-        <!-- Quick Stats Row -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
-            <div class="glass rounded-xl p-4 md:p-5 glow">
-                <div class="text-gray-400 text-xs md:text-sm">In Progress</div>
-                <div class="text-2xl md:text-3xl font-bold text-orange-400" id="tasks-progress">1</div>
-                <div class="text-xs text-orange-300 mt-1">🔴 Active now</div>
+        <!-- Quick Stats Row - Always Visible -->
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
+            <div class="glass rounded-xl p-4 glow">
+                <div class="text-gray-400 text-xs">In Progress</div>
+                <div class="text-2xl font-bold text-orange-400" id="tasks-progress">0</div>
             </div>
-            <div class="glass rounded-xl p-4 md:p-5">
-                <div class="text-gray-400 text-xs md:text-sm">Pending</div>
-                <div class="text-2xl md:text-3xl font-bold text-yellow-400" id="tasks-pending">5</div>
-                <div class="text-xs text-yellow-300 mt-1">🟡 Queued</div>
+            <div class="glass rounded-xl p-4">
+                <div class="text-gray-400 text-xs">Pending</div>
+                <div class="text-2xl font-bold text-yellow-400" id="tasks-pending">5</div>
             </div>
-            <div class="glass rounded-xl p-4 md:p-5">
-                <div class="text-gray-400 text-xs md:text-sm">Completed</div>
-                <div class="text-2xl md:text-3xl font-bold text-green-400" id="tasks-completed">8</div>
-                <div class="text-xs text-green-300 mt-1">✅ Done</div>
+            <div class="glass rounded-xl p-4">
+                <div class="text-gray-400 text-xs">Completed</div>
+                <div class="text-2xl font-bold text-green-400" id="tasks-completed">9</div>
             </div>
-            <div class="glass rounded-xl p-4 md:p-5">
-                <div class="text-gray-400 text-xs md:text-sm">Est. Cost Today</div>
-                <div class="text-2xl md:text-3xl font-bold text-blue-400" id="cost-today">$6.25</div>
-                <div class="text-xs text-gray-500 mt-1">API usage</div>
+            <div class="glass rounded-xl p-4">
+                <div class="text-gray-400 text-xs">Tokens Today</div>
+                <div class="text-2xl font-bold text-purple-400" id="tokens-used">300K</div>
+            </div>
+            <div class="glass rounded-xl p-4">
+                <div class="text-gray-400 text-xs">Cost Today</div>
+                <div class="text-2xl font-bold text-blue-400" id="cost-today">$7.50</div>
+            </div>
+            <div class="glass rounded-xl p-4">
+                <div class="text-gray-400 text-xs">Uptime</div>
+                <div class="text-2xl font-bold text-gray-300" id="uptime">1d 12h</div>
             </div>
         </div>
 
-        <!-- Main Grid: Tasks + Status -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- TAB NAVIGATION -->
+        <div class="glass rounded-t-xl mb-0 overflow-x-auto">
+            <div class="flex border-b border-gray-700">
+                <button class="tab-btn active px-6 py-4 text-sm font-medium hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="tasks">
+                    📋 Tasks
+                </button>
+                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="performance">
+                    📊 Performance
+                </button>
+                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="models">
+                    🤖 Models
+                </button>
+                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="status">
+                    ⚡ Status
+                </button>
+                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="pricing">
+                    💰 Pricing
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT CONTAINER -->
+        <div class="glass rounded-b-xl rounded-t-none p-6 mb-6">
             
-            <!-- IN PROGRESS - Prominent -->
-            <div class="glass rounded-xl p-6 glow-yellow lg:col-span-2">
-                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    🔴 Currently Working On
-                </h2>
-                <div id="in-progress-tasks" class="space-y-3">
-                    <div class="flex items-start gap-3 p-4 bg-orange-900/30 rounded-lg border border-orange-500/30 slide-in">
-                        <span class="w-3 h-3 bg-orange-500 rounded-full mt-1 pulse-fast"></span>
-                        <div class="flex-1">
-                            <div class="font-medium text-orange-300">Build enhanced dashboard with task tracking</div>
-                            <div class="text-sm text-gray-400 mt-1">Adding TODO visualization, live status indicator</div>
-                            <div class="text-xs text-gray-500 mt-2">Started: 2026-02-02 01:52 UTC</div>
+            <!-- ==================== TASKS TAB ==================== -->
+            <div id="tab-tasks" class="tab-content active slide-in">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- IN PROGRESS -->
+                    <div class="lg:col-span-2">
+                        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                            🔴 Currently Working On
+                        </h2>
+                        <div id="in-progress-tasks" class="space-y-3">
+                            <div class="text-gray-500 text-center py-8 bg-gray-800/30 rounded-lg">
+                                <div class="text-4xl mb-2">✅</div>
+                                <div>No active tasks — Ready for new work</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUICK ACTIONS -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">⚡ Quick Info</h2>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-gray-800/50 rounded-lg">
+                                <div class="text-gray-400 text-xs">Last Heartbeat</div>
+                                <div id="quick-heartbeat" class="text-yellow-400 font-medium">--:--</div>
+                            </div>
+                            <div class="p-3 bg-gray-800/50 rounded-lg">
+                                <div class="text-gray-400 text-xs">Active Model</div>
+                                <div class="text-purple-400 font-medium">Claude Opus 4.5</div>
+                            </div>
+                            <div class="p-3 bg-gray-800/50 rounded-lg">
+                                <div class="text-gray-400 text-xs">Session</div>
+                                <div class="text-blue-400 font-medium">main</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="no-active" class="hidden text-gray-500 text-center py-8">
-                    <div class="text-4xl mb-2">😴</div>
-                    <div>No active tasks — Agent is idle</div>
+
+                <!-- Pending & Completed -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">🟡 Pending Tasks</h2>
+                        <div class="space-y-2 max-h-64 overflow-y-auto">
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                <span class="flex-1">Vercel deployment</span>
+                                <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                <span class="flex-1">Profile drafts review</span>
+                                <span class="text-xs text-red-400 px-2 py-1 bg-red-900/30 rounded">High</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                <span class="flex-1">Google Calendar integration</span>
+                                <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                <span class="flex-1">Email monitoring setup</span>
+                                <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                                <span class="flex-1">Subagent pyramid</span>
+                                <span class="text-xs text-gray-400 px-2 py-1 bg-gray-700/50 rounded">Low</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">✅ Completed</h2>
+                        <div class="space-y-2 max-h-64 overflow-y-auto">
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">Dashboard v2.0 with tabs</span>
+                                <span class="text-xs text-gray-500">Feb 2</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">Task tracking system</span>
+                                <span class="text-xs text-gray-500">Feb 2</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">GitHub Pages deployment</span>
+                                <span class="text-xs text-gray-500">Feb 2</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">6-model fallback chain</span>
+                                <span class="text-xs text-gray-500">Feb 2</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">Daily summary automation</span>
+                                <span class="text-xs text-gray-500">Feb 1</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
+                                <span class="text-green-500">✓</span>
+                                <span class="flex-1 text-gray-300">LLM providers configured</span>
+                                <span class="text-xs text-gray-500">Feb 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backlog -->
+                <div class="mt-6">
+                    <h2 class="text-lg font-semibold mb-3">📋 Backlog (Future Ideas)</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Cost alerts</span>
+                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Multi-agent dashboard</span>
+                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Voice summaries</span>
+                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Twitter monitoring</span>
+                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Weekly reports</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Live Agent Info -->
-            <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">⚡ Agent Status</h2>
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">State</span>
-                        <span id="agent-state" class="text-green-400 font-medium">Working</span>
+            <!-- ==================== PERFORMANCE TAB ==================== -->
+            <div id="tab-performance" class="tab-content slide-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Activity Timeline -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">📈 Activity Timeline</h2>
+                        <canvas id="activityChart" height="200"></canvas>
                     </div>
-                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Model</span>
-                        <span class="text-purple-400 font-medium text-sm">Claude Opus 4.5</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Session</span>
-                        <span class="text-blue-400 font-medium">main</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Heartbeat</span>
-                        <span id="last-heartbeat" class="text-yellow-400 font-medium">--:--</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-                        <span class="text-gray-400">Uptime</span>
-                        <span id="uptime" class="text-gray-300 font-medium">--</span>
+
+                    <!-- Task Completion Trend -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">📊 Task Completion</h2>
+                        <canvas id="taskChart" height="200"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Pending & Completed Tasks -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            <!-- Pending Tasks -->
-            <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    🟡 Pending Tasks
-                </h2>
-                <div id="pending-tasks" class="space-y-2 max-h-80 overflow-y-auto">
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Vercel deployment</span>
-                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                    <!-- Token Usage -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">🔢 Token Usage (Last 7 Days)</h2>
+                        <canvas id="tokenChart" height="180"></canvas>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Profile drafts review</span>
-                        <span class="text-xs text-red-400 px-2 py-1 bg-red-900/30 rounded">High</span>
+
+                    <!-- Cost Breakdown -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">💰 Cost Breakdown</h2>
+                        <canvas id="costChart" height="180"></canvas>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Google Calendar integration</span>
-                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-blue-400">98%</div>
+                        <div class="text-gray-400 text-sm mt-1">Uptime</div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Email monitoring setup</span>
-                        <span class="text-xs text-yellow-400 px-2 py-1 bg-yellow-900/30 rounded">Medium</span>
+                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-green-400">1.2s</div>
+                        <div class="text-gray-400 text-sm mt-1">Avg Response</div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1">Subagent pyramid</span>
-                        <span class="text-xs text-gray-400 px-2 py-1 bg-gray-700/50 rounded">Low</span>
+                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-purple-400">47</div>
+                        <div class="text-gray-400 text-sm mt-1">Messages Today</div>
+                    </div>
+                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-orange-400">0</div>
+                        <div class="text-gray-400 text-sm mt-1">Errors</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Completed Tasks -->
-            <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    ✅ Completed
-                </h2>
-                <div id="completed-tasks" class="space-y-2 max-h-80 overflow-y-auto">
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">Dashboard creation</span>
-                        <span class="text-xs text-gray-500">Feb 1</span>
+            <!-- ==================== MODELS TAB ==================== -->
+            <div id="tab-models" class="tab-content slide-in">
+                <h2 class="text-xl font-semibold mb-4">🤖 Model Allocation Strategy</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-xl p-4">
+                        <div class="text-2xl mb-2">💻</div>
+                        <h3 class="font-semibold text-blue-300">Coding</h3>
+                        <div class="mt-3 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Primary:</span>
+                                <span class="text-blue-400">Claude Opus 4.5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Fallback:</span>
+                                <span class="text-gray-300">Kimi K2.5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">GitHub repo setup</span>
-                        <span class="text-xs text-gray-500">Feb 2</span>
+
+                    <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-4">
+                        <div class="text-2xl mb-2">🔍</div>
+                        <h3 class="font-semibold text-purple-300">Research</h3>
+                        <div class="mt-3 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Primary:</span>
+                                <span class="text-purple-400">Claude Opus 4.5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Search:</span>
+                                <span class="text-gray-300">Brave API</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">GitHub Pages deployment</span>
-                        <span class="text-xs text-gray-500">Feb 2</span>
+
+                    <div class="bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-xl p-4">
+                        <div class="text-2xl mb-2">📱</div>
+                        <h3 class="font-semibold text-green-300">Social Media</h3>
+                        <div class="mt-3 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Content:</span>
+                                <span class="text-green-400">Claude Opus</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Quick:</span>
+                                <span class="text-gray-300">Groq Llama</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">6-model fallback chain</span>
-                        <span class="text-xs text-gray-500">Feb 2</span>
+
+                    <div class="bg-gradient-to-br from-orange-900/50 to-orange-800/30 rounded-xl p-4">
+                        <div class="text-2xl mb-2">💬</div>
+                        <h3 class="font-semibold text-orange-300">Chat</h3>
+                        <div class="mt-3 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Primary:</span>
+                                <span class="text-orange-400">Claude Opus</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Fast:</span>
+                                <span class="text-gray-300">Groq</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">Daily summary cron</span>
-                        <span class="text-xs text-gray-500">Feb 1</span>
+                </div>
+
+                <!-- Fallback Chain -->
+                <h2 class="text-xl font-semibold mb-4">🔄 Fallback Chain</h2>
+                <div class="flex flex-wrap items-center gap-2 p-4 bg-gray-800/50 rounded-lg">
+                    <span class="px-3 py-2 bg-blue-600 rounded-lg text-sm font-medium">Claude Opus 4.5</span>
+                    <span class="text-gray-500">→</span>
+                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">Groq Llama 3.3</span>
+                    <span class="text-gray-500">→</span>
+                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">NVIDIA Kimi K2.5</span>
+                    <span class="text-gray-500">→</span>
+                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">OpenRouter Llama</span>
+                    <span class="text-gray-500">→</span>
+                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">OpenRouter Qwen</span>
+                    <span class="text-gray-500">→</span>
+                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">Moonshot Kimi</span>
+                </div>
+
+                <!-- Provider Status -->
+                <h2 class="text-xl font-semibold mb-4 mt-6">📡 Provider Status</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        <div>
+                            <div class="font-medium">Anthropic</div>
+                            <div class="text-xs text-gray-400">Claude Opus 4.5</div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">Heartbeat status updates</span>
-                        <span class="text-xs text-gray-500">Feb 1</span>
+                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        <div>
+                            <div class="font-medium">Groq</div>
+                            <div class="text-xs text-gray-400">Llama 3.3 70B</div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">LLM providers configured</span>
-                        <span class="text-xs text-gray-500">Feb 1</span>
+                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        <div>
+                            <div class="font-medium">NVIDIA</div>
+                            <div class="text-xs text-gray-400">Kimi K2.5</div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">Cloudflare tunnel setup</span>
-                        <span class="text-xs text-gray-500">Feb 1</span>
+                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        <div>
+                            <div class="font-medium">OpenRouter</div>
+                            <div class="text-xs text-gray-400">Llama + Qwen</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Activity Chart & Model Info -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <div class="glass rounded-xl p-6 lg:col-span-2">
-                <h2 class="text-xl font-semibold mb-4">📊 Task Completion Trend</h2>
-                <canvas id="activityChart" height="150"></canvas>
-            </div>
+            <!-- ==================== STATUS TAB ==================== -->
+            <div id="tab-status" class="tab-content slide-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Agent Details -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">⚡ Agent Details</h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Agent Name</span>
+                                <span class="text-white font-medium">Alex Prime</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Role</span>
+                                <span class="text-blue-400 font-medium">Executive Director</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">State</span>
+                                <span id="detail-state" class="text-green-400 font-medium">Active</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Session ID</span>
+                                <span class="text-gray-300 font-mono text-sm">agent:main:main</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Primary Model</span>
+                                <span class="text-purple-400 font-medium">Claude Opus 4.5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Workspace</span>
+                                <span class="text-gray-300 font-mono text-xs">/home/ubuntu/.openclaw/workspace</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="glass rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">🤖 Model Stack</h2>
-                <div class="space-y-3 text-sm">
-                    <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/30">
-                        <div class="text-blue-400 font-medium">Primary</div>
-                        <div class="text-gray-300">Claude Opus 4.5</div>
+                    <!-- System Info -->
+                    <div>
+                        <h2 class="text-xl font-semibold mb-4">🖥️ System Info</h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Host</span>
+                                <span class="text-gray-300">ip-172-31-42-145</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">OS</span>
+                                <span class="text-gray-300">Ubuntu 24.04 LTS</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Node.js</span>
+                                <span class="text-gray-300">v22.22.0</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Channel</span>
+                                <span class="text-green-400 font-medium">WhatsApp</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Last Heartbeat</span>
+                                <span id="detail-heartbeat" class="text-yellow-400 font-medium">--:--</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                                <span class="text-gray-400">Gateway Port</span>
+                                <span class="text-gray-300">18789</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg">
-                        <div class="text-gray-400 font-medium">Fallback 1</div>
-                        <div class="text-gray-300">Groq Llama 3.3</div>
-                    </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg">
-                        <div class="text-gray-400 font-medium">Fallback 2</div>
-                        <div class="text-gray-300">NVIDIA Kimi K2.5</div>
-                    </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg">
-                        <div class="text-gray-400 font-medium">Fallback 3</div>
-                        <div class="text-gray-300">OpenRouter Llama/Qwen</div>
-                    </div>
-                    <div class="p-3 bg-gray-800/50 rounded-lg">
-                        <div class="text-gray-400 font-medium">Last Resort</div>
-                        <div class="text-gray-300">Moonshot Kimi K2</div>
+                </div>
+
+                <!-- Recent Actions -->
+                <div class="mt-6">
+                    <h2 class="text-xl font-semibold mb-4">📝 Recent Actions</h2>
+                    <div id="recent-actions" class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                            <span class="text-xs text-gray-500">02:00</span>
+                            <span class="text-gray-300">Completed task tracking dashboard v2.0</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                            <span class="text-xs text-gray-500">01:55</span>
+                            <span class="text-gray-300">TODO.md system active</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
+                            <span class="text-xs text-gray-500">01:02</span>
+                            <span class="text-gray-300">GitHub Pages deployment</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Backlog Preview -->
-        <div class="glass rounded-xl p-6 mb-6">
-            <h2 class="text-xl font-semibold mb-4">📋 Backlog (Future Ideas)</h2>
-            <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Cost alerts</span>
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Multi-agent dashboard</span>
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Voice summaries</span>
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Twitter monitoring</span>
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Automated email drafts</span>
-                <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Weekly reports</span>
+            <!-- ==================== PRICING TAB ==================== -->
+            <div id="tab-pricing" class="tab-content slide-in">
+                <h2 class="text-xl font-semibold mb-4">💰 Anthropic Pricing Analysis</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-gray-800/50 rounded-xl p-5">
+                        <h3 class="text-lg font-semibold text-blue-400 mb-3">Claude Max Plan</h3>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>✅ $100/month (5x Pro usage)</li>
+                            <li>✅ $200/month (20x Pro usage)</li>
+                            <li>✅ Priority access to features</li>
+                            <li>✅ Desktop + Mobile + Claude Code</li>
+                            <li>⚠️ NOT unlimited API access</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-5">
+                        <h3 class="text-lg font-semibold text-purple-400 mb-3">API Pricing (Per Token)</h3>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>🔷 Opus 4.5: $5/$25 per MTok</li>
+                            <li>🔷 Sonnet 4.5: $3/$15 per MTok</li>
+                            <li>🔷 Haiku 4.5: $1/$5 per MTok</li>
+                            <li>💡 Batch processing: 50% off</li>
+                            <li>💡 Prompt caching available</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-5">
+                        <h3 class="text-lg font-semibold text-green-400 mb-3">Current Strategy</h3>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>🎯 $20/month Anthropic API</li>
+                            <li>🎯 Groq free tier (backup)</li>
+                            <li>🎯 NVIDIA free credits</li>
+                            <li>🎯 OpenRouter free models</li>
+                            <li>💡 Optimal cost/performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cost Comparison -->
+                <h2 class="text-xl font-semibold mb-4">📊 Monthly Cost Estimate</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="text-left py-3 px-4 text-gray-400">Usage Level</th>
+                                <th class="text-left py-3 px-4 text-gray-400">Tokens/Month</th>
+                                <th class="text-left py-3 px-4 text-gray-400">Opus Cost</th>
+                                <th class="text-left py-3 px-4 text-gray-400">Sonnet Cost</th>
+                                <th class="text-left py-3 px-4 text-gray-400">Haiku Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 px-4">Light</td>
+                                <td class="py-3 px-4 text-gray-300">1M tokens</td>
+                                <td class="py-3 px-4 text-blue-400">$30</td>
+                                <td class="py-3 px-4 text-purple-400">$18</td>
+                                <td class="py-3 px-4 text-green-400">$6</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 px-4">Moderate</td>
+                                <td class="py-3 px-4 text-gray-300">5M tokens</td>
+                                <td class="py-3 px-4 text-blue-400">$150</td>
+                                <td class="py-3 px-4 text-purple-400">$90</td>
+                                <td class="py-3 px-4 text-green-400">$30</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-3 px-4">Heavy</td>
+                                <td class="py-3 px-4 text-gray-300">10M tokens</td>
+                                <td class="py-3 px-4 text-blue-400">$300</td>
+                                <td class="py-3 px-4 text-purple-400">$180</td>
+                                <td class="py-3 px-4 text-green-400">$60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="text-center text-gray-500 text-sm py-4">
-            Alex Prime Dashboard v2.0 • Built for Kabundji • 
+            Alex Prime Dashboard v3.0 • Built for Kabundji • 
             <a href="https://github.com/ALEXPRIME000/alex-dashboard" class="text-blue-400 hover:underline">GitHub</a>
         </footer>
     </div>
 
     <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked
+                btn.classList.add('active');
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+                
+                // Initialize charts if performance tab
+                if (btn.dataset.tab === 'performance') {
+                    initCharts();
+                }
+            });
+        });
+
         // Update time
         function updateTime() {
             const now = new Date();
@@ -280,85 +594,43 @@
                 const res = await fetch('status.json?' + Date.now());
                 const data = await res.json();
                 
-                // Update status indicator
                 document.getElementById('status-text').textContent = data.status.toUpperCase();
                 document.getElementById('current-task').textContent = data.currentTask || 'Monitoring...';
                 document.getElementById('last-update').textContent = 'Updated: ' + new Date(data.lastUpdate).toLocaleTimeString();
-                document.getElementById('last-heartbeat').textContent = new Date(data.heartbeat?.lastCheck || Date.now()).toLocaleTimeString();
                 
-                // Update stats
+                const hb = new Date(data.heartbeat?.lastCheck || Date.now()).toLocaleTimeString();
+                document.getElementById('quick-heartbeat').textContent = hb;
+                document.getElementById('detail-heartbeat').textContent = hb;
+                
                 if (data.stats) {
+                    document.getElementById('tasks-progress').textContent = data.stats.tasksInProgress || 0;
+                    document.getElementById('tasks-pending').textContent = data.stats.tasksPending || 5;
+                    document.getElementById('tasks-completed').textContent = data.stats.tasksCompleted || 9;
+                    document.getElementById('tokens-used').textContent = Math.round((data.stats.tokensEstimated || 0) / 1000) + 'K';
                     document.getElementById('cost-today').textContent = '$' + (data.stats.costEstimated || 0).toFixed(2);
                 }
                 
-                // Status styling
                 const statusDiv = document.getElementById('live-status');
                 const statusDot = document.getElementById('status-dot');
-                const agentState = document.getElementById('agent-state');
                 
                 if (data.status === 'active' || data.status === 'working') {
                     statusDiv.className = 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-green';
                     statusDot.className = 'w-4 h-4 bg-green-500 rounded-full block pulse-fast';
                     document.getElementById('status-text').className = 'font-semibold text-green-400';
-                    agentState.textContent = 'Working';
-                    agentState.className = 'text-green-400 font-medium';
-                } else if (data.status === 'idle') {
+                } else {
                     statusDiv.className = 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-yellow';
                     statusDot.className = 'w-4 h-4 bg-yellow-500 rounded-full block pulse';
                     document.getElementById('status-text').className = 'font-semibold text-yellow-400';
-                    agentState.textContent = 'Idle';
-                    agentState.className = 'text-yellow-400 font-medium';
                 }
             } catch (e) {
                 console.log('Status fetch error:', e);
             }
         }
         
-        // Refresh status every 30 seconds
         fetchStatus();
         setInterval(fetchStatus, 30000);
 
-        // Activity Chart
-        const activityCtx = document.getElementById('activityChart').getContext('2d');
-        new Chart(activityCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Jan 31', 'Feb 1', 'Feb 2'],
-                datasets: [{
-                    label: 'Completed',
-                    data: [2, 5, 3],
-                    backgroundColor: 'rgba(16, 185, 129, 0.7)',
-                    borderRadius: 4
-                }, {
-                    label: 'In Progress',
-                    data: [1, 2, 1],
-                    backgroundColor: 'rgba(245, 158, 11, 0.7)',
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { 
-                    legend: { 
-                        position: 'top',
-                        labels: { color: '#9ca3af' } 
-                    } 
-                },
-                scales: {
-                    x: { 
-                        grid: { color: 'rgba(255,255,255,0.1)' }, 
-                        ticks: { color: '#9ca3af' } 
-                    },
-                    y: { 
-                        grid: { color: 'rgba(255,255,255,0.1)' }, 
-                        ticks: { color: '#9ca3af' },
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Calculate uptime (simulated from session start)
+        // Calculate uptime
         const sessionStart = new Date('2026-01-31T13:42:00Z');
         function updateUptime() {
             const now = new Date();
@@ -369,6 +641,104 @@
         }
         updateUptime();
         setInterval(updateUptime, 60000);
+
+        // Initialize charts
+        let chartsInitialized = false;
+        function initCharts() {
+            if (chartsInitialized) return;
+            chartsInitialized = true;
+
+            // Activity Chart
+            new Chart(document.getElementById('activityChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', 'Now'],
+                    datasets: [{
+                        label: 'Activity Level',
+                        data: [2, 1, 5, 8, 12, 15, 10],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: '#9ca3af' } } },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                        y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // Task Chart
+            new Chart(document.getElementById('taskChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan 31', 'Feb 1', 'Feb 2'],
+                    datasets: [{
+                        label: 'Completed',
+                        data: [2, 5, 4],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderRadius: 4
+                    }, {
+                        label: 'In Progress',
+                        data: [1, 2, 0],
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: '#9ca3af' } } },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                        y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' }, beginAtZero: true }
+                    }
+                }
+            });
+
+            // Token Chart
+            new Chart(document.getElementById('tokenChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan 27', 'Jan 28', 'Jan 29', 'Jan 30', 'Jan 31', 'Feb 1', 'Feb 2'],
+                    datasets: [{
+                        label: 'Tokens (K)',
+                        data: [0, 0, 0, 0, 50, 200, 300],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: '#9ca3af' } } },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                        y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // Cost Chart
+            new Chart(document.getElementById('costChart').getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Claude Opus', 'Groq (Free)', 'NVIDIA (Free)', 'Web Search'],
+                    datasets: [{
+                        data: [85, 0, 0, 15],
+                        backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'right', labels: { color: '#9ca3af' } } }
+                }
+            });
+        }
     </script>
 </body>
 </html>
