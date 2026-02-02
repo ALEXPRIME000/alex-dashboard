@@ -1,0 +1,16 @@
+Dashboard Access URL (Cloudflare Tunnel)
+=========================================
+
+Current URL: https://shoppers-richmond-defence-circus.trycloudflare.com
+
+Created: 2026-02-01 19:08 UTC
+
+Note: This is a temporary free tunnel URL.
+It will change if the server/tunnel restarts.
+
+To restart tunnel:
+  cd ~/dashboard && cloudflared tunnel --url http://localhost:8080
+
+For permanent URL:
+  - Set up Cloudflare account + domain
+  - Or deploy to GitHub Pages
