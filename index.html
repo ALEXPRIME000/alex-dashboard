@@ -48,6 +48,7 @@
                 <div class="text-right text-sm text-gray-400 hidden md:block">
                     <div id="current-time"></div>
                     <div id="last-update">Last update: --</div>
+                    <div id="refresh-indicator" class="text-blue-400 font-mono">↻ 15s</div>
                 </div>
             </div>
         </header>
@@ -588,15 +589,21 @@
         setInterval(updateTime, 1000);
         updateTime();
 
+        // Auto-refresh configuration
+        const REFRESH_INTERVAL = 15; // seconds
+        let countdown = REFRESH_INTERVAL;
+        let lastFetchTime = null;
+
         // Fetch live status
         async function fetchStatus() {
             try {
-                const res = await fetch('status.json?' + Date.now());
+                const res = await fetch('status.json?t=' + Date.now());
                 const data = await res.json();
                 
+                lastFetchTime = new Date();
                 document.getElementById('status-text').textContent = data.status.toUpperCase();
                 document.getElementById('current-task').textContent = data.currentTask || 'Monitoring...';
-                document.getElementById('last-update').textContent = 'Updated: ' + new Date(data.lastUpdate).toLocaleTimeString();
+                document.getElementById('last-update').textContent = 'Data: ' + new Date(data.lastUpdate).toLocaleTimeString();
                 
                 const hb = new Date(data.heartbeat?.lastCheck || Date.now()).toLocaleTimeString();
                 document.getElementById('quick-heartbeat').textContent = hb;
@@ -608,6 +615,19 @@
                     document.getElementById('tasks-completed').textContent = data.stats.tasksCompleted || 9;
                     document.getElementById('tokens-used').textContent = Math.round((data.stats.tokensEstimated || 0) / 1000) + 'K';
                     document.getElementById('cost-today').textContent = '$' + (data.stats.costEstimated || 0).toFixed(2);
+                }
+
+                // Update recent actions if available
+                if (data.recentActions && data.recentActions.length > 0) {
+                    const actionsDiv = document.getElementById('recent-actions');
+                    if (actionsDiv) {
+                        actionsDiv.innerHTML = data.recentActions.map((action, i) => `
+                            <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg slide-in">
+                                <span class="text-xs text-gray-500">${i === 0 ? 'Latest' : ''}</span>
+                                <span class="text-gray-300">${action}</span>
+                            </div>
+                        `).join('');
+                    }
                 }
                 
                 const statusDiv = document.getElementById('live-status');
@@ -622,13 +642,34 @@
                     statusDot.className = 'w-4 h-4 bg-yellow-500 rounded-full block pulse';
                     document.getElementById('status-text').className = 'font-semibold text-yellow-400';
                 }
+
+                // Reset countdown
+                countdown = REFRESH_INTERVAL;
+                updateRefreshIndicator();
             } catch (e) {
                 console.log('Status fetch error:', e);
             }
         }
+
+        // Update refresh countdown
+        function updateRefreshIndicator() {
+            const indicator = document.getElementById('refresh-indicator');
+            if (indicator) {
+                indicator.textContent = `↻ ${countdown}s`;
+            }
+        }
+
+        // Countdown timer
+        setInterval(() => {
+            countdown--;
+            if (countdown <= 0) {
+                fetchStatus();
+            } else {
+                updateRefreshIndicator();
+            }
+        }, 1000);
         
         fetchStatus();
-        setInterval(fetchStatus, 30000);
 
         // Calculate uptime
         const sessionStart = new Date('2026-01-31T13:42:00Z');
