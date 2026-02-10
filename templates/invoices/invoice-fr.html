@@ -1,201 +1,161 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facture - Pulse Graphix</title>
-  <link rel="stylesheet" href="../css/pulse-graphix.css">
-  <style>
-    /* Specific invoice styling */
-    .facture-label { color: var(--neon-green) !important; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture - Pulse Graphix</title>
+    <link rel="stylesheet" href="../css/pulse-graphix.css">
 </head>
 <body>
-  <div class="lang-toggle no-print">
-    <a href="invoice-en.html">EN</a>
-    <a href="invoice-fr.html" class="active">FR</a>
-  </div>
-
-  <div class="invoice-container">
-    <!-- Header -->
-    <div class="header">
-      <div class="logo-section">
-        <div class="logo">Pulse Graphix</div>
-        <div class="company-info">
-          <strong>SIREN:</strong> 123 456 789 00012<br>
-          <strong>TVA:</strong> FR12 123 456 789<br>
-          3 Rue Jacques Prévert<br>
-          77200 Torcy, France<br>
-          +33 6 12 77 64 98<br>
-          chicco@pulsegraphix.net<br>
-          www.pulsegraphix.net
+    <div class="invoice-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">Pulse Graphix</div>
+                <div class="company-info">
+                    <strong>SIREN:</strong> [À REMPLIR]<br>
+                    <strong>TVA:</strong> [À REMPLIR]<br>
+                    3 Rue Jacques Prévert<br>
+                    77200 Torcy, France<br>
+                    +33 6 12 77 64 98<br>
+                    chicco@pulsegraphix.net<br>
+                    www.pulsegraphix.net
+                </div>
+            </div>
+            <div class="document-type">
+                <div class="doc-label facture-label">Facture</div>
+                <div class="doc-number">N° FAC-2026-001</div>
+            </div>
         </div>
-      </div>
-      <div class="document-type">
-        <div class="doc-label facture-label">Facture</div>
-        <div class="doc-number">N° FAC-2024-001</div>
-      </div>
+
+        <!-- DOCUMENT DETAILS -->
+        <div class="doc-details">
+            <div class="detail-group">
+                <div class="detail-label">Date d'émission</div>
+                <div class="detail-value">[DATE]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Date d'échéance</div>
+                <div class="detail-value">[DATE + 30 jours]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Projet</div>
+                <div class="detail-value">[NOM DU PROJET]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Statut</div>
+                <div class="detail-value"><span class="status-badge status-pending">En attente</span></div>
+            </div>
+        </div>
+
+        <!-- CLIENT INFO -->
+        <div class="client-section">
+            <div class="client-box">
+                <div class="client-title">Facturer à</div>
+                <div class="client-name">[NOM DU CLIENT]</div>
+                <div class="client-details">
+                    <strong>[CONTACT]</strong><br>
+                    [ADRESSE]<br>
+                    [CODE POSTAL] [VILLE], France<br>
+                    SIREN: [SIREN CLIENT]<br>
+                    TVA: [TVA CLIENT]<br>
+                    [EMAIL CLIENT]
+                </div>
+            </div>
+            <div class="client-box">
+                <div class="client-title">Informations</div>
+                <div class="client-details">
+                    <strong>Référence projet:</strong> [REF]<br>
+                    <strong>Délai:</strong> 30 jours net<br>
+                    <strong>Mode de paiement:</strong> Virement bancaire<br>
+                    <strong>Acompte:</strong> 30%
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEMS TABLE -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Description</th>
+                    <th>Qté</th>
+                    <th>Unité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total HT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="item-description">[DESCRIPTION SERVICE 1]</td>
+                    <td class="item-qty">[QTE]</td>
+                    <td class="item-unit">[UNITÉ]</td>
+                    <td class="item-price">[PRIX] €</td>
+                    <td class="item-total">[TOTAL] €</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="item-description">[DESCRIPTION SERVICE 2]</td>
+                    <td class="item-qty">[QTE]</td>
+                    <td class="item-unit">[UNITÉ]</td>
+                    <td class="item-price">[PRIX] €</td>
+                    <td class="item-total">[TOTAL] €</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="item-description">[DESCRIPTION SERVICE 3]</td>
+                    <td class="item-qty">[QTE]</td>
+                    <td class="item-unit">[UNITÉ]</td>
+                    <td class="item-price">[PRIX] €</td>
+                    <td class="item-total">[TOTAL] €</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- TOTALS -->
+        <div class="totals-section">
+            <div class="totals-box">
+                <div class="total-row">
+                    <span class="total-label">Total HT</span>
+                    <span class="total-value">[TOTAL HT] €</span>
+                </div>
+                <div class="total-row">
+                    <span class="total-label">TVA 20%</span>
+                    <span class="total-value">[TVA] €</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span class="total-label">TOTAL TTC</span>
+                    <span class="total-value">[TOTAL TTC] €</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT TERMS -->
+        <div class="payment-section">
+            <div class="payment-title">Conditions de paiement</div>
+            <div class="payment-content">
+                <strong>Acompte (30%):</strong> [30% DU TOTAL] € à la commande<br>
+                <strong>Solde:</strong> [70% DU TOTAL] € à 30 jours net<br>
+                <strong>IBAN:</strong> [À REMPLIR]<br>
+                <strong>BIC:</strong> [À REMPLIR]
+            </div>
+        </div>
+
+        <!-- LEGAL NOTES -->
+        <div class="notes-section">
+            <p><strong>Clause de réserve de propriété:</strong> Conformément à la loi 80.335 du 12 mai 1980, nous nous réservons la propriété des marchandises jusqu'au paiement intégral du prix et des frais annexes.</p>
+            <p><strong>Pénalités de retard:</strong> En cas de retard de paiement, une indemnité forfaitaire de 40 € sera due (Article L441-6 du Code de commerce). Taux d'intérêt de retard: 3 fois le taux d'intérêt légal.</p>
+            <p><strong>Escompte:</strong> Aucun escompte pour paiement anticipé.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-brand">Pulse Graphix</div>
+            <p>SIREN [À REMPLIR] | TVA [À REMPLIR]</p>
+            <p>3 Rue Jacques Prévert, 77200 Torcy, France | +33 6 12 77 64 98</p>
+            <p>chicco@pulsegraphix.net | www.pulsegraphix.net</p>
+        </div>
     </div>
-
-    <!-- Document Details -->
-    <div class="doc-details">
-      <div class="detail-group">
-        <div class="detail-label">Date d'émission</div>
-        <div class="detail-value">15 janvier 2024</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Date d'échéance</div>
-        <div class="detail-value">15 février 2024</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Projet</div>
-        <div class="detail-value">Refonte Site Web E-commerce</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Statut</div>
-        <div class="detail-value"><span class="status-badge status-pending">En attente</span></div>
-      </div>
-    </div>
-
-    <!-- Client Info -->
-    <div class="client-section">
-      <div class="client-box">
-        <div class="client-title">Facturer à</div>
-        <div class="client-name">Éclaircies Design SARL</div>
-        <div class="client-details">
-          <strong>Mme Marie Dupont</strong><br>
-          25 Avenue des Champs-Élysées<br>
-          75008 Paris, France<br>
-          SIREN: 987 654 321 00021<br>
-          TVA: FR21 987 654 321<br>
-          contact@eclairciesdesign.fr
-        </div>
-      </div>
-      <div class="client-box">
-        <div class="client-title">Informations</div>
-        <div class="client-details">
-          <strong>Référence projet:</strong> PROJ-2024-001<br>
-          <strong>Délai:</strong> 30 jours net<br>
-          <strong>Mode de paiement:</strong> Virement bancaire<br>
-          <strong>Acompte:</strong> 30%
-        </div>
-      </div>
-    </div>
-
-    <!-- Items Table -->
-    <table class="items-table">
-      <thead>
-        <tr>
-          <th>N°</th>
-          <th>Description</th>
-          <th>Qté</th>
-          <th>Unité</th>
-          <th>Prix unitaire</th>
-          <th>Remise</th>
-          <th>Total HT</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td class="item-description">Analyse des besoins et cahier des charges</td>
-          <td class="item-qty">8</td>
-          <td class="item-unit">heure</td>
-          <td class="item-price">85,00 €</td>
-          <td>-</td>
-          <td class="item-total">680,00 €</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="item-description">Design UX/UI - Maquettes haute fidélité</td>
-          <td class="item-qty">24</td>
-          <td class="item-unit">heure</td>
-          <td class="item-price">95,00 €</td>
-          <td>-</td>
-          <td class="item-total">2 280,00 €</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td class="item-description">Développement front-end (React + Tailwind)</td>
-          <td class="item-qty">40</td>
-          <td class="item-unit">heure</td>
-          <td class="item-price">110,00 €</td>
-          <td>5%</td>
-          <td class="item-total">4 180,00 €</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td class="item-description">Intégration CMS et configuration</td>
-          <td class="item-qty">16</td>
-          <td class="item-unit">heure</td>
-          <td class="item-price">95,00 €</td>
-          <td>-</td>
-          <td class="item-total">1 520,00 €</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td class="item-description">Tests, déploiement et formation</td>
-          <td class="item-qty">12</td>
-          <td class="item-unit">heure</td>
-          <td class="item-price">85,00 €</td>
-          <td>-</td>
-          <td class="item-total">1 020,00 €</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Totals -->
-    <div class="totals-section">
-      <div class="totals-box">
-        <div class="total-row">
-          <span class="total-label">Total HT</span>
-          <span class="total-value">9 680,00 €</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">Remise</span>
-          <span class="total-value">- 220,00 €</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">Base HT après remise</span>
-          <span class="total-value">9 460,00 €</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">TVA 20%</span>
-          <span class="total-value">1 892,00 €</span>
-        </div>
-        <div class="total-row grand-total">
-          <span class="total-label">TOTAL TTC</span>
-          <span class="total-value">11 352,00 €</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Payment Terms -->
-    <div class="payment-section">
-      <div class="payment-title">Conditions de paiement</div>
-      <div class="payment-content">
-        <strong>Acompte (30%):</strong> 3 405,60 € à la commande<br>
-        <strong>Solde:</strong> 7 946,40 € à 30 jours net<br>
-        <strong>IBAN:</strong> FR76 1234 5678 9012 3456 7890 123<br>
-        <strong>BIC:</strong> AGRIFRPP
-      </div>
-    </div>
-
-    <!-- Notes & Legal -->
-    <div class="notes-section">
-      <p><strong>Clause de réserve de propriété:</strong> Conformément à la loi 80.335 du 12 mai 1980, nous nous réservons la propriété des marchandises jusqu'au paiement intégral du prix et des frais annexes.</p>
-      <p><strong>Pénalités de retard:</strong> En cas de retard de paiement, une indemnité forfaitaire de 40 € sera due (Article L441-6 du Code de commerce). Taux d'intérêt de retard: 3 fois le taux d'intérêt légal.</p>
-      <p><strong>Escompte:</strong> Aucun escompte pour paiement anticipé.</p>
-      <p><strong>TVA applicable selon la législation en vigueur.</strong> Pour tout règlement par virement, merci de préciser le numéro de facture.</p>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <div class="footer-brand">Pulse Graphix</div>
-      <p>SIREN 123 456 789 00012 | TVA FR12 123 456 789</p>
-      <p>3 Rue Jacques Prévert, 77200 Torcy, France | +33 6 12 77 64 98</p>
-      <p>chicco@pulsegraphix.net | www.pulsegraphix.net</p>
-    </div>
-  </div>
 </body>
 </html>

@@ -1,197 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invoice - Pulse Graphix</title>
-  <link rel="stylesheet" href="../css/pulse-graphix.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Pulse Graphix</title>
+    <link rel="stylesheet" href="../css/pulse-graphix.css">
 </head>
 <body>
-  <div class="lang-toggle no-print">
-    <a href="invoice-fr.html">FR</a>
-    <a href="invoice-en.html" class="active">EN</a>
-  </div>
-
-  <div class="invoice-container">
-    <!-- Header -->
-    <div class="header">
-      <div class="logo-section">
-        <div class="logo">Pulse Graphix</div>
-        <div class="company-info">
-          <strong>Business ID:</strong> 123 456 789 00012<br>
-          <strong>VAT:</strong> FR12 123 456 789<br>
-          3 Rue Jacques Prévert<br>
-          77200 Torcy, France<br>
-          +33 6 12 77 64 98<br>
-          chicco@pulsegraphix.net<br>
-          www.pulsegraphix.net
+    <div class="invoice-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">Pulse Graphix</div>
+                <div class="company-info">
+                    <strong>Business ID:</strong> [TO FILL]<br>
+                    <strong>VAT:</strong> [TO FILL]<br>
+                    3 Rue Jacques Prévert<br>
+                    77200 Torcy, France<br>
+                    +33 6 12 77 64 98<br>
+                    chicco@pulsegraphix.net<br>
+                    www.pulsegraphix.net
+                </div>
+            </div>
+            <div class="document-type">
+                <div class="doc-label">Invoice</div>
+                <div class="doc-number">No. INV-2026-001</div>
+            </div>
         </div>
-      </div>
-      <div class="document-type">
-        <div class="doc-label">Invoice</div>
-        <div class="doc-number">No. INV-2024-001</div>
-      </div>
+
+        <!-- DOCUMENT DETAILS -->
+        <div class="doc-details">
+            <div class="detail-group">
+                <div class="detail-label">Issue Date</div>
+                <div class="detail-value">[DATE]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Due Date</div>
+                <div class="detail-value">[DATE + 30 days]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Project</div>
+                <div class="detail-value">[PROJECT NAME]</div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Status</div>
+                <div class="detail-value"><span class="status-badge status-pending">Pending</span></div>
+            </div>
+        </div>
+
+        <!-- CLIENT INFO -->
+        <div class="client-section">
+            <div class="client-box">
+                <div class="client-title">Bill To</div>
+                <div class="client-name">[CLIENT NAME]</div>
+                <div class="client-details">
+                    <strong>[CONTACT]</strong><br>
+                    [ADDRESS]<br>
+                    [POSTAL CODE] [CITY], France<br>
+                    Business ID: [CLIENT ID]<br>
+                    VAT: [CLIENT VAT]<br>
+                    [CLIENT EMAIL]
+                </div>
+            </div>
+            <div class="client-box">
+                <div class="client-title">Information</div>
+                <div class="client-details">
+                    <strong>Project Ref:</strong> [REF]<br>
+                    <strong>Terms:</strong> Net 30 days<br>
+                    <strong>Payment:</strong> Bank Transfer<br>
+                    <strong>Deposit:</strong> 30%
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEMS TABLE -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Unit</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="item-description">[SERVICE DESCRIPTION 1]</td>
+                    <td class="item-qty">[QTY]</td>
+                    <td class="item-unit">[UNIT]</td>
+                    <td class="item-price">€[PRICE]</td>
+                    <td class="item-total">€[TOTAL]</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="item-description">[SERVICE DESCRIPTION 2]</td>
+                    <td class="item-qty">[QTY]</td>
+                    <td class="item-unit">[UNIT]</td>
+                    <td class="item-price">€[PRICE]</td>
+                    <td class="item-total">€[TOTAL]</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="item-description">[SERVICE DESCRIPTION 3]</td>
+                    <td class="item-qty">[QTY]</td>
+                    <td class="item-unit">[UNIT]</td>
+                    <td class="item-price">€[PRICE]</td>
+                    <td class="item-total">€[TOTAL]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- TOTALS -->
+        <div class="totals-section">
+            <div class="totals-box">
+                <div class="total-row">
+                    <span class="total-label">Subtotal (excl. VAT)</span>
+                    <span class="total-value">€[SUBTOTAL]</span>
+                </div>
+                <div class="total-row">
+                    <span class="total-label">VAT 20%</span>
+                    <span class="total-value">€[VAT]</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span class="total-label">TOTAL</span>
+                    <span class="total-value">€[TOTAL]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT TERMS -->
+        <div class="payment-section">
+            <div class="payment-title">Payment Terms</div>
+            <div class="payment-content">
+                <strong>Deposit (30%):</strong> €[30% OF TOTAL] on order<br>
+                <strong>Balance:</strong> €[70% OF TOTAL] due within 30 days<br>
+                <strong>IBAN:</strong> [TO FILL]<br>
+                <strong>BIC/SWIFT:</strong> [TO FILL]
+            </div>
+        </div>
+
+        <!-- LEGAL NOTES -->
+        <div class="notes-section">
+            <p><strong>Retention of Title:</strong> In accordance with French law 80.335 of May 12, 1980, ownership of goods remains with Pulse Graphix until full payment of the price and associated costs.</p>
+            <p><strong>Late Payment:</strong> In case of late payment, a fixed compensation of €40 will be charged (Article L441-6 of the Commercial Code). Late payment interest: 3 times the legal interest rate.</p>
+            <p><strong>Early Payment:</strong> No discount for early payment.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-brand">Pulse Graphix</div>
+            <p>Business ID [TO FILL] | VAT [TO FILL]</p>
+            <p>3 Rue Jacques Prévert, 77200 Torcy, France | +33 6 12 77 64 98</p>
+            <p>chicco@pulsegraphix.net | www.pulsegraphix.net</p>
+        </div>
     </div>
-
-    <!-- Document Details -->
-    <div class="doc-details">
-      <div class="detail-group">
-        <div class="detail-label">Issue Date</div>
-        <div class="detail-value">January 15, 2024</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Due Date</div>
-        <div class="detail-value">February 15, 2024</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Project</div>
-        <div class="detail-value">E-commerce Website Redesign</div>
-      </div>
-      <div class="detail-group">
-        <div class="detail-label">Status</div>
-        <div class="detail-value"><span class="status-badge status-pending">Pending</span></div>
-      </div>
-    </div>
-
-    <!-- Client Info -->
-    <div class="client-section">
-      <div class="client-box">
-        <div class="client-title">Bill To</div>
-        <div class="client-name">Éclaircies Design SARL</div>
-        <div class="client-details">
-          <strong>Ms. Marie Dupont</strong><br>
-          25 Avenue des Champs-Élysées<br>
-          75008 Paris, France<br>
-          Business ID: 987 654 321 00021<br>
-          VAT: FR21 987 654 321<br>
-          contact@eclairciesdesign.fr
-        </div>
-      </div>
-      <div class="client-box">
-        <div class="client-title">Information</div>
-        <div class="client-details">
-          <strong>Project Ref:</strong> PROJ-2024-001<br>
-          <strong>Terms:</strong> Net 30 days<br>
-          <strong>Payment:</strong> Bank Transfer<br>
-          <strong>Deposit:</strong> 30%
-        </div>
-      </div>
-    </div>
-
-    <!-- Items Table -->
-    <table class="items-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Description</th>
-          <th>Qty</th>
-          <th>Unit</th>
-          <th>Unit Price</th>
-          <th>Discount</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td class="item-description">Requirements analysis and specifications</td>
-          <td class="item-qty">8</td>
-          <td class="item-unit">hour</td>
-          <td class="item-price">€85.00</td>
-          <td>-</td>
-          <td class="item-total">€680.00</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="item-description">UX/UI Design - High-fidelity mockups</td>
-          <td class="item-qty">24</td>
-          <td class="item-unit">hour</td>
-          <td class="item-price">€95.00</td>
-          <td>-</td>
-          <td class="item-total">€2,280.00</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td class="item-description">Front-end development (React + Tailwind)</td>
-          <td class="item-qty">40</td>
-          <td class="item-unit">hour</td>
-          <td class="item-price">€110.00</td>
-          <td>5%</td>
-          <td class="item-total">€4,180.00</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td class="item-description">CMS integration and configuration</td>
-          <td class="item-qty">16</td>
-          <td class="item-unit">hour</td>
-          <td class="item-price">€95.00</td>
-          <td>-</td>
-          <td class="item-total">€1,520.00</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td class="item-description">Testing, deployment and training</td>
-          <td class="item-qty">12</td>
-          <td class="item-unit">hour</td>
-          <td class="item-price">€85.00</td>
-          <td>-</td>
-          <td class="item-total">€1,020.00</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Totals -->
-    <div class="totals-section">
-      <div class="totals-box">
-        <div class="total-row">
-          <span class="total-label">Subtotal</span>
-          <span class="total-value">€9,680.00</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">Discount</span>
-          <span class="total-value">- €220.00</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">Subtotal after discount</span>
-          <span class="total-value">€9,460.00</span>
-        </div>
-        <div class="total-row">
-          <span class="total-label">VAT 20%</span>
-          <span class="total-value">€1,892.00</span>
-        </div>
-        <div class="total-row grand-total">
-          <span class="total-label">TOTAL</span>
-          <span class="total-value">€11,352.00</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Payment Terms -->
-    <div class="payment-section">
-      <div class="payment-title">Payment Terms</div>
-      <div class="payment-content">
-        <strong>Deposit (30%):</strong> €3,405.60 on order<br>
-        <strong>Balance:</strong> €7,946.40 due within 30 days<br>
-        <strong>IBAN:</strong> FR76 1234 5678 9012 3456 7890 123<br>
-        <strong>BIC/SWIFT:</strong> AGRIFRPP
-      </div>
-    </div>
-
-    <!-- Notes & Legal -->
-    <div class="notes-section">
-      <p><strong>Retention of Title:</strong> In accordance with French law 80.335 of May 12, 1980, ownership of goods remains with Pulse Graphix until full payment of the price and associated costs.</p>
-      <p><strong>Late Payment:</strong> In case of late payment, a fixed compensation of €40 will be charged (Article L441-6 of the Commercial Code). Late payment interest: 3 times the legal interest rate.</p>
-      <p><strong>Early Payment:</strong> No discount for early payment.</p>
-      <p><strong>VAT applicable according to current legislation.</strong> Please include invoice number for all wire transfers.</p>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <div class="footer-brand">Pulse Graphix</div>
-      <p>Business ID 123 456 789 00012 | VAT FR12 123 456 789</p>
-      <p>3 Rue Jacques Prévert, 77200 Torcy, France | +33 6 12 77 64 98</p>
-      <p>chicco@pulsegraphix.net | www.pulsegraphix.net</p>
-    </div>
-  </div>
 </body>
 </html>
