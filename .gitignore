@@ -1,0 +1,27 @@
+# Secrets - NEVER commit
+.env
+.env.*
+*.pem
+*.key
+credentials/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/

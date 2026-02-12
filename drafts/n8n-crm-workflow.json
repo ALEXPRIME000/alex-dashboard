@@ -1,0 +1,125 @@
+{
+  "name": "Pulse Graphix CRM & Lead Tracking",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-webhook",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "new-prospect"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetName": "Leads",
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Add to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "channel": "prospects",
+        "text": "🎯 Nouveau prospect: {{$json.company}}\n👤 Contact: {{$json.name}}\n📧 Email: {{$json.email}}\n📱 Tél: {{$json.phone}}\n💼 Secteur: {{$json.sector}}\n💰 Budget estimé: {{$json.budget}}",
+        "options": {}
+      },
+      "id": "telegram-notification",
+      "name": "Send Telegram Notification",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [650, 200]
+    },
+    {
+      "parameters": {
+        "to": "={{ $json.email }}",
+        "subject": "Merci pour votre intérêt - Pulse Graphix",
+        "text": "Bonjour {{ $json.name }},\n\nMerci d'avoir pris contact avec Pulse Graphix.\n\nJe reviens vers vous sous 24h avec une proposition personnalisée.\n\nCordialement,\nChicco Kabundji\nPulse Graphix",
+        "options": {}
+      },
+      "id": "email-autoreply",
+      "name": "Send Auto-Reply Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [650, 400]
+    },
+    {
+      "parameters": {
+        "operation": "schedule",
+        "rule": {
+          "interval": [
+            {
+              "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+              "hour": 9,
+              "minute": 0
+            }
+          ]
+        }
+      },
+      "id": "daily-reminder",
+      "name": "Daily Follow-up Reminder",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 600]
+    },
+    {
+      "parameters": {
+        "channel": "reminders",
+        "text": "📋 Prospects à relancer aujourd'hui:\n{{ $json.followUps }}",
+        "options": {}
+      },
+      "id": "daily-telegram",
+      "name": "Daily Telegram Summary",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [450, 600]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Add to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Telegram Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Auto-Reply Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily Follow-up Reminder": {
+      "main": [
+        [
+          {
+            "node": "Daily Telegram Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["crm", "leads", "prospection", "pulse-graphix"]
+}
