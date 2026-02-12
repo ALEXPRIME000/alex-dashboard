@@ -1,12 +1,12 @@
 {
   "agent": "Alex Prime",
   "status": "working",
-  "lastUpdate": "2026-02-11T22:15:00Z",
-  "lastHeartbeat": "2026-02-12T02:40:00Z",
+  "lastUpdate": "2026-02-12T04:10:00Z",
+  "lastHeartbeat": "2026-02-12T04:10:00Z",
   "session": "main",
   "model": "anthropic/claude-opus-4-6",
-  "currentTask": "🌙 Overnight Work Session — Daily backup completed ✅",
-  "notes": "23:15 Paris. Kabundji is asleep. Building sample devis, service catalog, and prospect research for morning review.",
+  "currentTask": "🌙 Overnight heartbeat — OAuth expired, doing local work",
+  "notes": "05:10 Paris. Kabundji sleeping. OAuth token expired — email/calendar checks blocked. Doing local productive work.",
   "stats": {
     "tasksInProgress": 3,
     "tasksPending": 4,
@@ -15,33 +15,60 @@
     "costEstimated": 0
   },
   "heartbeat": {
-    "lastCheck": "2026-02-12T02:40:00Z",
+    "lastCheck": "2026-02-12T04:10:00Z",
     "interval": "10m",
     "checks": {
-      "email": "No unread emails",
-      "calendar": "No upcoming events",
+      "email": "OAuth expired — needs gog auth refresh",
+      "calendar": "OAuth expired — needs gog auth refresh",
       "whatsapp": "Reconnected at 22:20:53 (3s disconnect)"
     }
   },
   "recentActions": [
+    "Heartbeat check — OAuth still expired for email/calendar",
+    "Dashboard status updated",
     "Created sample filled devis (Boulangerie Le Pain Doré - 5,100€ TTC)",
     "Created service catalog with real pricing for all services",
     "Researched Paris market data (43K+ boulangeries in France)",
-    "Created detailed prospect strategy for 6 industry sectors",
-    "Created sector-specific email templates (boulangerie, artisan BTP)",
-    "Set revenue objectives for Q1/S1 2026"
+    "Created detailed prospect strategy for 6 industry sectors"
   ],
   "pendingTasks": [
-    {"name": "Kabundji to review service catalog pricing", "priority": "high"},
-    {"name": "Kabundji to review prospect strategy", "priority": "high"},
-    {"name": "Test PDF templates print functionality", "priority": "medium"},
-    {"name": "Build n8n CRM workflow for prospect tracking", "priority": "medium"}
+    {
+      "name": "Kabundji to review service catalog pricing",
+      "priority": "high"
+    },
+    {
+      "name": "Kabundji to review prospect strategy",
+      "priority": "high"
+    },
+    {
+      "name": "Test PDF templates print functionality",
+      "priority": "medium"
+    },
+    {
+      "name": "Build n8n CRM workflow for prospect tracking",
+      "priority": "medium"
+    }
   ],
   "completedTasks": [
-    {"name": "Sample filled devis (drafts/sample-devis-filled.html)", "date": "Feb 11"},
-    {"name": "Service catalog 2026 with pricing (drafts/service-catalog-2026.md)", "date": "Feb 11"},
-    {"name": "Paris prospect strategy (drafts/paris-prospects-2026.md)", "date": "Feb 11"},
-    {"name": "Professional invoice templates (5 files)", "date": "Feb 10"},
-    {"name": "Dashboard live on Vercel", "date": "Feb 10"}
+    {
+      "name": "Sample filled devis (drafts/sample-devis-filled.html)",
+      "date": "Feb 11"
+    },
+    {
+      "name": "Service catalog 2026 with pricing (drafts/service-catalog-2026.md)",
+      "date": "Feb 11"
+    },
+    {
+      "name": "Paris prospect strategy (drafts/paris-prospects-2026.md)",
+      "date": "Feb 11"
+    },
+    {
+      "name": "Professional invoice templates (5 files)",
+      "date": "Feb 10"
+    },
+    {
+      "name": "Dashboard live on Vercel",
+      "date": "Feb 10"
+    }
   ]
 }
