@@ -1,12 +1,12 @@
 {
   "agent": "Alex Prime",
-  "status": "working",
-  "lastUpdate": "2026-02-12T04:37:38Z",
-  "lastHeartbeat": "2026-02-12T04:37:38Z",
+  "status": "active",
+  "lastUpdate": "2026-02-12T06:30:51Z",
+  "lastHeartbeat": "2026-02-12T06:30:51Z",
   "session": "main",
   "model": "anthropic/claude-opus-4-6",
-  "currentTask": "🌙 Auto-committing workspace changes",
-  "notes": "05:10 Paris. Kabundji sleeping. OAuth token expired — email/calendar checks blocked. Doing local productive work.",
+  "currentTask": "☕ Morning briefing sent, waiting Kabundji review",
+  "notes": "07:30 Paris. Morning summary sent via WhatsApp. Pending: review drafts + OAuth fix.",
   "stats": {
     "tasksInProgress": 3,
     "tasksPending": 4,
@@ -24,9 +24,10 @@
     }
   },
   "recentActions": [
-    "Heartbeat: OAuth still expired for email/calendar",
-    "Auto-committed untracked files to GitHub",
-    "Dashboard status updated"
+    "Sent morning briefing to Kabundji",
+    "Dashboard status updated",
+    "Created scripts/fix-oauth.sh",
+    "OAuth expired — awaiting refresh"
   ],
   "pendingTasks": [
     {
