@@ -1,12 +1,12 @@
 {
   "agent": "Alex Prime",
   "status": "active",
-  "lastUpdate": "2026-02-12T07:00:39Z",
-  "lastHeartbeat": "2026-02-12T07:00:39Z",
+  "lastUpdate": "2026-02-12T07:31:42Z",
+  "lastHeartbeat": "2026-02-12T07:31:42Z",
   "session": "main",
   "model": "anthropic/claude-opus-4-6",
-  "currentTask": "☕ Heartbeat — awaiting Kabundji input",
-  "notes": "08:00 Paris. All pending tasks need Kabundji review. OAuth fix ready.",
+  "currentTask": "☕ Heartbeat — awaiting Kabundji review on drafts",
+  "notes": "08:30 Paris. OAuth expired. All pending work blocked on Kabundji review.",
   "stats": {
     "tasksInProgress": 3,
     "tasksPending": 4,
