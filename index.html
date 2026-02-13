@@ -6,6 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>Pulse Graphix — Executive Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -20,27 +21,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; background: #0a0a0a; }
-        .glass { background: #111111; border: 1px solid #222; }
-        .glass:hover { border-color: #333; }
-        .pulse { animation: pulse 2s infinite; }
+        .glass { background: #111111; border: 1px solid #222; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass:hover { border-color: #00FF00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 255, 0, 0.1); }
+        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
         .beam { position: relative; overflow: hidden; }
         .beam::before { content:''; position:absolute; top:-2px; left:-2px; right:-2px; bottom:-2px; background: conic-gradient(from 0deg, transparent, #00FF00, transparent, transparent); border-radius: inherit; animation: beam-spin 3s linear infinite; z-index:-1; }
         @keyframes beam-spin { to { transform: rotate(360deg); } }
-        .fade-in { animation: fadeIn .4s ease-out; }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+        .fade-in { animation: fadeIn .5s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .slide-in { animation: slideIn .4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes slideIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
         .tab-content { display:none; }
         .tab-content.active { display:block; }
-        .nav-btn { transition: all .2s; }
-        .nav-btn.active { color: #00FF00; border-color: #00FF00; }
-        .nav-btn:hover { color: #00FF00; }
-        .progress-bar { background: linear-gradient(90deg, #00FF00, #00cc00); }
+        .nav-btn { transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-btn.active { color: #00FF00; border-color: #00FF00; background: rgba(0, 255, 0, 0.05); }
+        .nav-btn:hover { color: #00FF00; background: rgba(0, 255, 0, 0.03); }
+        .progress-bar { background: linear-gradient(90deg, #00FF00, #00cc00); transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
         .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
-        .status-connected { background:#00FF00; box-shadow:0 0 6px #00FF0066; }
-        .status-expired { background:#ef4444; box-shadow:0 0 6px #ef444466; }
-        .status-configured { background:#f59e0b; box-shadow:0 0 6px #f59e0b66; }
-        .status-planned { background:#6366f1; box-shadow:0 0 6px #6366f166; }
-        .status-active { background:#00FF00; box-shadow:0 0 6px #00FF0066; }
+        .status-connected { background:#00FF00; box-shadow:0 0 8px #00FF0088; }
+        .status-expired { background:#ef4444; box-shadow:0 0 8px #ef444488; }
+        .status-configured { background:#f59e0b; box-shadow:0 0 8px #f59e0b88; }
+        .status-planned { background:#6366f1; box-shadow:0 0 8px #6366f188; }
+        .status-active { background:#00FF00; box-shadow:0 0 8px #00FF0088; }
         .tag { font-size: .65rem; padding: 2px 8px; border-radius: 9999px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
         .tag-high { background: #ef444433; color: #ef4444; }
         .tag-medium { background: #f59e0b33; color: #f59e0b; }
@@ -54,26 +57,38 @@
         .tag-planning { background: #f59e0b33; color: #fbbf24; }
         .tag-completed { background: #00FF0022; color: #00FF00; }
         .tag-planned { background: #6366f133; color: #818cf8; }
+        .btn-approve { background: #00FF0022; color: #00FF00; border: 1px solid #00FF00; padding: 6px 16px; border-radius: 6px; font-size: 11px; font-weight: 600; transition: all .2s; }
+        .btn-approve:hover { background: #00FF00; color: #0a0a0a; }
+        .btn-reject { background: #ef444422; color: #ef4444; border: 1px solid #ef4444; padding: 6px 16px; border-radius: 6px; font-size: 11px; font-weight: 600; transition: all .2s; }
+        .btn-reject:hover { background: #ef4444; color: white; }
+        .notification-item { border-left: 2px solid #00FF00; padding-left: 12px; transition: all .2s; }
+        .notification-item:hover { border-left-width: 4px; background: rgba(0, 255, 0, 0.03); }
+        .calendar-event { border-left: 3px solid; transition: all .3s; }
+        .calendar-event:hover { transform: translateX(4px); }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #111; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00FF00; }
+        .search-input { background: #111; border: 1px solid #222; color: white; padding: 8px 12px; border-radius: 6px; width: 100%; transition: all .2s; }
+        .search-input:focus { outline: none; border-color: #00FF00; box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.1); }
+        .chart-container { position: relative; height: 300px; }
     </style>
 </head>
 <body class="min-h-screen text-white">
 
-    <!-- Top Bar -->
-    <header class="border-b border-brand-border px-4 md:px-6 py-3 flex items-center justify-between sticky top-0 bg-brand-dark/95 backdrop-blur z-50">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-brand rounded flex items-center justify-center text-black font-bold text-sm">PG</div>
+    <!-- Top Bar with Branding -->
+    <header class="border-b border-brand-border px-4 md:px-6 py-4 flex items-center justify-between sticky top-0 bg-brand-dark/98 backdrop-blur-lg z-50 shadow-lg">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-brand rounded-lg flex items-center justify-center text-black font-bold text-base shadow-lg">PG</div>
             <div>
-                <h1 class="text-sm font-bold text-white">Pulse Graphix</h1>
-                <p class="text-[10px] text-brand-muted">Executive Dashboard — Alex Prime 🎯</p>
+                <h1 class="text-base font-bold text-white tracking-tight">Pulse Graphix</h1>
+                <p class="text-[11px] text-brand-muted">3 Rue Jacques Prévert, 77200 Torcy • Executive Dashboard</p>
             </div>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-4">
             <div id="live-indicator" class="flex items-center gap-2 text-xs">
                 <span class="status-dot status-connected pulse"></span>
-                <span class="text-brand-muted"><span id="agent-status-text" class="text-brand">ACTIVE</span></span>
+                <span class="text-brand-muted"><span id="agent-status-text" class="text-brand font-semibold">ACTIVE</span></span>
             </div>
             <div class="text-[10px] text-brand-muted font-mono" id="last-update">--</div>
         </div>
@@ -81,24 +96,28 @@
 
     <div class="flex">
         <!-- Sidebar Nav -->
-        <nav class="hidden md:flex flex-col w-48 border-r border-brand-border p-3 gap-1 sticky top-12 h-[calc(100vh-48px)] overflow-y-auto">
-            <button onclick="showTab('overview')" class="nav-btn active text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="overview">📊 Overview</button>
-            <button onclick="showTab('tasks')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="tasks">✅ Tasks</button>
-            <button onclick="showTab('projects')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="projects">🚀 Projects</button>
-            <button onclick="showTab('approvals')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="approvals">⚡ Approvals <span id="approval-badge" class="ml-1 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-full">0</span></button>
-            <button onclick="showTab('documents')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="documents">📁 Documents</button>
-            <button onclick="showTab('prospects')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="prospects">🎯 Prospects</button>
-            <button onclick="showTab('people')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="people">👥 People</button>
-            <button onclick="showTab('memory')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="memory">🧠 Memory</button>
-            <button onclick="showTab('integrations')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="integrations">🔌 Integrations</button>
-            <button onclick="showTab('models')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="models">🤖 AI Models</button>
-            <button onclick="showTab('skills')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="skills">⚙️ Skills</button>
-            <button onclick="showTab('goals')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="goals">🎯 Goals</button>
+        <nav class="hidden md:flex flex-col w-52 border-r border-brand-border p-3 gap-1 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
+            <button onclick="showTab('overview')" class="nav-btn active text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="overview">📊 Overview</button>
+            <button onclick="showTab('calendar')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="calendar">📅 Calendar</button>
+            <button onclick="showTab('notifications')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="notifications">🔔 Activity Feed <span id="notif-badge" class="ml-1 bg-brand text-black text-[9px] px-1.5 py-0.5 rounded-full font-bold">0</span></button>
+            <button onclick="showTab('tasks')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="tasks">✅ Tasks</button>
+            <button onclick="showTab('projects')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="projects">🚀 Projects</button>
+            <button onclick="showTab('approvals')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="approvals">⚡ Approvals <span id="approval-badge" class="ml-1 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">0</span></button>
+            <button onclick="showTab('documents')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="documents">📁 Documents</button>
+            <button onclick="showTab('prospects')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="prospects">🎯 Prospects</button>
+            <button onclick="showTab('people')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="people">👥 People</button>
+            <button onclick="showTab('memory')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="memory">🧠 Memory</button>
+            <button onclick="showTab('integrations')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="integrations">🔌 Integrations</button>
+            <button onclick="showTab('models')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="models">🤖 AI Models</button>
+            <button onclick="showTab('skills')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="skills">⚙️ Skills</button>
+            <button onclick="showTab('goals')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="goals">🎯 Goals</button>
         </nav>
 
         <!-- Mobile Nav -->
-        <div class="md:hidden flex overflow-x-auto border-b border-brand-border px-2 py-2 gap-1 sticky top-12 bg-brand-dark z-40 w-full" id="mobile-nav">
+        <div class="md:hidden flex overflow-x-auto border-b border-brand-border px-2 py-2 gap-1 sticky top-[73px] bg-brand-dark z-40 w-full" id="mobile-nav">
             <button onclick="showTab('overview')" class="nav-btn active whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="overview">📊</button>
+            <button onclick="showTab('calendar')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="calendar">📅</button>
+            <button onclick="showTab('notifications')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="notifications">🔔</button>
             <button onclick="showTab('tasks')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="tasks">✅</button>
             <button onclick="showTab('projects')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="projects">🚀</button>
             <button onclick="showTab('approvals')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="approvals">⚡</button>
@@ -113,120 +132,153 @@
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 p-4 md:p-6 max-w-6xl">
+        <main class="flex-1 p-4 md:p-6 max-w-7xl">
 
             <!-- OVERVIEW TAB -->
             <div id="tab-overview" class="tab-content active fade-in">
-                <h2 class="text-lg font-bold mb-4">Overview</h2>
+                <h2 class="text-xl font-bold mb-6">Overview</h2>
 
                 <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Current Task</div>
-                        <div id="current-task" class="text-xs font-medium truncate">Loading...</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Current Task</div>
+                        <div id="current-task" class="text-xs font-medium text-white">Loading...</div>
                     </div>
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Completed</div>
-                        <div id="stat-completed" class="text-2xl font-bold text-brand">--</div>
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Completed</div>
+                        <div id="stat-completed" class="text-3xl font-bold text-brand">--</div>
                     </div>
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Pending</div>
-                        <div id="stat-pending" class="text-2xl font-bold text-yellow-400">--</div>
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Pending</div>
+                        <div id="stat-pending" class="text-3xl font-bold text-yellow-400">--</div>
                     </div>
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Approvals</div>
-                        <div id="stat-approvals" class="text-2xl font-bold text-red-400">--</div>
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Approvals</div>
+                        <div id="stat-approvals" class="text-3xl font-bold text-red-400">--</div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="glass rounded-xl p-5">
+                        <h3 class="text-sm font-bold text-white mb-4">Project Progress</h3>
+                        <div class="chart-container">
+                            <canvas id="projectChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <h3 class="text-sm font-bold text-white mb-4">Task Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="taskChart"></canvas>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Recent Actions + Pending -->
-                <div class="grid md:grid-cols-2 gap-4 mb-6">
-                    <div class="glass rounded-xl p-4">
-                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Recent Actions</h3>
-                        <div id="recent-actions" class="space-y-2"></div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="glass rounded-xl p-5">
+                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Recent Actions</h3>
+                        <div id="recent-actions" class="space-y-3"></div>
                     </div>
-                    <div class="glass rounded-xl p-4">
-                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Pending Tasks</h3>
-                        <div id="pending-tasks" class="space-y-2"></div>
+                    <div class="glass rounded-xl p-5">
+                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Pending Tasks</h3>
+                        <div id="pending-tasks" class="space-y-3"></div>
                     </div>
                 </div>
 
                 <!-- Quick Access -->
-                <div class="glass rounded-xl p-4">
-                    <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Quick Links</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                        <a href="https://github.com/ALEXPRIME000/alex-dashboard" target="_blank" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">🐙 GitHub</a>
-                        <a href="https://n8n.nexusaiacademy.app" target="_blank" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">⚡ n8n</a>
-                        <a href="#" onclick="showTab('approvals')" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">⚡ Approvals</a>
-                        <a href="#" onclick="showTab('documents')" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">📁 Files</a>
+                <div class="glass rounded-xl p-5">
+                    <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Quick Links</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <a href="https://github.com/ALEXPRIME000/alex-dashboard" target="_blank" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">🐙 GitHub</a>
+                        <a href="https://n8n.nexusaiacademy.app" target="_blank" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">⚡ n8n</a>
+                        <a href="#" onclick="showTab('approvals')" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">⚡ Approvals</a>
+                        <a href="#" onclick="showTab('documents')" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">📁 Files</a>
                     </div>
                 </div>
             </div>
 
+            <!-- CALENDAR TAB -->
+            <div id="tab-calendar" class="tab-content fade-in">
+                <h2 class="text-xl font-bold mb-2">Calendar</h2>
+                <p class="text-brand-muted text-sm mb-6">Upcoming events and deadlines (Google OAuth integration pending)</p>
+                <div id="calendar-content" class="space-y-4"></div>
+            </div>
+
+            <!-- NOTIFICATIONS TAB -->
+            <div id="tab-notifications" class="tab-content fade-in">
+                <h2 class="text-xl font-bold mb-2">Activity Feed</h2>
+                <p class="text-brand-muted text-sm mb-6">Recent commits, updates, and system activity</p>
+                <div id="notifications-content" class="space-y-3"></div>
+            </div>
+
             <!-- TASKS TAB -->
             <div id="tab-tasks" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Tasks</h2>
-                <div id="tasks-content" class="space-y-3"></div>
+                <h2 class="text-xl font-bold mb-6">Tasks</h2>
+                <div id="tasks-content" class="space-y-4"></div>
             </div>
 
             <!-- PROJECTS TAB -->
             <div id="tab-projects" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Projects</h2>
-                <div id="projects-content" class="space-y-4"></div>
+                <h2 class="text-xl font-bold mb-6">Projects</h2>
+                <div id="projects-content" class="space-y-5"></div>
             </div>
 
             <!-- APPROVALS TAB -->
             <div id="tab-approvals" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-1">Approvals</h2>
-                <p class="text-brand-muted text-xs mb-4">Items waiting for your review and approval</p>
-                <div id="approvals-content" class="space-y-3"></div>
+                <h2 class="text-xl font-bold mb-2">Approvals</h2>
+                <p class="text-brand-muted text-sm mb-6">Items waiting for your review and approval</p>
+                <div id="approvals-content" class="space-y-4"></div>
             </div>
 
             <!-- DOCUMENTS TAB -->
             <div id="tab-documents" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Documents</h2>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold">Documents</h2>
+                    <input type="text" id="doc-search" placeholder="🔍 Search documents..." class="search-input w-64" oninput="filterDocuments()">
+                </div>
                 <div id="documents-content"></div>
             </div>
 
             <!-- PROSPECTS TAB -->
             <div id="tab-prospects" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Prospects & Leads</h2>
-                <div id="prospects-content" class="space-y-3"></div>
+                <h2 class="text-xl font-bold mb-6">Prospects & Leads</h2>
+                <div id="prospects-content" class="space-y-4"></div>
             </div>
 
             <!-- PEOPLE TAB -->
             <div id="tab-people" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">People & Team</h2>
+                <h2 class="text-xl font-bold mb-6">People & Team</h2>
                 <div id="people-content"></div>
             </div>
 
             <!-- MEMORY TAB -->
             <div id="tab-memory" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Memory Log</h2>
-                <div id="memory-content" class="space-y-2"></div>
+                <h2 class="text-xl font-bold mb-6">Memory Log</h2>
+                <div id="memory-content" class="space-y-3"></div>
             </div>
 
             <!-- INTEGRATIONS TAB -->
             <div id="tab-integrations" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Integrations & Services</h2>
-                <div id="integrations-content" class="space-y-3"></div>
+                <h2 class="text-xl font-bold mb-6">Integrations & Services</h2>
+                <div id="integrations-content" class="space-y-4"></div>
             </div>
 
             <!-- MODELS TAB -->
             <div id="tab-models" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">AI Models & Usage</h2>
-                <div id="models-content" class="space-y-3"></div>
+                <h2 class="text-xl font-bold mb-6">AI Models & Usage</h2>
+                <div id="models-content" class="space-y-4"></div>
             </div>
 
             <!-- SKILLS TAB -->
             <div id="tab-skills" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Installed Skills</h2>
-                <div id="skills-content" class="grid md:grid-cols-2 gap-3"></div>
+                <h2 class="text-xl font-bold mb-6">Installed Skills</h2>
+                <div id="skills-content" class="grid md:grid-cols-2 gap-4"></div>
             </div>
 
             <!-- GOALS TAB -->
             <div id="tab-goals" class="tab-content fade-in">
-                <h2 class="text-lg font-bold mb-4">Goals & Targets</h2>
+                <h2 class="text-xl font-bold mb-6">Goals & Targets</h2>
                 <div id="goals-content"></div>
             </div>
 
@@ -237,6 +289,9 @@
     const GITHUB_RAW = 'https://raw.githubusercontent.com/ALEXPRIME000/alex-dashboard/main';
     let statusData = null;
     let fullData = null;
+    let projectChart = null;
+    let taskChart = null;
+    let allDocuments = [];
 
     function showTab(tab) {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -263,6 +318,29 @@
         return `https://github.com/ALEXPRIME000/alex-dashboard/blob/master/${path}`;
     }
 
+    function handleApproval(item, action) {
+        alert(`${action === 'approve' ? '✅ Approved' : '❌ Rejected'}: ${item}\n\nThis is a visual demo. Connect to backend for real actions.`);
+    }
+
+    function filterDocuments() {
+        const query = document.getElementById('doc-search').value.toLowerCase();
+        const allCategories = document.querySelectorAll('.doc-category');
+        allCategories.forEach(cat => {
+            const items = cat.querySelectorAll('.doc-item');
+            let visibleCount = 0;
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            cat.style.display = visibleCount > 0 ? 'block' : 'none';
+        });
+    }
+
     async function loadData() {
         try {
             const [statusRes, dataRes] = await Promise.all([
@@ -275,6 +353,79 @@
             console.error('Failed to load data:', e);
         }
         render();
+    }
+
+    function renderCharts() {
+        if (!fullData || !fullData.projects) return;
+
+        // Project Progress Chart
+        const projectNames = fullData.projects.map(p => p.name);
+        const projectProgress = fullData.projects.map(p => p.progress);
+        
+        const projectCtx = document.getElementById('projectChart').getContext('2d');
+        if (projectChart) projectChart.destroy();
+        projectChart = new Chart(projectCtx, {
+            type: 'bar',
+            data: {
+                labels: projectNames,
+                datasets: [{
+                    label: 'Progress %',
+                    data: projectProgress,
+                    backgroundColor: 'rgba(0, 255, 0, 0.2)',
+                    borderColor: '#00FF00',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#222' },
+                        ticks: { color: '#888' }
+                    },
+                    x: {
+                        grid: { color: '#222' },
+                        ticks: { color: '#888', font: { size: 10 } }
+                    }
+                }
+            }
+        });
+
+        // Task Distribution Chart
+        const taskCtx = document.getElementById('taskChart').getContext('2d');
+        if (taskChart) taskChart.destroy();
+        taskChart = new Chart(taskCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'Pending', 'Approvals'],
+                datasets: [{
+                    data: [
+                        statusData.stats?.tasksCompleted || 0,
+                        statusData.stats?.tasksPending || 0,
+                        fullData.approvals?.length || 0
+                    ],
+                    backgroundColor: ['#00FF00', '#f59e0b', '#ef4444'],
+                    borderColor: '#0a0a0a',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#888', padding: 15 }
+                    }
+                }
+            }
+        });
     }
 
     function render() {
@@ -292,13 +443,13 @@
         // Recent Actions
         const ra = document.getElementById('recent-actions');
         ra.innerHTML = (statusData.recentActions || []).map(a =>
-            `<div class="flex items-start gap-2 text-xs"><span class="text-brand mt-0.5">▸</span><span class="text-gray-300">${a}</span></div>`
+            `<div class="flex items-start gap-3 text-xs slide-in"><span class="text-brand mt-0.5 text-sm">▸</span><span class="text-gray-300">${a}</span></div>`
         ).join('');
 
         // Pending Tasks
         const pt = document.getElementById('pending-tasks');
         pt.innerHTML = (statusData.pendingTasks || []).map(t =>
-            `<div class="flex items-start justify-between gap-2 text-xs">
+            `<div class="flex items-start justify-between gap-3 text-xs slide-in">
                 <span class="text-gray-300">${t.name}</span>
                 ${tag(t.priority, t.priority)}
             </div>`
@@ -306,83 +457,133 @@
 
         if (!fullData) return;
 
+        // Render Charts
+        renderCharts();
+
+        // Calendar
+        const calContent = document.getElementById('calendar-content');
+        const events = fullData.calendar || [];
+        if (events.length === 0) {
+            calContent.innerHTML = '<div class="glass rounded-xl p-8 text-center text-brand-muted">No upcoming events. Google OAuth integration pending.</div>';
+        } else {
+            calContent.innerHTML = events.map(e =>
+                `<div class="glass rounded-xl p-5 calendar-event" style="border-left-color: ${e.color || '#00FF00'}">
+                    <div class="flex items-start justify-between mb-2">
+                        <h3 class="text-sm font-bold text-white">${e.title}</h3>
+                        <span class="text-[10px] text-brand-muted font-mono">${e.date}</span>
+                    </div>
+                    <p class="text-xs text-brand-muted">${e.description || 'No description'}</p>
+                    ${e.time ? `<div class="text-xs text-brand mt-2">🕐 ${e.time}</div>` : ''}
+                </div>`
+            ).join('');
+        }
+
+        // Notifications
+        const notifContent = document.getElementById('notifications-content');
+        const notifications = fullData.notifications || [];
+        document.getElementById('notif-badge').textContent = notifications.length;
+        if (notifications.length === 0) {
+            notifContent.innerHTML = '<div class="glass rounded-xl p-8 text-center text-brand-muted">No recent activity</div>';
+        } else {
+            notifContent.innerHTML = notifications.map(n =>
+                `<div class="glass rounded-xl p-4 notification-item">
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl">${n.icon || '📌'}</span>
+                        <div class="flex-1">
+                            <div class="text-sm font-medium text-white">${n.title}</div>
+                            <div class="text-xs text-brand-muted mt-1">${n.description}</div>
+                            <div class="text-[10px] text-brand-muted mt-2">${n.time}</div>
+                        </div>
+                    </div>
+                </div>`
+            ).join('');
+        }
+
         // Approvals
         const appCount = fullData.approvals?.length || 0;
         document.getElementById('stat-approvals').textContent = appCount;
         document.getElementById('approval-badge').textContent = appCount;
         const ac = document.getElementById('approvals-content');
         ac.innerHTML = (fullData.approvals || []).map(a =>
-            `<div class="glass rounded-xl p-4 flex items-center justify-between">
-                <div>
-                    <div class="text-sm font-medium">${a.item}</div>
-                    <div class="text-[10px] text-brand-muted mt-1">${a.file ? `<a href="${githubLink(a.file)}" target="_blank" class="text-blue-400 hover:underline">${a.file}</a>` : 'No file'} • ${a.created}</div>
+            `<div class="glass rounded-xl p-5">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex-1">
+                        <div class="text-sm font-bold text-white mb-1">${a.item}</div>
+                        <div class="text-[10px] text-brand-muted">${a.file ? `<a href="${githubLink(a.file)}" target="_blank" class="text-blue-400 hover:underline">${a.file}</a>` : 'No file'} • ${a.created}</div>
+                    </div>
+                    ${tag(a.priority, a.priority)}
                 </div>
-                ${tag(a.priority, a.priority)}
+                <div class="flex gap-2">
+                    <button onclick="handleApproval('${a.item.replace(/'/g, "\\'")}', 'approve')" class="btn-approve">✓ Approve</button>
+                    <button onclick="handleApproval('${a.item.replace(/'/g, "\\'")}', 'reject')" class="btn-reject">✗ Reject</button>
+                </div>
             </div>`
         ).join('');
 
         // Projects
         const pc = document.getElementById('projects-content');
         pc.innerHTML = (fullData.projects || []).map(p =>
-            `<div class="glass rounded-xl p-4">
-                <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-sm font-bold">${p.name}</h3>
+            `<div class="glass rounded-xl p-5">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-base font-bold text-white">${p.name}</h3>
                     ${tag(p.status, p.status)}
                 </div>
-                <p class="text-xs text-brand-muted mb-3">${p.description}</p>
-                <div class="w-full bg-brand-border rounded-full h-1.5 mb-2">
-                    <div class="progress-bar h-1.5 rounded-full" style="width:${p.progress}%"></div>
+                <p class="text-sm text-brand-muted mb-4">${p.description}</p>
+                <div class="w-full bg-brand-border rounded-full h-2 mb-2">
+                    <div class="progress-bar h-2 rounded-full" style="width:${p.progress}%"></div>
                 </div>
-                <div class="flex justify-between text-[10px] text-brand-muted">
+                <div class="flex justify-between text-xs text-brand-muted mb-3">
                     <span>${p.progress}% complete</span>
-                    ${p.revenue ? `<span class="text-brand">${p.revenue}</span>` : ''}
+                    ${p.revenue ? `<span class="text-brand font-semibold">${p.revenue}</span>` : ''}
                 </div>
-                ${p.nextStep ? `<div class="mt-2 text-[10px] text-yellow-400">Next: ${p.nextStep}</div>` : ''}
-                ${p.files ? `<div class="mt-2 flex flex-wrap gap-1">${p.files.map(f => `<a href="${githubLink(f)}" target="_blank" class="text-[9px] text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded-full hover:underline">${f.split('/').pop()}</a>`).join('')}</div>` : ''}
+                ${p.nextStep ? `<div class="text-xs text-yellow-400 mb-3">⏭️ Next: ${p.nextStep}</div>` : ''}
+                ${p.files ? `<div class="flex flex-wrap gap-2">${p.files.map(f => `<a href="${githubLink(f)}" target="_blank" class="text-[10px] text-blue-400 bg-blue-400/10 px-3 py-1 rounded-full hover:underline transition">${f.split('/').pop()}</a>`).join('')}</div>` : ''}
             </div>`
         ).join('');
 
         // Documents
         const dc = document.getElementById('documents-content');
         const docCategories = fullData.documents || {};
-        dc.innerHTML = Object.entries(docCategories).map(([cat, docs]) =>
-            `<div class="mb-6">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">${cat.charAt(0).toUpperCase() + cat.slice(1)} <span class="text-brand-muted font-normal">(${docs.length})</span></h3>
-                <div class="space-y-2">
-                    ${docs.map(d => `<div class="glass rounded-lg px-4 py-3 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <span class="text-sm">${cat === 'scripts' ? '⚙️' : cat === 'templates' ? '📄' : cat === 'marketing' ? '📣' : cat === 'prospects' ? '🎯' : cat === 'reports' ? '📊' : cat === 'trackers' ? '📈' : '📝'}</span>
+        allDocuments = [];
+        dc.innerHTML = Object.entries(docCategories).map(([cat, docs]) => {
+            allDocuments.push(...docs);
+            return `<div class="mb-6 doc-category">
+                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">${cat.charAt(0).toUpperCase() + cat.slice(1)} <span class="text-brand-muted font-normal">(${docs.length})</span></h3>
+                <div class="space-y-3">
+                    ${docs.map(d => `<div class="glass rounded-lg px-5 py-4 flex items-center justify-between doc-item">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl">${cat === 'scripts' ? '⚙️' : cat === 'templates' ? '📄' : cat === 'marketing' ? '📣' : cat === 'prospects' ? '🎯' : cat === 'reports' ? '📊' : cat === 'trackers' ? '📈' : '📝'}</span>
                             <div>
-                                <a href="${githubLink(d.path)}" target="_blank" class="text-xs font-medium hover:text-brand transition">${d.name}</a>
-                                <div class="text-[10px] text-brand-muted">${d.path}</div>
+                                <a href="${githubLink(d.path)}" target="_blank" class="text-sm font-medium hover:text-brand transition">${d.name}</a>
+                                <div class="text-[10px] text-brand-muted mt-0.5">${d.path}</div>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            ${d.date ? `<span class="text-[10px] text-brand-muted">${d.date}</span>` : ''}
+                        <div class="flex items-center gap-3">
+                            ${d.date ? `<span class="text-[10px] text-brand-muted font-mono">${d.date}</span>` : ''}
                             ${d.status ? tag(d.status, d.status) : ''}
                             ${d.priority ? tag(d.priority, d.priority) : ''}
                         </div>
                     </div>`).join('')}
                 </div>
-            </div>`
-        ).join('');
+            </div>`;
+        }).join('');
 
         // Tasks
         const tc = document.getElementById('tasks-content');
         const tasks = statusData.pendingTasks || [];
         const completed = statusData.completedTasks || [];
         tc.innerHTML = `
-            <div class="glass rounded-xl p-4 mb-4">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">⏳ Pending (${tasks.length})</h3>
-                ${tasks.map(t => `<div class="flex items-center justify-between py-2 border-b border-brand-border last:border-0">
-                    <span class="text-xs">${t.name}</span>${tag(t.priority, t.priority)}
+            <div class="glass rounded-xl p-5 mb-5">
+                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">⏳ Pending (${tasks.length})</h3>
+                ${tasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
+                    <span class="text-sm">${t.name}</span>${tag(t.priority, t.priority)}
                 </div>`).join('')}
             </div>
-            <div class="glass rounded-xl p-4">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">✅ Completed (${completed.length})</h3>
-                ${completed.map(t => `<div class="flex items-center justify-between py-2 border-b border-brand-border last:border-0">
-                    <span class="text-xs text-gray-400">${t.name}</span>
-                    <span class="text-[10px] text-brand-muted">${t.date}</span>
+            <div class="glass rounded-xl p-5">
+                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">✅ Completed (${completed.length})</h3>
+                ${completed.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
+                    <span class="text-sm text-gray-400">${t.name}</span>
+                    <span class="text-[10px] text-brand-muted font-mono">${t.date}</span>
                 </div>`).join('')}
             </div>`;
 
@@ -390,42 +591,42 @@
         const prosc = document.getElementById('prospects-content');
         const prospects = fullData.people?.prospects || [];
         prosc.innerHTML = prospects.map(p =>
-            `<div class="glass rounded-xl p-4">
-                <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-sm font-bold">${p.name}</h3>
+            `<div class="glass rounded-xl p-5">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-base font-bold text-white">${p.name}</h3>
                     ${tag(p.status, p.status === 'qualified' ? 'active' : p.status)}
                 </div>
-                <div class="text-xs text-brand-muted">${p.role}</div>
-                ${p.phone ? `<div class="text-xs mt-1">📞 <span class="text-brand font-mono">${p.phone}</span></div>` : ''}
+                <div class="text-sm text-brand-muted mb-2">${p.role}</div>
+                ${p.phone ? `<div class="text-sm mt-2">📞 <span class="text-brand font-mono">${p.phone}</span></div>` : ''}
             </div>`
-        ).join('') + `<div class="glass rounded-xl p-4 mt-2"><a href="${githubLink('prospects/torcy-boulangeries.md')}" target="_blank" class="text-xs text-blue-400 hover:underline">📄 View full prospect research →</a></div>`;
+        ).join('') + `<div class="glass rounded-xl p-5 mt-3"><a href="${githubLink('prospects/torcy-boulangeries.md')}" target="_blank" class="text-sm text-blue-400 hover:underline font-medium">📄 View full prospect research →</a></div>`;
 
         // People
         const pplc = document.getElementById('people-content');
         const team = fullData.people?.team || [];
         const contacts = fullData.people?.contacts || [];
         pplc.innerHTML = `
-            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Team (Agents)</h3>
-            <div class="grid md:grid-cols-2 gap-3 mb-6">
-                ${team.map(t => `<div class="glass rounded-xl p-4 flex items-center gap-3">
-                    <div class="text-2xl">${t.emoji}</div>
-                    <div>
-                        <div class="text-sm font-bold">${t.name}</div>
-                        <div class="text-[10px] text-brand-muted">${t.role}</div>
+            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Team (Agents)</h3>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                ${team.map(t => `<div class="glass rounded-xl p-5 flex items-center gap-4">
+                    <div class="text-3xl">${t.emoji}</div>
+                    <div class="flex-1">
+                        <div class="text-sm font-bold text-white">${t.name}</div>
+                        <div class="text-xs text-brand-muted mt-0.5">${t.role}</div>
                     </div>
-                    <div class="ml-auto"><span class="status-dot status-${t.status}"></span></div>
+                    <div><span class="status-dot status-${t.status}"></span></div>
                 </div>`).join('')}
             </div>
-            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Contacts</h3>
-            <div class="space-y-2">
-                ${contacts.map(c => `<div class="glass rounded-lg px-4 py-3 flex items-center justify-between">
+            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Contacts</h3>
+            <div class="space-y-3">
+                ${contacts.map(c => `<div class="glass rounded-lg px-5 py-4 flex items-center justify-between">
                     <div>
-                        <div class="text-xs font-medium">${c.name}</div>
-                        <div class="text-[10px] text-brand-muted">${c.role}</div>
+                        <div class="text-sm font-medium text-white">${c.name}</div>
+                        <div class="text-xs text-brand-muted mt-0.5">${c.role}</div>
                     </div>
                     <div class="text-right">
-                        ${c.email ? `<div class="text-[10px] text-blue-400">${c.email}</div>` : ''}
-                        ${c.phone ? `<div class="text-[10px] text-brand-muted font-mono">${c.phone}</div>` : ''}
+                        ${c.email ? `<div class="text-xs text-blue-400">${c.email}</div>` : ''}
+                        ${c.phone ? `<div class="text-xs text-brand-muted font-mono mt-0.5">${c.phone}</div>` : ''}
                     </div>
                 </div>`).join('')}
             </div>`;
@@ -435,30 +636,30 @@
         const memFiles = fullData.memory?.files || [];
         const coreFiles = fullData.memory?.coreFiles || [];
         mc.innerHTML = `
-            <div class="glass rounded-xl p-4 mb-4">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Core Memory</h3>
-                ${coreFiles.map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-xs text-blue-400 hover:underline py-1">🧠 ${f}</a>`).join('')}
+            <div class="glass rounded-xl p-5 mb-5">
+                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Core Memory</h3>
+                ${coreFiles.map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-sm text-blue-400 hover:underline py-2">🧠 ${f}</a>`).join('')}
             </div>
-            <div class="glass rounded-xl p-4">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Daily Logs (${memFiles.length} entries)</h3>
-                ${[...memFiles].reverse().map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-xs text-gray-400 hover:text-brand transition py-1">📝 ${f.replace('memory/', '')}</a>`).join('')}
+            <div class="glass rounded-xl p-5">
+                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Daily Logs (${memFiles.length} entries)</h3>
+                ${[...memFiles].reverse().map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-sm text-gray-400 hover:text-brand transition py-2">📝 ${f.replace('memory/', '')}</a>`).join('')}
             </div>`;
 
         // Integrations
         const ic = document.getElementById('integrations-content');
         const services = fullData.integrations?.services || [];
         ic.innerHTML = services.map(s =>
-            `<div class="glass rounded-xl p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
+            `<div class="glass rounded-xl p-5 flex items-center justify-between">
+                <div class="flex items-center gap-4">
                     <span class="status-dot status-${s.status}"></span>
                     <div>
-                        <div class="text-sm font-medium">${s.name}</div>
-                        <div class="text-[10px] text-brand-muted">${s.notes || ''}</div>
+                        <div class="text-sm font-medium text-white">${s.name}</div>
+                        <div class="text-xs text-brand-muted mt-0.5">${s.notes || ''}</div>
                     </div>
                 </div>
                 <div class="text-right">
                     ${tag(s.status, s.status === 'connected' ? 'active' : s.status === 'expired' ? 'high' : 'planning')}
-                    ${s.url ? `<div class="mt-1"><a href="${s.url}" target="_blank" class="text-[10px] text-blue-400 hover:underline">Open →</a></div>` : ''}
+                    ${s.url ? `<div class="mt-2"><a href="${s.url}" target="_blank" class="text-xs text-blue-400 hover:underline font-medium">Open →</a></div>` : ''}
                 </div>
             </div>`
         ).join('');
@@ -467,13 +668,13 @@
         const mc2 = document.getElementById('models-content');
         const models = fullData.integrations?.models || [];
         mc2.innerHTML = models.map(m =>
-            `<div class="glass rounded-xl p-4 flex items-center justify-between">
+            `<div class="glass rounded-xl p-5 flex items-center justify-between">
                 <div>
-                    <div class="text-sm font-medium">${m.model}</div>
-                    <div class="text-[10px] text-brand-muted">${m.provider} • ${m.role}</div>
+                    <div class="text-sm font-medium text-white">${m.model}</div>
+                    <div class="text-xs text-brand-muted mt-0.5">${m.provider} • ${m.role}</div>
                 </div>
                 <div class="text-right">
-                    <div class="text-xs text-brand-muted">${m.plan}</div>
+                    <div class="text-xs text-brand-muted mb-2">${m.plan}</div>
                     ${tag(m.status, m.status === 'active' ? 'active' : 'medium')}
                 </div>
             </div>`
@@ -483,9 +684,9 @@
         const sc = document.getElementById('skills-content');
         const skills = fullData.skills || [];
         sc.innerHTML = skills.map(s =>
-            `<div class="glass rounded-lg p-3">
-                <div class="text-xs font-bold text-brand">${s.name}</div>
-                <div class="text-[10px] text-brand-muted mt-1">${s.description}</div>
+            `<div class="glass rounded-lg p-4">
+                <div class="text-sm font-bold text-brand">${s.name}</div>
+                <div class="text-xs text-brand-muted mt-2">${s.description}</div>
             </div>`
         ).join('');
 
@@ -494,30 +695,30 @@
         const lifeGoals = fullData.goals?.life || [];
         const bizGoals = fullData.goals?.business || [];
         gc.innerHTML = `
-            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">🏠 Life Goals</h3>
-            <div class="space-y-3 mb-6">
-                ${lifeGoals.map(g => `<div class="glass rounded-xl p-4">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-sm font-medium">${g.goal}</span>
-                        <span class="text-xs text-brand">${g.target}</span>
+            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">🏠 Life Goals</h3>
+            <div class="space-y-4 mb-8">
+                ${lifeGoals.map(g => `<div class="glass rounded-xl p-5">
+                    <div class="flex justify-between mb-3">
+                        <span class="text-sm font-medium text-white">${g.goal}</span>
+                        <span class="text-sm text-brand font-semibold">${g.target}</span>
                     </div>
-                    <div class="w-full bg-brand-border rounded-full h-1.5">
-                        <div class="progress-bar h-1.5 rounded-full" style="width:${g.progress}%"></div>
+                    <div class="w-full bg-brand-border rounded-full h-2">
+                        <div class="progress-bar h-2 rounded-full" style="width:${g.progress}%"></div>
                     </div>
-                    <div class="text-[10px] text-brand-muted mt-1">${g.progress}% progress</div>
+                    <div class="text-xs text-brand-muted mt-2">${g.progress}% progress</div>
                 </div>`).join('')}
             </div>
-            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">💼 Business Goals</h3>
-            <div class="space-y-3">
-                ${bizGoals.map(g => `<div class="glass rounded-xl p-4">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-sm font-medium">${g.goal}</span>
-                        <span class="text-xs text-brand-muted">${g.target}</span>
+            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">💼 Business Goals</h3>
+            <div class="space-y-4">
+                ${bizGoals.map(g => `<div class="glass rounded-xl p-5">
+                    <div class="flex justify-between mb-3">
+                        <span class="text-sm font-medium text-white">${g.goal}</span>
+                        <span class="text-sm text-brand-muted">${g.target}</span>
                     </div>
-                    <div class="w-full bg-brand-border rounded-full h-1.5">
-                        <div class="progress-bar h-1.5 rounded-full" style="width:${g.progress}%"></div>
+                    <div class="w-full bg-brand-border rounded-full h-2">
+                        <div class="progress-bar h-2 rounded-full" style="width:${g.progress}%"></div>
                     </div>
-                    <div class="text-[10px] text-brand-muted mt-1">${g.progress}% progress</div>
+                    <div class="text-xs text-brand-muted mt-2">${g.progress}% progress</div>
                 </div>`).join('')}
             </div>`;
     }

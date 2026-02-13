@@ -1,5 +1,100 @@
 {
-  "lastGenerated": "2026-02-13T05:20:00Z",
+  "lastGenerated": "2026-02-13T14:15:00Z",
+  "calendar": [
+    {
+      "title": "LinkedIn Profile Review",
+      "date": "2026-02-14",
+      "time": "10:00 AM",
+      "description": "Review and finalize LinkedIn profile updates with Kabundji",
+      "color": "#00FF00"
+    },
+    {
+      "title": "Prospect Outreach Call - Le Belvédère",
+      "date": "2026-02-15",
+      "time": "2:30 PM",
+      "description": "Initial call with Le Belvédère bakery about website project",
+      "color": "#f59e0b"
+    },
+    {
+      "title": "Template Business Strategy Meeting",
+      "date": "2026-02-16",
+      "time": "11:00 AM",
+      "description": "Discuss Framer/Webflow template business plan and first template ideas",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "Dashboard Review & Planning",
+      "date": "2026-02-17",
+      "time": "9:00 AM",
+      "description": "Weekly dashboard review and priority planning session",
+      "color": "#a855f7"
+    },
+    {
+      "title": "Google OAuth Setup",
+      "date": "2026-02-18",
+      "time": "3:00 PM",
+      "description": "Fix Google Workspace OAuth integration for calendar sync",
+      "color": "#ef4444"
+    }
+  ],
+  "notifications": [
+    {
+      "icon": "🚀",
+      "title": "Dashboard Upgraded",
+      "description": "New features added: Calendar, Activity Feed, Charts, Search, and Approval actions",
+      "time": "5 minutes ago",
+      "type": "system"
+    },
+    {
+      "icon": "📝",
+      "title": "LinkedIn Posts Ready",
+      "description": "4 new LinkedIn posts drafted and awaiting approval",
+      "time": "2 hours ago",
+      "type": "content"
+    },
+    {
+      "icon": "🎯",
+      "title": "New Prospects Added",
+      "description": "Le Belvédère and C.C.P Fournil bakeries qualified in Torcy area",
+      "time": "4 hours ago",
+      "type": "prospect"
+    },
+    {
+      "icon": "📊",
+      "title": "Template Strategy Documented",
+      "description": "Animated template business strategy blueprint created",
+      "time": "Yesterday",
+      "type": "business"
+    },
+    {
+      "icon": "⚠️",
+      "title": "Google OAuth Expired",
+      "description": "Google Workspace authentication needs browser re-auth",
+      "time": "Yesterday",
+      "type": "alert"
+    },
+    {
+      "icon": "✅",
+      "title": "Templates Completed",
+      "description": "Invoice and Devis templates (FR/EN) successfully deployed",
+      "time": "2 days ago",
+      "type": "completion"
+    },
+    {
+      "icon": "🔄",
+      "title": "Auto-Deploy Active",
+      "description": "Vercel auto-deployment configured for dashboard repository",
+      "time": "3 days ago",
+      "type": "system"
+    },
+    {
+      "icon": "💡",
+      "title": "Subagent Architecture Planned",
+      "description": "Manager + Specialist agent structure designed for scaling",
+      "time": "3 days ago",
+      "type": "planning"
+    }
+  ],
   "workspace": {
     "totalFiles": 85,
     "totalFolders": 15,
