@@ -1,50 +1,74 @@
 {
   "agent": "Alex Prime",
-  "status": "working",
-  "lastUpdate": "2026-02-13T14:15:00Z",
-  "lastHeartbeat": "2026-02-13T14:15:00Z",
+  "status": "active",
+  "lastUpdate": "2026-02-13T14:23:51.836Z",
+  "lastHeartbeat": "2026-02-13T14:23:51.836Z",
   "session": "main",
   "model": "anthropic/claude-opus-4-6",
-  "currentTask": "🔥 Proactive work: Expanded prospects + CSS animation library built",
-  "notes": "2 prospects without website in Torcy | Le Belvédère: 09 87 32 46 79 | C.C.P Fournil: 4★-367 avis",
+  "currentTask": "Animated Landing Page Template (PROOF OF CONCEPT)",
   "stats": {
     "tasksInProgress": 2,
-    "tasksPending": 4,
-    "tasksCompleted": 48,
-    "tokensEstimated": 4700,
-    "costEstimated": 0
-  },
-  "heartbeat": {
-    "lastCheck": "2026-02-13T03:34:00Z",
-    "interval": "30m",
-    "checks": {
-      "email": "OAuth expired — needs gog auth refresh",
-      "calendar": "OAuth expired — needs gog auth refresh",
-      "whatsapp": "Connected",
-      "telegram": "Bot configured — awaiting first message",
-      "prospectResearch": "Found 1 new lead (Le Belvédère boulangerie)"
-    }
+    "tasksPending": 10,
+    "tasksCompleted": 5,
+    "totalFiles": 149,
+    "totalFolders": 580
   },
   "recentActions": [
-    "Built CSS animation library (10 animation types for templates)",
-    "Found new prospect: Le Trente-Six restaurant (01 60 05 31 44)",
-    "Expanded prospect pipeline to 3 qualified leads",
-    "Updated TODO.md with current state + new priorities",
-    "Created expanded prospect file (torcy-expanded.md)"
+    "Dashboard improvements: Calendar, Activity Feed, Charts, Search & Approval actions",
+    "Status: Proactive work — expanded prospects + animations",
+    "Heartbeat 13:32",
+    "Heartbeat 13:02",
+    "Heartbeat 12:32"
   ],
   "pendingTasks": [
-    {"name": "Kabundji to review 2 prospects + approve outreach", "priority": "high"},
-    {"name": "Review LinkedIn posts (4 ready in drafts/)", "priority": "high"},
-    {"name": "Fix Google OAuth (needs browser)", "priority": "medium"},
-    {"name": "Check Le Belvédère Instagram/Facebook", "priority": "low"},
-    {"name": "Research 3 more Torcy businesses", "priority": "low"}
+    {
+      "name": "Framer Marketplace Setup — Create account, understand submission process",
+      "priority": "medium"
+    },
+    {
+      "name": "LinkedIn Posts Publish — 4 posts ready, need Kabundji approval",
+      "priority": "medium"
+    },
+    {
+      "name": "Profile Drafts Review — LinkedIn, Malt profiles in `drafts/`",
+      "priority": "medium"
+    },
+    {
+      "name": "Google OAuth Fix — Run `scripts/fix-oauth.sh` (needs browser)",
+      "priority": "medium"
+    },
+    {
+      "name": "Aura Account Setup — $20/mo, AI template builder",
+      "priority": "medium"
+    },
+    {
+      "name": "Unicorn Studio Setup — WebGL backgrounds for templates",
+      "priority": "medium"
+    },
+    {
+      "name": "CSS Animation Library — Reusable beam, marquee, fade animations",
+      "priority": "medium"
+    },
+    {
+      "name": "Subagent Pyramid — Manager + Specialist agents",
+      "priority": "medium"
+    },
+    {
+      "name": "YouTube Channel — French market AI template tutorials",
+      "priority": "medium"
+    },
+    {
+      "name": "n8n CRM Workflow — Automate prospect tracking",
+      "priority": "medium"
+    }
   ],
-  "completedTasks": [
-    {"name": "Boulangerie research: 2 new prospects qualified", "date": "Feb 13"},
-    {"name": "Found Le Belvédère phone: 09 87 32 46 79 ✓", "date": "Feb 13"},
-    {"name": "Created prospect call script for Kabundji", "date": "Feb 13"},
-    {"name": "Full prospect profile: Le Belvédère (SAS, 4k€ cap)", "date": "Feb 13"},
-    {"name": "Local backup (66M)", "date": "Feb 13"},
-    {"name": "Telegram bot configured", "date": "Feb 13"}
-  ]
+  "inProgressTasks": [
+    "Animated Landing Page Template (PROOF OF CONCEPT)",
+    "Expanded Prospect Research"
+  ],
+  "completedCount": 5,
+  "heartbeat": {
+    "lastCheck": "2026-02-13T14:23:51.836Z",
+    "interval": "10m"
+  }
 }
