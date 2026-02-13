@@ -1,0 +1,205 @@
+{
+  "lastGenerated": "2026-02-13T05:20:00Z",
+  "workspace": {
+    "totalFiles": 85,
+    "totalFolders": 15,
+    "lastCommit": "2026-02-13"
+  },
+  "documents": {
+    "business": [
+      {"name": "Template Blueprint Strategy", "path": "business/template-blueprint-strategy.md", "date": "2026-02-13", "status": "new"},
+      {"name": "Service Catalog 2026", "path": "drafts/service-catalog-2026.md", "date": "2026-02-12", "status": "draft"}
+    ],
+    "templates": [
+      {"name": "Facture FR", "path": "templates/invoice-fr.html", "date": "2026-02-10", "status": "done"},
+      {"name": "Devis FR", "path": "templates/devis-fr.html", "date": "2026-02-10", "status": "done"},
+      {"name": "Invoice EN", "path": "templates/invoice-en.html", "date": "2026-02-10", "status": "done"},
+      {"name": "Quotation EN", "path": "templates/quotation-en.html", "date": "2026-02-10", "status": "done"},
+      {"name": "Sample Devis (Filled)", "path": "drafts/sample-devis-filled.html", "date": "2026-02-11", "status": "done"},
+      {"name": "Email Signature", "path": "drafts/email-signature.html", "date": "2026-02-12", "status": "draft"}
+    ],
+    "marketing": [
+      {"name": "LinkedIn Posts Feb 2026 (4 posts)", "path": "drafts/linkedin-posts-feb2026.md", "date": "2026-02-12", "status": "review", "priority": "high"},
+      {"name": "LinkedIn Profile Final", "path": "drafts/LINKEDIN_PROFILE_FINAL.md", "date": "2026-02-01", "status": "review"},
+      {"name": "LinkedIn Profile Draft", "path": "drafts/LINKEDIN_PROFILE_DRAFT.md", "date": "2026-01-31", "status": "draft"},
+      {"name": "Malt Profile Draft", "path": "drafts/MALT_PROFILE_DRAFT.md", "date": "2026-01-31", "status": "review"},
+      {"name": "Cold Emails", "path": "drafts/cold-emails.md", "date": "2026-02-05", "status": "draft"},
+      {"name": "Carte Visite Brief", "path": "drafts/carte-visite-brief.md", "date": "2026-02-12", "status": "draft"},
+      {"name": "GMB Optimization Checklist", "path": "drafts/gmb-optimization-checklist.md", "date": "2026-02-12", "status": "draft"},
+      {"name": "Email Templates", "path": "templates/email-templates.md", "date": "2026-02-10", "status": "done"}
+    ],
+    "prospects": [
+      {"name": "Torcy Boulangeries (2 qualified)", "path": "prospects/torcy-boulangeries.md", "date": "2026-02-13", "status": "active"},
+      {"name": "Paris Boulangeries Research", "path": "prospects/paris-boulangeries-research.md", "date": "2026-02-11", "status": "done"},
+      {"name": "Paris Leads", "path": "prospects/paris-leads.md", "date": "2026-02-10", "status": "active"},
+      {"name": "Torcy Boulangeries Leads", "path": "prospects/torcy-boulangeries-leads.md", "date": "2026-02-11", "status": "done"},
+      {"name": "Paris Prospects 2026", "path": "drafts/paris-prospects-2026.md", "date": "2026-02-11", "status": "active"}
+    ],
+    "reports": [
+      {"name": "Template Analysis", "path": "reports/template-analysis-20260212.md", "date": "2026-02-12", "status": "done"},
+      {"name": "LLM Cost Optimization", "path": "docs/LLM-COST-OPTIMIZATION.md", "date": "2026-02-06", "status": "done"},
+      {"name": "Model Allocation Guide", "path": "docs/MODEL-ALLOCATION.md", "date": "2026-02-06", "status": "done"}
+    ],
+    "system": [
+      {"name": "MEMORY.md", "path": "MEMORY.md", "date": "2026-02-13", "status": "active"},
+      {"name": "TODO.md", "path": "TODO.md", "date": "2026-02-10", "status": "active"},
+      {"name": "HEARTBEAT.md", "path": "HEARTBEAT.md", "date": "2026-02-12", "status": "active"},
+      {"name": "TOOLS.md", "path": "TOOLS.md", "date": "2026-02-12", "status": "active"},
+      {"name": "USER.md", "path": "USER.md", "date": "2026-01-31", "status": "active"},
+      {"name": "SOUL.md", "path": "SOUL.md", "date": "2026-01-31", "status": "active"},
+      {"name": "IDENTITY.md", "path": "IDENTITY.md", "date": "2026-02-01", "status": "active"},
+      {"name": "AGENTS.md", "path": "AGENTS.md", "date": "2026-02-01", "status": "active"}
+    ],
+    "scripts": [
+      {"name": "fix-oauth.sh", "path": "scripts/fix-oauth.sh", "status": "tool"},
+      {"name": "daily-backup.sh", "path": "scripts/daily-backup.sh", "status": "tool"},
+      {"name": "update-dashboard.sh", "path": "scripts/update-dashboard.sh", "status": "tool"},
+      {"name": "template-optimizer.sh", "path": "scripts/template-optimizer.sh", "status": "tool"},
+      {"name": "pricing-calculator.sh", "path": "scripts/pricing-calculator.sh", "status": "tool"}
+    ],
+    "trackers": [
+      {"name": "House Savings Tracker", "path": "trackers/house-savings.md", "date": "2026-02-01", "status": "active"},
+      {"name": "Daily Productivity", "path": "trackers/daily-productivity.md", "date": "2026-02-09", "status": "active"}
+    ]
+  },
+  "approvals": [
+    {"item": "LinkedIn Posts (4 posts for Feb 2026)", "file": "drafts/linkedin-posts-feb2026.md", "priority": "high", "created": "2026-02-12"},
+    {"item": "LinkedIn Profile Final", "file": "drafts/LINKEDIN_PROFILE_FINAL.md", "priority": "high", "created": "2026-02-01"},
+    {"item": "Malt Profile Draft", "file": "drafts/MALT_PROFILE_DRAFT.md", "priority": "medium", "created": "2026-01-31"},
+    {"item": "Template Business Strategy", "file": "business/template-blueprint-strategy.md", "priority": "high", "created": "2026-02-13"},
+    {"item": "Torcy Prospect Outreach (Le Belvédère + C.C.P Fournil)", "file": "prospects/torcy-boulangeries.md", "priority": "high", "created": "2026-02-13"},
+    {"item": "Cold Email Templates", "file": "drafts/cold-emails.md", "priority": "medium", "created": "2026-02-05"},
+    {"item": "Google OAuth Re-auth (expired)", "file": "scripts/fix-oauth.sh", "priority": "high", "created": "2026-02-12"},
+    {"item": "Telegram Bot Test", "file": null, "priority": "medium", "created": "2026-02-13"}
+  ],
+  "projects": [
+    {
+      "name": "Animated Template Business",
+      "status": "planning",
+      "progress": 15,
+      "description": "AI-powered animated landing page template business on Framer/Webflow",
+      "nextStep": "Set up Aura account + create first template",
+      "revenue": "€10k/mo target",
+      "files": ["business/template-blueprint-strategy.md"]
+    },
+    {
+      "name": "Prospect Pipeline (Torcy)",
+      "status": "active",
+      "progress": 60,
+      "description": "Local business prospecting — boulangeries in Torcy needing websites",
+      "nextStep": "Kabundji to approve outreach calls",
+      "revenue": "€800-1500/project",
+      "files": ["prospects/torcy-boulangeries.md"]
+    },
+    {
+      "name": "Dashboard System",
+      "status": "active",
+      "progress": 70,
+      "description": "Comprehensive executive dashboard for tracking everything",
+      "nextStep": "Complete rebuild with all sections",
+      "files": ["dashboard/index.html", "dashboard/status.json"]
+    },
+    {
+      "name": "Invoice/Devis Templates",
+      "status": "completed",
+      "progress": 100,
+      "description": "Professional French/English invoice and quotation templates",
+      "files": ["templates/invoice-fr.html", "templates/devis-fr.html", "templates/invoice-en.html", "templates/quotation-en.html"]
+    },
+    {
+      "name": "LinkedIn Marketing",
+      "status": "review",
+      "progress": 80,
+      "description": "4 LinkedIn posts + profile optimization for Pulse Graphix",
+      "nextStep": "Kabundji to review and publish",
+      "files": ["drafts/linkedin-posts-feb2026.md", "drafts/LINKEDIN_PROFILE_FINAL.md"]
+    },
+    {
+      "name": "Subagent Architecture",
+      "status": "planned",
+      "progress": 10,
+      "description": "Manager + Specialist agents (Communication, Project, Content)",
+      "files": ["memory/SUBAGENTS.md"]
+    }
+  ],
+  "people": {
+    "team": [
+      {"name": "Alex Prime", "role": "Executive Director Agent", "status": "active", "emoji": "🎯"},
+      {"name": "Communication Manager", "role": "Manager Agent", "status": "planned", "emoji": "📡"},
+      {"name": "Project Manager", "role": "Manager Agent", "status": "planned", "emoji": "📋"},
+      {"name": "Content Manager", "role": "Manager Agent", "status": "planned", "emoji": "✍️"}
+    ],
+    "contacts": [
+      {"name": "Kabundji (Chicco Mutombo)", "role": "Founder / CEO", "email": "chicco007@gmail.com", "phone": "+33 6 12 77 64 98"},
+      {"name": "Justine Mutombo", "role": "Family — Mother", "email": null},
+      {"name": "Christelle Mutombo", "role": "Family — Sister", "email": null},
+      {"name": "Michael (Mike) Mutombo", "role": "Family — Brother", "email": null},
+      {"name": "Landry Mutombo", "role": "Family — Brother", "email": null}
+    ],
+    "prospects": [
+      {"name": "Le Belvédère", "role": "Prospect — Boulangerie Torcy", "phone": "09 87 32 46 79", "status": "qualified"},
+      {"name": "C.C.P Fournil", "role": "Prospect — Boulangerie Torcy", "phone": "01 60 05 28 84", "status": "qualified"}
+    ]
+  },
+  "goals": {
+    "life": [
+      {"goal": "Buy house in France", "target": "€300k-500k", "progress": 0},
+      {"goal": "Buy holiday home abroad", "target": "€100k-200k", "progress": 0}
+    ],
+    "business": [
+      {"goal": "€10k/mo template revenue", "target": "6 months", "progress": 5},
+      {"goal": "50 artisans digitalized", "target": "2026", "progress": 2},
+      {"goal": "LinkedIn presence (weekly posts)", "target": "Ongoing", "progress": 20},
+      {"goal": "YouTube channel", "target": "Q2 2026", "progress": 0}
+    ]
+  },
+  "integrations": {
+    "services": [
+      {"name": "GitHub", "status": "connected", "user": "ALEXPRIME000", "notes": "Token active"},
+      {"name": "Vercel", "status": "connected", "notes": "Token active, auto-deploy"},
+      {"name": "Google Workspace (gog)", "status": "expired", "notes": "OAuth expired since Feb 12 — needs browser re-auth"},
+      {"name": "WhatsApp", "status": "connected", "notes": "Gateway active"},
+      {"name": "Telegram", "status": "configured", "notes": "Bot ready, awaiting first message"},
+      {"name": "n8n", "status": "available", "url": "https://n8n.nexusaiacademy.app", "notes": "API key stored"},
+      {"name": "Brave Search", "status": "connected", "notes": "Free plan (1 req/sec)"}
+    ],
+    "models": [
+      {"provider": "Anthropic", "model": "Claude Opus 4.6", "role": "Primary", "plan": "$20/mo", "status": "active"},
+      {"provider": "Groq", "model": "Llama 3.3 70B", "role": "Fast fallback", "plan": "Free", "status": "active"},
+      {"provider": "NVIDIA", "model": "Kimi K2.5", "role": "Cheap backup", "plan": "Free credits", "status": "active"},
+      {"provider": "OpenRouter", "model": "Various", "role": "Fallback", "plan": "Free tier", "status": "active"},
+      {"provider": "OpenAI", "model": "GPT/Whisper", "role": "Image gen / TTS", "plan": "Quota limited", "status": "limited"}
+    ]
+  },
+  "memory": {
+    "files": [
+      "memory/2026-01-31.md",
+      "memory/2026-02-01.md",
+      "memory/2026-02-02.md",
+      "memory/2026-02-03.md",
+      "memory/2026-02-04.md",
+      "memory/2026-02-06.md",
+      "memory/2026-02-09.md",
+      "memory/2026-02-10.md",
+      "memory/2026-02-11.md",
+      "memory/2026-02-12.md",
+      "memory/2026-02-13.md"
+    ],
+    "coreFiles": ["MEMORY.md", "memory/GOALS.md", "memory/SUBAGENTS.md"]
+  },
+  "skills": [
+    {"name": "frontend-design", "description": "Expert UI/landing page generation"},
+    {"name": "designer", "description": "Logos, interfaces, visual systems"},
+    {"name": "shadcn-ui", "description": "Component library (Radix + Tailwind)"},
+    {"name": "color-palette", "description": "WCAG color accessibility"},
+    {"name": "happy-hues", "description": "Curated color palettes"},
+    {"name": "colors", "description": "Accessible color systems"},
+    {"name": "graphic-design", "description": "Visual production & theory"},
+    {"name": "openai-image-gen", "description": "Batch image generation"},
+    {"name": "weather", "description": "Weather forecasts"},
+    {"name": "gog", "description": "Google Workspace CLI"},
+    {"name": "tmux", "description": "Terminal session control"},
+    {"name": "healthcheck", "description": "Security hardening"},
+    {"name": "skill-creator", "description": "Create new skills"}
+  ]
+}

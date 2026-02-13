@@ -4,627 +4,528 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>Alex Prime - Executive Dashboard</title>
+    <title>Pulse Graphix — Executive Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#00FF00', dark: '#0a0a0a', card: '#111111', border: '#222222', muted: '#888888' }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; }
+        .glass { background: #111111; border: 1px solid #222; }
+        .glass:hover { border-color: #333; }
         .pulse { animation: pulse 2s infinite; }
-        .pulse-fast { animation: pulse 1s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .glow-green { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
-        .glow-yellow { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
-        .glow-blue { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-        .glow-purple { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
-        .slide-in { animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .blink { animation: blink 1s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .tab-btn.active { border-bottom: 2px solid #3b82f6; color: #3b82f6; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+        .beam { position: relative; overflow: hidden; }
+        .beam::before { content:''; position:absolute; top:-2px; left:-2px; right:-2px; bottom:-2px; background: conic-gradient(from 0deg, transparent, #00FF00, transparent, transparent); border-radius: inherit; animation: beam-spin 3s linear infinite; z-index:-1; }
+        @keyframes beam-spin { to { transform: rotate(360deg); } }
+        .fade-in { animation: fadeIn .4s ease-out; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+        .tab-content { display:none; }
+        .tab-content.active { display:block; }
+        .nav-btn { transition: all .2s; }
+        .nav-btn.active { color: #00FF00; border-color: #00FF00; }
+        .nav-btn:hover { color: #00FF00; }
+        .progress-bar { background: linear-gradient(90deg, #00FF00, #00cc00); }
+        .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+        .status-connected { background:#00FF00; box-shadow:0 0 6px #00FF0066; }
+        .status-expired { background:#ef4444; box-shadow:0 0 6px #ef444466; }
+        .status-configured { background:#f59e0b; box-shadow:0 0 6px #f59e0b66; }
+        .status-planned { background:#6366f1; box-shadow:0 0 6px #6366f166; }
+        .status-active { background:#00FF00; box-shadow:0 0 6px #00FF0066; }
+        .tag { font-size: .65rem; padding: 2px 8px; border-radius: 9999px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+        .tag-high { background: #ef444433; color: #ef4444; }
+        .tag-medium { background: #f59e0b33; color: #f59e0b; }
+        .tag-low { background: #3b82f633; color: #3b82f6; }
+        .tag-done { background: #00FF0022; color: #00FF00; }
+        .tag-review { background: #a855f733; color: #a855f7; }
+        .tag-draft { background: #6b728033; color: #9ca3af; }
+        .tag-new { background: #00FF0033; color: #00FF00; }
+        .tag-active { background: #3b82f633; color: #60a5fa; }
+        .tag-tool { background: #6366f133; color: #818cf8; }
+        .tag-planning { background: #f59e0b33; color: #fbbf24; }
+        .tag-completed { background: #00FF0022; color: #00FF00; }
+        .tag-planned { background: #6366f133; color: #818cf8; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
     </style>
 </head>
-<body class="min-h-screen text-white p-4 md:p-6">
-    <div class="max-w-7xl mx-auto">
-        
-        <!-- Header -->
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+<body class="min-h-screen text-white">
+
+    <!-- Top Bar -->
+    <header class="border-b border-brand-border px-4 md:px-6 py-3 flex items-center justify-between sticky top-0 bg-brand-dark/95 backdrop-blur z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-brand rounded flex items-center justify-center text-black font-bold text-sm">PG</div>
             <div>
-                <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                    🎯 Alex Prime Dashboard
-                </h1>
-                <p class="text-gray-400 mt-1 text-sm">Executive Director Agent • <span id="refresh-status" class="text-green-400">Live ✓</span> • <span id="refresh-countdown" class="text-blue-400 font-mono">↻ 10s</span></p>
-            </div>
-            <div class="flex items-center gap-4">
-                <!-- LIVE STATUS -->
-                <div id="status-box" class="flex items-center gap-3 glass px-4 py-3 rounded-xl glow-green">
-                    <div class="relative">
-                        <span id="status-dot" class="w-4 h-4 bg-green-500 rounded-full block pulse-fast"></span>
-                        <span class="absolute inset-0 w-4 h-4 bg-green-500 rounded-full animate-ping opacity-50"></span>
-                    </div>
-                    <div>
-                        <div id="status-text" class="font-semibold text-green-400">LOADING...</div>
-                        <div id="header-task" class="text-xs text-gray-400 max-w-52 truncate">Connecting...</div>
-                    </div>
-                </div>
-                <div class="text-right text-sm hidden md:block">
-                    <div id="current-time" class="text-gray-300 font-medium"></div>
-                    <div id="last-update" class="text-gray-500 text-xs">--</div>
-                </div>
-            </div>
-        </header>
-
-        <!-- TAB NAVIGATION -->
-        <div class="glass rounded-t-xl overflow-x-auto">
-            <div class="flex border-b border-gray-700">
-                <button class="tab-btn active px-6 py-4 text-sm font-medium hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="overview">
-                    🏠 Overview
-                </button>
-                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="tasks">
-                    📋 Tasks
-                </button>
-                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="performance">
-                    📈 Performance
-                </button>
-                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="models">
-                    🤖 Models
-                </button>
-                <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-400 hover:bg-gray-800/50 transition whitespace-nowrap" data-tab="system">
-                    ⚡ System
-                </button>
+                <h1 class="text-sm font-bold text-white">Pulse Graphix</h1>
+                <p class="text-[10px] text-brand-muted">Executive Dashboard — Alex Prime 🎯</p>
             </div>
         </div>
+        <div class="flex items-center gap-3">
+            <div id="live-indicator" class="flex items-center gap-2 text-xs">
+                <span class="status-dot status-connected pulse"></span>
+                <span class="text-brand-muted"><span id="agent-status-text" class="text-brand">ACTIVE</span></span>
+            </div>
+            <div class="text-[10px] text-brand-muted font-mono" id="last-update">--</div>
+        </div>
+    </header>
 
-        <!-- TAB CONTENT -->
-        <div class="glass rounded-b-xl rounded-t-none p-6 mb-6">
-            
-            <!-- ==================== OVERVIEW TAB ==================== -->
-            <div id="tab-overview" class="tab-content active slide-in">
-                
+    <div class="flex">
+        <!-- Sidebar Nav -->
+        <nav class="hidden md:flex flex-col w-48 border-r border-brand-border p-3 gap-1 sticky top-12 h-[calc(100vh-48px)] overflow-y-auto">
+            <button onclick="showTab('overview')" class="nav-btn active text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="overview">📊 Overview</button>
+            <button onclick="showTab('tasks')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="tasks">✅ Tasks</button>
+            <button onclick="showTab('projects')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="projects">🚀 Projects</button>
+            <button onclick="showTab('approvals')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="approvals">⚡ Approvals <span id="approval-badge" class="ml-1 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-full">0</span></button>
+            <button onclick="showTab('documents')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="documents">📁 Documents</button>
+            <button onclick="showTab('prospects')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="prospects">🎯 Prospects</button>
+            <button onclick="showTab('people')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="people">👥 People</button>
+            <button onclick="showTab('memory')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="memory">🧠 Memory</button>
+            <button onclick="showTab('integrations')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="integrations">🔌 Integrations</button>
+            <button onclick="showTab('models')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="models">🤖 AI Models</button>
+            <button onclick="showTab('skills')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="skills">⚙️ Skills</button>
+            <button onclick="showTab('goals')" class="nav-btn text-left px-3 py-2 rounded-lg text-xs font-medium text-brand-muted border border-transparent" data-tab="goals">🎯 Goals</button>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <div class="md:hidden flex overflow-x-auto border-b border-brand-border px-2 py-2 gap-1 sticky top-12 bg-brand-dark z-40 w-full" id="mobile-nav">
+            <button onclick="showTab('overview')" class="nav-btn active whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="overview">📊</button>
+            <button onclick="showTab('tasks')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="tasks">✅</button>
+            <button onclick="showTab('projects')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="projects">🚀</button>
+            <button onclick="showTab('approvals')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="approvals">⚡</button>
+            <button onclick="showTab('documents')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="documents">📁</button>
+            <button onclick="showTab('prospects')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="prospects">🎯</button>
+            <button onclick="showTab('people')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="people">👥</button>
+            <button onclick="showTab('memory')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="memory">🧠</button>
+            <button onclick="showTab('integrations')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="integrations">🔌</button>
+            <button onclick="showTab('models')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="models">🤖</button>
+            <button onclick="showTab('skills')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="skills">⚙️</button>
+            <button onclick="showTab('goals')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="goals">🎯</button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 md:p-6 max-w-6xl">
+
+            <!-- OVERVIEW TAB -->
+            <div id="tab-overview" class="tab-content active fade-in">
+                <h2 class="text-lg font-bold mb-4">Overview</h2>
+
                 <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
-                    <div class="glass rounded-xl p-4 glow-blue">
-                        <div class="text-gray-400 text-xs">In Progress</div>
-                        <div class="text-2xl font-bold text-orange-400" id="stat-progress">-</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                    <div class="glass rounded-xl p-4">
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Current Task</div>
+                        <div id="current-task" class="text-xs font-medium truncate">Loading...</div>
                     </div>
                     <div class="glass rounded-xl p-4">
-                        <div class="text-gray-400 text-xs">Pending</div>
-                        <div class="text-2xl font-bold text-yellow-400" id="stat-pending">-</div>
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Completed</div>
+                        <div id="stat-completed" class="text-2xl font-bold text-brand">--</div>
                     </div>
                     <div class="glass rounded-xl p-4">
-                        <div class="text-gray-400 text-xs">Completed</div>
-                        <div class="text-2xl font-bold text-green-400" id="stat-completed">-</div>
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Pending</div>
+                        <div id="stat-pending" class="text-2xl font-bold text-yellow-400">--</div>
                     </div>
                     <div class="glass rounded-xl p-4">
-                        <div class="text-gray-400 text-xs">Tokens Today</div>
-                        <div class="text-2xl font-bold text-purple-400" id="stat-tokens">-</div>
-                    </div>
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-gray-400 text-xs">Cost Today</div>
-                        <div class="text-2xl font-bold text-blue-400" id="stat-cost">-</div>
-                    </div>
-                    <div class="glass rounded-xl p-4">
-                        <div class="text-gray-400 text-xs">Last Heartbeat</div>
-                        <div class="text-lg font-bold text-cyan-400" id="stat-heartbeat">-</div>
+                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-1">Approvals</div>
+                        <div id="stat-approvals" class="text-2xl font-bold text-red-400">--</div>
                     </div>
                 </div>
 
-                <!-- Current Project Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                    <div class="lg:col-span-2">
-                        <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-5 border border-blue-500/30 glow-purple">
-                            <div class="flex items-center gap-3 mb-3">
-                                <span class="w-3 h-3 bg-green-500 rounded-full blink"></span>
-                                <h2 class="text-lg font-semibold text-blue-300">Currently Working On</h2>
-                            </div>
-                            <div id="current-project" class="text-xl font-medium text-white mb-2">Loading...</div>
-                            <div id="current-project-details" class="text-sm text-gray-400">Fetching current activity...</div>
-                        </div>
+                <!-- Recent Actions + Pending -->
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div class="glass rounded-xl p-4">
+                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Recent Actions</h3>
+                        <div id="recent-actions" class="space-y-2"></div>
                     </div>
-                    
-                    <div class="glass rounded-xl p-5">
-                        <h3 class="text-md font-semibold mb-3 text-gray-300">⚡ Quick Stats</h3>
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Agent:</span>
-                                <span id="quick-agent" class="text-white">-</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Model:</span>
-                                <span id="quick-model" class="text-purple-400">-</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Session:</span>
-                                <span id="quick-session" class="text-blue-400">-</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Data Updated:</span>
-                                <span id="quick-updated" class="text-gray-300">-</span>
-                            </div>
-                        </div>
+                    <div class="glass rounded-xl p-4">
+                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Pending Tasks</h3>
+                        <div id="pending-tasks" class="space-y-2"></div>
                     </div>
                 </div>
 
-                <!-- Recent Actions & To-Do -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <!-- Recent Actions -->
-                    <div class="glass rounded-xl p-5">
-                        <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                            📝 Recent Actions
-                            <span class="text-xs text-gray-500 font-normal">(live updates)</span>
-                        </h2>
-                        <div id="recent-actions" class="space-y-2 max-h-48 overflow-y-auto">
-                            <div class="text-gray-500 text-sm">Loading...</div>
-                        </div>
-                    </div>
-
-                    <!-- To-Do / Pending -->
-                    <div class="glass rounded-xl p-5">
-                        <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                            🎯 To-Do List
-                            <span class="text-xs text-gray-500 font-normal">(next up)</span>
-                        </h2>
-                        <div id="todo-list" class="space-y-2 max-h-48 overflow-y-auto">
-                            <div class="text-gray-500 text-sm">Loading...</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Completions -->
-                <div class="glass rounded-xl p-5">
-                    <h2 class="text-lg font-semibold mb-4">✅ Recently Completed</h2>
-                    <div id="recent-completed" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                        <div class="text-gray-500 text-sm">Loading...</div>
+                <!-- Quick Access -->
+                <div class="glass rounded-xl p-4">
+                    <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Quick Links</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <a href="https://github.com/ALEXPRIME000/alex-dashboard" target="_blank" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">🐙 GitHub</a>
+                        <a href="https://n8n.nexusaiacademy.app" target="_blank" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">⚡ n8n</a>
+                        <a href="#" onclick="showTab('approvals')" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">⚡ Approvals</a>
+                        <a href="#" onclick="showTab('documents')" class="glass rounded-lg p-3 text-center hover:border-brand transition text-xs">📁 Files</a>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== TASKS TAB ==================== -->
-            <div id="tab-tasks" class="tab-content slide-in">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- In Progress -->
-                    <div class="glass rounded-xl p-5">
-                        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                            🔴 In Progress
-                            <span id="tasks-inprogress-count" class="text-sm bg-orange-600 px-2 py-0.5 rounded-full">0</span>
-                        </h2>
-                        <div id="tasks-inprogress" class="space-y-3">
-                            <div class="text-gray-500 text-center py-6">No active tasks</div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Tasks -->
-                    <div class="glass rounded-xl p-5">
-                        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                            🟡 Pending
-                            <span id="tasks-pending-count" class="text-sm bg-yellow-600 px-2 py-0.5 rounded-full">0</span>
-                        </h2>
-                        <div id="tasks-pending" class="space-y-2 max-h-80 overflow-y-auto">
-                            <div class="text-gray-500 text-sm">Loading...</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Completed Tasks -->
-                <div class="glass rounded-xl p-5 mt-6">
-                    <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                        ✅ Completed
-                        <span id="tasks-completed-count" class="text-sm bg-green-600 px-2 py-0.5 rounded-full">0</span>
-                    </h2>
-                    <div id="tasks-completed" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-64 overflow-y-auto">
-                        <div class="text-gray-500 text-sm">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Backlog -->
-                <div class="mt-6">
-                    <h2 class="text-lg font-semibold mb-3">📋 Backlog (Future Ideas)</h2>
-                    <div class="flex flex-wrap gap-2" id="backlog-items">
-                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Cost alerts</span>
-                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Multi-agent dashboard</span>
-                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Voice summaries</span>
-                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Twitter monitoring</span>
-                        <span class="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-400">Weekly reports</span>
-                    </div>
-                </div>
+            <!-- TASKS TAB -->
+            <div id="tab-tasks" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Tasks</h2>
+                <div id="tasks-content" class="space-y-3"></div>
             </div>
 
-            <!-- ==================== PERFORMANCE TAB ==================== -->
-            <div id="tab-performance" class="tab-content slide-in">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">📈 Activity Timeline</h2>
-                        <canvas id="activityChart" height="200"></canvas>
-                    </div>
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">📊 Task Completion</h2>
-                        <canvas id="taskChart" height="200"></canvas>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">🔢 Token Usage (Last 7 Days)</h2>
-                        <canvas id="tokenChart" height="180"></canvas>
-                    </div>
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">💰 Cost Breakdown</h2>
-                        <canvas id="costChart" height="180"></canvas>
-                    </div>
-                </div>
-
-                <!-- Performance Metrics -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
-                        <div class="text-3xl font-bold text-blue-400">98%</div>
-                        <div class="text-gray-400 text-sm mt-1">Uptime</div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
-                        <div class="text-3xl font-bold text-green-400">1.2s</div>
-                        <div class="text-gray-400 text-sm mt-1">Avg Response</div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
-                        <div class="text-3xl font-bold text-purple-400" id="perf-messages">50+</div>
-                        <div class="text-gray-400 text-sm mt-1">Messages Today</div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg text-center">
-                        <div class="text-3xl font-bold text-orange-400">0</div>
-                        <div class="text-gray-400 text-sm mt-1">Errors</div>
-                    </div>
-                </div>
+            <!-- PROJECTS TAB -->
+            <div id="tab-projects" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Projects</h2>
+                <div id="projects-content" class="space-y-4"></div>
             </div>
 
-            <!-- ==================== MODELS TAB ==================== -->
-            <div id="tab-models" class="tab-content slide-in">
-                <h2 class="text-xl font-semibold mb-4">🤖 Model Allocation Strategy</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-xl p-4">
-                        <div class="text-2xl mb-2">💻</div>
-                        <h3 class="font-semibold text-blue-300">Coding</h3>
-                        <div class="mt-3 space-y-2 text-sm">
-                            <div class="flex justify-between"><span class="text-gray-400">Primary:</span><span class="text-blue-400">Claude Opus 4.5</span></div>
-                            <div class="flex justify-between"><span class="text-gray-400">Fallback:</span><span class="text-gray-300">Kimi K2.5</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-4">
-                        <div class="text-2xl mb-2">🔍</div>
-                        <h3 class="font-semibold text-purple-300">Research</h3>
-                        <div class="mt-3 space-y-2 text-sm">
-                            <div class="flex justify-between"><span class="text-gray-400">Primary:</span><span class="text-purple-400">Claude Opus 4.5</span></div>
-                            <div class="flex justify-between"><span class="text-gray-400">Search:</span><span class="text-gray-300">Brave API</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-xl p-4">
-                        <div class="text-2xl mb-2">📱</div>
-                        <h3 class="font-semibold text-green-300">Social Media</h3>
-                        <div class="mt-3 space-y-2 text-sm">
-                            <div class="flex justify-between"><span class="text-gray-400">Content:</span><span class="text-green-400">Claude Opus</span></div>
-                            <div class="flex justify-between"><span class="text-gray-400">Quick:</span><span class="text-gray-300">Groq Llama</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-orange-900/50 to-orange-800/30 rounded-xl p-4">
-                        <div class="text-2xl mb-2">💬</div>
-                        <h3 class="font-semibold text-orange-300">Chat</h3>
-                        <div class="mt-3 space-y-2 text-sm">
-                            <div class="flex justify-between"><span class="text-gray-400">Primary:</span><span class="text-orange-400">Claude Opus</span></div>
-                            <div class="flex justify-between"><span class="text-gray-400">Fast:</span><span class="text-gray-300">Groq</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="text-xl font-semibold mb-4">🔄 Fallback Chain</h2>
-                <div class="flex flex-wrap items-center gap-2 p-4 bg-gray-800/50 rounded-lg">
-                    <span class="px-3 py-2 bg-blue-600 rounded-lg text-sm font-medium">Claude Opus 4.5</span>
-                    <span class="text-gray-500">→</span>
-                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">Groq Llama 3.3</span>
-                    <span class="text-gray-500">→</span>
-                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">NVIDIA Kimi K2.5</span>
-                    <span class="text-gray-500">→</span>
-                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">OpenRouter Llama</span>
-                    <span class="text-gray-500">→</span>
-                    <span class="px-3 py-2 bg-gray-700 rounded-lg text-sm">Moonshot Kimi</span>
-                </div>
-
-                <h2 class="text-xl font-semibold mb-4 mt-6">📡 Provider Status</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <div><div class="font-medium">Anthropic</div><div class="text-xs text-gray-400">Claude Opus 4.5</div></div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <div><div class="font-medium">Groq</div><div class="text-xs text-gray-400">Llama 3.3 70B</div></div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <div><div class="font-medium">NVIDIA</div><div class="text-xs text-gray-400">Kimi K2.5</div></div>
-                    </div>
-                    <div class="p-4 bg-gray-800/50 rounded-lg flex items-center gap-3">
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <div><div class="font-medium">OpenRouter</div><div class="text-xs text-gray-400">Llama + Qwen</div></div>
-                    </div>
-                </div>
+            <!-- APPROVALS TAB -->
+            <div id="tab-approvals" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-1">Approvals</h2>
+                <p class="text-brand-muted text-xs mb-4">Items waiting for your review and approval</p>
+                <div id="approvals-content" class="space-y-3"></div>
             </div>
 
-            <!-- ==================== SYSTEM TAB ==================== -->
-            <div id="tab-system" class="tab-content slide-in">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">⚡ Agent Details</h2>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Agent Name</span>
-                                <span id="sys-agent" class="text-white font-medium">Alex Prime</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Role</span>
-                                <span class="text-blue-400 font-medium">Executive Director</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">State</span>
-                                <span id="sys-state" class="text-green-400 font-medium">Active</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Session</span>
-                                <span id="sys-session" class="text-gray-300 font-mono text-sm">main</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Primary Model</span>
-                                <span id="sys-model" class="text-purple-400 font-medium">Claude Opus 4.5</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-xl font-semibold mb-4">🖥️ System Info</h2>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Host</span>
-                                <span class="text-gray-300">ip-172-31-42-145</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">OS</span>
-                                <span class="text-gray-300">Ubuntu 24.04 LTS</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Node.js</span>
-                                <span class="text-gray-300">v22.22.0</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Channel</span>
-                                <span class="text-green-400 font-medium">WhatsApp</span>
-                            </div>
-                            <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
-                                <span class="text-gray-400">Dashboard</span>
-                                <span class="text-blue-400 font-medium">Vercel (Live)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- DOCUMENTS TAB -->
+            <div id="tab-documents" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Documents</h2>
+                <div id="documents-content"></div>
             </div>
-        </div>
 
-        <!-- Footer -->
-        <footer class="text-center text-gray-500 text-sm py-4">
-            Alex Prime Dashboard v6.0 • Vercel • Auto-refresh 10s • 
-            <a href="https://github.com/ALEXPRIME000/alex-dashboard" class="text-blue-400 hover:underline">GitHub</a>
-        </footer>
+            <!-- PROSPECTS TAB -->
+            <div id="tab-prospects" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Prospects & Leads</h2>
+                <div id="prospects-content" class="space-y-3"></div>
+            </div>
+
+            <!-- PEOPLE TAB -->
+            <div id="tab-people" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">People & Team</h2>
+                <div id="people-content"></div>
+            </div>
+
+            <!-- MEMORY TAB -->
+            <div id="tab-memory" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Memory Log</h2>
+                <div id="memory-content" class="space-y-2"></div>
+            </div>
+
+            <!-- INTEGRATIONS TAB -->
+            <div id="tab-integrations" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Integrations & Services</h2>
+                <div id="integrations-content" class="space-y-3"></div>
+            </div>
+
+            <!-- MODELS TAB -->
+            <div id="tab-models" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">AI Models & Usage</h2>
+                <div id="models-content" class="space-y-3"></div>
+            </div>
+
+            <!-- SKILLS TAB -->
+            <div id="tab-skills" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Installed Skills</h2>
+                <div id="skills-content" class="grid md:grid-cols-2 gap-3"></div>
+            </div>
+
+            <!-- GOALS TAB -->
+            <div id="tab-goals" class="tab-content fade-in">
+                <h2 class="text-lg font-bold mb-4">Goals & Targets</h2>
+                <div id="goals-content"></div>
+            </div>
+
+        </main>
     </div>
 
     <script>
-        // Tab switching
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-                if (btn.dataset.tab === 'performance') initCharts();
-            });
-        });
+    const GITHUB_RAW = 'https://raw.githubusercontent.com/ALEXPRIME000/alex-dashboard/main';
+    let statusData = null;
+    let fullData = null;
 
-        const REFRESH_INTERVAL = 10;
-        let countdown = REFRESH_INTERVAL;
+    function showTab(tab) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+        document.querySelectorAll(`[data-tab="${tab}"]`).forEach(el => el.classList.add('active'));
+    }
 
-        function updateClock() {
-            document.getElementById('current-time').textContent = new Date().toLocaleTimeString();
+    function timeAgo(dateStr) {
+        const diff = Date.now() - new Date(dateStr).getTime();
+        const mins = Math.floor(diff / 60000);
+        if (mins < 1) return 'just now';
+        if (mins < 60) return mins + 'm ago';
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24) return hrs + 'h ago';
+        return Math.floor(hrs / 24) + 'd ago';
+    }
+
+    function tag(text, type) {
+        return `<span class="tag tag-${type}">${text}</span>`;
+    }
+
+    function githubLink(path) {
+        return `https://github.com/ALEXPRIME000/alex-dashboard/blob/master/${path}`;
+    }
+
+    async function loadData() {
+        try {
+            const [statusRes, dataRes] = await Promise.all([
+                fetch(GITHUB_RAW + '/status.json?t=' + Date.now()),
+                fetch(GITHUB_RAW + '/data.json?t=' + Date.now()).catch(() => null)
+            ]);
+            statusData = await statusRes.json();
+            if (dataRes && dataRes.ok) fullData = await dataRes.json();
+        } catch (e) {
+            console.error('Failed to load data:', e);
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        render();
+    }
 
-        async function fetchStatus() {
-            try {
-                const res = await fetch(`status.json?t=${Date.now()}`, { cache: 'no-store' });
-                if (!res.ok) throw new Error('Fetch failed');
-                const data = await res.json();
-                updateDashboard(data);
-                document.getElementById('refresh-status').textContent = 'Live ✓';
-                document.getElementById('refresh-status').className = 'text-green-400';
-            } catch (e) {
-                console.error('Fetch error:', e);
-                document.getElementById('refresh-status').textContent = 'Offline';
-                document.getElementById('refresh-status').className = 'text-red-400';
-            }
-            countdown = REFRESH_INTERVAL;
-        }
+    function render() {
+        if (!statusData) return;
 
-        function updateDashboard(data) {
-            const isActive = data.status === 'active' || data.status === 'working';
-            
-            // Header status
-            document.getElementById('status-text').textContent = data.status?.toUpperCase() || 'UNKNOWN';
-            document.getElementById('status-text').className = isActive ? 'font-semibold text-green-400' : 'font-semibold text-yellow-400';
-            document.getElementById('status-dot').className = isActive ? 'w-4 h-4 bg-green-500 rounded-full block pulse-fast' : 'w-4 h-4 bg-yellow-500 rounded-full block pulse';
-            document.getElementById('status-box').className = isActive ? 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-green' : 'flex items-center gap-3 glass px-4 py-3 rounded-xl glow-yellow';
-            document.getElementById('header-task').textContent = data.currentTask || 'Idle';
+        // Header
+        document.getElementById('last-update').textContent = timeAgo(statusData.lastUpdate);
+        document.getElementById('agent-status-text').textContent = statusData.status?.toUpperCase() || 'ACTIVE';
+        document.getElementById('current-task').textContent = statusData.currentTask || 'Idle';
 
-            // Stats
-            if (data.stats) {
-                document.getElementById('stat-progress').textContent = data.stats.tasksInProgress ?? '-';
-                document.getElementById('stat-pending').textContent = data.stats.tasksPending ?? '-';
-                document.getElementById('stat-completed').textContent = data.stats.tasksCompleted ?? '-';
-                document.getElementById('stat-tokens').textContent = data.stats.tokensEstimated ? Math.round(data.stats.tokensEstimated / 1000) + 'K' : '-';
-                document.getElementById('stat-cost').textContent = data.stats.costEstimated ? '$' + data.stats.costEstimated.toFixed(2) : '-';
-                
-                // Tasks tab counts
-                document.getElementById('tasks-inprogress-count').textContent = data.stats.tasksInProgress ?? 0;
-                document.getElementById('tasks-pending-count').textContent = data.stats.tasksPending ?? 0;
-                document.getElementById('tasks-completed-count').textContent = data.stats.tasksCompleted ?? 0;
-            }
+        // Stats
+        document.getElementById('stat-completed').textContent = statusData.stats?.tasksCompleted || 0;
+        document.getElementById('stat-pending').textContent = statusData.stats?.tasksPending || 0;
 
-            // Heartbeat
-            if (data.heartbeat?.lastCheck) {
-                const hbTime = new Date(data.heartbeat.lastCheck).toLocaleTimeString();
-                document.getElementById('stat-heartbeat').textContent = hbTime;
-            }
+        // Recent Actions
+        const ra = document.getElementById('recent-actions');
+        ra.innerHTML = (statusData.recentActions || []).map(a =>
+            `<div class="flex items-start gap-2 text-xs"><span class="text-brand mt-0.5">▸</span><span class="text-gray-300">${a}</span></div>`
+        ).join('');
 
-            // Current project (main highlight)
-            document.getElementById('current-project').textContent = data.currentTask || 'No active task';
-            document.getElementById('current-project-details').textContent = `Status: ${data.status || 'unknown'} • Model: ${data.model || '-'} • Session: ${data.session || '-'}`;
+        // Pending Tasks
+        const pt = document.getElementById('pending-tasks');
+        pt.innerHTML = (statusData.pendingTasks || []).map(t =>
+            `<div class="flex items-start justify-between gap-2 text-xs">
+                <span class="text-gray-300">${t.name}</span>
+                ${tag(t.priority, t.priority)}
+            </div>`
+        ).join('');
 
-            // Quick stats
-            document.getElementById('quick-agent').textContent = data.agent || 'Alex Prime';
-            document.getElementById('quick-model').textContent = data.model || '-';
-            document.getElementById('quick-session').textContent = data.session || '-';
-            
-            if (data.lastUpdate) {
-                const updateTime = new Date(data.lastUpdate);
-                document.getElementById('quick-updated').textContent = updateTime.toLocaleTimeString();
-                document.getElementById('last-update').textContent = 'Data: ' + updateTime.toLocaleTimeString();
-            }
+        if (!fullData) return;
 
-            // System tab
-            document.getElementById('sys-agent').textContent = data.agent || 'Alex Prime';
-            document.getElementById('sys-state').textContent = data.status?.toUpperCase() || '-';
-            document.getElementById('sys-session').textContent = data.session || '-';
-            document.getElementById('sys-model').textContent = data.model || '-';
+        // Approvals
+        const appCount = fullData.approvals?.length || 0;
+        document.getElementById('stat-approvals').textContent = appCount;
+        document.getElementById('approval-badge').textContent = appCount;
+        const ac = document.getElementById('approvals-content');
+        ac.innerHTML = (fullData.approvals || []).map(a =>
+            `<div class="glass rounded-xl p-4 flex items-center justify-between">
+                <div>
+                    <div class="text-sm font-medium">${a.item}</div>
+                    <div class="text-[10px] text-brand-muted mt-1">${a.file ? `<a href="${githubLink(a.file)}" target="_blank" class="text-blue-400 hover:underline">${a.file}</a>` : 'No file'} • ${a.created}</div>
+                </div>
+                ${tag(a.priority, a.priority)}
+            </div>`
+        ).join('');
 
-            // Recent actions
-            if (data.recentActions?.length) {
-                document.getElementById('recent-actions').innerHTML = data.recentActions.map((action, i) => `
-                    <div class="flex items-center gap-3 p-2 bg-gray-800/30 rounded-lg text-sm">
-                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full ${i === 0 ? 'blink' : ''}"></span>
-                        <span class="text-gray-300">${action}</span>
-                    </div>
-                `).join('');
-            }
+        // Projects
+        const pc = document.getElementById('projects-content');
+        pc.innerHTML = (fullData.projects || []).map(p =>
+            `<div class="glass rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-bold">${p.name}</h3>
+                    ${tag(p.status, p.status)}
+                </div>
+                <p class="text-xs text-brand-muted mb-3">${p.description}</p>
+                <div class="w-full bg-brand-border rounded-full h-1.5 mb-2">
+                    <div class="progress-bar h-1.5 rounded-full" style="width:${p.progress}%"></div>
+                </div>
+                <div class="flex justify-between text-[10px] text-brand-muted">
+                    <span>${p.progress}% complete</span>
+                    ${p.revenue ? `<span class="text-brand">${p.revenue}</span>` : ''}
+                </div>
+                ${p.nextStep ? `<div class="mt-2 text-[10px] text-yellow-400">Next: ${p.nextStep}</div>` : ''}
+                ${p.files ? `<div class="mt-2 flex flex-wrap gap-1">${p.files.map(f => `<a href="${githubLink(f)}" target="_blank" class="text-[9px] text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded-full hover:underline">${f.split('/').pop()}</a>`).join('')}</div>` : ''}
+            </div>`
+        ).join('');
 
-            // To-do list (pending tasks)
-            if (data.pendingTasks?.length) {
-                document.getElementById('todo-list').innerHTML = data.pendingTasks.map(task => `
-                    <div class="flex items-center gap-3 p-2 bg-gray-800/30 rounded-lg text-sm">
-                        <span class="w-2 h-2 ${task.priority === 'high' ? 'bg-red-500' : task.priority === 'medium' ? 'bg-yellow-500' : 'bg-gray-500'} rounded-full"></span>
-                        <span class="flex-1 text-gray-300">${task.name}</span>
-                        <span class="text-xs ${task.priority === 'high' ? 'text-red-400' : task.priority === 'medium' ? 'text-yellow-400' : 'text-gray-400'}">${task.priority}</span>
-                    </div>
-                `).join('');
-                
-                // Tasks tab pending
-                document.getElementById('tasks-pending').innerHTML = data.pendingTasks.map(task => `
-                    <div class="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
-                        <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                        <span class="flex-1 text-gray-300">${task.name}</span>
-                        <span class="text-xs px-2 py-1 rounded ${
-                            task.priority === 'high' ? 'text-red-400 bg-red-900/30' :
-                            task.priority === 'medium' ? 'text-yellow-400 bg-yellow-900/30' :
-                            'text-gray-400 bg-gray-700/50'
-                        }">${task.priority}</span>
-                    </div>
-                `).join('');
-            }
-
-            // Completed tasks
-            if (data.completedTasks?.length) {
-                // Overview - show first 6
-                document.getElementById('recent-completed').innerHTML = data.completedTasks.slice(0, 6).map(task => `
-                    <div class="flex items-center gap-2 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300 text-sm">${task.name}</span>
-                        <span class="text-xs text-gray-500">${task.date}</span>
-                    </div>
-                `).join('');
-                
-                // Tasks tab - show all
-                document.getElementById('tasks-completed').innerHTML = data.completedTasks.map(task => `
-                    <div class="flex items-center gap-3 p-3 bg-green-900/20 rounded-lg">
-                        <span class="text-green-500">✓</span>
-                        <span class="flex-1 text-gray-300">${task.name}</span>
-                        <span class="text-xs text-gray-500">${task.date}</span>
-                    </div>
-                `).join('');
-            }
-
-            // In progress task for Tasks tab
-            if (data.currentTask && data.stats?.tasksInProgress > 0) {
-                document.getElementById('tasks-inprogress').innerHTML = `
-                    <div class="p-4 bg-orange-900/20 border border-orange-500/30 rounded-lg">
+        // Documents
+        const dc = document.getElementById('documents-content');
+        const docCategories = fullData.documents || {};
+        dc.innerHTML = Object.entries(docCategories).map(([cat, docs]) =>
+            `<div class="mb-6">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">${cat.charAt(0).toUpperCase() + cat.slice(1)} <span class="text-brand-muted font-normal">(${docs.length})</span></h3>
+                <div class="space-y-2">
+                    ${docs.map(d => `<div class="glass rounded-lg px-4 py-3 flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <span class="w-3 h-3 bg-orange-500 rounded-full blink"></span>
-                            <span class="text-lg font-medium text-white">${data.currentTask}</span>
+                            <span class="text-sm">${cat === 'scripts' ? '⚙️' : cat === 'templates' ? '📄' : cat === 'marketing' ? '📣' : cat === 'prospects' ? '🎯' : cat === 'reports' ? '📊' : cat === 'trackers' ? '📈' : '📝'}</span>
+                            <div>
+                                <a href="${githubLink(d.path)}" target="_blank" class="text-xs font-medium hover:text-brand transition">${d.name}</a>
+                                <div class="text-[10px] text-brand-muted">${d.path}</div>
+                            </div>
                         </div>
-                        <div class="text-sm text-gray-400 mt-2">Started recently • ${data.model || 'Claude Opus 4.5'}</div>
+                        <div class="flex items-center gap-2">
+                            ${d.date ? `<span class="text-[10px] text-brand-muted">${d.date}</span>` : ''}
+                            ${d.status ? tag(d.status, d.status) : ''}
+                            ${d.priority ? tag(d.priority, d.priority) : ''}
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>`
+        ).join('');
+
+        // Tasks
+        const tc = document.getElementById('tasks-content');
+        const tasks = statusData.pendingTasks || [];
+        const completed = statusData.completedTasks || [];
+        tc.innerHTML = `
+            <div class="glass rounded-xl p-4 mb-4">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">⏳ Pending (${tasks.length})</h3>
+                ${tasks.map(t => `<div class="flex items-center justify-between py-2 border-b border-brand-border last:border-0">
+                    <span class="text-xs">${t.name}</span>${tag(t.priority, t.priority)}
+                </div>`).join('')}
+            </div>
+            <div class="glass rounded-xl p-4">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">✅ Completed (${completed.length})</h3>
+                ${completed.map(t => `<div class="flex items-center justify-between py-2 border-b border-brand-border last:border-0">
+                    <span class="text-xs text-gray-400">${t.name}</span>
+                    <span class="text-[10px] text-brand-muted">${t.date}</span>
+                </div>`).join('')}
+            </div>`;
+
+        // Prospects
+        const prosc = document.getElementById('prospects-content');
+        const prospects = fullData.people?.prospects || [];
+        prosc.innerHTML = prospects.map(p =>
+            `<div class="glass rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-sm font-bold">${p.name}</h3>
+                    ${tag(p.status, p.status === 'qualified' ? 'active' : p.status)}
+                </div>
+                <div class="text-xs text-brand-muted">${p.role}</div>
+                ${p.phone ? `<div class="text-xs mt-1">📞 <span class="text-brand font-mono">${p.phone}</span></div>` : ''}
+            </div>`
+        ).join('') + `<div class="glass rounded-xl p-4 mt-2"><a href="${githubLink('prospects/torcy-boulangeries.md')}" target="_blank" class="text-xs text-blue-400 hover:underline">📄 View full prospect research →</a></div>`;
+
+        // People
+        const pplc = document.getElementById('people-content');
+        const team = fullData.people?.team || [];
+        const contacts = fullData.people?.contacts || [];
+        pplc.innerHTML = `
+            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Team (Agents)</h3>
+            <div class="grid md:grid-cols-2 gap-3 mb-6">
+                ${team.map(t => `<div class="glass rounded-xl p-4 flex items-center gap-3">
+                    <div class="text-2xl">${t.emoji}</div>
+                    <div>
+                        <div class="text-sm font-bold">${t.name}</div>
+                        <div class="text-[10px] text-brand-muted">${t.role}</div>
                     </div>
-                `;
-            } else {
-                document.getElementById('tasks-inprogress').innerHTML = '<div class="text-gray-500 text-center py-6">No active tasks</div>';
-            }
-        }
+                    <div class="ml-auto"><span class="status-dot status-${t.status}"></span></div>
+                </div>`).join('')}
+            </div>
+            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Contacts</h3>
+            <div class="space-y-2">
+                ${contacts.map(c => `<div class="glass rounded-lg px-4 py-3 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-medium">${c.name}</div>
+                        <div class="text-[10px] text-brand-muted">${c.role}</div>
+                    </div>
+                    <div class="text-right">
+                        ${c.email ? `<div class="text-[10px] text-blue-400">${c.email}</div>` : ''}
+                        ${c.phone ? `<div class="text-[10px] text-brand-muted font-mono">${c.phone}</div>` : ''}
+                    </div>
+                </div>`).join('')}
+            </div>`;
 
-        function updateCountdown() {
-            document.getElementById('refresh-countdown').textContent = `↻ ${countdown}s`;
-            countdown--;
-            if (countdown < 0) fetchStatus();
-        }
+        // Memory
+        const mc = document.getElementById('memory-content');
+        const memFiles = fullData.memory?.files || [];
+        const coreFiles = fullData.memory?.coreFiles || [];
+        mc.innerHTML = `
+            <div class="glass rounded-xl p-4 mb-4">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Core Memory</h3>
+                ${coreFiles.map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-xs text-blue-400 hover:underline py-1">🧠 ${f}</a>`).join('')}
+            </div>
+            <div class="glass rounded-xl p-4">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">Daily Logs (${memFiles.length} entries)</h3>
+                ${[...memFiles].reverse().map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-xs text-gray-400 hover:text-brand transition py-1">📝 ${f.replace('memory/', '')}</a>`).join('')}
+            </div>`;
 
-        // Charts
-        let chartsInit = false;
-        function initCharts() {
-            if (chartsInit) return;
-            chartsInit = true;
+        // Integrations
+        const ic = document.getElementById('integrations-content');
+        const services = fullData.integrations?.services || [];
+        ic.innerHTML = services.map(s =>
+            `<div class="glass rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="status-dot status-${s.status}"></span>
+                    <div>
+                        <div class="text-sm font-medium">${s.name}</div>
+                        <div class="text-[10px] text-brand-muted">${s.notes || ''}</div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    ${tag(s.status, s.status === 'connected' ? 'active' : s.status === 'expired' ? 'high' : 'planning')}
+                    ${s.url ? `<div class="mt-1"><a href="${s.url}" target="_blank" class="text-[10px] text-blue-400 hover:underline">Open →</a></div>` : ''}
+                </div>
+            </div>`
+        ).join('');
 
-            new Chart(document.getElementById('activityChart').getContext('2d'), {
-                type: 'line',
-                data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', 'Now'],
-                    datasets: [{ label: 'Activity', data: [2, 1, 5, 8, 12, 18, 15], borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.1)', fill: true, tension: 0.4 }]
-                },
-                options: { responsive: true, plugins: { legend: { labels: { color: '#9ca3af' } } }, scales: { x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }, y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } } } }
-            });
+        // Models
+        const mc2 = document.getElementById('models-content');
+        const models = fullData.integrations?.models || [];
+        mc2.innerHTML = models.map(m =>
+            `<div class="glass rounded-xl p-4 flex items-center justify-between">
+                <div>
+                    <div class="text-sm font-medium">${m.model}</div>
+                    <div class="text-[10px] text-brand-muted">${m.provider} • ${m.role}</div>
+                </div>
+                <div class="text-right">
+                    <div class="text-xs text-brand-muted">${m.plan}</div>
+                    ${tag(m.status, m.status === 'active' ? 'active' : 'medium')}
+                </div>
+            </div>`
+        ).join('');
 
-            new Chart(document.getElementById('taskChart').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Jan 31', 'Feb 1', 'Feb 2'],
-                    datasets: [{ label: 'Completed', data: [2, 5, 12], backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 4 }]
-                },
-                options: { responsive: true, plugins: { legend: { labels: { color: '#9ca3af' } } }, scales: { x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }, y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' }, beginAtZero: true } } }
-            });
+        // Skills
+        const sc = document.getElementById('skills-content');
+        const skills = fullData.skills || [];
+        sc.innerHTML = skills.map(s =>
+            `<div class="glass rounded-lg p-3">
+                <div class="text-xs font-bold text-brand">${s.name}</div>
+                <div class="text-[10px] text-brand-muted mt-1">${s.description}</div>
+            </div>`
+        ).join('');
 
-            new Chart(document.getElementById('tokenChart').getContext('2d'), {
-                type: 'line',
-                data: {
-                    labels: ['Jan 27', 'Jan 28', 'Jan 29', 'Jan 30', 'Jan 31', 'Feb 1', 'Feb 2'],
-                    datasets: [{ label: 'Tokens (K)', data: [0, 0, 0, 0, 50, 200, 500], borderColor: '#8b5cf6', backgroundColor: 'rgba(139,92,246,0.1)', fill: true, tension: 0.4 }]
-                },
-                options: { responsive: true, plugins: { legend: { labels: { color: '#9ca3af' } } }, scales: { x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }, y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } } } }
-            });
+        // Goals
+        const gc = document.getElementById('goals-content');
+        const lifeGoals = fullData.goals?.life || [];
+        const bizGoals = fullData.goals?.business || [];
+        gc.innerHTML = `
+            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">🏠 Life Goals</h3>
+            <div class="space-y-3 mb-6">
+                ${lifeGoals.map(g => `<div class="glass rounded-xl p-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">${g.goal}</span>
+                        <span class="text-xs text-brand">${g.target}</span>
+                    </div>
+                    <div class="w-full bg-brand-border rounded-full h-1.5">
+                        <div class="progress-bar h-1.5 rounded-full" style="width:${g.progress}%"></div>
+                    </div>
+                    <div class="text-[10px] text-brand-muted mt-1">${g.progress}% progress</div>
+                </div>`).join('')}
+            </div>
+            <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">💼 Business Goals</h3>
+            <div class="space-y-3">
+                ${bizGoals.map(g => `<div class="glass rounded-xl p-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">${g.goal}</span>
+                        <span class="text-xs text-brand-muted">${g.target}</span>
+                    </div>
+                    <div class="w-full bg-brand-border rounded-full h-1.5">
+                        <div class="progress-bar h-1.5 rounded-full" style="width:${g.progress}%"></div>
+                    </div>
+                    <div class="text-[10px] text-brand-muted mt-1">${g.progress}% progress</div>
+                </div>`).join('')}
+            </div>`;
+    }
 
-            new Chart(document.getElementById('costChart').getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Claude Opus', 'Groq (Free)', 'NVIDIA (Free)', 'Web Search'],
-                    datasets: [{ data: [85, 0, 0, 15], backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b'] }]
-                },
-                options: { responsive: true, plugins: { legend: { position: 'right', labels: { color: '#9ca3af' } } } }
-            });
-        }
-
-        fetchStatus();
-        setInterval(updateCountdown, 1000);
+    // Initial load
+    loadData();
+    // Auto-refresh every 30s
+    setInterval(loadData, 30000);
     </script>
 </body>
 </html>
