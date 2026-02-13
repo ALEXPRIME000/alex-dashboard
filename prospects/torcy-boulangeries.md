@@ -64,9 +64,13 @@
 |-------|-------|
 | **Nom** | C.C.P Fournil |
 | **Adresse** | 34 Rue de Paris, 77200 Torcy |
-| **Téléphone** | *To research* |
+| **Téléphone** | **01 60 05 28 84** |
 | **Email** | *Non renseigné* |
 | **Site Web** | ❌ **AUCUN** |
+| **Facebook** | ✅ [Boulangerie pâtisserie CCP fournil](https://www.facebook.com/p/Boulangerie-p%C3%A2tisserie-CCP-fournil-100081814107539/) |
+| **SIRET** | 804 761 856 00017 |
+| **Forme juridique** | SARL |
+| **Fonds acheté** | 550 000 € (07/10/2014) |
 
 ### Horaires & Services
 | Service | Disponible |
@@ -106,7 +110,7 @@
 | # | Boulangerie | Adresse | Téléphone | Site Web | Score |
 |---|-------------|---------|-----------|----------|-------|
 | 1 | **Le Belvédère** | 17 Prom. Belvédère | **09 87 32 46 79** | ❌ Aucun | 4/5 |
-| 2 | **C.C.P Fournil** | 34 Rue de Paris | À trouver | ❌ Aucun | 4/5 |
+| 2 | **C.C.P Fournil** | 34 Rue de Paris | **01 60 05 28 84** | ❌ Aucun (Facebook ✅) | 4/5 |
 | 3 | *Ambiance Gourmande* | 9 Rue du Cèdre | 01 72 99 56 18 | ✅ ambiance-gourmande.fr | — |
 
 **Total prospects qualifiés:** 2 boulangeries sans site web
@@ -123,9 +127,9 @@
 
 ### Priorité 2: C.C.P Fournil  
 - [x] Research basique — **TERMINÉ**
-- [ ] Trouver téléphone
-- [ ] Check réseaux sociaux
-- [ ] Préparer approche
+- [x] Trouver téléphone — **01 60 05 28 84**
+- [x] Check réseaux sociaux — **Facebook page trouvée** (active, dernière pub Noël)
+- [ ] Préparer approche (adapter pitch: "vous avez Facebook mais pas de site")
 
 ### Script suggéré (appel):
 > "Bonjour, je suis Kabundji de Pulse Graphix à Torcy. Je suis passé devant votre boulangerie et j'ai remarqué que vous n'avez pas de site web. 83% des clients vérifient en ligne avant de se déplacer — je peux vous aider à capter ce trafic. Possibilité d'un site vitrine à partir de 800€. Ça vous intéresse de discuter 10 minutes ?"
@@ -137,8 +141,8 @@
 - [x] Rechercher téléphone Le Belvédère — **TROUVÉ: 09 87 32 46 79**
 - [x] Identifier 2+ autres boulangeries Torcy — TERMINÉ
 - [x] Qualifier C.C.P Fournil — TERMINÉ
-- [ ] Trouver téléphone C.C.P Fournil
-- [ ] Check Instagram/Facebook presence pour les 2 prospects
+- [x] Trouver téléphone C.C.P Fournil — **01 60 05 28 84**
+- [x] Check Facebook C.C.P Fournil — **PAGE TROUVÉE** (active)
 - [ ] Préparer script de prospection
 
 *Source: Pages Jaunes, UneBoulangerie.fr, Mappy, ambiance-gourmande.fr*
