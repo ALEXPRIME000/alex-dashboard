@@ -25,6 +25,13 @@
 
 ### ✅ Morning Briefing sent (WhatsApp, 06:00 UTC)
 
+### ✅ Security Audit (Feb 13)
+- Full host security review completed
+- File: `docs/SECURITY_AUDIT_2026-02-13.md`
+- **CRITICAL:** UFW firewall INACTIVE - requires Kabundji action
+- Credentials properly secured (600 permissions)
+- OpenClaw gateway localhost-only (secure)
+
 ### ✅ Templates Facture/Devis (Feb 10)
 - 4 templates: devis-fr, invoice-fr, quotation-en, invoice-en
 - Print-ready CSS

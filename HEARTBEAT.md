@@ -6,11 +6,11 @@ Kabundji's directive: "You haven't been productive" — use heartbeat time for R
 ## On Each Heartbeat (every 10 min):
 
 ### 1. Update Dashboard Status (MANDATORY!)
-Update `dashboard/status.json` with current info, then push to GitHub:
+Run the data sync script to generate fresh status.json + data.json from workspace, then push:
 ```bash
-# Quick update (edit status.json with current task, then):
-cd /home/ubuntu/.openclaw/workspace/dashboard
-git add status.json && git commit -m "Status update $(date +%H:%M)" && git push origin main
+cd /home/ubuntu/.openclaw/workspace
+node scripts/generate-dashboard-data.js
+cd dashboard && git add -A && git commit -m "Heartbeat $(date +%H:%M)" && git push origin main
 ```
 
 Dashboard URL: https://dashboard-ten-mu-52.vercel.app

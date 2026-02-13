@@ -1,8 +1,11 @@
 {
   "lastChecks": {
-    "email": "2026-02-12T05:30:00Z — OAuth expired",
-    "calendar": "2026-02-12T05:30:00Z — OAuth expired",
+    "email": null,
+    "calendar": null,
     "weather": null,
-    "dashboard": "2026-02-12T05:30:00Z — Updated & pushed"
-  }
+    "backup": 1770947400,
+    "dashboard": 1770947400,
+    "telegram": 1770947400
+  },
+  "notes": "OAuth still expired. Telegram bot configured 2026-02-13 01:54 UTC. Daily backup 66M done."
 }

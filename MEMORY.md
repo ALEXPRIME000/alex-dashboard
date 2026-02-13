@@ -4,6 +4,15 @@
 
 ---
 
+## ⚠️ Token Management (2026-02-13)
+**Issue:** Context overflow — prompts too large for model constraints  
+**Lesson learned:** Be concise, batch large outputs to files  
+**Fix:** Write large documents to files instead of inline responses  
+**Examples:** Security audit → docs/SECURITY_AUDIT_*.md instead of inline output  
+**Rule:** If response >500 tokens, write to file and summarize
+
+---
+
 ## 🚨 PRIMARY DIRECTIVE (2026-02-02)
 **Kabundji wants me to be his proactive virtual employee:**
 - Work autonomously, especially while he sleeps

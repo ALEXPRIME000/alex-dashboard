@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "designer": {
+      "version": "1.0.0",
+      "installedAt": 1770940137191
+    },
+    "frontend-design-3": {
+      "version": "0.1.0",
+      "installedAt": 1770940139229
+    },
+    "graphic-design": {
+      "version": "1.0.0",
+      "installedAt": 1770940142760
+    },
+    "superdesign": {
+      "version": "1.0.0",
+      "installedAt": 1770940146259
+    },
+    "tailwind-v4-shadcn": {
+      "version": "1.0.0",
+      "installedAt": 1770945330604
+    },
+    "color-palette": {
+      "version": "1.1.0",
+      "installedAt": 1770945332732
+    },
+    "happy-hues": {
+      "version": "1.0.0",
+      "installedAt": 1770945335008
+    },
+    "colors": {
+      "version": "1.0.0",
+      "installedAt": 1770945337096
+    },
+    "shadcn": {
+      "version": "1.0.0",
+      "installedAt": 1770945352144
+    }
+  }
+}
