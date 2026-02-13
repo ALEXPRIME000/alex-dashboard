@@ -1,6 +1,6 @@
 # MEMORY.md — Alex Prime Long-Term Memory
 
-*Last Updated: 2026-02-02*
+*Last Updated: 2026-02-13*
 
 ---
 
@@ -22,7 +22,8 @@
 - **Role:** Executive Director Agent / Virtual Employee
 - **Human:** Kabundji (Chicco Mutombo Kabundji)
 - **Created:** January 31, 2026
-- **Dashboard:** https://dashboard-ten-mu-52.vercel.app
+- **Dashboard (v5):** https://pulse-graphix-dashboard.vercel.app
+- **Dashboard (old):** https://dashboard-ten-mu-52.vercel.app
 
 ---
 
@@ -126,6 +127,29 @@
 - GitHub Pages caches 10 mins — use Vercel instead
 - Vercel deploys instantly — better for live dashboards
 - GOG_KEYRING_PASSWORD="openclaw" for gog CLI
+- Google OAuth expired since Feb 12 — needs `bash scripts/fix-oauth.sh`
+- Dashboard built 5 versions in one night (v1-v5) based on Kabundji feedback
+- shadcn/ui + next-themes for light/dark mode — Kabundji's preferred approach
+- Happy Hues palettes: Light=Clean Blue+Bold Pop, Dark=Deep Purple+Forest Green
+- Kabundji is a designer — he cares deeply about UI quality, spacing, alignment
+- 8 design skills installed from ClawHub (designer, frontend-design, graphic-design, superdesign, shadcn, tailwind-v4-shadcn, happy-hues, color-palette, colors)
+- Telegram setup started but not finished — needs bot token from @BotFather
+- Vercel deployment works: `VERCEL_TOKEN=$(cat credentials/vercel_token.txt) && npx vercel --prod --token "$VERCEL_TOKEN" --yes`
+- Dashboard Next.js repo: /home/ubuntu/.openclaw/workspace/dashboard-next/
+
+---
+
+## Template Business Strategy (2026-02-13)
+**Kabundji wants Pulse Graphix to become a world-class creative agency** (advertising firm level)
+- Animated template economy: $50-100/template, $100-300k/year for top creators
+- Key tools: Aura ($20/mo), Unicorn Studio, Iconify/Solar, Nano Banana Pro, Gemini 3
+- Framer = 100% earnings, Webflow = 95% earnings
+- French market is UNDERSERVED — blue ocean opportunity
+- Strategy doc: `business/template-blueprint-strategy.md`
+- Revenue target: €10k/mo in 6 months
+- Key prompts: beam animations, marquee, fade-in/blur-in, scroll-triggered, sticky elements
+- Hero section = 50% of time, screenshots > text prompts for AI
+- Already have 6 design skills installed for Claude Code
 
 ---
 
