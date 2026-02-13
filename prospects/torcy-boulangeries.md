@@ -57,20 +57,88 @@
 
 ---
 
-## 📋 AUTRES BOULANGERIES À RESEARCHER (Torcy)
+## 📊 C.C.P Fournil — DETAILED PROFILE
 
-Liste des autres établissements à qualifier:
+### Contact Information
+| Field | Value |
+|-------|-------|
+| **Nom** | C.C.P Fournil |
+| **Adresse** | 34 Rue de Paris, 77200 Torcy |
+| **Téléphone** | *To research* |
+| **Email** | *Non renseigné* |
+| **Site Web** | ❌ **AUCUN** |
 
-1. **La Fournée de Torcy** — 17 Promenade du Belvédère (même adresse? potentiellement concurrent ou ancien nom)
-2. *[À compléter avec autres prospects]*
+### Horaires & Services
+| Service | Disponible |
+|---------|------------|
+| Ouvert lundi | ✅ |
+| Ouvert dimanche | ✅ |
+| À emporter | ✅ |
+| Accès PMR | ✅ |
+| CB acceptée | ✅ |
+
+### Évaluation
+- **Note:** 4,0 / 5 étoiles (367 avis)
+- **Recommandations:** 1 personne recommande
+
+### Opportunité Business
+**SCORE: ⭐⭐⭐⭐ (4/5)**
+- ✅ **PAS DE SITE WEB** → excellent prospect site vitrine
+- ✅ Bonne réputation (4/5, 367 avis) → entreprise établie
+- ✅ Bon emplacement (Rue de Paris, passage)
+- ✅ Services modernes (PMR, CB)
+
+---
+
+## ❌ PAS DES PROSPECTS (Ont déjà un site)
+
+### Ambiance Gourmande
+- **Adresse:** 9 Rue du Cèdre, 77200 Torcy
+- **Site web:** ✅ https://ambiance-gourmande.fr/
+- **Téléphone:** 01 72 99 56 18
+- **Services:** Pâtisseries sur-mesure, événements
+- **Note:** Site bien fait, SEO présent
+
+---
+
+## 📋 SYNTHÈSE PROSPECTS TORCY
+
+| # | Boulangerie | Adresse | Téléphone | Site Web | Score |
+|---|-------------|---------|-----------|----------|-------|
+| 1 | **Le Belvédère** | 17 Prom. Belvédère | **09 87 32 46 79** | ❌ Aucun | 4/5 |
+| 2 | **C.C.P Fournil** | 34 Rue de Paris | À trouver | ❌ Aucun | 4/5 |
+| 3 | *Ambiance Gourmande* | 9 Rue du Cèdre | 01 72 99 56 18 | ✅ ambiance-gourmande.fr | — |
+
+**Total prospects qualifiés:** 2 boulangeries sans site web
+
+---
+
+## 🎯 PLAN D'ACTION PROSPECTION
+
+### Priorité 1: Le Belvédère
+- [x] Research — **TERMINÉ**
+- [x] Téléphone trouvé: **09 87 32 46 79**
+- [ ] Check Instagram/Facebook presence
+- [ ] Préparer appel / email
+
+### Priorité 2: C.C.P Fournil  
+- [x] Research basique — **TERMINÉ**
+- [ ] Trouver téléphone
+- [ ] Check réseaux sociaux
+- [ ] Préparer approche
+
+### Script suggéré (appel):
+> "Bonjour, je suis Kabundji de Pulse Graphix à Torcy. Je suis passé devant votre boulangerie et j'ai remarqué que vous n'avez pas de site web. 83% des clients vérifient en ligne avant de se déplacer — je peux vous aider à capter ce trafic. Possibilité d'un site vitrine à partir de 800€. Ça vous intéresse de discuter 10 minutes ?"
 
 ---
 
 ## Résumé Actions
 - [x] Research Le Belvédère — TERMINÉ
-- [ ] Rechercher téléphone direct
-- [ ] Check Instagram/Facebook presence
-- [ ] Identifier 5 autres boulangeries Torcy
+- [x] Rechercher téléphone Le Belvédère — **TROUVÉ: 09 87 32 46 79**
+- [x] Identifier 2+ autres boulangeries Torcy — TERMINÉ
+- [x] Qualifier C.C.P Fournil — TERMINÉ
+- [ ] Trouver téléphone C.C.P Fournil
+- [ ] Check Instagram/Facebook presence pour les 2 prospects
 - [ ] Préparer script de prospection
 
-*Source: Pages Jaunes, UneBoulangerie.fr, Mappy*
+*Source: Pages Jaunes, UneBoulangerie.fr, Mappy, ambiance-gourmande.fr*
