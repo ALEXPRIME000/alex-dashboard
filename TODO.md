@@ -1,118 +1,197 @@
 # TODO.md — Alex Prime Task Tracker
-*Last Updated: 2026-02-13T14:10:00Z*
+*Last Updated: 2026-02-14T23:50:00Z*
 
 ---
 
-## 🟢 COMPLETED (Feb 13)
+## 🔥 THIS WEEK (Feb 15-21, 2026)
 
-### ✅ Dashboard V6 — Complete Rebuild
-- 12 organized sections (Overview, Tasks, Projects, Approvals, Documents, Prospects, People, Memory, Integrations, Models, Skills, Goals)
-- All 85 files catalogued with GitHub links
-- Live data updates every 30s
-- Pushed to Vercel: https://dashboard-ten-mu-52.vercel.app
+### 🟢 IMMEDIATE — Do Today/Tomorrow
 
-### ✅ Template Business Strategy
-- Full market analysis from video transcript
-- 5 revenue streams identified
-- Revenue target: €10k/mo in 6 months
-- File: `business/template-blueprint-strategy.md`
+- [ ] **Dashboard Always Live** — Ensure Alex Prime dashboard + future Pulse Graphix dashboard auto-sync every heartbeat
+  - **Deadline:** Ongoing (every 10 min)
+  - **Status:** Alex Prime dashboard ✅ syncing. Pulse Graphix dashboard ❌ not yet built.
 
-### ✅ Prospect Research — Torcy Boulangeries
-- Le Belvédère: Phone 09 87 32 46 79, SAS, NO website, NO social media
-- C.C.P Fournil: Phone 01 60 05 28 84, SARL, NO website, Facebook active
-- Call script prepared
-- File: `prospects/torcy-boulangeries.md`
+- [ ] **Trim MEMORY.md** — Apply new Context Memory System, reduce to < 150 lines
+  - **Deadline:** Feb 15
+  - **Status:** Currently ~200 lines, needs archiving
 
-### ✅ Morning Briefing sent (WhatsApp, 06:00 UTC)
+- [ ] **Create Pulse Graphix Dashboard** — Client-facing or internal dashboard for PG business metrics
+  - **Deadline:** Feb 17
+  - **What:** Leads pipeline, project status, revenue tracking, social media metrics
+  - **Why:** Kabundji needs visibility into PG business health
 
-### ✅ CSS Animation Library (Feb 13)
-- 10 animation types: beam, marquee, fade-in, blur-in, slide-in, sonar
-- File: `templates/animations.css`
-- Foundation for all template work
+### 🟡 HIGH PRIORITY — This Week
 
-### ✅ Framer Marketplace Guide (Feb 13)
-- Complete submission requirements documented
-- Pricing strategy ($49-99 recommended)
-- Revenue: 100% to creator
-- File: `docs/FRAMER-MARKETPLACE-GUIDE.md`
+- [ ] **LinkedIn Profile Optimization** — Apply strategy from LINKEDIN-STRATEGY.md
+  - **Deadline:** Feb 17
+  - **What:** Optimize Chicco's headline, about section, featured section, skills
+  - **Blocked:** Needs Kabundji's LinkedIn credentials or approval to draft
 
-### ✅ SaaS Template (Feb 13) - FRAMER READY
-- Complete animated landing page: Hero, Features, Testimonials, Pricing, CTA, Footer
-- Dark mode + #00FF00 neon green accent
-- Beam animation, marquee scroll, Intersection Observer reveals
-- Mobile responsive, glassmorphism cards
-- Status: Ready for Framer submission ($50-100 quality)
-- File: `templates/pulse-saas-template/index.html`
+- [ ] **Create 5 LinkedIn Posts** — Ready for Kabundji to review and publish
+  - **Deadline:** Feb 18
+  - **What:** 1 carousel, 2 text posts, 1 poll, 1 portfolio showcase
+  - **Source:** CONTENT-IDEAS-BANK.md + LINKEDIN-STRATEGY.md
 
-### ✅ Security Audit (Feb 13)
-- Full host security review completed
-- File: `docs/SECURITY_AUDIT_2026-02-13.md`
-- **CRITICAL:** UFW firewall INACTIVE - requires Kabundji action
-- Credentials properly secured (600 permissions)
-- OpenClaw gateway localhost-only (secure)
+- [ ] **Prospect Call Preparation** — 4 leads ready, need Kabundji green light
+  - **Deadline:** Feb 17 (prep) → Feb 18-19 (calls)
+  - **Leads:** Le Belvédère, C.C.P Fournil, Le Trente-Six, Pho Quynh
+  - **File:** `prospects/call-sheet-next-5.md`
+  - **Blocked:** ⏳ Waiting for Kabundji's go-ahead
 
-### ✅ Templates Facture/Devis (Feb 10)
-- 4 templates: devis-fr, invoice-fr, quotation-en, invoice-en
-- Print-ready CSS
+- [ ] **Fix Google OAuth** — Restore email/calendar access
+  - **Deadline:** Feb 16
+  - **What:** Run `scripts/fix-oauth.sh` — needs browser interaction
+  - **Blocked:** ⏳ Needs Kabundji to run in browser
+  - **Impact:** Blocks email monitoring, calendar checks, Gmail-based lead tracking
+
+- [ ] **Enable UFW Firewall** — Security critical
+  - **Deadline:** Feb 16
+  - **What:** `sudo ufw allow 22/tcp && sudo ufw enable`
+  - **Blocked:** ⏳ Needs Kabundji approval (could lock us out if misconfigured)
 
 ---
 
-## 🔴 IN PROGRESS
+## 📅 NEXT WEEK (Feb 22-28, 2026)
 
-### 📱 Social Media Strategy — ✅ COMPLETE
-- **Priority:** HIGH (Kabundji requested Feb 14)
-- **Goal:** World-class social media strategy for 5 platforms + monetization
-- **Status:** **8/8 files COMPLETE** — Total: 6,500+ lines
-- **Location:** `social-media/` directory
-- **Files:**
-  1. ✅ MASTER-STRATEGY.md (331 lines) — Cross-platform overview
-  2. ✅ LINKEDIN-STRATEGY.md (761 lines) — B2B lead generation
-  3. ✅ YOUTUBE-STRATEGY.md (787 lines) — Video content & monetization
-  4. ✅ TWITTER-X-STRATEGY.md (862 lines) — Thought leadership
-  5. ✅ FACEBOOK-STRATEGY.md (920 lines) — Local business presence
-  6. ✅ TIKTOK-STRATEGY.md (975 lines) — Viral short-form
-  7. ✅ CONTENT-IDEAS-BANK.md (469 lines) — 50+ content ideas
-  8. ✅ WEEKLY-CHECKLIST.md (536 lines) — Daily/weekly action items
+### Revenue Generation
 
-### 🔍 Expanded Prospect Research
-- **Priority:** HIGH
-- **Goal:** Find 10+ local businesses in Torcy/Marne-la-Vallée needing websites
-- **Status:** Found Konfusius restaurant (9.1/5 rating, 1,742 reviews) + 9 others researching...
+- [ ] **First Cold Calls** — Call 4 qualified leads
+  - **Deadline:** Feb 24-25
+  - **Target:** Book 2+ discovery calls
+  - **Revenue potential:** €3K-15K per project
+
+- [ ] **Create Client Proposal Template** — Branded PDF using devis-pulse-v2.html
+  - **Deadline:** Feb 22
+  - **What:** Reusable proposal template with PG branding for discovery call follow-ups
+
+- [ ] **Framer Account + First Template Upload**
+  - **Deadline:** Feb 25
+  - **What:** Create Framer account, apply for Creator status, upload SaaS template
+  - **Revenue potential:** €50-100 per sale (passive income)
+  - **File:** `docs/FRAMER-ACCOUNT-SETUP.md`
+  - **Blocked:** ⏳ Kabundji needs to create account
+
+### Social Media Launch
+
+- [ ] **Set Up All 5 Social Accounts** — Profile optimization per strategy docs
+  - **Deadline:** Feb 23
+  - **Platforms:** LinkedIn ✅ exists, Instagram ✅ exists, YouTube ❌, TikTok ❌, Facebook ❌
+  - **What:** Create missing accounts, optimize all profiles per strategy files
+
+- [ ] **First Week of Content** — 15+ posts across all platforms
+  - **Deadline:** Feb 24-28 (first full content week)
+  - **What:** Follow WEEKLY-CHECKLIST.md schedule
+  - **Requires:** Accounts set up, content created, scheduling tool chosen
+
+- [ ] **Design Social Media Templates** — 5 Canva/Figma templates
+  - **Deadline:** Feb 23
+  - **What:** LinkedIn carousel, YouTube thumbnail, TikTok cover, quote card, announcement
+
+### Business Operations
+
+- [ ] **Expand Prospect List to 20** — More local businesses in Torcy/MLV
+  - **Deadline:** Feb 26
+  - **What:** Restaurants, salons, medical offices, retail shops
+  - **Method:** Google Maps research, local directories
+
+- [ ] **Create Email Sequences** — Automated follow-up for leads
+  - **Deadline:** Feb 27
+  - **What:** 3-email sequence: intro → value → CTA
+  - **Tool:** n8n workflow or manual templates
 
 ---
-## 🟢 COMPLETED (Feb 13 - Late)
-- **Priority:** HIGH
-- **Goal:** Find 10+ local businesses in Torcy/Marne-la-Vallée needing websites
-- **Status:** 2 boulangeries done, expanding to restaurants, salons, etc.
+
+## 📅 MARCH 2026 — Monthly Goals
+
+### Week 1 (Mar 1-7)
+- [ ] **Close first client from cold outreach** — Target: 1 signed project (€3K+)
+- [ ] **YouTube channel launch** — First 2 videos uploaded
+- [ ] **Aura account setup** — AI template builder ($20/mo)
+- [ ] **Unicorn Studio setup** — WebGL backgrounds for premium templates
+
+### Week 2 (Mar 8-14)
+- [ ] **Launch Pulse Graphix Design Shop** — 3+ products on website
+- [ ] **First YouTube video published** — Tutorial: "Build a Website in 30 Min"
+- [ ] **LinkedIn: 200+ connections** — Daily outreach per strategy
+- [ ] **Second batch of prospect calls** — 5 more leads
+
+### Week 3 (Mar 15-21)
+- [ ] **Deploy Subagent Pyramid** — 4 manager agents + specialized subagents
+- [ ] **First template on Framer Marketplace** — SaaS template ($49-79)
+- [ ] **Social media audit** — 30-day review per MASTER-STRATEGY.md KPIs
+- [ ] **Create case study content** — From first client project (if closed)
+
+### Week 4 (Mar 22-31)
+- [ ] **Monthly revenue review** — Track all income sources
+- [ ] **Content calendar for April** — Plan next month's social media
+- [ ] **Expand to Webflow Marketplace** — Second template platform
+- [ ] **First affiliate partnerships** — Apply for Webflow, hosting, tool affiliates
 
 ---
 
-## 🟡 PENDING
+## 📅 Q2 2026 — Quarterly Targets
 
-### High Priority
-- [ ] **Framer Marketplace Setup** — ⏳ WAITING FOR KABUNDJI — Account creation guide ready at `docs/FRAMER-ACCOUNT-SETUP.md`
-- [ ] **LinkedIn Posts Publish** — 4 posts ready, need Kabundji approval
-- [ ] **Profile Drafts Review** — LinkedIn, Malt profiles in `drafts/`
-
-### Medium Priority
-- [ ] **Google OAuth Fix** — Run `scripts/fix-oauth.sh` (needs browser)
-- [ ] **Aura Account Setup** — $20/mo, AI template builder
-- [ ] **Unicorn Studio Setup** — WebGL backgrounds for templates
-- [x] **CSS Animation Library** — Reusable beam, marquee, fade animations (✅ COMPLETE)
-
-### Low Priority
-- [ ] **Subagent Pyramid** — ⏳ WAITING FOR KABUNDJI — Architecture complete at `docs/SUBAGENT-PYRAMID-ARCHITECTURE.md`, ready to deploy
-- [ ] **YouTube Channel** — French market AI template tutorials
-- [x] **n8n CRM Workflow** — Automate prospect tracking ✅ COMPLETE (created `n8n/prospect-crm-workflow.json`)
+| Goal | Target | Deadline |
+|------|--------|----------|
+| Monthly recurring revenue | €3,000/mo | June 30 |
+| LinkedIn followers | 1,000 | June 30 |
+| YouTube subscribers | 500 | June 30 |
+| Active clients | 5 | June 30 |
+| Templates sold (Framer/Webflow) | 50 units | June 30 |
+| Prospect calls made | 50 | June 30 |
+| Discovery calls booked | 15 | June 30 |
+| Projects closed | 5 | June 30 |
+| Design shop products | 10 | June 30 |
 
 ---
 
-## 📋 STATS
+## ✅ COMPLETED
+
+### Feb 14, 2026
+- [x] **Social Media Strategy** — 8 files, 6,004 lines, 5 platforms (MASTER, LinkedIn, YouTube, Twitter/X, Facebook, TikTok, Content Ideas, Weekly Checklist)
+- [x] **Pixel-Perfect Devis Template V2** — `templates/devis-pulse-v2.html` matching Kabundji's PDF model
+- [x] **Pulse Graphix Business Brief** — Saved to `business/PULSE-GRAPHIX-BRIEF.md`
+- [x] **Context Memory System** — 3-tier architecture documented at `docs/CONTEXT-MEMORY-SYSTEM.md`
+- [x] **Agent Zero Analysis** — Full research at `docs/AGENT-ZERO-ANALYSIS.md`
+- [x] **Memory Archive Structure** — `memory/archive/` with decisions.md + lessons.md
+
+### Feb 13, 2026
+- [x] Dashboard V6 — 12 sections, Vercel deployment
+- [x] Template Business Strategy — €10k/mo target
+- [x] Prospect Research — 4 qualified leads ready
+- [x] CSS Animation Library — 10 animation types
+- [x] Framer Marketplace Guide
+- [x] SaaS Template — Framer-ready
+- [x] Security Audit
+- [x] n8n CRM Workflow
+
+### Feb 10, 2026
+- [x] 4 billing templates (devis/invoice FR/EN)
+
+---
+
+## 📊 STATS
 | Status | Count |
 |--------|-------|
-| In Progress | 2 |
-| Pending | 8 |
-| Completed | 50 |
+| This Week | 7 tasks |
+| Next Week | 6 tasks |
+| March | 8 tasks |
+| Q2 Targets | 9 goals |
+| Completed | 14 tasks |
 
 ---
-*This file is the source of truth for task tracking.*
+
+## ⏳ BLOCKED — Waiting on Kabundji
+| Task | What's Needed | Priority |
+|------|---------------|----------|
+| Prospect calls | Green light to start calling | 🔴 HIGH |
+| Google OAuth | Browser re-auth session | 🔴 HIGH |
+| UFW Firewall | Approval to enable | 🟡 MEDIUM |
+| Framer Account | Create account at framer.com | 🟡 MEDIUM |
+| LinkedIn posts | Review & approve 4 drafts | 🟡 MEDIUM |
+| Subagent Pyramid | Approval to deploy | 🟢 LOW |
+| Other 3 company names | For multi-company social strategy | 🟢 LOW |
+| Existing social accounts | For audit & optimization | 🟢 LOW |
+
+---
+*This file is the source of truth for task tracking. Updated every heartbeat.*
