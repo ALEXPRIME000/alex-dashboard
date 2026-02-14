@@ -66,21 +66,30 @@
 
 ---
 
-### 4. [TODO] Restaurant #4 — PENDING RESEARCH
+### 4. Pho Quynh — NEW (Feb 14)
 | Field | Details |
 |-------|---------|
-| **Target** | Restaurant sans site web, Torcy/Marne-la-Vallée |
-| **Status** | To be researched (Brave rate limited) |
-| **Strategy** | Focus on ethnic cuisine (Thai, Asian) — less likely to have sites |
+| **Name** | Pho Quynh |
+| **Type** | Restaurant vietnamien |
+| **Phone** | 01 60 17 26 32 |
+| **Address** | 22 Rue Pierre Mendès France, 77200 Torcy |
+| **Status** | NO WEBSITE, active Facebook (218 likes) |
+| **Opportunity** | ⭐⭐⭐ |
+| **Why** | Good FB presence = understands digital, smaller place = budget ~€900-1,200 |
+
+**Opening Line:**
+> "Bonjour, je suis Chicco de Pulse Graphix à Torcy. J'ai vu votre restaurant Pho Quynh sur Facebook — vous avez de bons avis. Je remarque que vous n'avez pas de site web pour que les clients puissent voir votre menu ou réserver. Saviez-vous que 73%% des clients recherchent un menu en ligne avant de choisir un restaurant?"
+
+**Price Range:** €900-1,200 (menu digital simple)
 
 ---
 
-### 5. [TODO] Artisan/Service #5 — PENDING RESEARCH
+### 5. [PENDING] — WAITING FOR SEARCH API
 | Field | Details |
 |-------|---------|
 | **Target** | Coiffeur, fleuriste, ou service local Torcy |
-| **Status** | To be researched |
-| **Strategy** | Google Maps + Pages Jaunes scan |
+| **Status** | Blocked — Brave rate limited, Pages Jaunes has bot protection |
+| **Action** | Need Google Custom Search API to continue |
 
 ---
 
