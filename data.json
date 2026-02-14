@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-14T01:33:08.898Z",
+  "lastGenerated": "2026-02-14T01:39:24.085Z",
   "tasks": {
     "completed": [
       {
@@ -85,8 +85,8 @@
     ]
   },
   "workspace": {
-    "totalFiles": 154,
-    "totalFolders": 624,
+    "totalFiles": 156,
+    "totalFolders": 627,
     "lastCommit": "2026-02-14"
   },
   "memory": {
@@ -115,6 +115,11 @@
     ]
   },
   "prospects": [
+    {
+      "name": "call-sheet-next-5",
+      "path": "prospects/call-sheet-next-5.md",
+      "preview": "# Prospect Call Sheet — Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## 📞 Priority Queue\n\n### 1. C.C.P Fournil — ★★★★★ TOP PRIORITY\n| Field"
+    },
     {
       "name": "paris-boulangeries-research",
       "path": "prospects/paris-boulangeries-research.md",
