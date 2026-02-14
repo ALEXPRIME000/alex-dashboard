@@ -1,0 +1,10 @@
+/* Print-friendly CSS */
+@media print {
+    /* Add print-specific styles here */
+    body {
+        font-size: 14pt;
+    }
+    .cover-page {
+        page-break-before: always;
+    }
+}
