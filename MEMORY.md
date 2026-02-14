@@ -141,19 +141,30 @@
 | `icon-design` | jezweb | Icon selection (Lucide, Heroicons, Phosphor) |
 | `better-icons` | better-auth | Search 200+ icon libraries via Iconify |
 | `favicon-gen` | jezweb | Complete favicon generation (ICO, PNG, SVG, manifest) |
+| `html-to-pdf` | aviz85 | HTML to PDF conversion with Puppeteer |
+| `extracting-pdf-text` | letta-ai | PDF text extraction for LLMs |
 | `canvas-design` | samhvw8 | UI/UX design capabilities |
 | `finance-expert` | pcl | Payment processing, banking APIs |
 | `proactive-agent` | halthelobster | WAL Protocol, context survival |
 
-**Created:** `templates/pulse-typography-system.css` — Complete typography system with fluid sizing
+**Created:**
+- `templates/pulse-typography-system.css` — Complete typography system
+- `templates/proposal-pulse-graphix-V2.html` — Print-ready PDF proposal template
+- `docs/CLOUD_STORAGE_COMPARISON.md` — Google Drive vs IDrive vs Dropbox
+- `docs/SEARCH_API_ALTERNATIVES.md` — Search API options
+
+---
+
+## Cloud Storage Research (2026-02-14)
+**Recommendation:** **IDrive** — 5TB for $24.88 first year (cheapest backup)  
+**Alternative:** **Google Drive** — 15GB free, best API/integration  
+**File**: `docs/CLOUD_STORAGE_COMPARISON.md`
 
 ---
 
 ## Search API Research (2026-02-14)
-**Issue**: Brave rate limited (1 req/sec, 2K/month)  
-**Solution**:  
-- **Google Programmable Search API**: 100/day free ($5/1K) — **RECOMMENDED**
-- **SerpApi**: $50/mo for real Google results, unlimited volume  
+**Recommendation:** **Google Programmable Search API** — 100/day free  
+**Premium:** **SerpApi** — $50/mo, real Google results  
 **File**: `docs/SEARCH_API_ALTERNATIVES.md`
 
 ## Lessons Learned
