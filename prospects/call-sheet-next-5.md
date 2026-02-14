@@ -19,10 +19,13 @@
 | **Opportunity** | ⭐⭐⭐⭐⭐ EXCELLENT |
 | **Why** | Strong social presence (1,650+ FB fans), established 2014, only Facebook = missing direct bookings/orders |
 
-**Opening Line:**
-> "Bonjour, je m'appelle Chicco de Pulse Graphix, une agence web à Torcy. Je remarque que C.C.P Fournil a une excellente réputation sur Facebook avec plus de 1600 fans, mais je ne trouve pas de site web officiel. Saviez-vous que 73% des clients recherchent d'abord un site web avant de visiter? Je voudrais vous offrir un site vitrine professionnel pour convertir vos fans Facebook en clients directs..."
+**Opening Line (Use Pulse Graphix branding):**
+> "Bonjour, je suis Chicco Mutombo de Pulse Graphix, une agence de design et web ici à Torcy. Je remarque que C.C.P Fournil a une excellente réputation — 367 avis sur Facebook, c'est impressionnant! Mais je ne vois pas de site web officiel. Saviez-vous que 73% des clients recherchent d'abord un site web? C'est 1,800€ par an de commandes en ligne que vous pourriez récupérer. Sans engagement, je peux vous montrer comment on fait pour multiplier par 3 les prospects d'un site web pro. Ça vous dit?"
 
-**Price Range:** €1,400-1,800
+**Pulse Graphix Pricing (3 tiers):**
+- **Starter (5 pages, responsive):** €1,497 → *Perfect pour C.C.P Fournil*
+- **Professional (CMS, blog, SEO):** €2,997
+- **Enterprise (e-commerce complet):** €5,997
 
 ---
 
@@ -60,9 +63,12 @@
 | **Why** | Restaurant sans vrai site = réservations manuelles, manque de visibilité |
 
 **Opening Line:**
-> "Bonjour, je suis Chicco de Pulse Graphix. J'ai cherché Le Trente-Six en ligne et je vois des pages automatiques mais pas de vrai site web professionnel. Avec un site, vous pourriez prendre des réservations 24/7 et afficher votre menu à jour — ça vous intéresserait d'en discuter?"
+> "Bonjour, c'est Chicco de Pulse Graphix, agence web à Torcy. J'ai cherché Le Trente-Six pour déjeuner et je remarque que vous n'avez pas de site web propre — juste des pages auto-générées. C'est dommage parce que 78% des réservations de restaurants se font après avoir vu le menu en ligne. On a une offre Starter à 1 500€ qui inclut votre menu interactif + prise de réservation. Ça vous intéresse de discuter?"
 
-**Price Range:** €1,200-1,800 (menu digital + réservations)
+**Pulse Graphix Pricing:**
+- **Starter Website (5 pages + menu):** €1,497 → *Perfect for restaurant*
+- **Pro (CMS + blog + SEO):** €2,997
+- **Enterprise (e-commerce + livraison):** €5,997
 
 ---
 
@@ -78,9 +84,12 @@
 | **Why** | Good FB presence = understands digital, smaller place = budget ~€900-1,200 |
 
 **Opening Line:**
-> "Bonjour, je suis Chicco de Pulse Graphix à Torcy. J'ai vu votre restaurant Pho Quynh sur Facebook — vous avez de bons avis. Je remarque que vous n'avez pas de site web pour que les clients puissent voir votre menu ou réserver. Saviez-vous que 73%% des clients recherchent un menu en ligne avant de choisir un restaurant?"
+> "Bonjour, c'est Chicco de Pulse Graphix, une agence web ici à Torcy. J'ai découvert Pho Quynh sur Facebook — vos avis sont excellents. Mais je n'ai pas trouvé de site web pour voir votre menu. C'est dommage: les restaurants avec site web pris de réservations en ligne gagnent 30% de temps en cuisine. On peut vous créer un site Starter à 1 500€ avec menu + réservations fonctionnelles. Sans engagement, on peut discuter de vos besoins — une demi-heure ce week-end?"
 
-**Price Range:** €900-1,200 (menu digital simple)
+**Pulse Graphix Pricing:**
+- **Starter Website (5 pages + menu + réservations):** €1,497 → *Ideal for Pho Quynh*
+- **Pro (CMS + SEO + photo gallery):** €2,997
+- **Enterprise (livraison/commande en ligne):** €5,997
 
 ---
 
