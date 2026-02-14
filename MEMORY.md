@@ -129,6 +129,36 @@
 
 ---
 
+## Skills Installed (Updated 2026-02-14)
+- `proactive-agent` — WAL Protocol, Working Buffer, Compaction Recovery
+- `finance-expert` — Payment processing, banking APIs, financial calculations
+- `canvas-design` — UI/UX design capabilities
+- **`typography`** (petekp) — Design mastery from typographic masters (Bringhurst, Vignelli, Frutiger)
+  - Type scales (Minor Third 1.200 recommended), hierarchy through contrast
+  - Font pairing principles (1-2 fonts max), spacing guidelines
+  - Fluid typography with clamp(), text-wrap: balance/pretty
+  - Dark mode adjustments (reduce font-weight, smoother rendering)
+  - Accessibility: 16px minimum, 45-75ch line length, 4.5:1 contrast
+  - **Key principle:** "Typography exists to honor content"
+
+- **`web-typography`** (wondelai) — Web implementation guide
+  - "Clear goblet" principle: focus on content, not the container
+  - Typeface evaluation: x-height, counters, distinct letterforms (Il1, O0)
+  - Body text vs display text strategies
+  - Typeface pairing: serif + sans contrast, superfamilies
+  - Measurements: 45-75ch line length, 1.5-1.7 line height, 16-18px body
+  - Fluid typography with clamp(), font loading optimization
+  - Performance: <200KB font payload, WOFF2, subsetting, font-display: swap
+  - **Key principle:** Best typography is invisible
+
+**Created:** `templates/pulse-typography-system.css` — Ready-to-use typography system
+- Minor Third scale (1.200) with fluid sizing via clamp()
+- Inter font family (workhorse sans)
+- 5-level hierarchy with proper vertical rhythm
+- Dark mode weight adjustments (350 body, 600 headings)
+- Prose constraint (65ch max-width)
+- Utility classes for truncation, weight, measure, uppercase
+
 ## Lessons Learned
 - WhatsApp can't send to same number it's linked to
 - Brave free plan = 1 request/second (rate limited)

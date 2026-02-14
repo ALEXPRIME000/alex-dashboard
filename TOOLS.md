@@ -42,6 +42,24 @@ curl -X POST "https://n8n.nexusaiacademy.app/api/v1/workflows/{id}/activate" \
 
 ---
 
-## Why Separate?
+## Image Generation (Replicate)
+**Kabundji's preferred image generation setup (Feb 14, 2026):**
 
+| Model | Provider | Status | Use Case |
+|-------|----------|--------|----------|
+| **Flux 2 Pro** | Replicate | Ready | Best quality generations |
+| **Seedream 4.5** | Replicate | Ready | Next-gen generations |
+| **Nano Banana (Gemini 2.5 Flash)** | Replicate | Fallback | Fast/cheap option |
+| **Nano Banana Pro (Gemini 3 Pro)** | Gemini API | Needs GEMINI_API_KEY | Premium quality |
+
+**Note:** Replicate API key needed — stored in credentials/replicate.json (Kabundji to provide)
+
+---
+
+## Skill Marketplace
+**Directory:** https://skills.sh/ — Central repository for AI agent skills
+
+---
+
+## Why Separate?
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
