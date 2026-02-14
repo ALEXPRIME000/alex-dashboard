@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-14T05:39:36.907Z",
+  "lastGenerated": "2026-02-14T06:31:07.585Z",
   "tasks": {
     "completed": [
       {
@@ -85,7 +85,7 @@
     ]
   },
   "workspace": {
-    "totalFiles": 180,
+    "totalFiles": 181,
     "totalFolders": 686,
     "lastCommit": "2026-02-14"
   },
@@ -103,6 +103,7 @@
       "memory/2026-02-12.md",
       "memory/2026-02-13-overnight.md",
       "memory/2026-02-13.md",
+      "memory/2026-02-14-morning-briefing.md",
       "memory/2026-02-14.md",
       "memory/GOALS.md",
       "memory/SUBAGENTS.md"
