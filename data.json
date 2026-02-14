@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-14T06:31:07.585Z",
+  "lastGenerated": "2026-02-14T06:36:48.410Z",
   "tasks": {
     "completed": [
       {
@@ -47,7 +47,7 @@
     ],
     "pending": [
       {
-        "name": "Framer Marketplace Setup — Create account, understand submission process",
+        "name": "Framer Marketplace Setup — ⏳ WAITING FOR KABUNDJI — Account creation guide ready at `docs/FRAMER-ACCOUNT-SETUP.md`",
         "priority": "medium"
       },
       {
@@ -85,7 +85,7 @@
     ]
   },
   "workspace": {
-    "totalFiles": 181,
+    "totalFiles": 182,
     "totalFolders": 686,
     "lastCommit": "2026-02-14"
   },
