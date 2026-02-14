@@ -59,6 +59,14 @@
 
 ## 🔴 IN PROGRESS
 
+### 📱 Social Media Strategy — ACTIVE
+- **Priority:** HIGH (Kabundji requested Feb 14)
+- **Goal:** World-class social media strategy for 5 platforms + monetization
+- **Status:** 4/8 files complete, 4 remaining being created by sub-agent
+- **Files:** `social-media/` directory
+- **Completed:** MASTER-STRATEGY.md, LINKEDIN-STRATEGY.md, YOUTUBE-STRATEGY.md, TWITTER-X-STRATEGY.md
+- **Pending:** FACEBOOK-STRATEGY.md, TIKTOK-STRATEGY.md, CONTENT-IDEAS-BANK.md, WEEKLY-CHECKLIST.md
+
 ### 🔍 Expanded Prospect Research
 - **Priority:** HIGH
 - **Goal:** Find 10+ local businesses in Torcy/Marne-la-Vallée needing websites
@@ -75,7 +83,7 @@
 ## 🟡 PENDING
 
 ### High Priority
-- [ ] **Framer Marketplace Setup** — Create account, understand submission process
+- [ ] **Framer Marketplace Setup** — ⏳ WAITING FOR KABUNDJI — Account creation guide ready at `docs/FRAMER-ACCOUNT-SETUP.md`
 - [ ] **LinkedIn Posts Publish** — 4 posts ready, need Kabundji approval
 - [ ] **Profile Drafts Review** — LinkedIn, Malt profiles in `drafts/`
 
@@ -86,9 +94,9 @@
 - [x] **CSS Animation Library** — Reusable beam, marquee, fade animations (✅ COMPLETE)
 
 ### Low Priority
-- [ ] **Subagent Pyramid** — Manager + Specialist agents
+- [ ] **Subagent Pyramid** — ⏳ WAITING FOR KABUNDJI — Architecture complete at `docs/SUBAGENT-PYRAMID-ARCHITECTURE.md`, ready to deploy
 - [ ] **YouTube Channel** — French market AI template tutorials
-- [ ] **n8n CRM Workflow** — Automate prospect tracking
+- [x] **n8n CRM Workflow** — Automate prospect tracking ✅ COMPLETE (created `n8n/prospect-crm-workflow.json`)
 
 ---
 

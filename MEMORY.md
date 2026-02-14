@@ -68,19 +68,52 @@
 
 ## Companies
 
-### Pulse Graphix
-- **Type:** Creative/Web Agency
+### Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
+- **Type:** Full-service creative & design agency
+- **Tagline:** "Design That Pulses With Purpose"
 - **Address:** 3 Rue Jacques Prévert, 77200 Torcy, France
-- **Phone:** +33 61277 6498
+- **Phone:** +33 6 12 77 64 98
 - **Email:** chicco@pulsegraphix.net
-- **Website:** www.pulsegraphix.net
-- **Colors:** Neon green (#00FF00), black, white
-- **Services:** Web design, logo design, graphic design, web development, CMS, e-commerce, hosting, SEO, Google Ads, Facebook Ads, social media marketing
+- **Website:** https://pulsegraphix.net
+- **Calendly:** https://calendly.com/pulsegraphix
+- **Colors:** Neon Green (#00FF00) on Black (#0D0D0D)
+- **Social:** LinkedIn, Instagram (@pulsegraphix), Behance, Dribbble
+
+**Key Numbers:** 500+ projects, 200+ clients, 15+ countries, 98% satisfaction
+
+**9 Services (3 tiers each: Starter/Professional/Enterprise):**
+| Service | Starter | Pro | Enterprise |
+|---------|---------|-----|------------|
+| Logo Design | €497 | €997 | €2,497 |
+| Website | €1,497 | €2,997 | €5,997 |
+| Branding | €997 | €2,497 | €4,997 |
+| Print Design | €297 | €697 | €1,497 |
+| Merch Design | €197 | €497 | €1,497 |
+| Motion Graphics | €497 | €1,497 | €3,997 |
+| Infographics | €297 | €697 | €1,497 |
+| Social Media | €297 | €797 | €1,997/mo |
+| Presentations | €297 | €697 | €1,497 |
+
+**Design Shop (passive income):** Templates €19-€79 (bestsellers: Startup Landing Page €49, Instagram Kit €29, Pitch Deck Pro €35)
+
+**Tech Stack:** Next.js, React, Tailwind CSS, headless CMS, WordPress
+
+**Case Studies (use in pitches):**
+- Zenith Capital: +40% client acquisition
+- NovaTech: +280% demo requests, 98 Lighthouse score
+- Flora Luxe: Featured in Packaging of the World, 150+ pharmacies
+- Eco Collective: Vogue France + Elle, Kickstarter 350% of goal
+- Solaris Energy: €4.2M Series A closed
+- UrbanFit: Instagram 1.2% → 5.8% engagement, +45K followers
+
+**Brand Voice:** Bold, approachable, professional, innovative, results-focused
+**Full brief:** `business/PULSE-GRAPHIX-BRIEF.md`
 
 **Templates Created:**
 - Facture: https://docs.google.com/spreadsheets/d/1xt-YSPiWE44PIt6VrqNfIeZvwRpSYBJLjxQM6vsNAwU/edit
 - Devis: https://docs.google.com/spreadsheets/d/11IZw5YudXwbW9mKel4MI0KRSFY1wSGX2bxiMYp7b2CE/edit
 - Letterhead: https://docs.google.com/document/d/10cim_FfudHvUUH4KAd0KEF8KamcEwbFMuiL9F6Y97is/edit
+- Devis HTML: `templates/devis-pulse-v2.html` (pixel-perfect PDF match)
 
 ---
 

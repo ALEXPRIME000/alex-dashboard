@@ -1,0 +1,286 @@
+{
+  "name": "Pulse Graphix - Prospect CRM",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "prospect-new",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-new-prospect",
+      "name": "Webhook: New Prospect",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "prospect-new"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetName": "Prospects",
+        "options": {},
+        "fields": [
+          {
+            "name": "Date",
+            "value": "={{ $now }}"
+          },
+          {
+            "name": "Nom",
+            "value": "={{ $json.body.name }}"
+          },
+          {
+            "name": "Type",
+            "value": "={{ $json.body.type }}"
+          },
+          {
+            "name": "Telephone",
+            "value": "={{ $json.body.phone }}"
+          },
+          {
+            "name": "SiteWeb",
+            "value": "={{ $json.body.hasWebsite ? 'Oui' : 'Non' }}"
+          },
+          {
+            "name": "Réseaux",
+            "value": "={{ $json.body.socialMedia || 'Aucun' }}"
+          },
+          {
+            "name": "Adresse",
+            "value": "={{ $json.body.address }}"
+          },
+          {
+            "name": "Notes",
+            "value": "={{ $json.body.notes }}"
+          },
+          {
+            "name": "Priorité",
+            "value": "={{ $json.body.priority || 'MEDIUM' }}"
+          },
+          {
+            "name": "Statut",
+            "value": "Nouveau"
+          }
+        ]
+      },
+      "id": "google-sheets-prospects",
+      "name": "Google Sheets: Ajouter Prospect",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format prospect data for CRM\nconst prospect = $input.first().json.body;\n\nreturn {\n  json: {\n    to: $secrets.TELEGRAM_CHAT_ID,\n    text: `🎯 Nouveau Prospect\\n\\n**${prospect.name}**\\n📍 ${prospect.address}\\n📞 ${prospect.phone}\\n💼 Type: ${prospect.type}\\n🌐 Site: ${prospect.hasWebsite ? 'Oui ❌' : 'Non ✅'}\\n📱 Réseaux: ${prospect.socialMedia || 'Aucun'}\\n⭐ Priorité: ${prospect.priority || 'MEDIUM'}`,\n    parse_mode: 'Markdown'\n  }\n};"
+      },
+      "id": "code-format-prospect",
+      "name": "Code: Format Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        450,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "={{ $json.to }}",
+        "text": "={{ $json.text }}",
+        "additionalOptions": {}
+      },
+      "id": "telegram-notify",
+      "name": "Telegram: Notification",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        650,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "prospect-call",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-call-log",
+      "name": "Webhook: Log Call",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        700
+      ],
+      "webhookId": "prospect-call"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetName": "Calls",
+        "options": {},
+        "fields": [
+          {
+            "name": "Date",
+            "value": "={{ $now }}"
+          },
+          {
+            "name": "Prospect",
+            "value": "={{ $json.body.prospectName }}"
+          },
+          {
+            "name": "Resultat",
+            "value": "={{ $json.body.outcome }}"
+          },
+          {
+            "name": "Notes",
+            "value": "={{ $json.body.notes }}"
+          },
+          {
+            "name": "ProchaineAction",
+            "value": "={{ $json.body.nextAction }}"
+          },
+          {
+            "name": "ProjetVente",
+            "value": "={{ $json.body.price || 'Non' }}"
+          }
+        ]
+      },
+      "id": "google-sheets-calls",
+      "name": "Google Sheets: Log Call",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        450,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "rules": [
+            {
+              "value": "={{ $json.body.outcome }}",
+              "conditions": [
+                {
+                  "value": "rdv",
+                  "operator": "equal"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "id": "if-rdv",
+      "name": "IF: RDV Scheduled?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        650,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "calendar": "primary",
+        "start": "={{ $json.body.rdvDate || $tomorrow }}",
+        "end": "={{ DateTime.fromISO($json.body.rdvDate || $tomorrow).plus({ hours: 1 }).toISO() }}",
+        "summary": "=🎯 Prospection: {{ $json.body.prospectName }}",
+        "description": "=RDV prospection {{ $json.body.prospectName }}\\nTel: {{ $json.body.prospectPhone }}\\n\\nNotes: {{ $json.body.notes }}"
+      },
+      "id": "google-calendar-rdv",
+      "name": "Google Calendar: Create Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [
+        850,
+        650
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook: New Prospect": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets: Ajouter Prospect",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code: Format Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets: Ajouter Prospect": {
+      "main": [
+        []
+      ]
+    },
+    "Code: Format Message": {
+      "main": [
+        [
+          {
+            "node": "Telegram: Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook: Log Call": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets: Log Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets: Log Call": {
+      "main": [
+        [
+          {
+            "node": "IF: RDV Scheduled?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF: RDV Scheduled?": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar: Create Event",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    "crm",
+    "prospecting",
+    "pulsegraphix"
+  ]
+}
