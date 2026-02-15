@@ -1,271 +1,99 @@
 # MEMORY.md — Alex Prime Long-Term Memory
+*Last Updated: 2026-02-15 | 3/4 Companies Identified* ---
 
-*Last Updated: 2026-02-13*
-
----
-
-## ⚠️ Token Management (2026-02-13)
-**Issue:** Context overflow — prompts too large for model constraints  
-**Lesson learned:** Be concise, batch large outputs to files  
-**Fix:** Write large documents to files instead of inline responses  
-**Examples:** Security audit → docs/SECURITY_AUDIT_*.md instead of inline output  
-**Rule:** If response >500 tokens, write to file and summarize
-
----
-
-## 🚨 PRIMARY DIRECTIVE (2026-02-02)
+## 🚨 PRIMARY DIRECTIVE
 **Kabundji wants me to be his proactive virtual employee:**
 - Work autonomously, especially while he sleeps
 - Take as much off his plate as possible
-- Monitor his business and build improvements
-- Create drafts/PRs for review — don't push live
+- Create drafts/PRs for review — never push live without approval
 - Build something cool every night for him to test
-- Use expert time management
-
-**Goal:** "I want to wake up every morning and be like, 'Wow, you got a lot done while I was sleeping.'"
+- **Goal:** "I want to wake up and be like, 'Wow, you got a lot done.'"
 
 ---
 
 ## Who I Am
 - **Name:** Alex Prime
 - **Role:** Executive Director Agent / Virtual Employee
-- **Human:** Kabundji (Chicco Mutombo Kabundji)
+- **Dashboard:** https://pulse-graphix-dashboard.vercel.app
 - **Created:** January 31, 2026
-- **Dashboard (v5):** https://pulse-graphix-dashboard.vercel.app
-- **Dashboard (old):** https://dashboard-ten-mu-52.vercel.app
-
----
 
 ## Who Kabundji Is
-
-### Identity
 - **Full Name:** Chicco Mutombo Kabundji
-- **Location:** Paris, France (Timezone: Europe/Paris, UTC+1)
-- **Phone:** +33 6 12 77 64 98
-- **Email:** chicco007@gmail.com
-
-### Professional
-- 21+ years in tech (since 2004)
-- **One-man business** — works from wake to sleep
-- Expert: 3ds Max, Revit, n8n, WordPress, Flutter, AI
-- Services: Architecture visualization, automation, AI agents, web/mobile dev
-- Target market: France, especially Paris
-
-### Family (Mutombo)
-- Mother: Justine
-- Sister: Christelle
-- Brothers: Michael (Mike), Landry
-- Has children (details pending)
-- Christian values, wants daily devotion system for kids
-
-### Major Life Goals
-1. Buy house in France
-2. Buy holiday house abroad
-3. Build multiple income streams
-4. Automate everything possible
+- **Location:** Paris, France (UTC+1)
+- **Experience:** 21+ years tech (since 2004)
+- **Family:** Mother Justine, sister Christelle, brothers Michael & Landry
+- **Goals:** Buy house in France + holiday home abroad, automate everything
+- **Working Style:** Values proactive help, efficiency, dry humor when appropriate
 
 ---
 
-## Companies (2/4 Identified)
+## Companies (3/4 Identified)
 
-### 1. Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
-- **Type:** Full-service creative & design agency
-- **Tagline:** "Design That Pulses With Purpose"
-- **Address:** 3 Rue Jacques Prévert, 77200 Torcy, France
-- **Phone:** +33 6 12 77 64 98
-- **Email:** chicco@pulsegraphix.net
-- **Website:** https://pulsegraphix.net
-- **Calendly:** https://calendly.com/pulsegraphix
-- **Colors:** Neon Green (#00FF00) on Black (#0D0D0D)
-- **Social:** LinkedIn, Instagram (@pulsegraphix), Behance, Dribbble
-- **Services:** 9 services (Logo, Website, Branding, Print, Merch, Motion, Infographics, Social Media, Presentations)
-- **Brief:** `business/PULSE-GRAPHIX-BRIEF.md`
-
-### 2. Nexus AI Academy — AI-Powered LMS (Feb 15, 2026)
-- **Type:** Learning Management System (LMS) with AI course generation
-- **Tagline:** AI-powered course creation platform
-- **Website:** n8n.nexusaiacademy.app (API endpoint) — main site TBD
-- **Tech Stack:** Next.js 15, TypeScript, Prisma, PostgreSQL, NextAuth v5, Tailwind, Stripe, OpenAI
-- **Languages:** French (primary), English, German, Spanish
-- **Core Feature:** AI agents generate complete courses from prompts — modules, lessons, quizzes, case studies
-- **Target:** French-speaking market primarily
-- **Business Model:** Course sales, subscriptions (Free/Premium/Enterprise), instructor bookings
-- **Differentiator:** Administrators don't manually create courses — AI generates everything
-- **Brief:** `business/NEXUS-AI-ACADEMY-BRIEF.md`
-
-### 3. [TBD] — Company #3
-- **Status:** Waiting for Kabundji to provide brief
-- **Use:** Will apply social media strategy templates once identified
-
-### 4. [TBD] — Company #4
-- **Status:** Waiting for Kabundji to provide brief
-- **Use:** Will apply social media strategy templates once identified
-
----
-
-## Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
-- **Type:** Full-service creative & design agency
-- **Tagline:** "Design That Pulses With Purpose"
-- **Address:** 3 Rue Jacques Prévert, 77200 Torcy, France
-- **Phone:** +33 6 12 77 64 98
-- **Email:** chicco@pulsegraphix.net
-- **Website:** https://pulsegraphix.net
-- **Calendly:** https://calendly.com/pulsegraphix
-- **Colors:** Neon Green (#00FF00) on Black (#0D0D0D)
-- **Social:** LinkedIn, Instagram (@pulsegraphix), Behance, Dribbble
-
-**Key Numbers:** 500+ projects, 200+ clients, 15+ countries, 98% satisfaction
-
-**9 Services (3 tiers each: Starter/Professional/Enterprise):**
-| Service | Starter | Pro | Enterprise |
-|---------|---------|-----|------------|
-| Logo Design | €497 | €997 | €2,497 |
-| Website | €1,497 | €2,997 | €5,997 |
-| Branding | €997 | €2,497 | €4,997 |
-| Print Design | €297 | €697 | €1,497 |
-| Merch Design | €197 | €497 | €1,497 |
-| Motion Graphics | €497 | €1,497 | €3,997 |
-| Infographics | €297 | €697 | €1,497 |
-| Social Media | €297 | €797 | €1,997/mo |
-| Presentations | €297 | €697 | €1,497 |
-
-**Design Shop (passive income):** Templates €19-€79 (bestsellers: Startup Landing Page €49, Instagram Kit €29, Pitch Deck Pro €35)
-
-**Tech Stack:** Next.js, React, Tailwind CSS, headless CMS, WordPress
-
-**Case Studies (use in pitches):**
-- Zenith Capital: +40% client acquisition
-- NovaTech: +280% demo requests, 98 Lighthouse score
-- Flora Luxe: Featured in Packaging of the World, 150+ pharmacies
-- Eco Collective: Vogue France + Elle, Kickstarter 350% of goal
-- Solaris Energy: €4.2M Series A closed
-- UrbanFit: Instagram 1.2% → 5.8% engagement, +45K followers
-
-**Brand Voice:** Bold, approachable, professional, innovative, results-focused
-**Full brief:** `business/PULSE-GRAPHIX-BRIEF.md`
-
-**Templates Created:**
-- Facture: https://docs.google.com/spreadsheets/d/1xt-YSPiWE44PIt6VrqNfIeZvwRpSYBJLjxQM6vsNAwU/edit
-- Devis: https://docs.google.com/spreadsheets/d/11IZw5YudXwbW9mKel4MI0KRSFY1wSGX2bxiMYp7b2CE/edit
-- Letterhead: https://docs.google.com/document/d/10cim_FfudHvUUH4KAd0KEF8KamcEwbFMuiL9F6Y97is/edit
-- Devis HTML: `templates/devis-pulse-v2.html` (pixel-perfect PDF match)
-
----
-
-## Working Style Preferences
-- Prefers proactive assistance — **BE PROACTIVE**
-- Values efficiency and professionalism
-- Appreciates dry humor when context permits
-- Wants deep understanding for optimal support
-- Tired of manual work — automate everything
-- Wants to wake up to completed work
+| # | Company | Type | Brief Location |
+|---|---------|------|----------------|
+| 1 | **Pulse Graphix** | Creative agency | `business/PULSE-GRAPHIX-BRIEF.md` |
+| 2 | **Nexus AI Academy** | AI-powered LMS | `business/NEXUS-AI-ACADEMY-BRIEF.md` |
+| 3 | **Invest in Congo** | DRC investment platform | `business/INVEST-IN-CONGO-BRIEF.md` |
+| 4 | *[Awaiting brief]* | — | — |
 
 ---
 
 ## API Keys & Credentials
-- **Brave Search:** Configured in OpenClaw config
-- **Google OAuth:** `/home/ubuntu/.openclaw/credentials/google_client_secret.json`
-- **AI agent email:** john.melo.testing01@gmail.com (gog CLI working)
-- **GitHub:** Token at `/home/ubuntu/.openclaw/credentials/github_token.txt`
-  - User: ALEXPRIME000
-  - Dashboard repo: https://github.com/ALEXPRIME000/alex-dashboard
-- **Vercel:** Token at `/home/ubuntu/.openclaw/credentials/vercel_token.txt`
+- **GitHub:** Token at `credentials/github_token.txt` | Repo: `ALEXPRIME000/alex-dashboard`
+- **Vercel:** Token at `credentials/vercel_token.txt`
+- **Google OAuth:** `credentials/google_client_secret.json` | Email: john.melo.testing01@gmail.com
+- **Brave Search:** Configured in OpenClaw
+- **GOG Keyring:** Password = "openclaw"
 
-### LLM Providers (configured 2026-02-01)
-- **Anthropic:** $20 plan (Claude Opus 4.5 primary)
-- **OpenRouter:** Free tier (Llama 3.3 70B, Qwen 3)
-- **Groq:** Free tier (ultra-fast Llama 3.3)
-- **NVIDIA:** Free credits (Kimi K2.5)
-- **Moonshot:** Kimi K2 (cheap backup)
-
-**Fallback chain:** Opus → Groq → NVIDIA → OpenRouter → Moonshot
+## LLM Fallback Chain
+1. Opus (primary) → 2. Groq → 3. NVIDIA → 4. OpenRouter → 5. Moonshot
 
 ---
 
-## Overnight Work Strategy
-**Schedule:** Work while Kabundji sleeps (Paris time ~23:00 - 07:00 = UTC 22:00 - 06:00)
+## Key Projects & Strategies
 
-**Types of work to do overnight:**
-1. Build/improve business tools
-2. Create marketing materials
-3. Research leads and opportunities
-4. Prepare drafts for review
-5. Organize and document
-6. Monitor and report
+### Template Business (Pulse Graphix)
+- **Target:** €10k/mo in 6 months
+- **Strategy:** Animated templates for underserved French market
+- **Key Tools:** Aura ($20/mo), Unicorn Studio, Iconify/Solar, Nano Banana Pro
+- **File:** `business/template-blueprint-strategy.md`
 
-**Always:** Create drafts/PRs, never push live without approval
+### French Admin Research (Completed Feb 15)
+- **Finding:** Direct automated form submission is ILLEGAL in France
+- **Viable Product:** "AI Administrative Assistant" — educates, tracks deadlines, prefills forms, user submits manually
+- **Files:** `research/french-admin/`
 
----
-
-## Skills Installed (Updated 2026-02-14)
-
-### Design Skills
-| Skill | Source | Purpose |
-|-------|--------|---------|
-| `typography` | petekp | Design mastery (Bringhurst, Vignelli, Frutiger) |
-| `web-typography` | wondelai | Web implementation, performance |
-| `typography-expert` | erichowens | Variable fonts, font loading, OpenType features |
-| `brand-typography-systems` | mike-coulbourn/vibes | Strategic brand type selection |
-| `icon-design` | jezweb | Icon selection (Lucide, Heroicons, Phosphor) |
-| `better-icons` | better-auth | Search 200+ icon libraries via Iconify |
-| `favicon-gen` | jezweb | Complete favicon generation (ICO, PNG, SVG, manifest) |
-| `html-to-pdf` | aviz85 | HTML to PDF conversion with Puppeteer |
-| `extracting-pdf-text` | letta-ai | PDF text extraction for LLMs |
-| `canvas-design` | samhvw8 | UI/UX design capabilities |
-| `finance-expert` | pcl | Payment processing, banking APIs |
-| `proactive-agent` | halthelobster | WAL Protocol, context survival |
-
-**Created:**
-- `templates/pulse-typography-system.css` — Complete typography system
-- `templates/proposal-pulse-graphix-V2.html` — Print-ready PDF proposal template
-- `docs/CLOUD_STORAGE_COMPARISON.md` — Google Drive vs IDrive vs Dropbox
-- `docs/SEARCH_API_ALTERNATIVES.md` — Search API options
+### Social Media Handles (Recommended)
+- **Primary:** `@chiccomutombo` (personal brand, works across all companies)
+- **Business:** `@mutombodigital` or `@mutombostudio` (umbrella)
 
 ---
 
-## Cloud Storage Research (2026-02-14)
-**Recommendation:** **IDrive** — 5TB for $24.88 first year (cheapest backup)  
-**Alternative:** **Google Drive** — 15GB free, best API/integration  
-**File**: `docs/CLOUD_STORAGE_COMPARISON.md`
+## Working Rules
+- **Proactive > Reactive** — anticipate needs
+- **Drafts > Live** — create for review first
+- **Files > Brain** — write everything to disk
+- **Batch > Inline** — large outputs go to files (>500 tokens)
 
 ---
 
-## Search API Research (2026-02-14)
-**Recommendation:** **Google Programmable Search API** — 100/day free  
-**Premium:** **SerpApi** — $50/mo, real Google results  
-**File**: `docs/SEARCH_API_ALTERNATIVES.md`
+## Skills Installed
+Design: `typography`, `web-typography`, `icon-design`, `favicon-gen`, `canvas-design`
+Dev: `shadcn-ui`, `html-to-pdf`, `extracting-pdf-text`
+Agent: `proactive-agent` (WAL Protocol)
+
+---
 
 ## Lessons Learned
 - WhatsApp can't send to same number it's linked to
-- Brave free plan = 1 request/second (rate limited)
-- gog CLI needs `http://localhost:1` redirect URI for manual OAuth
-- GitHub Pages caches 10 mins — use Vercel instead
-- Vercel deploys instantly — better for live dashboards
-- GOG_KEYRING_PASSWORD="openclaw" for gog CLI
-- Google OAuth expired since Feb 12 — needs `bash scripts/fix-oauth.sh`
-- Dashboard built 5 versions in one night (v1-v5) based on Kabundji feedback
-- shadcn/ui + next-themes for light/dark mode — Kabundji's preferred approach
-- Happy Hues palettes: Light=Clean Blue+Bold Pop, Dark=Deep Purple+Forest Green
-- Kabundji is a designer — he cares deeply about UI quality, spacing, alignment
-- 8 design skills installed from ClawHub (designer, frontend-design, graphic-design, superdesign, shadcn, tailwind-v4-shadcn, happy-hues, color-palette, colors)
-- Telegram setup started but not finished — needs bot token from @BotFather
-- Vercel deployment works: `VERCEL_TOKEN=$(cat credentials/vercel_token.txt) && npx vercel --prod --token "$VERCEL_TOKEN" --yes`
-- Dashboard Next.js repo: /home/ubuntu/.openclaw/workspace/dashboard-next/
+- Brave free plan = 1 request/sec rate limit
+- GitHub Pages caches 10 mins — Vercel is instant
+- shadcn/ui + next-themes = preferred stack
+- Kabundji cares deeply about UI quality, spacing, alignment (he's a designer)
 
 ---
 
-## Template Business Strategy (2026-02-13)
-**Kabundji wants Pulse Graphix to become a world-class creative agency** (advertising firm level)
-- Animated template economy: $50-100/template, $100-300k/year for top creators
-- Key tools: Aura ($20/mo), Unicorn Studio, Iconify/Solar, Nano Banana Pro, Gemini 3
-- Framer = 100% earnings, Webflow = 95% earnings
-- French market is UNDERSERVED — blue ocean opportunity
-- Strategy doc: `business/template-blueprint-strategy.md`
-- Revenue target: €10k/mo in 6 months
-- Key prompts: beam animations, marquee, fade-in/blur-in, scroll-triggered, sticky elements
-- Hero section = 50% of time, screenshots > text prompts for AI
-- Already have 6 design skills installed for Claude Code
+## Daily Notes Location
+`memory/YYYY-MM-DD.md`
 
----
-
-*This file is my curated long-term memory. Daily notes go in memory/YYYY-MM-DD.md*
+*This is curated long-term memory. See daily files for raw logs.*
