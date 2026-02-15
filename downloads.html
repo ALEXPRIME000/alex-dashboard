@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Graphix — File Downloads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: white; }
+        .glass { background: #111111; border: 1px solid #222; border-radius: 12px; }
+        .download-btn {
+            background: #00FF0022; color: #00FF00; border: 1px solid #00FF00;
+            padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 600;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+            transition: all 0.2s;
+        }
+        .download-btn:hover { background: #00FF00; color: #0a0a0a; }
+        .file-card {
+            background: #111; border: 1px solid #222; border-radius: 8px;
+            padding: 12px 16px; margin-bottom: 8px;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: all 0.2s;
+        }
+        .file-card:hover { border-color: #00FF00; transform: translateX(4px); }
+    </style>
+</head>
+<body class="min-h-screen p-6">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-8">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#00FF00] rounded-lg flex items-center justify-center text-black font-bold">PG</div>
+                <div>
+                    <h1 class="text-2xl font-bold">File Downloads</h1>
+                    <p class="text-sm text-gray-400">Access all documents from anywhere</p>
+                </div>
+            </div>
+        </header>
+
+        <div id="file-list"></div>
+
+        <div class="mt-8 p-6 glass text-center">
+            <p class="text-sm text-gray-400">All files synced to GitHub automatically</p>
+        </div>
+    </div>
+
+    <script>
+        const REPO_RAW = 'https://raw.githubusercontent.com/ALEXPRIME000/alex-dashboard/master';
+        
+        const knownFiles = [
+            { name: 'PULSE-GRAPHIX-BRIEF.md', path: 'business/PULSE-GRAPHIX-BRIEF.md', cat: '🏢 Business', icon: '📄' },
+            { name: 'NEXUS-AI-ACADEMY-BRIEF.md', path: 'business/NEXUS-AI-ACADEMY-BRIEF.md', cat: '🏢 Business', icon: '📄' },
+            { name: 'LINKEDIN-STRATEGY.md', path: 'social-media/LINKEDIN-STRATEGY.md', cat: '📱 Social Media', icon: '📝' },
+            { name: 'YOUTUBE-STRATEGY.md', path: 'social-media/YOUTUBE-STRATEGY.md', cat: '📱 Social Media', icon: '📝' },
+            { name: 'MASTER-STRATEGY.md', path: 'social-media/MASTER-STRATEGY.md', cat: '📱 Social Media', icon: '📝' },
+            { name: 'devis-pulse-v2.html', path: 'templates/devis-pulse-v2.html', cat: '🎨 Templates', icon: '🎨' },
+            { name: 'CONTEXT-MEMORY-SYSTEM.md', path: 'docs/CONTEXT-MEMORY-SYSTEM.md', cat: '📚 Documentation', icon: '📚' },
+            { name: 'AGENT-ZERO-ANALYSIS.md', path: 'docs/AGENT-ZERO-ANALYSIS.md', cat: '📚 Documentation', icon: '📚' },
+            { name: 'linkedin-posts-5.md', path: 'drafts/linkedin-posts-5.md', cat: '✏️ Drafts', icon: '✏️' },
+        ];
+
+        const container = document.getElementById('file-list');
+        let currentCat = '';
+
+        knownFiles.forEach(file => {
+            if (file.cat !== currentCat) {
+                currentCat = file.cat;
+                const header = document.createElement('div');
+                header.className = 'bg-[#00FF0011] border border-[#00FF0033] rounded-lg p-3 mb-3 mt-6 font-semibold text-[#00FF00]';
+                header.textContent = currentCat;
+                container.appendChild(header);
+            }
+
+            const card = document.createElement('div');
+            card.className = 'file-card';
+            card.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="text-lg">${file.icon}</span>
+                    <div>
+                        <div class="font-medium text-sm text-white">${file.name}</div>
+                        <div class="text-xs text-gray-500">${file.path}</div>
+                    </div>
+                </div>
+                <a href="${REPO_RAW}/${file.path}" target="_blank" class="download-btn" download>
+                    ↓ Download
+                </a>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
