@@ -190,7 +190,7 @@
 | Framer Account | Create account at framer.com | 🟡 MEDIUM |
 | LinkedIn posts | Review & approve 4 drafts | 🟡 MEDIUM |
 | Subagent Pyramid | Approval to deploy | 🟢 LOW |
-| Other 3 company names | For multi-company social strategy | 🟢 LOW |
+| Other 2 company names | For multi-company social strategy (have 2/4: Pulse Graphix, Nexus AI) | 🟢 LOW |
 | Existing social accounts | For audit & optimization | 🟢 LOW |
 
 ---

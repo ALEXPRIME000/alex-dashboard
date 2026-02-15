@@ -66,9 +66,44 @@
 
 ---
 
-## Companies
+## Companies (2/4 Identified)
 
-### Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
+### 1. Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
+- **Type:** Full-service creative & design agency
+- **Tagline:** "Design That Pulses With Purpose"
+- **Address:** 3 Rue Jacques Prévert, 77200 Torcy, France
+- **Phone:** +33 6 12 77 64 98
+- **Email:** chicco@pulsegraphix.net
+- **Website:** https://pulsegraphix.net
+- **Calendly:** https://calendly.com/pulsegraphix
+- **Colors:** Neon Green (#00FF00) on Black (#0D0D0D)
+- **Social:** LinkedIn, Instagram (@pulsegraphix), Behance, Dribbble
+- **Services:** 9 services (Logo, Website, Branding, Print, Merch, Motion, Infographics, Social Media, Presentations)
+- **Brief:** `business/PULSE-GRAPHIX-BRIEF.md`
+
+### 2. Nexus AI Academy — AI-Powered LMS (Feb 15, 2026)
+- **Type:** Learning Management System (LMS) with AI course generation
+- **Tagline:** AI-powered course creation platform
+- **Website:** n8n.nexusaiacademy.app (API endpoint) — main site TBD
+- **Tech Stack:** Next.js 15, TypeScript, Prisma, PostgreSQL, NextAuth v5, Tailwind, Stripe, OpenAI
+- **Languages:** French (primary), English, German, Spanish
+- **Core Feature:** AI agents generate complete courses from prompts — modules, lessons, quizzes, case studies
+- **Target:** French-speaking market primarily
+- **Business Model:** Course sales, subscriptions (Free/Premium/Enterprise), instructor bookings
+- **Differentiator:** Administrators don't manually create courses — AI generates everything
+- **Brief:** `business/NEXUS-AI-ACADEMY-BRIEF.md`
+
+### 3. [TBD] — Company #3
+- **Status:** Waiting for Kabundji to provide brief
+- **Use:** Will apply social media strategy templates once identified
+
+### 4. [TBD] — Company #4
+- **Status:** Waiting for Kabundji to provide brief
+- **Use:** Will apply social media strategy templates once identified
+
+---
+
+## Pulse Graphix — MASTER BRIEF (Feb 14, 2026)
 - **Type:** Full-service creative & design agency
 - **Tagline:** "Design That Pulses With Purpose"
 - **Address:** 3 Rue Jacques Prévert, 77200 Torcy, France
