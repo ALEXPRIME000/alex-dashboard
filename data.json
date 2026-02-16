@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-16T21:29:00.757Z",
+  "lastGenerated": "2026-02-16T23:01:08.838Z",
   "tasks": {
     "completed": [
       {
@@ -67,8 +67,8 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 239,
-    "totalFolders": 736,
+    "totalFiles": 252,
+    "totalFolders": 737,
     "lastCommit": "2026-02-16"
   },
   "memory": {
@@ -103,9 +103,19 @@
   },
   "prospects": [
     {
+      "name": "call-kit-ready",
+      "path": "prospects/call-kit-ready.md",
+      "preview": "# 📞 CALL KIT — PRÊT À APPELER\n**Kabundji — Pulse Graphix**  \n**Date:** 16 Février 2026  \n**Mission:** Convertir 4 leads locaux en clients\n\n---\n\n## 🎯 ORDRE D'APPEL (PRIORITÉ)\n\n### 1️⃣ **C.C.P Fournil"
+    },
+    {
       "name": "call-sheet-next-5",
       "path": "prospects/call-sheet-next-5.md",
       "preview": "# Prospect Call Sheet — Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## 📞 Priority Queue\n\n### 1. C.C.P Fournil — ★★★★★ TOP PRIORITY\n| Field"
+    },
+    {
+      "name": "follow-up-email-templates",
+      "path": "prospects/follow-up-email-templates.md",
+      "preview": "# 📧 TEMPLATES EMAIL DE SUIVI — PULSE GRAPHIX\n**Kabundji — Post-Appel Prospects**  \n**Dernière mise à jour:** 16 Février 2026\n\n---\n\n## 📩 TEMPLATE A — \"Ravi d'avoir discuté\" (Lead CHAUD)\n\n**Objet:** ["
     },
     {
       "name": "paris-boulangeries-research",
@@ -116,6 +126,11 @@
       "name": "paris-leads",
       "path": "prospects/paris-leads.md",
       "preview": "# Paris Prospecting List - AI Automation, n8n & Web Development\n\n**Generated:** February 2026  \n**Target Services:** AI automation, n8n workflows, web development, MVP development\n\n---\n\n## 🎯 Priority"
+    },
+    {
+      "name": "proposal-template-boulangerie",
+      "path": "prospects/proposal-template-boulangerie.md",
+      "preview": "# 🥖 PROPOSITION COMMERCIALE — SITE WEB BOULANGERIE\n\n**Client:** [NOM DE LA BOULANGERIE]  \n**Contact:** [Prénom Nom] — [Téléphone]  \n**Adresse:** [Adresse complète]  \n**Date:** [Date du jour]  \n**Réfé"
     },
     {
       "name": "torcy-boulangeries-leads",
@@ -213,6 +228,11 @@
       "name": "service-catalog.html",
       "path": "drafts/service-catalog.html",
       "modified": "2026-02-05"
+    },
+    {
+      "name": "social-media-image-sizes-2026.md",
+      "path": "drafts/social-media-image-sizes-2026.md",
+      "modified": "2026-02-16"
     }
   ],
   "integrations": {
