@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-16T23:01:08.838Z",
+  "lastGenerated": "2026-02-16T23:29:00.656Z",
   "tasks": {
     "completed": [
       {
@@ -67,7 +67,7 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 252,
+    "totalFiles": 255,
     "totalFolders": 737,
     "lastCommit": "2026-02-16"
   },
@@ -131,6 +131,11 @@
       "name": "proposal-template-boulangerie",
       "path": "prospects/proposal-template-boulangerie.md",
       "preview": "# 🥖 PROPOSITION COMMERCIALE — SITE WEB BOULANGERIE\n\n**Client:** [NOM DE LA BOULANGERIE]  \n**Contact:** [Prénom Nom] — [Téléphone]  \n**Adresse:** [Adresse complète]  \n**Date:** [Date du jour]  \n**Réfé"
+    },
+    {
+      "name": "proposal-template-restaurant",
+      "path": "prospects/proposal-template-restaurant.md",
+      "preview": "# 🍽️ PROPOSITION COMMERCIALE — SITE WEB RESTAURANT\n\n**Client:** [NOM DU RESTAURANT]  \n**Contact:** [Prénom Nom] — [Téléphone]  \n**Adresse:** [Adresse complète]  \n**Date:** [Date du jour]  \n**Référenc"
     },
     {
       "name": "torcy-boulangeries-leads",
