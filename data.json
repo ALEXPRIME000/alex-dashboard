@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-17T01:29:01.609Z",
+  "lastGenerated": "2026-02-17T04:27:24.487Z",
   "tasks": {
     "completed": [
       {
@@ -67,8 +67,8 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 256,
-    "totalFolders": 737,
+    "totalFiles": 258,
+    "totalFolders": 738,
     "lastCommit": "2026-02-17"
   },
   "memory": {
@@ -89,9 +89,11 @@
       "memory/2026-02-14.md",
       "memory/2026-02-15.md",
       "memory/2026-02-16.md",
+      "memory/2026-02-17.md",
       "memory/GOALS.md",
       "memory/SUBAGENTS.md",
-      "memory/drive-backup-log.md"
+      "memory/drive-backup-log.md",
+      "memory/family-children.md"
     ],
     "coreFiles": [
       "MEMORY.md",
