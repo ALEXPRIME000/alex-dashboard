@@ -29,6 +29,14 @@ curl -X POST "https://n8n.nexusaiacademy.app/api/v1/workflows/{id}/activate" \
 
 ---
 
+## WhatsApp (Alex Prime)
+- **Alex Prime Number:** +33 7 54 76 74 09
+- **Kabundji's Number:** +33 6 12 77 64 98
+- **Family Group JID:** 120363362391862392@g.us ("The Kabundjis")
+- **Connected:** 2026-02-17 via `openclaw channels login --channel whatsapp`
+
+---
+
 ## GitHub
 - **User:** ALEXPRIME000
 - **Token:** `/home/ubuntu/.openclaw/credentials/github_token.txt`

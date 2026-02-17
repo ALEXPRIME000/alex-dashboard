@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signatures Preview - Pulse Graphix Suite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .signature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .signature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .signature-wrapper {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            min-height: 350px;
+            background: white;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .copy-btn {
+            background: #00ff88;
+            color: #0a0a0a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .copy-btn:hover {
+            background: #00cc6a;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Email Signatures Preview</h1>
+        <p class="subtitle">Professional HTML Email Signatures for Pulse Graphix Suite</p>
+        
+        <div class="grid">
+            <!-- Signature 1: Kabundji Personal -->
+            <div class="signature-card">
+                <div class="card-header">1. Chicco Mutombo Kabundji - Personal</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-kabundji-personal.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-kabundji-personal.html')">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Signature 2: Alex Prime -->
+            <div class="signature-card">
+                <div class="card-header">2. Alex Prime - AI Assistant</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-alex-prime.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-alex-prime.html')">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Signature 3: Pulse Graphix -->
+            <div class="signature-card">
+                <div class="card-header">3. Pulse Graphix - Agency</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-pulse-graphix.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-pulse-graphix.html')">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Signature 4: Nexus AI Academy -->
+            <div class="signature-card">
+                <div class="card-header">4. Nexus AI Academy</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-nexus-ai-academy.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-nexus-ai-academy.html')">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Signature 5: Invest in Congo -->
+            <div class="signature-card">
+                <div class="card-header">5. Invest in Congo</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-invest-in-congo.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-invest-in-congo.html')">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Signature 6: Pulse Architects -->
+            <div class="signature-card">
+                <div class="card-header">6. Pulse Architects</div>
+                <div class="signature-wrapper">
+                    <iframe src="signature-pulse-architects.html"></iframe>
+                </div>
+                <button class="copy-btn" onclick="copySignature('signature-pulse-architects.html')">📋 Copy to Clipboard</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Design Specifications:</strong></p>
+            <p>✅ HTML Tables (Email Client Compatible) | ✅ Inline CSS Only | ✅ Max Width 600px</p>
+            <p>✅ Web-Safe Fonts | ✅ Professional Design | ✅ Legal Disclaimers Included</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Created for Chicco Mutombo Kabundji | Pulse Graphix Suite</p>
+        </div>
+    </div>
+
+    <script>
+        async function copySignature(filename) {
+            try {
+                const response = await fetch(filename);
+                const html = await response.text();
+                
+                // Extract just the table content (body of the signature)
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const signatureContent = doc.querySelector('body').innerHTML;
+                
+                // Copy to clipboard
+                await navigator.clipboard.writeText(signatureContent);
+                
+                // Show feedback
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Copied!';
+                btn.style.background = '#00cc6a';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '#00ff88';
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy. Please open the file directly and copy manually.');
+                console.error('Copy failed:', err);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* style.css */
+:root {
+    --primary-color: #0a0a0a;
+    --secondary-color: #222222;
+    --accent-color: #00FF00;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-family: Inter, sans-serif;
+}
+
+header {
+    background-color: var(--secondary-color);
+    padding: 1em;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.company-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--secondary-color);
+    margin: 1em;
+    padding: 1em;
+    width: calc(33.33% - 2em);
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.combined-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.metric {
+    background-color: var(--secondary-color);
+    margin: 1em;
+    padding: 1em;
+    width: calc(50% - 2em);
+}
+
+.metric h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
