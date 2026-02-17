@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-17T11:58:15.655Z",
+  "lastGenerated": "2026-02-17T12:28:07.940Z",
   "tasks": {
     "completed": [
       {
@@ -67,8 +67,8 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 263,
-    "totalFolders": 741,
+    "totalFiles": 266,
+    "totalFolders": 747,
     "lastCommit": "2026-02-17"
   },
   "memory": {
@@ -107,7 +107,7 @@
     {
       "name": "call-kit-ready",
       "path": "prospects/call-kit-ready.md",
-      "preview": "# 📞 CALL KIT — PRÊT À APPELER\n**Kabundji — Pulse Graphix**  \n**Date:** 16 Février 2026  \n**Mission:** Convertir 4 leads locaux en clients\n\n---\n\n## 🎯 ORDRE D'APPEL (PRIORITÉ)\n\n### 1️⃣ **C.C.P Fournil"
+      "preview": "# 📞 PROSPECT CALL KIT — Ready to Dial\n**Prepared:** 2026-02-17  \n**Status:** ✅ APPROVED — Kabundji gave green light Feb 16  \n**Target:** 4 qualified leads in Torcy/Seine-et-Marne  \n\n---\n\n## 🎯 TODAY'"
     },
     {
       "name": "call-sheet-next-5",
@@ -205,6 +205,11 @@
       "name": "linkedin-posts-feb2026.md",
       "path": "drafts/linkedin-posts-feb2026.md",
       "modified": "2026-02-12"
+    },
+    {
+      "name": "linkedin-posts-week-feb17.md",
+      "path": "drafts/linkedin-posts-week-feb17.md",
+      "modified": "2026-02-17"
     },
     {
       "name": "linkedin-posts.md",
