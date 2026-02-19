@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-19T21:29:00.943Z",
+  "lastGenerated": "2026-02-19T22:12:09.630Z",
   "tasks": {
     "completed": [
       {
@@ -67,7 +67,7 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 273,
+    "totalFiles": 275,
     "totalFolders": 748,
     "lastCommit": "2026-02-19"
   },
@@ -115,6 +115,11 @@
       "name": "call-sheet-next-5",
       "path": "prospects/call-sheet-next-5.md",
       "preview": "# Prospect Call Sheet — Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## 📞 Priority Queue\n\n### 1. C.C.P Fournil — ★★★★★ TOP PRIORITY\n| Field"
+    },
+    {
+      "name": "expanded-prospect-list",
+      "path": "prospects/expanded-prospect-list.md",
+      "preview": "# Prospects Élargis — Torcy, Noisiel, Lognes & Environs\n**Créé:** 2026-02-19 22:00 UTC | **Statut:** DRAFT — Recherche en cours\n**Objectif:** Passer de 5 à 20+ prospects qualifiés\n\n---\n\n## ✅ PROSPECTS"
     },
     {
       "name": "follow-up-email-templates",
@@ -197,6 +202,11 @@
       "name": "cold-emails.md",
       "path": "drafts/cold-emails.md",
       "modified": "2026-02-05"
+    },
+    {
+      "name": "email-sequences-prospects.md",
+      "path": "drafts/email-sequences-prospects.md",
+      "modified": "2026-02-19"
     },
     {
       "name": "email-signature.html",
