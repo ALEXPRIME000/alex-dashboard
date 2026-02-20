@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-20T04:35:11.395Z",
+  "lastGenerated": "2026-02-20T04:37:43.495Z",
   "tasks": {
     "completed": [
       {
@@ -67,7 +67,7 @@
     "pending": []
   },
   "workspace": {
-    "totalFiles": 277,
+    "totalFiles": 278,
     "totalFolders": 750,
     "lastCommit": "2026-02-20"
   },
@@ -116,6 +116,11 @@
       "name": "call-sheet-next-5",
       "path": "prospects/call-sheet-next-5.md",
       "preview": "# Prospect Call Sheet — Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## 📞 Priority Queue\n\n### 1. C.C.P Fournil — ★★★★★ TOP PRIORITY\n| Field"
+    },
+    {
+      "name": "expanded-prospect-list-20",
+      "path": "prospects/expanded-prospect-list-20.md",
+      "preview": "# Expanded Prospect List — 20 Local Businesses\n**Compiled:** 2026-02-20 04:35 UTC\n**Area:** Torcy, Noisiel, Lognes, Marne-la-Vallée (77200)\n**Goal:** Expand from 4 → 20 qualified leads for Pulse Graph"
     },
     {
       "name": "expanded-prospect-list",
