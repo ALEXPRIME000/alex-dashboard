@@ -1,766 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>Pulse Graphix — Executive Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { DEFAULT: '#00FF00', dark: '#0a0a0a', card: '#111111', border: '#222222', muted: '#888888' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background: #0a0a0a; }
-        .glass { background: #111111; border: 1px solid #222; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .glass:hover { border-color: #00FF00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 255, 0, 0.1); }
-        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
-        .beam { position: relative; overflow: hidden; }
-        .beam::before { content:''; position:absolute; top:-2px; left:-2px; right:-2px; bottom:-2px; background: conic-gradient(from 0deg, transparent, #00FF00, transparent, transparent); border-radius: inherit; animation: beam-spin 3s linear infinite; z-index:-1; }
-        @keyframes beam-spin { to { transform: rotate(360deg); } }
-        .fade-in { animation: fadeIn .5s cubic-bezier(0.4, 0, 0.2, 1); }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-        .slide-in { animation: slideIn .4s cubic-bezier(0.4, 0, 0.2, 1); }
-        @keyframes slideIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
-        .tab-content { display:none; }
-        .tab-content.active { display:block; }
-        .nav-btn { transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .nav-btn.active { color: #00FF00; border-color: #00FF00; background: rgba(0, 255, 0, 0.05); }
-        .nav-btn:hover { color: #00FF00; background: rgba(0, 255, 0, 0.03); }
-        .progress-bar { background: linear-gradient(90deg, #00FF00, #00cc00); transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
-        .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
-        .status-connected { background:#00FF00; box-shadow:0 0 8px #00FF0088; }
-        .status-expired { background:#ef4444; box-shadow:0 0 8px #ef444488; }
-        .status-configured { background:#f59e0b; box-shadow:0 0 8px #f59e0b88; }
-        .status-planned { background:#6366f1; box-shadow:0 0 8px #6366f188; }
-        .status-active { background:#00FF00; box-shadow:0 0 8px #00FF0088; }
-        .tag { font-size: .65rem; padding: 2px 8px; border-radius: 9999px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
-        .tag-high { background: #ef444433; color: #ef4444; }
-        .tag-medium { background: #f59e0b33; color: #f59e0b; }
-        .tag-low { background: #3b82f633; color: #3b82f6; }
-        .tag-done { background: #00FF0022; color: #00FF00; }
-        .tag-review { background: #a855f733; color: #a855f7; }
-        .tag-draft { background: #6b728033; color: #9ca3af; }
-        .tag-new { background: #00FF0033; color: #00FF00; }
-        .tag-active { background: #3b82f633; color: #60a5fa; }
-        .tag-tool { background: #6366f133; color: #818cf8; }
-        .tag-planning { background: #f59e0b33; color: #fbbf24; }
-        .tag-completed { background: #00FF0022; color: #00FF00; }
-        .tag-planned { background: #6366f133; color: #818cf8; }
-        .btn-approve { background: #00FF0022; color: #00FF00; border: 1px solid #00FF00; padding: 6px 16px; border-radius: 6px; font-size: 11px; font-weight: 600; transition: all .2s; }
-        .btn-approve:hover { background: #00FF00; color: #0a0a0a; }
-        .btn-reject { background: #ef444422; color: #ef4444; border: 1px solid #ef4444; padding: 6px 16px; border-radius: 6px; font-size: 11px; font-weight: 600; transition: all .2s; }
-        .btn-reject:hover { background: #ef4444; color: white; }
-        .notification-item { border-left: 2px solid #00FF00; padding-left: 12px; transition: all .2s; }
-        .notification-item:hover { border-left-width: 4px; background: rgba(0, 255, 0, 0.03); }
-        .calendar-event { border-left: 3px solid; transition: all .3s; }
-        .calendar-event:hover { transform: translateX(4px); }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #111; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #00FF00; }
-        .search-input { background: #111; border: 1px solid #222; color: white; padding: 8px 12px; border-radius: 6px; width: 100%; transition: all .2s; }
-        .search-input:focus { outline: none; border-color: #00FF00; box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.1); }
-        .chart-container { position: relative; height: 300px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Prime — Executive Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { orange: '#FF6B35', gold: '#F7931A', dark: '#212121', darker: '#1a1a1a', card: '#2a2a2a', cardHover: '#333333', border: '#3a3a3a', muted: '#888888' },
+      },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; background: #121212; }
+  .tab-btn.active { color: #FF6B35; border-bottom: 2px solid #FF6B35; }
+  .tab-btn:not(.active) { color: #888; border-bottom: 2px solid transparent; }
+  .tab-btn:hover:not(.active) { color: #ccc; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .gradient-text { background: linear-gradient(135deg, #FF6B35, #F7931A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-glow { background: radial-gradient(ellipse at 50% 0%, rgba(255,107,53,0.12) 0%, transparent 70%); }
+  .card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 12px; transition: border-color 0.2s; }
+  .card:hover { border-color: #3a3a3a; }
+  .progress-bar { background: #2a2a2a; border-radius: 999px; overflow: hidden; }
+  .progress-fill { background: linear-gradient(90deg, #FF6B35, #F7931A); border-radius: 999px; height: 100%; transition: width 0.6s ease; }
+  .tier-hot { background: rgba(255,107,53,0.15); color: #FF6B35; }
+  .tier-warm { background: rgba(247,147,26,0.15); color: #F7931A; }
+  .tier-new { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .tier-cold { background: rgba(107,114,128,0.15); color: #9ca3af; }
+  .status-connected { color: #22c55e; }
+  .status-expired { color: #ef4444; }
+  .status-available { color: #F7931A; }
+  .status-active { color: #22c55e; }
+  .stat-card { background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #1a1a1a; }
+  ::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 3px; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn 0.4s ease forwards; }
+  .priority-high { border-left: 3px solid #ef4444; }
+  .priority-medium { border-left: 3px solid #F7931A; }
+</style>
 </head>
-<body class="min-h-screen text-white">
+<body class="min-h-screen text-gray-200">
 
-    <!-- Top Bar with Branding -->
-    <header class="border-b border-brand-border px-4 md:px-6 py-4 flex items-center justify-between sticky top-0 bg-brand-dark/98 backdrop-blur-lg z-50 shadow-lg">
-        <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-brand rounded-lg flex items-center justify-center text-black font-bold text-base shadow-lg">PG</div>
-            <div>
-                <h1 class="text-base font-bold text-white tracking-tight">Pulse Graphix</h1>
-                <p class="text-[11px] text-brand-muted">3 Rue Jacques Prévert, 77200 Torcy • Executive Dashboard</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-4">
-            <div id="live-indicator" class="flex items-center gap-2 text-xs">
-                <span class="status-dot status-connected pulse"></span>
-                <span class="text-brand-muted"><span id="agent-status-text" class="text-brand font-semibold">ACTIVE</span></span>
-            </div>
-            <div class="text-[10px] text-brand-muted font-mono" id="last-update">--</div>
-        </div>
-    </header>
-
-    <div class="flex">
-        <!-- Sidebar Nav -->
-        <nav class="hidden md:flex flex-col w-52 border-r border-brand-border p-3 gap-1 sticky top-[73px] h-[calc(100vh-73px)] overflow-y-auto">
-            <button onclick="showTab('overview')" class="nav-btn active text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="overview">📊 Overview</button>
-            <button onclick="showTab('calendar')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="calendar">📅 Calendar</button>
-            <button onclick="showTab('notifications')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="notifications">🔔 Activity Feed <span id="notif-badge" class="ml-1 bg-brand text-black text-[9px] px-1.5 py-0.5 rounded-full font-bold">0</span></button>
-            <button onclick="showTab('tasks')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="tasks">✅ Tasks</button>
-            <button onclick="showTab('projects')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="projects">🚀 Projects</button>
-            <button onclick="showTab('approvals')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="approvals">⚡ Approvals <span id="approval-badge" class="ml-1 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">0</span></button>
-            <button onclick="showTab('documents')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="documents">📁 Documents</button>
-            <button onclick="showTab('prospects')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="prospects">🎯 Prospects</button>
-            <button onclick="showTab('people')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="people">👥 People</button>
-            <button onclick="showTab('memory')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="memory">🧠 Memory</button>
-            <button onclick="showTab('integrations')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="integrations">🔌 Integrations</button>
-            <button onclick="showTab('models')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="models">🤖 AI Models</button>
-            <button onclick="showTab('skills')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="skills">⚙️ Skills</button>
-            <button onclick="showTab('goals')" class="nav-btn text-left px-3 py-2.5 rounded-lg text-xs font-semibold text-brand-muted border border-transparent" data-tab="goals">🎯 Goals</button>
-        </nav>
-
-        <!-- Mobile Nav -->
-        <div class="md:hidden flex overflow-x-auto border-b border-brand-border px-2 py-2 gap-1 sticky top-[73px] bg-brand-dark z-40 w-full" id="mobile-nav">
-            <button onclick="showTab('overview')" class="nav-btn active whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="overview">📊</button>
-            <button onclick="showTab('calendar')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="calendar">📅</button>
-            <button onclick="showTab('notifications')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="notifications">🔔</button>
-            <button onclick="showTab('tasks')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="tasks">✅</button>
-            <button onclick="showTab('projects')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="projects">🚀</button>
-            <button onclick="showTab('approvals')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="approvals">⚡</button>
-            <button onclick="showTab('documents')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="documents">📁</button>
-            <button onclick="showTab('prospects')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="prospects">🎯</button>
-            <button onclick="showTab('people')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="people">👥</button>
-            <button onclick="showTab('memory')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="memory">🧠</button>
-            <button onclick="showTab('integrations')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="integrations">🔌</button>
-            <button onclick="showTab('models')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="models">🤖</button>
-            <button onclick="showTab('skills')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="skills">⚙️</button>
-            <button onclick="showTab('goals')" class="nav-btn whitespace-nowrap px-3 py-1.5 rounded-full text-[10px] font-medium text-brand-muted border border-brand-border" data-tab="goals">🎯</button>
-        </div>
-
-        <!-- Main Content -->
-        <main class="flex-1 p-4 md:p-6 max-w-7xl">
-
-            <!-- OVERVIEW TAB -->
-            <div id="tab-overview" class="tab-content active fade-in">
-                <h2 class="text-xl font-bold mb-6">Overview</h2>
-
-                <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <div class="glass rounded-xl p-5">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Current Task</div>
-                        <div id="current-task" class="text-xs font-medium text-white">Loading...</div>
-                    </div>
-                    <div class="glass rounded-xl p-5">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Completed</div>
-                        <div id="stat-completed" class="text-3xl font-bold text-brand">--</div>
-                    </div>
-                    <div class="glass rounded-xl p-5">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Pending</div>
-                        <div id="stat-pending" class="text-3xl font-bold text-yellow-400">--</div>
-                    </div>
-                    <div class="glass rounded-xl p-5">
-                        <div class="text-brand-muted text-[10px] uppercase tracking-wider mb-2 font-semibold">Approvals</div>
-                        <div id="stat-approvals" class="text-3xl font-bold text-red-400">--</div>
-                    </div>
-                </div>
-
-                <!-- Charts Row -->
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="glass rounded-xl p-5">
-                        <h3 class="text-sm font-bold text-white mb-4">Project Progress</h3>
-                        <div class="chart-container">
-                            <canvas id="projectChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="glass rounded-xl p-5">
-                        <h3 class="text-sm font-bold text-white mb-4">Task Distribution</h3>
-                        <div class="chart-container">
-                            <canvas id="taskChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Actions + Pending -->
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="glass rounded-xl p-5">
-                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Recent Actions</h3>
-                        <div id="recent-actions" class="space-y-3"></div>
-                    </div>
-                    <div class="glass rounded-xl p-5">
-                        <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Pending Tasks</h3>
-                        <div id="pending-tasks" class="space-y-3"></div>
-                    </div>
-                </div>
-
-                <!-- Quick Access -->
-                <div class="glass rounded-xl p-5">
-                    <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-4">Quick Links</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <a href="https://github.com/ALEXPRIME000/alex-dashboard" target="_blank" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">🐙 GitHub</a>
-                        <a href="https://n8n.nexusaiacademy.app" target="_blank" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">⚡ n8n</a>
-                        <a href="#" onclick="showTab('approvals')" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">⚡ Approvals</a>
-                        <a href="#" onclick="showTab('documents')" class="glass rounded-lg p-4 text-center hover:border-brand transition text-xs font-medium">📁 Files</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CALENDAR TAB -->
-            <div id="tab-calendar" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-2">Calendar</h2>
-                <p class="text-brand-muted text-sm mb-6">Upcoming events and deadlines (Google OAuth integration pending)</p>
-                <div id="calendar-content" class="space-y-4"></div>
-            </div>
-
-            <!-- NOTIFICATIONS TAB -->
-            <div id="tab-notifications" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-2">Activity Feed</h2>
-                <p class="text-brand-muted text-sm mb-6">Recent commits, updates, and system activity</p>
-                <div id="notifications-content" class="space-y-3"></div>
-            </div>
-
-            <!-- TASKS TAB -->
-            <div id="tab-tasks" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Tasks</h2>
-                <div id="tasks-content" class="space-y-4"></div>
-            </div>
-
-            <!-- PROJECTS TAB -->
-            <div id="tab-projects" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Projects</h2>
-                <div id="projects-content" class="space-y-5"></div>
-            </div>
-
-            <!-- APPROVALS TAB -->
-            <div id="tab-approvals" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-2">Approvals</h2>
-                <p class="text-brand-muted text-sm mb-6">Items waiting for your review and approval</p>
-                <div id="approvals-content" class="space-y-4"></div>
-            </div>
-
-            <!-- DOCUMENTS TAB -->
-            <div id="tab-documents" class="tab-content fade-in">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-bold">Documents</h2>
-                    <input type="text" id="doc-search" placeholder="🔍 Search documents..." class="search-input w-64" oninput="filterDocuments()">
-                </div>
-                <div id="documents-content"></div>
-            </div>
-
-            <!-- PROSPECTS TAB -->
-            <div id="tab-prospects" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Prospects & Leads</h2>
-                <div id="prospects-content" class="space-y-4"></div>
-            </div>
-
-            <!-- PEOPLE TAB -->
-            <div id="tab-people" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">People & Team</h2>
-                <div id="people-content"></div>
-            </div>
-
-            <!-- MEMORY TAB -->
-            <div id="tab-memory" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Memory Log</h2>
-                <div id="memory-content" class="space-y-3"></div>
-            </div>
-
-            <!-- INTEGRATIONS TAB -->
-            <div id="tab-integrations" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Integrations & Services</h2>
-                <div id="integrations-content" class="space-y-4"></div>
-            </div>
-
-            <!-- MODELS TAB -->
-            <div id="tab-models" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">AI Models & Usage</h2>
-                <div id="models-content" class="space-y-4"></div>
-            </div>
-
-            <!-- SKILLS TAB -->
-            <div id="tab-skills" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Installed Skills</h2>
-                <div id="skills-content" class="grid md:grid-cols-2 gap-4"></div>
-            </div>
-
-            <!-- GOALS TAB -->
-            <div id="tab-goals" class="tab-content fade-in">
-                <h2 class="text-xl font-bold mb-6">Goals & Targets</h2>
-                <div id="goals-content"></div>
-            </div>
-
-        </main>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#121212]/80 border-b border-[#2a2a2a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-gold flex items-center justify-center text-white font-black text-lg">A</div>
+      <div>
+        <h1 class="text-lg font-bold text-white tracking-tight">Alex Prime</h1>
+        <p class="text-xs text-gray-500">Executive Dashboard</p>
+      </div>
     </div>
+    <div class="flex items-center gap-4">
+      <div id="last-updated" class="text-xs text-gray-500"></div>
+      <div id="refresh-indicator" class="w-2 h-2 rounded-full bg-green-500" title="Auto-refresh active"></div>
+    </div>
+  </div>
+  <!-- TABS -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <nav class="flex gap-1 overflow-x-auto pb-0 -mb-px" id="tab-nav">
+      <button class="tab-btn active px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="overview">Overview</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="tasks">Tasks</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="projects">Projects</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="prospects">Prospects</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="calendar">Calendar</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="approvals">Approvals</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="people">People</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="memory">Memory</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="integrations">Integrations</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="services">Services</button>
+    </nav>
+  </div>
+</header>
 
-    <script>
-    // Fetch from same origin (Vercel) — no GitHub CDN cache delay
-    const GITHUB_RAW = '.';
-    let statusData = null;
-    let fullData = null;
-    let projectChart = null;
-    let taskChart = null;
-    let allDocuments = [];
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
 
-    function showTab(tab) {
-        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-        document.getElementById('tab-' + tab).classList.add('active');
-        document.querySelectorAll(`[data-tab="${tab}"]`).forEach(el => el.classList.add('active'));
-    }
+  <!-- OVERVIEW TAB -->
+  <section id="tab-overview" class="tab-content active fade-in">
+    <!-- Hero -->
+    <div class="hero-glow rounded-2xl p-8 mb-8 border border-[#2a2a2a]">
+      <h2 class="text-3xl sm:text-4xl font-black gradient-text mb-2">Alex Prime</h2>
+      <p class="text-gray-400 text-lg mb-6">AI Executive Agent • Pulse Graphix Empire Command Center</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="hero-stats"></div>
+    </div>
+    <!-- Quick Glance -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">⚡ Blocked Items</h3>
+        <div id="overview-blocked" class="space-y-3"></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">🎯 Business Goals</h3>
+        <div id="overview-goals" class="space-y-3"></div>
+      </div>
+    </div>
+  </section>
 
-    function timeAgo(dateStr) {
-        const diff = Date.now() - new Date(dateStr).getTime();
-        const mins = Math.floor(diff / 60000);
-        if (mins < 1) return 'just now';
-        if (mins < 60) return mins + 'm ago';
-        const hrs = Math.floor(mins / 60);
-        if (hrs < 24) return hrs + 'h ago';
-        return Math.floor(hrs / 24) + 'd ago';
-    }
+  <!-- TASKS TAB -->
+  <section id="tab-tasks" class="tab-content fade-in">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6" id="task-stats"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">✅ Completed (<span id="completed-count">0</span>)</h3>
+        <div id="tasks-completed" class="space-y-2 max-h-[500px] overflow-y-auto pr-2"></div>
+      </div>
+      <div>
+        <div class="card p-6 mb-6">
+          <h3 class="text-sm font-semibold text-yellow-400 uppercase tracking-wider mb-4">⏳ Pending (<span id="pending-count">0</span>)</h3>
+          <div id="tasks-pending" class="space-y-2 max-h-[300px] overflow-y-auto pr-2"></div>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-sm font-semibold text-red-400 uppercase tracking-wider mb-4">🚫 Blocked (<span id="blocked-count">0</span>)</h3>
+          <div id="tasks-blocked" class="space-y-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function tag(text, type) {
-        return `<span class="tag tag-${type}">${text}</span>`;
-    }
+  <!-- PROJECTS TAB -->
+  <section id="tab-projects" class="tab-content fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid"></div>
+  </section>
 
-    function githubLink(path) {
-        return `https://github.com/ALEXPRIME000/alex-dashboard/blob/master/${path}`;
-    }
+  <!-- PROSPECTS TAB -->
+  <section id="tab-prospects" class="tab-content fade-in">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-white">Prospect Pipeline</h2>
+        <p class="text-sm text-gray-500">Torcy & Marne-la-Vallée (77200)</p>
+      </div>
+      <div class="flex gap-2" id="tier-filters">
+        <button class="tier-filter text-xs px-3 py-1 rounded-full bg-[#2a2a2a] text-gray-300 hover:text-white" data-tier="all">All</button>
+        <button class="tier-filter text-xs px-3 py-1 rounded-full tier-hot" data-tier="hot">🔥 Hot</button>
+        <button class="tier-filter text-xs px-3 py-1 rounded-full tier-warm" data-tier="warm">🟡 Warm</button>
+        <button class="tier-filter text-xs px-3 py-1 rounded-full tier-new" data-tier="new">🆕 New</button>
+        <button class="tier-filter text-xs px-3 py-1 rounded-full tier-cold" data-tier="cold">❄️ Cold</button>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left text-gray-500 border-b border-[#2a2a2a]">
+            <th class="pb-3 pr-4">#</th>
+            <th class="pb-3 pr-4">Business</th>
+            <th class="pb-3 pr-4">Type</th>
+            <th class="pb-3 pr-4">Address</th>
+            <th class="pb-3 pr-4">Phone</th>
+            <th class="pb-3 pr-4">Web Status</th>
+            <th class="pb-3">Tier</th>
+          </tr>
+        </thead>
+        <tbody id="prospects-table"></tbody>
+      </table>
+    </div>
+  </section>
 
-    function handleApproval(item, action) {
-        alert(`${action === 'approve' ? '✅ Approved' : '❌ Rejected'}: ${item}\n\nThis is a visual demo. Connect to backend for real actions.`);
-    }
+  <!-- CALENDAR TAB -->
+  <section id="tab-calendar" class="tab-content fade-in">
+    <div class="card p-12 text-center">
+      <div class="text-5xl mb-4">📅</div>
+      <h3 class="text-xl font-bold text-white mb-2">Calendar Coming Soon</h3>
+      <p class="text-gray-500">Google Calendar integration pending OAuth re-authentication.</p>
+      <p class="text-gray-600 text-sm mt-2">Connect via: Fix Google OAuth → Approvals tab</p>
+    </div>
+  </section>
 
-    function filterDocuments() {
-        const query = document.getElementById('doc-search').value.toLowerCase();
-        const allCategories = document.querySelectorAll('.doc-category');
-        allCategories.forEach(cat => {
-            const items = cat.querySelectorAll('.doc-item');
-            let visibleCount = 0;
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-            cat.style.display = visibleCount > 0 ? 'block' : 'none';
-        });
-    }
+  <!-- APPROVALS TAB -->
+  <section id="tab-approvals" class="tab-content fade-in">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white">⏳ Waiting on Kabundji</h2>
+      <p class="text-sm text-gray-500">Items that need your review and approval</p>
+    </div>
+    <div class="space-y-4" id="approvals-list"></div>
+  </section>
 
-    async function loadData() {
-        try {
-            const [statusRes, dataRes] = await Promise.all([
-                fetch(GITHUB_RAW + '/status.json?t=' + Date.now()),
-                fetch(GITHUB_RAW + '/data.json?t=' + Date.now()).catch(() => null)
-            ]);
-            statusData = await statusRes.json();
-            if (dataRes && dataRes.ok) fullData = await dataRes.json();
-        } catch (e) {
-            console.error('Failed to load data:', e);
-        }
-        render();
-    }
+  <!-- PEOPLE TAB -->
+  <section id="tab-people" class="tab-content fade-in">
+    <div class="card p-12 text-center">
+      <div class="text-5xl mb-4">👥</div>
+      <h3 class="text-xl font-bold text-white mb-2">People & Contacts</h3>
+      <p class="text-gray-500">Team members, clients, and contacts directory.</p>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left">
+        <div class="card p-4"><p class="font-semibold text-white">Kabundji</p><p class="text-xs text-gray-500">Founder & CEO • Pulse Graphix</p></div>
+        <div class="card p-4"><p class="font-semibold gradient-text">Alex Prime</p><p class="text-xs text-gray-500">AI Executive Agent • OpenClaw</p></div>
+      </div>
+    </div>
+  </section>
 
-    function renderCharts() {
-        if (!fullData || !fullData.projects) return;
+  <!-- MEMORY TAB -->
+  <section id="tab-memory" class="tab-content fade-in">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white">🧠 Memory System</h2>
+      <p class="text-sm text-gray-500">Agent memory files and workspace overview</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Core Files</h3>
+        <div id="memory-core" class="space-y-2"></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Daily Memory Logs</h3>
+        <div id="memory-daily" class="space-y-1 max-h-[400px] overflow-y-auto pr-2"></div>
+      </div>
+    </div>
+    <div class="card p-6 mt-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">📂 Workspace Stats</h3>
+      <div id="workspace-stats" class="grid grid-cols-3 gap-4"></div>
+    </div>
+  </section>
 
-        // Project Progress Chart
-        const projectNames = fullData.projects.map(p => p.name);
-        const projectProgress = fullData.projects.map(p => p.progress);
-        
-        const projectCtx = document.getElementById('projectChart').getContext('2d');
-        if (projectChart) projectChart.destroy();
-        projectChart = new Chart(projectCtx, {
-            type: 'bar',
-            data: {
-                labels: projectNames,
-                datasets: [{
-                    label: 'Progress %',
-                    data: projectProgress,
-                    backgroundColor: 'rgba(0, 255, 0, 0.2)',
-                    borderColor: '#00FF00',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        grid: { color: '#222' },
-                        ticks: { color: '#888' }
-                    },
-                    x: {
-                        grid: { color: '#222' },
-                        ticks: { color: '#888', font: { size: 10 } }
-                    }
-                }
-            }
-        });
+  <!-- INTEGRATIONS TAB -->
+  <section id="tab-integrations" class="tab-content fade-in">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white">🔌 Integrations & Services</h2>
+      <p class="text-sm text-gray-500">Connected platforms and API status</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="integrations-grid"></div>
+    <div class="mt-8">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">🤖 AI Models</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="models-grid"></div>
+    </div>
+  </section>
 
-        // Task Distribution Chart
-        const taskCtx = document.getElementById('taskChart').getContext('2d');
-        if (taskChart) taskChart.destroy();
-        taskChart = new Chart(taskCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Completed', 'Pending', 'Approvals'],
-                datasets: [{
-                    data: [
-                        statusData.stats?.tasksCompleted || 0,
-                        statusData.stats?.tasksPending || 0,
-                        fullData.approvals?.length || 0
-                    ],
-                    backgroundColor: ['#00FF00', '#f59e0b', '#ef4444'],
-                    borderColor: '#0a0a0a',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#888', padding: 15 }
-                    }
-                }
-            }
-        });
-    }
+  <!-- SERVICES TAB -->
+  <section id="tab-services" class="tab-content fade-in">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white">🛠️ Agent Skills & Services</h2>
+      <p class="text-sm text-gray-500">Installed capabilities</p>
+    </div>
+    <div class="flex flex-wrap gap-2" id="skills-grid"></div>
+    <div class="card p-6 mt-8">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">📝 Drafts & Documents</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="drafts-grid"></div>
+    </div>
+  </section>
 
-    function render() {
-        if (!statusData) return;
+</main>
 
-        // Header
-        document.getElementById('last-update').textContent = timeAgo(statusData.lastUpdate);
-        document.getElementById('agent-status-text').textContent = statusData.status?.toUpperCase() || 'ACTIVE';
-        document.getElementById('current-task').textContent = statusData.currentTask || 'Idle';
+<!-- FOOTER -->
+<footer class="border-t border-[#2a2a2a] mt-12 py-6 text-center text-xs text-gray-600">
+  Alex Prime — Executive Dashboard • Auto-refreshes every 60s • Powered by OpenClaw
+</footer>
 
-        // Stats
-        document.getElementById('stat-completed').textContent = statusData.stats?.tasksCompleted || 0;
-        document.getElementById('stat-pending').textContent = statusData.stats?.tasksPending || 0;
+<script>
+let DATA = null;
+let currentTier = 'all';
 
-        // Recent Actions
-        const ra = document.getElementById('recent-actions');
-        ra.innerHTML = (statusData.recentActions || []).map(a =>
-            `<div class="flex items-start gap-3 text-xs slide-in"><span class="text-brand mt-0.5 text-sm">▸</span><span class="text-gray-300">${a}</span></div>`
-        ).join('');
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
 
-        // Pending Tasks
-        const pt = document.getElementById('pending-tasks');
-        pt.innerHTML = (statusData.pendingTasks || []).map(t =>
-            `<div class="flex items-start justify-between gap-3 text-xs slide-in">
-                <span class="text-gray-300">${t.name}</span>
-                ${tag(t.priority, t.priority)}
-            </div>`
-        ).join('');
+// Tier filtering
+document.getElementById('tier-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.tier-filter');
+  if (!btn) return;
+  currentTier = btn.dataset.tier;
+  renderProspects();
+});
 
-        if (!fullData) return;
+async function loadData() {
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    DATA = await res.json();
+    render();
+  } catch (err) {
+    console.error('Failed to load data:', err);
+  }
+}
 
-        // Render Charts
-        renderCharts();
+function render() {
+  if (!DATA) return;
 
-        // Calendar
-        const calContent = document.getElementById('calendar-content');
-        const events = fullData.calendar || [];
-        if (events.length === 0) {
-            calContent.innerHTML = '<div class="glass rounded-xl p-8 text-center text-brand-muted">No upcoming events. Google OAuth integration pending.</div>';
-        } else {
-            calContent.innerHTML = events.map(e =>
-                `<div class="glass rounded-xl p-5 calendar-event" style="border-left-color: ${e.color || '#00FF00'}">
-                    <div class="flex items-start justify-between mb-2">
-                        <h3 class="text-sm font-bold text-white">${e.title}</h3>
-                        <span class="text-[10px] text-brand-muted font-mono">${e.date}</span>
-                    </div>
-                    <p class="text-xs text-brand-muted">${e.description || 'No description'}</p>
-                    ${e.time ? `<div class="text-xs text-brand mt-2">🕐 ${e.time}</div>` : ''}
-                </div>`
-            ).join('');
-        }
+  // Last updated
+  const d = new Date(DATA.lastGenerated);
+  document.getElementById('last-updated').textContent = 'Updated: ' + d.toLocaleString();
 
-        // Notifications
-        const notifContent = document.getElementById('notifications-content');
-        const notifications = fullData.notifications || [];
-        document.getElementById('notif-badge').textContent = notifications.length;
-        if (notifications.length === 0) {
-            notifContent.innerHTML = '<div class="glass rounded-xl p-8 text-center text-brand-muted">No recent activity</div>';
-        } else {
-            notifContent.innerHTML = notifications.map(n =>
-                `<div class="glass rounded-xl p-4 notification-item">
-                    <div class="flex items-start gap-3">
-                        <span class="text-xl">${n.icon || '📌'}</span>
-                        <div class="flex-1">
-                            <div class="text-sm font-medium text-white">${n.title}</div>
-                            <div class="text-xs text-brand-muted mt-1">${n.description}</div>
-                            <div class="text-[10px] text-brand-muted mt-2">${n.time}</div>
-                        </div>
-                    </div>
-                </div>`
-            ).join('');
-        }
+  renderOverview();
+  renderTasks();
+  renderProjects();
+  renderProspects();
+  renderApprovals();
+  renderMemory();
+  renderIntegrations();
+  renderServices();
+}
 
-        // Approvals
-        const appCount = fullData.approvals?.length || 0;
-        document.getElementById('stat-approvals').textContent = appCount;
-        document.getElementById('approval-badge').textContent = appCount;
-        const ac = document.getElementById('approvals-content');
-        ac.innerHTML = (fullData.approvals || []).map(a =>
-            `<div class="glass rounded-xl p-5">
-                <div class="flex items-start justify-between mb-3">
-                    <div class="flex-1">
-                        <div class="text-sm font-bold text-white mb-1">${a.item}</div>
-                        <div class="text-[10px] text-brand-muted">${a.file ? `<a href="${githubLink(a.file)}" target="_blank" class="text-blue-400 hover:underline">${a.file}</a>` : 'No file'} • ${a.created}</div>
-                    </div>
-                    ${tag(a.priority, a.priority)}
-                </div>
-                <div class="flex gap-2">
-                    <button onclick="handleApproval('${a.item.replace(/'/g, "\\'")}', 'approve')" class="btn-approve">✓ Approve</button>
-                    <button onclick="handleApproval('${a.item.replace(/'/g, "\\'")}', 'reject')" class="btn-reject">✗ Reject</button>
-                </div>
-            </div>`
-        ).join('');
+function renderOverview() {
+  const stats = document.getElementById('hero-stats');
+  const items = [
+    { label: 'Completed', value: DATA.tasks.completed.length, icon: '✅' },
+    { label: 'Pending', value: DATA.tasks.pending.length, icon: '⏳' },
+    { label: 'Prospects', value: DATA.prospectLeads.length, icon: '🎯' },
+    { label: 'Projects', value: DATA.projects.length, icon: '📁' },
+  ];
+  stats.innerHTML = items.map(s => `
+    <div class="stat-card rounded-xl p-4 border border-[#2a2a2a]">
+      <div class="text-2xl mb-1">${s.icon}</div>
+      <div class="text-2xl font-black text-white">${s.value}</div>
+      <div class="text-xs text-gray-500">${s.label}</div>
+    </div>
+  `).join('');
 
-        // Projects
-        const pc = document.getElementById('projects-content');
-        pc.innerHTML = (fullData.projects || []).map(p =>
-            `<div class="glass rounded-xl p-5">
-                <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-base font-bold text-white">${p.name}</h3>
-                    ${tag(p.status, p.status)}
-                </div>
-                <p class="text-sm text-brand-muted mb-4">${p.description}</p>
-                <div class="w-full bg-brand-border rounded-full h-2 mb-2">
-                    <div class="progress-bar h-2 rounded-full" style="width:${p.progress}%"></div>
-                </div>
-                <div class="flex justify-between text-xs text-brand-muted mb-3">
-                    <span>${p.progress}% complete</span>
-                    ${p.revenue ? `<span class="text-brand font-semibold">${p.revenue}</span>` : ''}
-                </div>
-                ${p.nextStep ? `<div class="text-xs text-yellow-400 mb-3">⏭️ Next: ${p.nextStep}</div>` : ''}
-                ${p.files ? `<div class="flex flex-wrap gap-2">${p.files.map(f => `<a href="${githubLink(f)}" target="_blank" class="text-[10px] text-blue-400 bg-blue-400/10 px-3 py-1 rounded-full hover:underline transition">${f.split('/').pop()}</a>`).join('')}</div>` : ''}
-            </div>`
-        ).join('');
+  // Blocked
+  const blocked = document.getElementById('overview-blocked');
+  blocked.innerHTML = DATA.tasks.blocked.filter(b => !b.name.includes('~~')).map(b => `
+    <div class="flex items-start gap-3 p-3 rounded-lg bg-[#1a1a1a]">
+      <span class="text-xs mt-0.5">${b.priority.includes('HIGH') ? '🔴' : b.priority.includes('MEDIUM') ? '🟡' : '🟢'}</span>
+      <div>
+        <p class="text-sm text-white font-medium">${b.name}</p>
+        <p class="text-xs text-gray-500">Needs: ${b.need}</p>
+      </div>
+    </div>
+  `).join('');
 
-        // Documents
-        const dc = document.getElementById('documents-content');
-        const docCategories = fullData.documents || {};
-        allDocuments = [];
-        dc.innerHTML = Object.entries(docCategories).map(([cat, docs]) => {
-            allDocuments.push(...docs);
-            return `<div class="mb-6 doc-category">
-                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">${cat.charAt(0).toUpperCase() + cat.slice(1)} <span class="text-brand-muted font-normal">(${docs.length})</span></h3>
-                <div class="space-y-3">
-                    ${docs.map(d => `<div class="glass rounded-lg px-5 py-4 flex items-center justify-between doc-item">
-                        <div class="flex items-center gap-4">
-                            <span class="text-xl">${cat === 'scripts' ? '⚙️' : cat === 'templates' ? '📄' : cat === 'marketing' ? '📣' : cat === 'prospects' ? '🎯' : cat === 'reports' ? '📊' : cat === 'trackers' ? '📈' : '📝'}</span>
-                            <div>
-                                <a href="${githubLink(d.path)}" target="_blank" class="text-sm font-medium hover:text-brand transition">${d.name}</a>
-                                <div class="text-[10px] text-brand-muted mt-0.5">${d.path}</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            ${d.date ? `<span class="text-[10px] text-brand-muted font-mono">${d.date}</span>` : ''}
-                            ${d.status ? tag(d.status, d.status) : ''}
-                            ${d.priority ? tag(d.priority, d.priority) : ''}
-                        </div>
-                    </div>`).join('')}
-                </div>
-            </div>`;
-        }).join('');
+  // Goals
+  const goals = document.getElementById('overview-goals');
+  goals.innerHTML = DATA.goals.business.map(g => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a]">
+      <div class="flex justify-between items-center mb-2">
+        <p class="text-sm text-white font-medium">${g.goal}</p>
+        <span class="text-xs text-gray-500">${g.progress}%</span>
+      </div>
+      <div class="progress-bar h-1.5"><div class="progress-fill" style="width:${g.progress}%"></div></div>
+    </div>
+  `).join('');
+}
 
-        // Tasks
-        const tc = document.getElementById('tasks-content');
-        const pendingTasks = fullData.tasks?.pending || [];
-        const blockedTasks = fullData.tasks?.blocked || [];
-        const completedTasks = fullData.tasks?.completed || [];
-        tc.innerHTML = `
-            ${blockedTasks.length ? `<div class="glass rounded-xl p-5 mb-5 border-l-4 border-red-500">
-                <h3 class="text-sm font-bold text-red-400 uppercase tracking-wider mb-4">🚫 Blocked — Needs Your Action (${blockedTasks.length})</h3>
-                ${blockedTasks.map(t => `<div class="flex items-start justify-between py-3 border-b border-brand-border last:border-0">
-                    <div><span class="text-sm text-white">${t.name}</span><div class="text-xs text-red-300 mt-1">⏳ ${t.need}</div></div>
-                    ${tag(t.priority.replace(/[🔴🟡🟢]/g,'').trim(), t.priority.includes('HIGH') ? 'high' : t.priority.includes('MEDIUM') ? 'medium' : 'low')}
-                </div>`).join('')}
-            </div>` : ''}
-            <div class="glass rounded-xl p-5 mb-5">
-                <h3 class="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4">⏳ To Do (${pendingTasks.length})</h3>
-                ${pendingTasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
-                    <span class="text-sm">${t.name}</span>${tag(t.priority, t.priority)}
-                </div>`).join('')}
-            </div>
-            <div class="glass rounded-xl p-5">
-                <h3 class="text-sm font-bold text-brand uppercase tracking-wider mb-4">✅ Completed (${completedTasks.length})</h3>
-                ${completedTasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
-                    <span class="text-sm text-gray-400">${t.name}</span>
-                    <span class="text-[10px] text-brand-muted font-mono">${t.date}</span>
-                </div>`).join('')}
-            </div>`;
+function renderTasks() {
+  const completed = DATA.tasks.completed;
+  const pending = DATA.tasks.pending;
+  const blocked = DATA.tasks.blocked;
 
-        // Prospects
-        const prosc = document.getElementById('prospects-content');
-        const leads = fullData.prospectLeads || [];
-        const tierColors = { hot: '#ef4444', warm: '#f59e0b', new: '#3b82f6', cold: '#6b7280' };
-        const tierLabels = { hot: '🔥 HOT', warm: '🟡 WARM', new: '🔵 NEW', cold: '⚪ COLD' };
-        const tierGroups = {};
-        leads.forEach(l => { if (!tierGroups[l.tier]) tierGroups[l.tier] = []; tierGroups[l.tier].push(l); });
-        
-        prosc.innerHTML = `
-            <div class="glass rounded-xl p-5 mb-5">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="text-center"><div class="text-2xl font-bold text-brand">${leads.length}</div><div class="text-[10px] text-brand-muted">Total Leads</div></div>
-                    <div class="text-center"><div class="text-2xl font-bold text-red-400">${(tierGroups.hot||[]).length}</div><div class="text-[10px] text-brand-muted">Hot Leads</div></div>
-                    <div class="text-center"><div class="text-2xl font-bold text-yellow-400">${(tierGroups.warm||[]).length}</div><div class="text-[10px] text-brand-muted">Warm Leads</div></div>
-                    <div class="text-center"><div class="text-2xl font-bold text-blue-400">${(tierGroups.new||[]).length + (tierGroups.cold||[]).length}</div><div class="text-[10px] text-brand-muted">New/Cold</div></div>
-                </div>
-            </div>
-            ${Object.entries(tierGroups).map(([tier, items]) => `
-                <div class="glass rounded-xl p-5 mb-4" style="border-left: 3px solid ${tierColors[tier]}">
-                    <h3 class="text-sm font-bold mb-4" style="color: ${tierColors[tier]}">${tierLabels[tier] || tier} (${items.length})</h3>
-                    <div class="space-y-3">
-                        ${items.map(l => `<div class="flex items-start justify-between py-2 border-b border-brand-border last:border-0">
-                            <div class="flex-1">
-                                <div class="text-sm font-semibold text-white">${l.id}. ${l.name}</div>
-                                <div class="text-xs text-brand-muted mt-1">${l.type} • ${l.address}</div>
-                                <div class="text-xs mt-1">${l.phone !== 'Via Pages Jaunes' && l.phone !== 'Via Planity' && l.phone !== 'Via Mappy' && l.phone !== 'Via OpenStreetMap' ? `📞 <span class="text-brand font-mono">${l.phone}</span>` : `<span class="text-brand-muted">${l.phone}</span>`}</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-[10px] ${l.webStatus.includes('NO') ? 'text-red-400' : 'text-yellow-400'}">${l.webStatus.includes('NO') ? '❌ No Site' : '⚠️ Verify'}</div>
-                            </div>
-                        </div>`).join('')}
-                    </div>
-                </div>
-            `).join('')}
-            <div class="glass rounded-xl p-5 mt-3">
-                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">📁 Prospect Files</h3>
-                ${(fullData.prospects || []).slice(0, 5).map(p => `<a href="${githubLink(p.path)}" target="_blank" class="block text-sm text-blue-400 hover:underline py-1.5">📄 ${p.name}</a>`).join('')}
-            </div>`;
+  document.getElementById('completed-count').textContent = completed.length;
+  document.getElementById('pending-count').textContent = pending.length;
+  document.getElementById('blocked-count').textContent = blocked.length;
 
-        // People
-        const pplc = document.getElementById('people-content');
-        const team = fullData.people?.team || [];
-        const contacts = fullData.people?.contacts || [];
-        pplc.innerHTML = `
-            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Team (Agents)</h3>
-            <div class="grid md:grid-cols-2 gap-4 mb-8">
-                ${team.map(t => `<div class="glass rounded-xl p-5 flex items-center gap-4">
-                    <div class="text-3xl">${t.emoji}</div>
-                    <div class="flex-1">
-                        <div class="text-sm font-bold text-white">${t.name}</div>
-                        <div class="text-xs text-brand-muted mt-0.5">${t.role}</div>
-                    </div>
-                    <div><span class="status-dot status-${t.status}"></span></div>
-                </div>`).join('')}
-            </div>
-            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Contacts</h3>
-            <div class="space-y-3">
-                ${contacts.map(c => `<div class="glass rounded-lg px-5 py-4 flex items-center justify-between">
-                    <div>
-                        <div class="text-sm font-medium text-white">${c.name}</div>
-                        <div class="text-xs text-brand-muted mt-0.5">${c.role}</div>
-                    </div>
-                    <div class="text-right">
-                        ${c.email ? `<div class="text-xs text-blue-400">${c.email}</div>` : ''}
-                        ${c.phone ? `<div class="text-xs text-brand-muted font-mono mt-0.5">${c.phone}</div>` : ''}
-                    </div>
-                </div>`).join('')}
-            </div>`;
+  // Stats
+  document.getElementById('task-stats').innerHTML = [
+    { label: 'Completed', count: completed.length, color: 'green' },
+    { label: 'Pending', count: pending.length, color: 'yellow' },
+    { label: 'Blocked', count: blocked.length, color: 'red' },
+  ].map(s => `
+    <div class="stat-card rounded-xl p-4 border border-[#2a2a2a]">
+      <p class="text-${s.color}-400 text-xs font-semibold uppercase">${s.label}</p>
+      <p class="text-3xl font-black text-white mt-1">${s.count}</p>
+    </div>
+  `).join('');
 
-        // Memory
-        const mc = document.getElementById('memory-content');
-        const memFiles = fullData.memory?.files || [];
-        const coreFiles = fullData.memory?.coreFiles || [];
-        mc.innerHTML = `
-            <div class="glass rounded-xl p-5 mb-5">
-                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Core Memory</h3>
-                ${coreFiles.map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-sm text-blue-400 hover:underline py-2">🧠 ${f}</a>`).join('')}
-            </div>
-            <div class="glass rounded-xl p-5">
-                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">Daily Logs (${memFiles.length} entries)</h3>
-                ${[...memFiles].reverse().map(f => `<a href="${githubLink(f)}" target="_blank" class="block text-sm text-gray-400 hover:text-brand transition py-2">📝 ${f.replace('memory/', '')}</a>`).join('')}
-            </div>`;
+  document.getElementById('tasks-completed').innerHTML = completed.map(t => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a] text-sm"><span class="text-green-400 mr-2">✓</span>${esc(t.name)}</div>
+  `).join('');
 
-        // Integrations
-        const ic = document.getElementById('integrations-content');
-        const services = fullData.integrations?.services || [];
-        ic.innerHTML = services.map(s =>
-            `<div class="glass rounded-xl p-5 flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <span class="status-dot status-${s.status}"></span>
-                    <div>
-                        <div class="text-sm font-medium text-white">${s.name}</div>
-                        <div class="text-xs text-brand-muted mt-0.5">${s.notes || ''}</div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    ${tag(s.status, s.status === 'connected' ? 'active' : s.status === 'expired' ? 'high' : 'planning')}
-                    ${s.url ? `<div class="mt-2"><a href="${s.url}" target="_blank" class="text-xs text-blue-400 hover:underline font-medium">Open →</a></div>` : ''}
-                </div>
-            </div>`
-        ).join('');
+  document.getElementById('tasks-pending').innerHTML = pending.map(t => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a] text-sm"><span class="text-yellow-400 mr-2">○</span>${esc(t.name)}</div>
+  `).join('');
 
-        // Models
-        const mc2 = document.getElementById('models-content');
-        const models = fullData.integrations?.models || [];
-        mc2.innerHTML = models.map(m =>
-            `<div class="glass rounded-xl p-5 flex items-center justify-between">
-                <div>
-                    <div class="text-sm font-medium text-white">${m.model}</div>
-                    <div class="text-xs text-brand-muted mt-0.5">${m.provider} • ${m.role}</div>
-                </div>
-                <div class="text-right">
-                    <div class="text-xs text-brand-muted mb-2">${m.plan}</div>
-                    ${tag(m.status, m.status === 'active' ? 'active' : 'medium')}
-                </div>
-            </div>`
-        ).join('');
+  document.getElementById('tasks-blocked').innerHTML = blocked.filter(b => !b.name.includes('~~')).map(b => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a] text-sm">
+      <span class="mr-2">${b.priority.includes('HIGH') ? '🔴' : '🟡'}</span>
+      <span class="text-white font-medium">${esc(b.name)}</span>
+      <span class="text-gray-500"> — ${esc(b.need)}</span>
+    </div>
+  `).join('');
+}
 
-        // Skills
-        const sc = document.getElementById('skills-content');
-        const skills = fullData.skills || [];
-        sc.innerHTML = skills.map(s =>
-            `<div class="glass rounded-lg p-4">
-                <div class="text-sm font-bold text-brand">${s.name}</div>
-                <div class="text-xs text-brand-muted mt-2">${s.description}</div>
-            </div>`
-        ).join('');
+function renderProjects() {
+  const grid = document.getElementById('projects-grid');
+  grid.innerHTML = DATA.projects.map(p => {
+    const statusColor = { active: 'text-green-400', review: 'text-yellow-400', completed: 'text-blue-400', planning: 'text-gray-400' }[p.status] || 'text-gray-400';
+    return `
+    <div class="card p-6">
+      <div class="flex justify-between items-start mb-3">
+        <h3 class="font-bold text-white">${esc(p.name)}</h3>
+        <span class="${statusColor} text-xs font-semibold uppercase">${p.status}</span>
+      </div>
+      <p class="text-sm text-gray-400 mb-4">${esc(p.description)}</p>
+      ${p.revenue ? `<p class="text-xs text-brand-gold mb-3">💰 ${esc(p.revenue)}</p>` : ''}
+      <div class="flex items-center gap-3">
+        <div class="progress-bar h-2 flex-1"><div class="progress-fill" style="width:${p.progress}%"></div></div>
+        <span class="text-xs text-gray-500 font-mono">${p.progress}%</span>
+      </div>
+    </div>`;
+  }).join('');
+}
 
-        // Goals
-        const gc = document.getElementById('goals-content');
-        const lifeGoals = fullData.goals?.life || [];
-        const bizGoals = fullData.goals?.business || [];
-        gc.innerHTML = `
-            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">🏠 Life Goals</h3>
-            <div class="space-y-4 mb-8">
-                ${lifeGoals.map(g => `<div class="glass rounded-xl p-5">
-                    <div class="flex justify-between mb-3">
-                        <span class="text-sm font-medium text-white">${g.goal}</span>
-                        <span class="text-sm text-brand font-semibold">${g.target}</span>
-                    </div>
-                    <div class="w-full bg-brand-border rounded-full h-2">
-                        <div class="progress-bar h-2 rounded-full" style="width:${g.progress}%"></div>
-                    </div>
-                    <div class="text-xs text-brand-muted mt-2">${g.progress}% progress</div>
-                </div>`).join('')}
-            </div>
-            <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">💼 Business Goals</h3>
-            <div class="space-y-4">
-                ${bizGoals.map(g => `<div class="glass rounded-xl p-5">
-                    <div class="flex justify-between mb-3">
-                        <span class="text-sm font-medium text-white">${g.goal}</span>
-                        <span class="text-sm text-brand-muted">${g.target}</span>
-                    </div>
-                    <div class="w-full bg-brand-border rounded-full h-2">
-                        <div class="progress-bar h-2 rounded-full" style="width:${g.progress}%"></div>
-                    </div>
-                    <div class="text-xs text-brand-muted mt-2">${g.progress}% progress</div>
-                </div>`).join('')}
-            </div>`;
-    }
+function renderProspects() {
+  const tbody = document.getElementById('prospects-table');
+  const leads = currentTier === 'all' ? DATA.prospectLeads : DATA.prospectLeads.filter(l => l.tier === currentTier);
+  tbody.innerHTML = leads.map(l => `
+    <tr class="border-b border-[#1a1a1a] hover:bg-[#1a1a1a] transition-colors">
+      <td class="py-3 pr-4 text-gray-500">${l.id}</td>
+      <td class="py-3 pr-4 text-white font-medium">${esc(l.name)}</td>
+      <td class="py-3 pr-4 text-gray-400">${esc(l.type)}</td>
+      <td class="py-3 pr-4 text-gray-500 text-xs">${esc(l.address)}</td>
+      <td class="py-3 pr-4 text-gray-400">${esc(l.phone)}</td>
+      <td class="py-3 pr-4"><span class="text-xs ${l.webStatus.includes('NO') ? 'text-red-400' : l.webStatus === 'VERIFY' ? 'text-yellow-400' : 'text-gray-400'}">${esc(l.webStatus)}</span></td>
+      <td class="py-3"><span class="text-xs px-2 py-0.5 rounded-full tier-${l.tier}">${l.tier.toUpperCase()}</span></td>
+    </tr>
+  `).join('');
+}
 
-    // Initial load
-    loadData();
-    // Auto-refresh every 30s
-    setInterval(loadData, 30000);
-    </script>
+function renderApprovals() {
+  const list = document.getElementById('approvals-list');
+  list.innerHTML = DATA.approvals.map(a => `
+    <div class="card p-5 ${a.priority === 'high' ? 'priority-high' : 'priority-medium'}">
+      <div class="flex justify-between items-start">
+        <div>
+          <h4 class="font-semibold text-white">${esc(a.item)}</h4>
+          <p class="text-xs text-gray-500 mt-1">📄 ${esc(a.file)} • Created: ${esc(a.created)}</p>
+        </div>
+        <span class="text-xs px-2 py-1 rounded-full ${a.priority === 'high' ? 'bg-red-500/20 text-red-400' : 'bg-yellow-500/20 text-yellow-400'} font-semibold uppercase">${a.priority}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderMemory() {
+  document.getElementById('memory-core').innerHTML = DATA.memory.coreFiles.map(f => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a] text-sm flex items-center gap-2">
+      <span class="text-brand-gold">📄</span><span class="text-white font-mono text-xs">${esc(f)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('memory-daily').innerHTML = DATA.memory.files.map(f => `
+    <div class="px-3 py-2 rounded text-xs font-mono text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-colors">${esc(f)}</div>
+  `).join('');
+
+  document.getElementById('workspace-stats').innerHTML = [
+    { label: 'Files', value: DATA.workspace.totalFiles },
+    { label: 'Folders', value: DATA.workspace.totalFolders },
+    { label: 'Last Commit', value: DATA.workspace.lastCommit },
+  ].map(s => `
+    <div class="text-center p-4 rounded-lg bg-[#1a1a1a]">
+      <p class="text-2xl font-bold text-white">${s.value}</p>
+      <p class="text-xs text-gray-500">${s.label}</p>
+    </div>
+  `).join('');
+}
+
+function renderIntegrations() {
+  const icons = { GitHub: '🐙', Vercel: '▲', 'Google Workspace': '📧', Telegram: '✈️', n8n: '⚡', 'Brave Search': '🔍' };
+  document.getElementById('integrations-grid').innerHTML = DATA.integrations.services.map(s => `
+    <div class="card p-5">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">${icons[s.name] || '🔗'}</span>
+        <div>
+          <h4 class="font-semibold text-white">${esc(s.name)}</h4>
+          <span class="text-xs font-semibold uppercase status-${s.status}">${s.status}</span>
+        </div>
+      </div>
+      ${s.notes ? `<p class="text-xs text-gray-500 mt-1">${esc(s.notes)}</p>` : ''}
+      ${s.user ? `<p class="text-xs text-gray-500 mt-1">User: ${esc(s.user)}</p>` : ''}
+      ${s.url ? `<p class="text-xs text-gray-500 mt-1">${esc(s.url)}</p>` : ''}
+    </div>
+  `).join('');
+
+  document.getElementById('models-grid').innerHTML = DATA.integrations.models.map(m => `
+    <div class="card p-4">
+      <p class="font-semibold text-white text-sm">${esc(m.model)}</p>
+      <p class="text-xs text-gray-500">${esc(m.provider)} • ${esc(m.role)}</p>
+      <span class="text-xs status-${m.status}">${m.status}</span>
+    </div>
+  `).join('');
+}
+
+function renderServices() {
+  document.getElementById('skills-grid').innerHTML = DATA.skills.map(s => `
+    <span class="px-3 py-1.5 rounded-lg bg-[#1e1e1e] border border-[#2a2a2a] text-sm text-gray-300 hover:border-brand-orange transition-colors">${esc(s)}</span>
+  `).join('');
+
+  document.getElementById('drafts-grid').innerHTML = DATA.drafts.map(d => `
+    <div class="p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#222] transition-colors">
+      <p class="text-sm text-white font-medium truncate">${esc(d.name)}</p>
+      <p class="text-xs text-gray-500 mt-1">Modified: ${esc(d.modified)}</p>
+    </div>
+  `).join('');
+}
+
+function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// Initial load
+loadData();
+
+// Auto-refresh every 60 seconds
+setInterval(() => {
+  const dot = document.getElementById('refresh-indicator');
+  dot.classList.replace('bg-green-500', 'bg-yellow-500');
+  loadData().then(() => setTimeout(() => dot.classList.replace('bg-yellow-500', 'bg-green-500'), 500));
+}, 60000);
+</script>
 </body>
 </html>
