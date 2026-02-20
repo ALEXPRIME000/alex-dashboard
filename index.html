@@ -48,6 +48,15 @@ tailwind.config = {
   .fade-in { animation: fadeIn 0.4s ease forwards; }
   .priority-high { border-left: 3px solid #ef4444; }
   .priority-medium { border-left: 3px solid #F7931A; }
+  .gallery-filter-btn { background: #2a2a2a; color: #888; }
+  .gallery-filter-btn:hover { background: #333; color: #fff; }
+  .gallery-filter-btn.active { background: linear-gradient(135deg, #FF6B35, #F7931A); color: #fff; }
+  .gallery-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; transition: all 0.3s ease; cursor: pointer; }
+  .gallery-card:hover { border-color: #FF6B35; transform: translateY(-4px); box-shadow: 0 12px 24px rgba(255,107,53,0.2); }
+  .gallery-card img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease; }
+  .gallery-card:hover img { transform: scale(1.05); }
+  #lightbox { transition: opacity 0.3s ease; }
+  #lightbox.show { display: flex !important; animation: fadeIn 0.3s ease; }
 </style>
 </head>
 <body class="min-h-screen text-gray-200">
@@ -106,6 +115,7 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="memory">Memory</button>
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="integrations">Integrations</button>
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="services">Services</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="gallery">Gallery</button>
     </nav>
   </div>
 </header>
@@ -272,7 +282,43 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
     </div>
   </section>
 
+  <!-- GALLERY TAB -->
+  <section id="tab-gallery" class="tab-content fade-in">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white">🎨 Visual Asset Gallery</h2>
+      <p class="text-sm text-gray-500">Social media graphics & brand assets</p>
+    </div>
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap gap-2 mb-6" id="gallery-filters">
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="all">All Assets</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="pulse-graphix">Pulse Graphix</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="nexus-ai-academy">Nexus AI Academy</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="invest-in-congo">Invest in Congo</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="pulse-architects">Pulse Architects</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="profile">Profile Pictures</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="banner">Banners</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="post">Posts</button>
+      <button class="gallery-filter-btn text-xs px-4 py-2 rounded-lg font-medium transition-all" data-filter="story">Stories</button>
+    </div>
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="gallery-grid"></div>
+  </section>
+
 </main>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" class="fixed inset-0 z-[9998] bg-black/95 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeLightbox(event)">
+  <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10" title="Close">✕</button>
+  <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10" title="Previous">‹</button>
+  <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10" title="Next">›</button>
+  <div class="relative max-w-7xl max-h-[90vh] w-full flex flex-col items-center" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl">
+    <div class="mt-4 text-center">
+      <p id="lightbox-title" class="text-white font-semibold text-lg"></p>
+      <p id="lightbox-meta" class="text-gray-400 text-sm mt-1"></p>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="border-t border-[#2a2a2a] mt-12 py-6 text-center text-xs text-gray-600">
@@ -282,6 +328,9 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
 <script>
 let DATA = null;
 let currentTier = 'all';
+let currentGalleryFilter = 'all';
+let currentLightboxIndex = 0;
+let filteredGalleryAssets = [];
 
 // Tab switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -299,6 +348,16 @@ document.getElementById('tier-filters').addEventListener('click', e => {
   if (!btn) return;
   currentTier = btn.dataset.tier;
   renderProspects();
+});
+
+// Gallery filtering
+document.getElementById('gallery-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.gallery-filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentGalleryFilter = btn.dataset.filter;
+  renderGallery();
 });
 
 async function loadData() {
@@ -326,6 +385,7 @@ function render() {
   renderMemory();
   renderIntegrations();
   renderServices();
+  renderGallery();
 }
 
 function renderOverview() {
@@ -519,6 +579,90 @@ function renderServices() {
     </div>
   `).join('');
 }
+
+function renderGallery() {
+  if (!DATA || !DATA.gallery) return;
+  
+  const grid = document.getElementById('gallery-grid');
+  
+  // Filter assets
+  filteredGalleryAssets = currentGalleryFilter === 'all' 
+    ? DATA.gallery 
+    : DATA.gallery.filter(asset => {
+        if (['pulse-graphix', 'nexus-ai-academy', 'invest-in-congo', 'pulse-architects'].includes(currentGalleryFilter)) {
+          return asset.company.toLowerCase().replace(/\s+/g, '-') === currentGalleryFilter;
+        }
+        return asset.type.toLowerCase().includes(currentGalleryFilter);
+      });
+  
+  // Set active filter button
+  document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === currentGalleryFilter);
+  });
+  
+  // Render cards
+  grid.innerHTML = filteredGalleryAssets.map((asset, index) => `
+    <div class="gallery-card" onclick="openLightbox(${index})">
+      <div class="overflow-hidden">
+        <img src="${asset.url}" alt="${esc(asset.name)}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/2a2a2a/888?text=Image+Not+Found'">
+      </div>
+      <div class="p-4">
+        <div class="flex items-start justify-between mb-2">
+          <h4 class="text-sm font-semibold text-white">${esc(asset.name)}</h4>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange font-medium">${esc(asset.type)}</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-2">${esc(asset.company)}</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-600 font-mono">${esc(asset.dimensions)}</span>
+          <button class="text-xs px-3 py-1 rounded-lg bg-gradient-to-r from-brand-orange to-brand-gold text-white font-medium hover:opacity-90 transition-opacity">View</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openLightbox(index) {
+  currentLightboxIndex = index;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  if (!event || event.target.id === 'lightbox' || event.target.closest('button')) {
+    document.getElementById('lightbox').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+
+function prevImage(event) {
+  event.stopPropagation();
+  currentLightboxIndex = (currentLightboxIndex - 1 + filteredGalleryAssets.length) % filteredGalleryAssets.length;
+  updateLightboxImage();
+}
+
+function nextImage(event) {
+  event.stopPropagation();
+  currentLightboxIndex = (currentLightboxIndex + 1) % filteredGalleryAssets.length;
+  updateLightboxImage();
+}
+
+function updateLightboxImage() {
+  const asset = filteredGalleryAssets[currentLightboxIndex];
+  if (!asset) return;
+  document.getElementById('lightbox-img').src = asset.url;
+  document.getElementById('lightbox-title').textContent = asset.name;
+  document.getElementById('lightbox-meta').textContent = `${asset.company} • ${asset.type} • ${asset.dimensions}`;
+}
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', e => {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox.classList.contains('show')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevImage(e);
+  if (e.key === 'ArrowRight') nextImage(e);
+});
 
 function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
