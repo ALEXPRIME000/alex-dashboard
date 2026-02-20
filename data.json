@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-20T09:29:02.054Z",
+  "lastGenerated": "2026-02-20T10:32:45.832Z",
   "tasks": {
     "completed": [
       {
@@ -251,7 +251,7 @@
   },
   "workspace": {
     "totalFiles": 283,
-    "totalFolders": 754,
+    "totalFolders": 755,
     "lastCommit": "2026-02-20"
   },
   "memory": {
@@ -835,54 +835,438 @@
     "strategy": []
   },
   "gallery": [
-    {"category":"Social Media","company":"Pulse Graphix","name":"Profile Picture V1","filename":"profile-picture-v1.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Profile Picture V2","filename":"profile-picture-v2.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v2.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"LinkedIn Banner V1","filename":"banner-linkedin-v1.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"LinkedIn Banner V2","filename":"banner-linkedin-v2.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v2.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Facebook Banner V1","filename":"banner-facebook-v1.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Facebook Banner V2","filename":"banner-facebook-v2.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v2.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"YouTube Banner V1","filename":"banner-youtube-v1.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"YouTube Banner V2","filename":"banner-youtube-v2.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v2.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Post Template V1","filename":"post-template-v1.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Post Template V2","filename":"post-template-v2.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v2.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Story Template V1","filename":"story-template-v1.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v1.png"},
-    {"category":"Social Media","company":"Pulse Graphix","name":"Story Template V2","filename":"story-template-v2.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Profile Picture V1","filename":"profile-picture-v1.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Profile Picture V2","filename":"profile-picture-v2.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"LinkedIn Banner V1","filename":"banner-linkedin-v1.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"LinkedIn Banner V2","filename":"banner-linkedin-v2.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Facebook Banner V1","filename":"banner-facebook-v1.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Facebook Banner V2","filename":"banner-facebook-v2.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"YouTube Banner V1","filename":"banner-youtube-v1.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"YouTube Banner V2","filename":"banner-youtube-v2.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Post Template V1","filename":"post-template-v1.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Post Template V2","filename":"post-template-v2.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v2.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Story Template V1","filename":"story-template-v1.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v1.png"},
-    {"category":"Social Media","company":"Nexus AI Academy","name":"Story Template V2","filename":"story-template-v2.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Profile Picture V1","filename":"profile-picture-v1.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Profile Picture V2","filename":"profile-picture-v2.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"LinkedIn Banner V1","filename":"banner-linkedin-v1.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"LinkedIn Banner V2","filename":"banner-linkedin-v2.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Facebook Banner V1","filename":"banner-facebook-v1.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Facebook Banner V2","filename":"banner-facebook-v2.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"YouTube Banner V1","filename":"banner-youtube-v1.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"YouTube Banner V2","filename":"banner-youtube-v2.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Post Template V1","filename":"post-template-v1.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Post Template V2","filename":"post-template-v2.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v2.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Story Template V1","filename":"story-template-v1.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v1.png"},
-    {"category":"Social Media","company":"Invest in Congo","name":"Story Template V2","filename":"story-template-v2.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Profile Picture V1","filename":"profile-picture-v1.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Profile Picture V2","filename":"profile-picture-v2.png","type":"Profile","dimensions":"800×800","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"LinkedIn Banner V1","filename":"banner-linkedin-v1.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"LinkedIn Banner V2","filename":"banner-linkedin-v2.png","type":"Banner","dimensions":"1584×396","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Facebook Banner V1","filename":"banner-facebook-v1.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Facebook Banner V2","filename":"banner-facebook-v2.png","type":"Banner","dimensions":"851×315","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"YouTube Banner V1","filename":"banner-youtube-v1.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"YouTube Banner V2","filename":"banner-youtube-v2.png","type":"Banner","dimensions":"2560×1440","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Post Template V1","filename":"post-template-v1.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Post Template V2","filename":"post-template-v2.png","type":"Post","dimensions":"1080×1080","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v2.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Story Template V1","filename":"story-template-v1.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v1.png"},
-    {"category":"Social Media","company":"Pulse Architects","name":"Story Template V2","filename":"story-template-v2.png","type":"Story","dimensions":"1080×1920","url":"https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v2.png"}
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Profile Picture V1",
+      "filename": "profile-picture-v1.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Profile Picture V2",
+      "filename": "profile-picture-v2.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "LinkedIn Banner V1",
+      "filename": "banner-linkedin-v1.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "LinkedIn Banner V2",
+      "filename": "banner-linkedin-v2.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Facebook Banner V1",
+      "filename": "banner-facebook-v1.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Facebook Banner V2",
+      "filename": "banner-facebook-v2.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "YouTube Banner V1",
+      "filename": "banner-youtube-v1.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "YouTube Banner V2",
+      "filename": "banner-youtube-v2.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Post Template V1",
+      "filename": "post-template-v1.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Post Template V2",
+      "filename": "post-template-v2.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Story Template V1",
+      "filename": "story-template-v1.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Graphix",
+      "name": "Story Template V2",
+      "filename": "story-template-v2.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Profile Picture V1",
+      "filename": "profile-picture-v1.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Profile Picture V2",
+      "filename": "profile-picture-v2.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "LinkedIn Banner V1",
+      "filename": "banner-linkedin-v1.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "LinkedIn Banner V2",
+      "filename": "banner-linkedin-v2.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Facebook Banner V1",
+      "filename": "banner-facebook-v1.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Facebook Banner V2",
+      "filename": "banner-facebook-v2.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "YouTube Banner V1",
+      "filename": "banner-youtube-v1.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "YouTube Banner V2",
+      "filename": "banner-youtube-v2.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Post Template V1",
+      "filename": "post-template-v1.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Post Template V2",
+      "filename": "post-template-v2.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Story Template V1",
+      "filename": "story-template-v1.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Nexus AI Academy",
+      "name": "Story Template V2",
+      "filename": "story-template-v2.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Profile Picture V1",
+      "filename": "profile-picture-v1.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Profile Picture V2",
+      "filename": "profile-picture-v2.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "LinkedIn Banner V1",
+      "filename": "banner-linkedin-v1.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "LinkedIn Banner V2",
+      "filename": "banner-linkedin-v2.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Facebook Banner V1",
+      "filename": "banner-facebook-v1.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Facebook Banner V2",
+      "filename": "banner-facebook-v2.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "YouTube Banner V1",
+      "filename": "banner-youtube-v1.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "YouTube Banner V2",
+      "filename": "banner-youtube-v2.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Post Template V1",
+      "filename": "post-template-v1.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Post Template V2",
+      "filename": "post-template-v2.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Story Template V1",
+      "filename": "story-template-v1.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Invest in Congo",
+      "name": "Story Template V2",
+      "filename": "story-template-v2.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Profile Picture V1",
+      "filename": "profile-picture-v1.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Profile Picture V2",
+      "filename": "profile-picture-v2.png",
+      "type": "Profile",
+      "dimensions": "800×800",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "LinkedIn Banner V1",
+      "filename": "banner-linkedin-v1.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "LinkedIn Banner V2",
+      "filename": "banner-linkedin-v2.png",
+      "type": "Banner",
+      "dimensions": "1584×396",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Facebook Banner V1",
+      "filename": "banner-facebook-v1.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Facebook Banner V2",
+      "filename": "banner-facebook-v2.png",
+      "type": "Banner",
+      "dimensions": "851×315",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "YouTube Banner V1",
+      "filename": "banner-youtube-v1.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "YouTube Banner V2",
+      "filename": "banner-youtube-v2.png",
+      "type": "Banner",
+      "dimensions": "2560×1440",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Post Template V1",
+      "filename": "post-template-v1.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Post Template V2",
+      "filename": "post-template-v2.png",
+      "type": "Post",
+      "dimensions": "1080×1080",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v2.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Story Template V1",
+      "filename": "story-template-v1.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v1.png"
+    },
+    {
+      "category": "Social Media",
+      "company": "Pulse Architects",
+      "name": "Story Template V2",
+      "filename": "story-template-v2.png",
+      "type": "Story",
+      "dimensions": "1080×1920",
+      "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v2.png"
+    }
   ],
   "approvals": [
     {
