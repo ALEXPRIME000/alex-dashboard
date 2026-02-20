@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-20T04:46:03.626Z",
+  "lastGenerated": "2026-02-20T04:50:37.818Z",
   "tasks": {
     "completed": [
       {
@@ -731,36 +731,51 @@
   },
   "projects": [
     {
-      "name": "Animated Template Business",
-      "status": "planning",
-      "progress": 15,
-      "description": "AI-powered templates on Framer/Webflow",
-      "revenue": "€10k/mo target"
-    },
-    {
       "name": "Prospect Pipeline (Torcy)",
       "status": "active",
-      "progress": 60,
-      "description": "Local business prospecting",
-      "revenue": "€2,400-4,500 pipeline"
-    },
-    {
-      "name": "Dashboard System",
-      "status": "active",
-      "progress": 80,
-      "description": "Real-time executive dashboard"
-    },
-    {
-      "name": "Invoice/Devis Templates",
-      "status": "completed",
-      "progress": 100,
-      "description": "FR/EN templates done"
+      "progress": 75,
+      "description": "20 local businesses identified, call scripts ready, expanded from 4→20 leads",
+      "revenue": "€4,500-12,000 pipeline"
     },
     {
       "name": "LinkedIn Marketing",
       "status": "review",
+      "progress": 90,
+      "description": "5 posts drafted (thought leadership, portfolio, checklist, story, poll). Awaiting review.",
+      "revenue": "Lead generation"
+    },
+    {
+      "name": "Dashboard System",
+      "status": "active",
+      "progress": 85,
+      "description": "Alex Prime + Pulse Graphix dashboards live on Vercel. Adding real-time data feeds."
+    },
+    {
+      "name": "Animated Template Business",
+      "status": "planning",
+      "progress": 15,
+      "description": "AI-powered templates for Framer/Webflow marketplace",
+      "revenue": "€10k/mo target"
+    },
+    {
+      "name": "Client Proposal System",
+      "status": "completed",
+      "progress": 100,
+      "description": "Branded proposal template + devis/invoice FR/EN done",
+      "revenue": "Sales tool ready"
+    },
+    {
+      "name": "Social Media Strategy",
+      "status": "completed",
+      "progress": 100,
+      "description": "8 strategy docs across 5 platforms (LinkedIn, YouTube, TikTok, Twitter/X, Facebook)"
+    },
+    {
+      "name": "Cold Outreach Prep",
+      "status": "review",
       "progress": 80,
-      "description": "4 posts + profile ready for approval"
+      "description": "Call kit ready, email follow-up templates, objection handling scripts",
+      "revenue": "First calls pending approval"
     }
   ],
   "skills": [
@@ -778,36 +793,82 @@
     "healthcheck",
     "skill-creator"
   ],
+  "marketing": {
+    "linkedin": [
+      {
+        "id": 1,
+        "title": "Thought Leadership - AI Transformation",
+        "type": "Perspective/Opinion",
+        "status": "draft",
+        "preview": ": Thought Leadership - AI Transformation\nType: Perspective/Opinion  Hook: Strong opening statement  CTA: Comment your experience\n\n Draft:\n\n\"AI won't replace designers. But designers w"
+      },
+      {
+        "id": 2,
+        "title": "Portfolio Showcase (Carousel Style)",
+        "type": "Visual showcase",
+        "status": "draft",
+        "preview": ": Portfolio Showcase (Carousel Style)\nType: Visual showcase  Hook: \"Swipe through this transformation\"  CTA: Visit profile\n\n Draft:\n\n\"85% of businesses in our local market have websit"
+      },
+      {
+        "id": 3,
+        "title": "Value Checklist (High-engagement format)",
+        "type": "\"Save this\" content",
+        "status": "draft",
+        "preview": ": Value Checklist (High-engagement format)\nType: \"Save this\" content  Hook: \"Bookmark this\"  CTA: Follow for more\n\n Draft:\n\n\"🚨 Graphic design red flags that scream 'amateur':\n\nIf you"
+      },
+      {
+        "id": 4,
+        "title": "Lesson Learned / Behind the Scenes",
+        "type": "Story/Personal insight",
+        "status": "draft",
+        "preview": ": Lesson Learned / Behind the Scenes\nType: Story/Personal insight  Hook: \"I used to think...\"  CTA: Share your story\n\n Draft:\n\n\"I used to say yes to every project.\n\n'Of course I can d"
+      },
+      {
+        "id": 5,
+        "title": "Poll / Engagement Starter",
+        "type": "Poll",
+        "status": "draft",
+        "preview": ": Poll / Engagement Starter\nType: Poll  Hook: \"Quick poll\"  CTA: Vote + explain in comments\n\n Draft:\n\n\"Quick poll for my fellow agency owners and freelancers 🎯\n\nYou're onboarding a n"
+      }
+    ],
+    "strategy": []
+  },
   "approvals": [
     {
-      "item": "LinkedIn Posts (4)",
-      "file": "drafts/linkedin-posts-feb2026.md",
-      "priority": "high"
+      "item": "5 LinkedIn Posts — Review & Approve",
+      "file": "marketing/linkedin/posts-batch-1.md",
+      "priority": "high",
+      "created": "Feb 20"
     },
     {
-      "item": "Prospect Outreach",
-      "file": "prospects/torcy-expanded.md",
-      "priority": "high"
+      "item": "Start Cold Calls (4 leads ready)",
+      "file": "prospects/call-kit-ready.md",
+      "priority": "high",
+      "created": "Feb 17"
     },
     {
-      "item": "Template Business Strategy",
-      "file": "business/template-blueprint-strategy.md",
-      "priority": "high"
-    },
-    {
-      "item": "Google OAuth Re-auth",
+      "item": "Google OAuth Re-auth (blocks email/calendar)",
       "file": "scripts/fix-oauth.sh",
-      "priority": "high"
+      "priority": "high",
+      "created": "Feb 14"
     },
     {
-      "item": "LinkedIn Profile",
+      "item": "Enable UFW Firewall",
+      "file": "N/A",
+      "priority": "medium",
+      "created": "Feb 14"
+    },
+    {
+      "item": "Create Framer Account",
+      "file": "docs/FRAMER-ACCOUNT-SETUP.md",
+      "priority": "medium",
+      "created": "Feb 14"
+    },
+    {
+      "item": "LinkedIn Profile Optimization",
       "file": "drafts/LINKEDIN_PROFILE_FINAL.md",
-      "priority": "medium"
-    },
-    {
-      "item": "Malt Profile",
-      "file": "drafts/MALT_PROFILE_DRAFT.md",
-      "priority": "medium"
+      "priority": "medium",
+      "created": "Feb 14"
     }
   ]
 }
