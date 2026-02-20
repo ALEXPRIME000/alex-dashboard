@@ -570,18 +570,26 @@
 
         // Tasks
         const tc = document.getElementById('tasks-content');
-        const tasks = statusData.pendingTasks || [];
-        const completed = statusData.completedTasks || [];
+        const pendingTasks = fullData.tasks?.pending || [];
+        const blockedTasks = fullData.tasks?.blocked || [];
+        const completedTasks = fullData.tasks?.completed || [];
         tc.innerHTML = `
+            ${blockedTasks.length ? `<div class="glass rounded-xl p-5 mb-5 border-l-4 border-red-500">
+                <h3 class="text-sm font-bold text-red-400 uppercase tracking-wider mb-4">🚫 Blocked — Needs Your Action (${blockedTasks.length})</h3>
+                ${blockedTasks.map(t => `<div class="flex items-start justify-between py-3 border-b border-brand-border last:border-0">
+                    <div><span class="text-sm text-white">${t.name}</span><div class="text-xs text-red-300 mt-1">⏳ ${t.need}</div></div>
+                    ${tag(t.priority.replace(/[🔴🟡🟢]/g,'').trim(), t.priority.includes('HIGH') ? 'high' : t.priority.includes('MEDIUM') ? 'medium' : 'low')}
+                </div>`).join('')}
+            </div>` : ''}
             <div class="glass rounded-xl p-5 mb-5">
-                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">⏳ Pending (${tasks.length})</h3>
-                ${tasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
+                <h3 class="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-4">⏳ To Do (${pendingTasks.length})</h3>
+                ${pendingTasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
                     <span class="text-sm">${t.name}</span>${tag(t.priority, t.priority)}
                 </div>`).join('')}
             </div>
             <div class="glass rounded-xl p-5">
-                <h3 class="text-sm font-bold text-brand-muted uppercase tracking-wider mb-4">✅ Completed (${completed.length})</h3>
-                ${completed.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
+                <h3 class="text-sm font-bold text-brand uppercase tracking-wider mb-4">✅ Completed (${completedTasks.length})</h3>
+                ${completedTasks.map(t => `<div class="flex items-center justify-between py-3 border-b border-brand-border last:border-0">
                     <span class="text-sm text-gray-400">${t.name}</span>
                     <span class="text-[10px] text-brand-muted font-mono">${t.date}</span>
                 </div>`).join('')}
@@ -589,17 +597,42 @@
 
         // Prospects
         const prosc = document.getElementById('prospects-content');
-        const prospects = fullData.people?.prospects || [];
-        prosc.innerHTML = prospects.map(p =>
-            `<div class="glass rounded-xl p-5">
-                <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-base font-bold text-white">${p.name}</h3>
-                    ${tag(p.status, p.status === 'qualified' ? 'active' : p.status)}
+        const leads = fullData.prospectLeads || [];
+        const tierColors = { hot: '#ef4444', warm: '#f59e0b', new: '#3b82f6', cold: '#6b7280' };
+        const tierLabels = { hot: '🔥 HOT', warm: '🟡 WARM', new: '🔵 NEW', cold: '⚪ COLD' };
+        const tierGroups = {};
+        leads.forEach(l => { if (!tierGroups[l.tier]) tierGroups[l.tier] = []; tierGroups[l.tier].push(l); });
+        
+        prosc.innerHTML = `
+            <div class="glass rounded-xl p-5 mb-5">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center"><div class="text-2xl font-bold text-brand">${leads.length}</div><div class="text-[10px] text-brand-muted">Total Leads</div></div>
+                    <div class="text-center"><div class="text-2xl font-bold text-red-400">${(tierGroups.hot||[]).length}</div><div class="text-[10px] text-brand-muted">Hot Leads</div></div>
+                    <div class="text-center"><div class="text-2xl font-bold text-yellow-400">${(tierGroups.warm||[]).length}</div><div class="text-[10px] text-brand-muted">Warm Leads</div></div>
+                    <div class="text-center"><div class="text-2xl font-bold text-blue-400">${(tierGroups.new||[]).length + (tierGroups.cold||[]).length}</div><div class="text-[10px] text-brand-muted">New/Cold</div></div>
                 </div>
-                <div class="text-sm text-brand-muted mb-2">${p.role}</div>
-                ${p.phone ? `<div class="text-sm mt-2">📞 <span class="text-brand font-mono">${p.phone}</span></div>` : ''}
-            </div>`
-        ).join('') + `<div class="glass rounded-xl p-5 mt-3"><a href="${githubLink('prospects/torcy-boulangeries.md')}" target="_blank" class="text-sm text-blue-400 hover:underline font-medium">📄 View full prospect research →</a></div>`;
+            </div>
+            ${Object.entries(tierGroups).map(([tier, items]) => `
+                <div class="glass rounded-xl p-5 mb-4" style="border-left: 3px solid ${tierColors[tier]}">
+                    <h3 class="text-sm font-bold mb-4" style="color: ${tierColors[tier]}">${tierLabels[tier] || tier} (${items.length})</h3>
+                    <div class="space-y-3">
+                        ${items.map(l => `<div class="flex items-start justify-between py-2 border-b border-brand-border last:border-0">
+                            <div class="flex-1">
+                                <div class="text-sm font-semibold text-white">${l.id}. ${l.name}</div>
+                                <div class="text-xs text-brand-muted mt-1">${l.type} • ${l.address}</div>
+                                <div class="text-xs mt-1">${l.phone !== 'Via Pages Jaunes' && l.phone !== 'Via Planity' && l.phone !== 'Via Mappy' && l.phone !== 'Via OpenStreetMap' ? `📞 <span class="text-brand font-mono">${l.phone}</span>` : `<span class="text-brand-muted">${l.phone}</span>`}</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-[10px] ${l.webStatus.includes('NO') ? 'text-red-400' : 'text-yellow-400'}">${l.webStatus.includes('NO') ? '❌ No Site' : '⚠️ Verify'}</div>
+                            </div>
+                        </div>`).join('')}
+                    </div>
+                </div>
+            `).join('')}
+            <div class="glass rounded-xl p-5 mt-3">
+                <h3 class="text-xs font-bold text-brand-muted uppercase tracking-wider mb-3">📁 Prospect Files</h3>
+                ${(fullData.prospects || []).slice(0, 5).map(p => `<a href="${githubLink(p.path)}" target="_blank" class="block text-sm text-blue-400 hover:underline py-1.5">📄 ${p.name}</a>`).join('')}
+            </div>`;
 
         // People
         const pplc = document.getElementById('people-content');
