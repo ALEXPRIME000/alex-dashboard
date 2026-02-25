@@ -211,7 +211,7 @@ const data = {
       }
     }
   },
-  leads: prospectLeads.slice(0, 4).map(p => ({
+  leads: prospectLeads.map(p => ({
     name: p.name,
     type: p.type,
     location: p.location,

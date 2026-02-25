@@ -1,5 +1,5 @@
 # LinkedIn Posts — Semaine du 17 Février 2026
-**Prêt à publier** | 4 posts pour la semaine
+**Prêt à publier** | 5 posts pour la semaine
 
 ---
 
@@ -140,6 +140,67 @@ Bonne fin de semaine 🚀
 
 ---
 
+## Post 5 — SAMEDI 22/02 (10h00) — Portfolio Showcase / Carrousel
+**Format:** Carrousel (5-6 slides) + texte
+
+```
+🎨 3 projets, 3 industries, 1 approche :
+
+Rendre votre business visible.
+
+Voici ce qu'on a construit chez Pulse Graphix en 2026 :
+
+[SLIDE 1 — Couverture]
+"Du concept au clic : Portfolio Pulse Graphix 2026"
+
+[SLIDE 2 — Projet Restaurant]
+🍜 Site vitrine pour un restaurant — Commandes +35%
+Avant : page Facebook uniquement
+Après : site responsive, menu interactif, réservation en ligne
+→ Temps de réalisation : 5 jours
+
+[SLIDE 3 — Projet E-commerce]
+🛍️ Boutique en ligne pour artisan local
+Avant : vente uniquement en boutique
+Après : +15 commandes/semaine en ligne
+→ Panier moyen : 45€
+
+[SLIDE 4 — Projet Services]
+🔧 Landing page pour artisan plombier
+Avant : bouche-à-oreille uniquement
+Après : 12 demandes de devis/mois via le formulaire
+→ ROI en 3 mois
+
+[SLIDE 5 — Récapitulatif]
+Ce que nos clients ont en commun :
+✅ Ils hésitaient à investir
+✅ On les a guidés sans jargon
+✅ Résultat : plus de clients, plus de confiance
+
+[SLIDE 6 — CTA]
+Votre tour ?
+📩 DM ou commentez "PORTFOLIO"
+→ Audit gratuit de votre présence en ligne
+
+---
+
+Chaque projet commence par une conversation.
+Pas de devis surprise. Pas d'obligation.
+
+Juste une question : 
+"Combien de clients vous ratez en ligne chaque semaine ?"
+
+Commentez "PORTFOLIO" et on en parle 👇
+
+#portfolio #webdesign #artisan #commerce #pulsegraphix #torcy #seineetmarne
+```
+
+**Objectif:** Montrer le travail concret + social proof + générer leads
+
+**Note pour Kabundji:** Remplacer les projets fictifs par des vrais dès que possible. En attendant, ces exemples illustrent le style de carrousel à utiliser.
+
+---
+
 ## 📅 CALENDRIER RÉCAP
 
 | Jour | Heure | Post | Format |
@@ -148,6 +209,7 @@ Bonne fin de semaine 🚀
 | Mer 19/02 | 12h30 | ROI étude de cas | Texte/Thread |
 | Jeu 20/02 | 17h30 | Sondage engagement | Sondage |
 | Ven 21/02 | 12h00 | BTS story | Photo/Vidéo |
+| Sam 22/02 | 10h00 | Portfolio showcase | Carrousel |
 
 ## 🎯 ACTIONS AVANT PUBLICATION
 

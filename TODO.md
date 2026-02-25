@@ -8,8 +8,9 @@
 ### 🟢 IMMEDIATE - Do Today/Tomorrow
 
 - [x] **Dashboard Always Live** - ✅ Cron job set up for 2-hour auto-sync
-  - Alex Prime dashboard: https://pulse-graphix-dashboard.vercel.app
-  - Pulse Graphix dashboard: Ready, needs Vercel deploy
+  - Alex Prime dashboard: https://dashboard-ten-mu-52.vercel.app (Orange/Gold theme)
+  - Pulse Graphix dashboard: https://pulse-graphix-dashboard.vercel.app (Lime Green theme)
+  - Both dashboards rebuilt with proper separation and branding (Feb 20)
   - Auto-sync: Every 2 hours via cron (ed01c0b8)
 
 - [x] **Trim MEMORY.md** - Reduced to 99 lines ✅ (Feb 15)
@@ -36,10 +37,10 @@
   - **What:** Optimize Chicco's headline, about section, featured section, skills
   - **Blocked:** Needs Kabundji's LinkedIn credentials or approval to draft
 
-- [ ] **Create 5 LinkedIn Posts** - Ready for Kabundji to review and publish
-  - **Deadline:** Feb 18
-  - **What:** 1 carousel, 2 text posts, 1 poll, 1 portfolio showcase
-  - **Source:** CONTENT-IDEAS-BANK.md + LINKEDIN-STRATEGY.md
+- [x] **Create 5 LinkedIn Posts** - ✅ Created Feb 20
+  - **File:** `marketing/linkedin/posts-batch-1.md`
+  - **What:** 1 thought leadership, 1 portfolio showcase, 1 checklist, 1 story, 1 poll
+  - **Status:** Ready for Kabundji review & approval
 
 - [x] **Prospect Call Preparation** - ✅ APPROVED Feb 16! Prepping now
   - **Deadline:** Feb 17 (prep) → Feb 18-19 (calls)
@@ -69,9 +70,9 @@
   - **Target:** Book 2+ discovery calls
   - **Revenue potential:** €3K-15K per project
 
-- [ ] **Create Client Proposal Template** - Branded PDF using devis-pulse-v2.html
-  - **Deadline:** Feb 22
-  - **What:** Reusable proposal template with PG branding for discovery call follow-ups
+- [x] **Create Client Proposal Template** - ✅ Created Feb 19
+  - **File:** `templates/proposal-pulse-v1.html`
+  - **What:** 4-page branded proposal: cover, problem/solution, deliverables/timeline, pricing/signature
 
 - [ ] **Framer Account + First Template Upload**
   - **Deadline:** Feb 25
@@ -98,10 +99,10 @@
 
 ### Business Operations
 
-- [ ] **Expand Prospect List to 20** - More local businesses in Torcy/MLV
-  - **Deadline:** Feb 26
-  - **What:** Restaurants, salons, medical offices, retail shops
-  - **Method:** Google Maps research, local directories
+- [x] **Expand Prospect List to 20** - ✅ Compiled Feb 20
+  - **File:** `prospects/expanded-prospect-list-20.md`
+  - **What:** 20 businesses: 4 bakeries, 3 restaurants, 6 salons, 4 beauty institutes, 3 specialty
+  - **Revenue projection:** €4.5K-12K (15-40% conversion rate)
 
 - [ ] **Create Email Sequences** - Automated follow-up for leads
   - **Deadline:** Feb 27

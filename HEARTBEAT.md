@@ -9,8 +9,14 @@ Kabundji's directive: "You haven't been productive" — use heartbeat time for R
 Run the data sync script to generate fresh status.json + data.json from workspace, then push:
 ```bash
 cd /home/ubuntu/.openclaw/workspace
+VERCEL_TOKEN=$(cat credentials/vercel_token.txt)
+# Alex Prime dashboard
 node scripts/generate-dashboard-data.js
-cd dashboard && git add -A && git commit -m "Heartbeat $(date +%H:%M)" && git push origin main
+cd dashboard && git add -A && git commit -m "Heartbeat $(date +%H:%M)" && git push origin main && vercel --prod --yes --token "$VERCEL_TOKEN"
+# Pulse Graphix dashboard
+cd /home/ubuntu/.openclaw/workspace
+node scripts/generate-pulse-graphix-data.js
+cd pulse-graphix-dashboard && git add -A && git commit -m "Heartbeat $(date +%H:%M)" && git push origin main && vercel --prod --yes --force --token "$VERCEL_TOKEN"
 ```
 
 Dashboard URL: https://dashboard-ten-mu-52.vercel.app
