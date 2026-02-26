@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-26T21:29:03.340Z",
+  "lastGenerated": "2026-02-26T23:30:32.898Z",
   "tasks": {
     "completed": [
       {
@@ -250,8 +250,8 @@
     ]
   },
   "workspace": {
-    "totalFiles": 910,
-    "totalFolders": 1113,
+    "totalFiles": 919,
+    "totalFolders": 1140,
     "lastCommit": "2026-02-26"
   },
   "memory": {
@@ -297,6 +297,11 @@
     ]
   },
   "prospects": [
+    {
+      "name": "batch-2-next-5",
+      "path": "prospects/batch-2-next-5.md",
+      "preview": "# Prospect Batch 2 — Next 5 Leads\n*Researched: Feb 26, 2026 | Location: Torcy / Marne-la-Vallée (77200)*\n\n---\n\n## 1. Les Délices de Torcy\n**Address:** 7 Rue du Général de Gaulle, 77200 Torcy\n**Phone:*"
+    },
     {
       "name": "call-kit-ready",
       "path": "prospects/call-kit-ready.md",

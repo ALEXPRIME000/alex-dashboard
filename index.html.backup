@@ -116,7 +116,6 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="integrations">Integrations</button>
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="services">Services</button>
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="gallery">Gallery</button>
- <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="downloads">Downloads</button>
     </nav>
   </div>
 </header>
