@@ -1,5 +1,5 @@
 {
-  "lastGenerated": "2026-02-27T05:29:01.919Z",
+  "lastGenerated": "2026-02-27T07:29:02.490Z",
   "tasks": {
     "completed": [
       {
@@ -250,8 +250,8 @@
     ]
   },
   "workspace": {
-    "totalFiles": 920,
-    "totalFolders": 1140,
+    "totalFiles": 925,
+    "totalFolders": 1142,
     "lastCommit": "2026-02-27"
   },
   "memory": {
@@ -367,6 +367,11 @@
       "name": "torcy-full-pipeline",
       "path": "prospects/torcy-full-pipeline.md",
       "preview": "# Pulse Graphix - Prospects Pipeline\n## Torcy (77200) & Villes Voisines - Businesses Sans Site Web\n\n**Date de Recherche:** 13 février 2026  \n**Objectif:** Trouver des commerces indépendants sans site "
+    },
+    {
+      "name": "website-proposals-all-20",
+      "path": "prospects/website-proposals-all-20.md",
+      "preview": "# 🎯 PULSE GRAPHIX — Website Proposal Briefs (PRP)\n## 20 Prospect Businesses — Torcy / Marne-la-Vallée\n\n**Prepared by:** Alex Prime, Executive Director Agent  \n**Agency:** Pulse Graphix Creative Agenc"
     },
     {
       "name": "website-proposals",
