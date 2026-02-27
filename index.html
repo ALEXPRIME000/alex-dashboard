@@ -72,6 +72,9 @@ tailwind.config = {
   .fe-file.active { background: rgba(255,107,53,0.18); color: #FF6B35; border-left: 2px solid #FF6B35; }
   .fe-file-icon { font-size: 14px; flex-shrink: 0; }
   .fe-file-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+  .fe-file-dl { cursor:pointer; opacity:0; font-size:12px; padding:2px 4px; border-radius:4px; transition:opacity 0.15s; color:#FF6B35; }
+  .fe-file:hover .fe-file-dl { opacity:0.7; }
+  .fe-file-dl:hover { opacity:1!important; background:#FF6B3520; }
   .fe-file-size { font-size: 10px; color: #666; flex-shrink: 0; }
   .fe-folder-count { font-size: 10px; background: #2a2a2a; color: #888; padding: 1px 6px; border-radius: 10px; }
   .fe-preview-md { color: #d4d4d4; line-height: 1.7; }
@@ -867,6 +870,7 @@ function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.
           out += '<div class="fe-file'+(act?' active':'')+'" onclick="feSelect(\''+f.path.replace(/'/g,"\\'")+'\')" style="padding-left:'+((depth+1)*14+6)+'px">';
           out += '<span class="fe-file-icon">'+f.icon+'</span>';
           out += '<span class="fe-file-name">'+esc(f.name)+'</span>';
+          out += '<span class="fe-file-dl" title="Download" onclick="event.stopPropagation();feDownloadPath(\''+f.path.replace(/'/g,"\\'")+'\',\''+esc(f.name)+'\')">⬇</span>';
           out += '<span class="fe-file-size">'+f.sizeHuman+'</span></div>';
         });
       }
@@ -964,6 +968,20 @@ function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.
     }
     return code;
   }
+
+  window.feDownloadPath = function(path, name) {
+    const f = FE_FILES.find(x=>x.path===path);
+    if (f && f.content) {
+      const blob = new Blob([f.content],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download=name;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } else {
+      const a = document.createElement('a'); a.href='downloads/files/'+path; a.download=name;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+  };
 
   window.feDownload = window.feDownloadFile = function() {
     if (!FE_CURRENT) return;
