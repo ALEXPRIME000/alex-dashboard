@@ -351,42 +351,53 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
   <section id="tab-downloads" class="tab-content fade-in">
     <div class="flex flex-col lg:flex-row gap-4 h-[calc(100vh-180px)] min-h-[500px]">
       <!-- Sidebar -->
-      <div class="lg:w-72 w-full flex-shrink-0">
-        <div class="card p-4 h-full overflow-hidden flex flex-col">
+      <div class="lg:w-80 w-full flex-shrink-0">
+        <div class="card p-4 h-full overflow-hidden flex flex-col" style="background:rgba(30,30,30,0.6);backdrop-filter:blur(12px);">
           <div class="flex items-center justify-between mb-3">
-            <h3 class="text-sm font-bold text-white flex items-center gap-2">📁 Files</h3>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#FF6B35] to-[#F7931A] flex items-center justify-center text-xs">📁</span>
+              File Explorer
+            </h3>
             <span id="fe-total" class="text-xs text-gray-500"></span>
           </div>
-          <input id="fe-search" type="text" placeholder="Search files..." class="w-full px-3 py-2 bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg text-sm text-white placeholder-gray-500 outline-none focus:border-[#FF6B35] transition-colors mb-3">
-          <div id="fe-tree" class="overflow-y-auto flex-1 space-y-0.5 text-sm"></div>
+          <input id="fe-search" type="text" placeholder="🔍 Search files..." class="w-full px-3 py-2 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-white placeholder-gray-600 outline-none focus:border-[#FF6B35] transition-colors mb-3">
+          <div class="flex items-center gap-2 mb-3">
+            <button id="fe-view-list" onclick="feSetView('list')" class="flex-1 py-1.5 text-xs font-medium rounded-lg bg-[#FF6B35]/20 text-[#FF6B35] transition-all" title="List view">☰ List</button>
+            <button id="fe-view-grid" onclick="feSetView('grid')" class="flex-1 py-1.5 text-xs font-medium rounded-lg bg-[#2a2a2a] text-gray-500 transition-all" title="Grid view">⊞ Grid</button>
+          </div>
+          <div id="fe-tree" class="overflow-y-auto flex-1 space-y-0.5 text-sm pr-1"></div>
         </div>
       </div>
       <!-- Main Content -->
       <div class="flex-1 min-w-0">
-        <div class="card h-full overflow-hidden flex flex-col">
+        <div class="card h-full overflow-hidden flex flex-col" style="background:rgba(30,30,30,0.6);backdrop-filter:blur(12px);">
           <!-- Breadcrumb + Actions -->
           <div class="flex items-center justify-between px-4 py-3 border-b border-[#2a2a2a]">
-            <div id="fe-breadcrumb" class="flex items-center gap-1 text-sm text-gray-400 overflow-x-auto">
+            <div id="fe-breadcrumb" class="flex items-center gap-1 text-sm text-gray-400 overflow-x-auto flex-1 mr-3">
               <span class="text-gray-500">Select a file to preview</span>
             </div>
-            <div class="flex items-center gap-2">
-              <button id="fe-download-btn" onclick="feDownloadFile()" class="hidden px-3 py-1.5 bg-gradient-to-r from-[#FF6B35] to-[#F7931A] text-white text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity">⬇ Download</button>
-              <button id="fe-raw-btn" onclick="feToggleRaw()" class="hidden px-3 py-1.5 bg-[#2a2a2a] text-gray-300 text-xs font-medium rounded-lg hover:bg-[#333] transition-colors">Raw</button>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <button id="fe-download-btn" onclick="feDownloadFile()" class="hidden px-4 py-1.5 bg-gradient-to-r from-[#FF6B35] to-[#F7931A] text-white text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-lg shadow-orange-900/20">⬇️ Download</button>
+              <button id="fe-raw-btn" onclick="feToggleRaw()" class="hidden px-3 py-1.5 bg-[#2a2a2a] text-gray-300 text-xs font-medium rounded-lg hover:bg-[#333] transition-colors">{ } Raw</button>
             </div>
           </div>
           <!-- File Info Bar -->
-          <div id="fe-info" class="hidden px-4 py-2 bg-[#1a1a1a] border-b border-[#2a2a2a] flex items-center gap-4 text-xs text-gray-500">
-            <span id="fe-info-type"></span>
-            <span id="fe-info-size"></span>
-            <span id="fe-info-modified"></span>
+          <div id="fe-info" class="hidden px-4 py-2 bg-[#161616] border-b border-[#2a2a2a]" style="display:none;">
+            <div class="flex items-center gap-4 text-xs text-gray-500">
+              <span id="fe-info-type" class="flex items-center gap-1"></span>
+              <span id="fe-info-size"></span>
+              <span id="fe-info-modified"></span>
+            </div>
           </div>
           <!-- Preview Area -->
-          <div id="fe-preview" class="flex-1 overflow-auto p-4">
+          <div id="fe-preview" class="flex-1 overflow-auto p-6">
             <div class="flex flex-col items-center justify-center h-full text-gray-600">
-              <span class="text-5xl mb-4">📂</span>
-              <p class="text-lg font-medium">File Explorer</p>
-              <p class="text-sm mt-1">Browse and preview all project files</p>
-              <p class="text-xs mt-3 text-gray-700">Click a folder or file in the sidebar</p>
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#FF6B35]/20 to-[#F7931A]/10 flex items-center justify-center mb-4">
+                <span class="text-4xl">📂</span>
+              </div>
+              <p class="text-lg font-semibold text-gray-400">File Explorer</p>
+              <p class="text-sm mt-1 text-gray-600">Browse and preview all project files</p>
+              <p class="text-xs mt-3 text-gray-700">Click a folder or file in the sidebar to get started</p>
             </div>
           </div>
         </div>
@@ -756,219 +767,280 @@ document.addEventListener('keydown', e => {
 
 function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
-// ==================== FILE EXPLORER ====================
-let FE_DATA = null;
-let feCurrentFile = null;
-let feShowRaw = false;
-let feExpandedFolders = new Set(['.']);
+// ═══════════════════════════════════════════
+//  FILE EXPLORER (v2)
+// ═══════════════════════════════════════════
+(function() {
+  let FE_FILES = [];
+  let FE_TREE = {};
+  let FE_CURRENT = null;
+  let FE_RAW = false;
+  let FE_VIEW = 'list';
+  let FE_OPEN = new Set(['root','prospects','marketing','templates','business','research','docs']);
+  let FE_LOADED = false;
 
-async function feLoadIndex() {
-  try {
-    const r = await fetch('file-index.json?t=' + Date.now());
-    FE_DATA = await r.json();
-    document.getElementById('fe-total').textContent = FE_DATA.totalFiles + ' files • ' + FE_DATA.totalSize;
-    feRenderTree();
-  } catch(e) { console.error('File index load failed:', e); }
-}
-
-function feRenderTree(filter = '') {
-  if (!FE_DATA) return;
-  const tree = document.getElementById('fe-tree');
-  const files = filter ? FE_DATA.files.filter(f => f.name.toLowerCase().includes(filter.toLowerCase()) || f.path.toLowerCase().includes(filter.toLowerCase())) : FE_DATA.files;
-  
-  // Group by folder
-  const folders = {};
-  files.forEach(f => {
-    if (!folders[f.folder]) folders[f.folder] = [];
-    folders[f.folder].push(f);
-  });
-  
-  let html = '';
-  const sortedFolders = Object.keys(folders).sort((a,b) => {
-    if (a === '.') return -1; if (b === '.') return 1;
-    return a.localeCompare(b);
-  });
-  
-  for (const folder of sortedFolders) {
-    const isExpanded = feExpandedFolders.has(folder) || filter;
-    const folderName = folder === '.' ? '📁 Root Files' : '📁 ' + folder;
-    const count = folders[folder].length;
-    html += `<div class="folder-group">
-      <div class="flex items-center gap-1 px-2 py-1.5 rounded-md cursor-pointer hover:bg-[#2a2a2a] transition-colors select-none" onclick="feToggleFolder('${folder}')">
-        <span class="text-[10px] text-gray-600 w-3">${isExpanded ? '▼' : '▶'}</span>
-        <span class="text-gray-300 truncate flex-1">${folderName}</span>
-        <span class="text-[10px] text-gray-600 bg-[#2a2a2a] px-1.5 py-0.5 rounded">${count}</span>
-      </div>`;
-    if (isExpanded) {
-      html += '<div class="ml-4 space-y-0.5">';
-      for (const f of folders[folder]) {
-        const isActive = feCurrentFile && feCurrentFile.path === f.path;
-        html += `<div class="flex items-center gap-1.5 px-2 py-1 rounded-md cursor-pointer transition-colors select-none ${isActive ? 'bg-[#FF6B35]/20 text-[#FF6B35]' : 'hover:bg-[#2a2a2a] text-gray-400 hover:text-gray-200'}" onclick="feSelectFile('${f.path.replace(/'/g, "\\'")}')">
-          <span class="text-xs flex-shrink-0">${f.icon}</span>
-          <span class="truncate text-xs">${f.name}</span>
-          <span class="text-[9px] text-gray-600 ml-auto flex-shrink-0">${f.sizeFormatted}</span>
-        </div>`;
-      }
-      html += '</div>';
+  async function feInit() {
+    if (FE_LOADED) return;
+    try {
+      const r = await fetch('file-index.json?t='+Date.now());
+      const d = await r.json();
+      FE_FILES = d.files||[];
+      FE_LOADED = true;
+      feBuildTree();
+      feRenderSidebar();
+      document.getElementById('fe-total').textContent = FE_FILES.length+' files';
+    } catch(e) {
+      document.getElementById('fe-tree').innerHTML='<p class="text-red-400/60 text-xs p-3">⚠ Could not load file index</p>';
     }
-    html += '</div>';
   }
-  tree.innerHTML = html;
-}
 
-function feToggleFolder(folder) {
-  if (feExpandedFolders.has(folder)) feExpandedFolders.delete(folder);
-  else feExpandedFolders.add(folder);
-  feRenderTree(document.getElementById('fe-search').value);
-}
-
-function feSelectFile(filePath) {
-  const file = FE_DATA.files.find(f => f.path === filePath);
-  if (!file) return;
-  feCurrentFile = file;
-  feShowRaw = false;
-  
-  // Update breadcrumb
-  const parts = filePath.split('/');
-  let bc = '<span class="text-gray-500 cursor-pointer hover:text-gray-300" onclick="feSelectFile(null)">📁 workspace</span>';
-  parts.forEach((p, i) => {
-    bc += ` <span class="text-gray-600">/</span> <span class="${i === parts.length - 1 ? 'text-white font-medium' : 'text-gray-400'}">${p}</span>`;
-  });
-  document.getElementById('fe-breadcrumb').innerHTML = bc;
-  
-  // Show info bar
-  const info = document.getElementById('fe-info');
-  info.classList.remove('hidden');
-  document.getElementById('fe-info-type').textContent = file.icon + ' ' + file.type.toUpperCase();
-  document.getElementById('fe-info-size').textContent = '📦 ' + file.sizeFormatted;
-  document.getElementById('fe-info-modified').textContent = '🕐 ' + new Date(file.modified).toLocaleDateString('fr-FR', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
-  
-  // Show buttons
-  document.getElementById('fe-download-btn').classList.remove('hidden');
-  if (file.content) document.getElementById('fe-raw-btn').classList.remove('hidden');
-  else document.getElementById('fe-raw-btn').classList.add('hidden');
-  
-  // Render preview
-  feRenderPreview(file);
-  feRenderTree(document.getElementById('fe-search').value);
-}
-
-function feRenderPreview(file) {
-  const preview = document.getElementById('fe-preview');
-  
-  if (!file.content) {
-    preview.innerHTML = `<div class="flex flex-col items-center justify-center h-full text-gray-500">
-      <span class="text-4xl mb-3">${file.icon}</span>
-      <p class="font-medium">${file.name}</p>
-      <p class="text-sm mt-1">${file.sizeFormatted} • ${file.type}</p>
-      <p class="text-xs mt-3 text-gray-600">Preview not available for this file type</p>
-      <button onclick="feDownloadFile()" class="mt-4 px-4 py-2 bg-gradient-to-r from-[#FF6B35] to-[#F7931A] text-white text-sm font-semibold rounded-lg hover:opacity-90">⬇ Download</button>
-    </div>`;
-    return;
+  function feBuildTree() {
+    FE_TREE = {};
+    FE_FILES.forEach(f => {
+      const folder = f.folder || 'root';
+      if (!FE_TREE[folder]) FE_TREE[folder] = [];
+      FE_TREE[folder].push(f);
+    });
   }
-  
-  if (file.type === 'markdown' && !feShowRaw) {
-    // Render markdown as styled HTML
-    const html = feRenderMarkdown(file.content);
-    preview.innerHTML = `<div class="fe-markdown prose prose-invert max-w-none">${html}</div>`;
-  } else if (file.type === 'html' && !feShowRaw) {
-    // Render HTML in sandboxed iframe
-    const blob = new Blob([file.content], {type: 'text/html'});
-    const url = URL.createObjectURL(blob);
-    preview.innerHTML = `<iframe src="${url}" class="w-full h-full border-0 rounded-lg bg-white" sandbox="allow-scripts"></iframe>`;
-  } else {
-    // Syntax-highlighted raw view
-    const lang = file.type === 'json' ? 'json' : file.type === 'script' ? 'bash' : '';
-    preview.innerHTML = `<pre class="text-sm text-gray-300 font-mono leading-relaxed whitespace-pre-wrap break-words">${esc(file.content)}</pre>`;
+
+  function feGetHierarchy() {
+    const h = {};
+    Object.keys(FE_TREE).sort().forEach(path => {
+      const parts = path.split('/');
+      let cur = h;
+      parts.forEach((p,i) => {
+        if (!cur[p]) cur[p] = {_sub:{},_files:[]};
+        if (i===parts.length-1) cur[p]._files = FE_TREE[path];
+        cur = cur[p]._sub;
+      });
+    });
+    return h;
   }
-}
 
-function feRenderMarkdown(md) {
-  // Simple markdown renderer
-  let html = md
-    // Code blocks
-    .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre class="bg-[#0d0d0d] border border-[#2a2a2a] rounded-lg p-4 text-sm overflow-x-auto my-3"><code>$2</code></pre>')
-    // Inline code
-    .replace(/`([^`]+)`/g, '<code class="bg-[#2a2a2a] px-1.5 py-0.5 rounded text-[#FF6B35] text-sm">$1</code>')
-    // Headers
-    .replace(/^#### (.+)$/gm, '<h4 class="text-base font-bold text-white mt-5 mb-2">$1</h4>')
-    .replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold text-white mt-6 mb-2 pb-1 border-b border-[#2a2a2a]">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="text-xl font-bold gradient-text mt-8 mb-3 pb-2 border-b border-[#2a2a2a]">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 class="text-2xl font-black text-white mt-4 mb-4">$1</h1>')
-    // Bold & italic
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="text-white"><em>$1</em></strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em class="text-gray-300">$1</em>')
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-[#FF6B35] hover:underline">$1</a>')
-    // Images
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg max-w-full my-2">')
-    // Blockquotes
-    .replace(/^> (.+)$/gm, '<blockquote class="border-l-3 border-[#FF6B35] pl-4 py-1 my-2 text-gray-400 italic">$1</blockquote>')
-    // Horizontal rules
-    .replace(/^---$/gm, '<hr class="border-[#2a2a2a] my-6">')
-    // Checkboxes
-    .replace(/^- \[x\] (.+)$/gm, '<div class="flex items-start gap-2 my-1"><span class="text-green-500 mt-0.5">✅</span><span class="text-gray-300 line-through">$1</span></div>')
-    .replace(/^- \[ \] (.+)$/gm, '<div class="flex items-start gap-2 my-1"><span class="text-gray-600 mt-0.5">⬜</span><span class="text-gray-300">$1</span></div>')
-    // Unordered lists
-    .replace(/^- (.+)$/gm, '<div class="flex items-start gap-2 my-0.5 ml-2"><span class="text-[#FF6B35] mt-1.5 text-[6px]">●</span><span class="text-gray-300">$1</span></div>')
-    // Ordered lists
-    .replace(/^(\d+)\. (.+)$/gm, '<div class="flex items-start gap-2 my-0.5 ml-2"><span class="text-[#FF6B35] font-bold text-xs w-5">$1.</span><span class="text-gray-300">$2</span></div>')
-    // Tables (basic)
-    .replace(/^\|(.+)\|$/gm, (match, content) => {
-      const cells = content.split('|').map(c => c.trim());
-      if (cells.every(c => /^[-:]+$/.test(c))) return ''; // separator row
-      const tag = cells.some(c => /\*\*/.test(c)) ? 'th' : 'td';
-      return '<tr>' + cells.map(c => `<${tag} class="px-3 py-2 border border-[#2a2a2a] text-sm text-gray-300">${c}</${tag}>`).join('') + '</tr>';
-    })
-    // Paragraphs
-    .replace(/\n\n/g, '</p><p class="text-gray-400 my-2 leading-relaxed">')
-    // Single newlines
-    .replace(/\n/g, '<br>');
-  
-  // Wrap tables
-  html = html.replace(/(<tr>[\s\S]*?<\/tr>)/g, '<div class="overflow-x-auto my-3"><table class="w-full border-collapse">$1</table></div>');
-  
-  return `<p class="text-gray-400 my-2 leading-relaxed">${html}</p>`;
-}
+  function feCountIn(prefix) {
+    let c=0;
+    Object.keys(FE_TREE).forEach(k => {
+      if (k===prefix||k.startsWith(prefix+'/')) c += FE_TREE[k].length;
+    });
+    return c;
+  }
 
-function feToggleRaw() {
-  feShowRaw = !feShowRaw;
-  document.getElementById('fe-raw-btn').textContent = feShowRaw ? 'Preview' : 'Raw';
-  if (feCurrentFile) feRenderPreview(feCurrentFile);
-}
+  function feRenderSidebar(filter) {
+    const el = document.getElementById('fe-tree');
+    if (filter) {
+      const q = filter.toLowerCase();
+      const m = FE_FILES.filter(f => f.name.toLowerCase().includes(q)||f.path.toLowerCase().includes(q)||f.category.includes(q));
+      if (!m.length) { el.innerHTML='<div class="text-center py-8 text-gray-600"><p class="text-2xl">🔍</p><p class="text-xs mt-2">No files match "'+esc(filter)+'"</p></div>'; return; }
+      el.innerHTML = '<div class="text-xs text-gray-600 mb-2 px-1">'+m.length+' results</div>' +
+        m.map(f => {
+          const act = FE_CURRENT&&FE_CURRENT.path===f.path;
+          return '<div class="fe-file'+(act?' active':'')+'" onclick="feSelect(\''+f.path.replace(/'/g,"\\'")+'\')">' +
+            '<span class="fe-file-icon">'+f.icon+'</span><div class="flex-1 min-w-0"><div class="fe-file-name">'+esc(f.name)+'</div>' +
+            '<div class="text-[10px] text-gray-600 truncate">'+esc(f.folder)+'</div></div><span class="fe-file-size">'+f.sizeHuman+'</span></div>';
+        }).join('');
+      return;
+    }
+    el.innerHTML = feRenderFolders(feGetHierarchy(), '', 0);
+  }
 
-function feDownloadFile() {
-  if (!feCurrentFile || !feCurrentFile.content) return;
-  const blob = new Blob([feCurrentFile.content], {type: 'text/plain'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = feCurrentFile.name;
-  document.body.appendChild(a); a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
+  function feRenderFolders(h, parent, depth) {
+    let out = '';
+    Object.keys(h).sort().forEach(key => {
+      const node = h[key];
+      const fp = parent ? parent+'/'+key : key;
+      const open = FE_OPEN.has(fp);
+      const cnt = feCountIn(fp);
+      const dn = key==='root' ? 'Root Files' : key;
+      out += '<div class="fe-folder">';
+      out += '<div class="fe-folder-header" onclick="feTog(\''+fp+'\')" style="padding-left:'+(depth*14)+'px">';
+      out += '<span class="fe-chevron'+(open?' open':'')+'">▶</span>';
+      out += '<span>'+(open?'📂':'📁')+'</span>';
+      out += '<span class="text-gray-300 font-medium flex-1 truncate">'+esc(dn)+'</span>';
+      out += '<span class="fe-folder-count">'+cnt+'</span>';
+      out += '</div>';
+      out += '<div class="fe-folder-children'+(open?' open':'')+'">';
+      const subK = Object.keys(node._sub).sort();
+      if (subK.length) out += feRenderFolders(node._sub, fp, depth+1);
+      if (node._files) {
+        node._files.sort((a,b)=>a.name.localeCompare(b.name)).forEach(f => {
+          const act = FE_CURRENT&&FE_CURRENT.path===f.path;
+          out += '<div class="fe-file'+(act?' active':'')+'" onclick="feSelect(\''+f.path.replace(/'/g,"\\'")+'\')" style="padding-left:'+((depth+1)*14+6)+'px">';
+          out += '<span class="fe-file-icon">'+f.icon+'</span>';
+          out += '<span class="fe-file-name">'+esc(f.name)+'</span>';
+          out += '<span class="fe-file-size">'+f.sizeHuman+'</span></div>';
+        });
+      }
+      out += '</div></div>';
+    });
+    return out;
+  }
 
-// Search
-document.getElementById('fe-search').addEventListener('input', e => {
-  feRenderTree(e.target.value);
-});
+  window.feTog = function(p) {
+    FE_OPEN.has(p) ? FE_OPEN.delete(p) : FE_OPEN.add(p);
+    feRenderSidebar(document.getElementById('fe-search').value.trim()||null);
+  };
 
-// Load file index when downloads tab is clicked
-document.querySelector('[data-tab="downloads"]').addEventListener('click', () => {
-  if (!FE_DATA) feLoadIndex();
-});
+  window.feSelect = function(path) {
+    const f = FE_FILES.find(x=>x.path===path);
+    if (!f) return;
+    FE_CURRENT = f;
+    FE_RAW = false;
+    feRenderSidebar(document.getElementById('fe-search').value.trim()||null);
+    // Breadcrumb
+    const parts = path.split('/');
+    let bc = '<span class="cursor-pointer hover:text-[#FF6B35] transition-colors" onclick="feHome()">📁 Files</span>';
+    parts.forEach((p,i) => {
+      bc += '<span class="text-gray-600 mx-1">/</span>';
+      bc += i===parts.length-1 ? '<span class="text-white font-medium">'+esc(p)+'</span>' : '<span class="text-gray-400">'+esc(p)+'</span>';
+    });
+    document.getElementById('fe-breadcrumb').innerHTML = bc;
+    // Info
+    document.getElementById('fe-info').style.display = 'block';
+    document.getElementById('fe-info-type').innerHTML = f.icon+' '+f.category.toUpperCase();
+    document.getElementById('fe-info-size').textContent = '📦 '+f.sizeHuman;
+    const dt = new Date(f.modified);
+    document.getElementById('fe-info-modified').textContent = '🕐 '+dt.toLocaleDateString()+' '+dt.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    // Buttons
+    document.getElementById('fe-download-btn').classList.remove('hidden');
+    document.getElementById('fe-raw-btn').classList.toggle('hidden', !f.content);
+    document.getElementById('fe-raw-btn').textContent = '{ } Raw';
+    // Preview
+    fePreview(f);
+  };
 
-// Also load on page load if hash is #downloads
-if (location.hash === '#downloads') {
-  feLoadIndex();
-  document.querySelector('[data-tab="downloads"]').click();
-}
-// ==================== END FILE EXPLORER ====================
+  function fePreview(f) {
+    const el = document.getElementById('fe-preview');
+    // Markdown
+    if (f.category==='markdown' && f.content && !FE_RAW) {
+      try { el.innerHTML = '<div class="fe-preview-md">'+marked.parse(f.content)+'</div>'; } 
+      catch(e) { el.innerHTML = '<div class="fe-code-preview">'+esc(f.content)+'</div>'; }
+      return;
+    }
+    // HTML
+    if (f.category==='html') {
+      if (f.content && !FE_RAW) {
+        const blob = new Blob([f.content],{type:'text/html'});
+        el.innerHTML = '<iframe src="'+URL.createObjectURL(blob)+'" class="w-full rounded-lg border border-[#2a2a2a]" style="min-height:600px;height:100%;background:#fff;" sandbox="allow-scripts allow-same-origin"></iframe>';
+      } else if (f.content) {
+        el.innerHTML = '<div class="fe-code-preview">'+esc(f.content)+'</div>';
+      } else {
+        el.innerHTML = '<iframe src="downloads/files/'+f.path+'" class="w-full rounded-lg border border-[#2a2a2a]" style="min-height:600px;height:100%;background:#fff;" sandbox="allow-scripts allow-same-origin"></iframe>';
+      }
+      return;
+    }
+    // Image
+    if (f.category==='image') {
+      el.innerHTML = '<div class="flex flex-col items-center justify-center h-full"><img src="downloads/files/'+f.path+'" alt="'+esc(f.name)+'" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-[#2a2a2a]"/><p class="text-sm text-gray-500 mt-4">'+esc(f.name)+' • '+f.sizeHuman+'</p></div>';
+      return;
+    }
+    // Code / JSON / Script / CSS / Text
+    if (f.content) {
+      let code = f.content;
+      if (f.category==='json' && !FE_RAW) { try { code=JSON.stringify(JSON.parse(code),null,2); } catch(e){} }
+      el.innerHTML = '<div class="fe-code-preview">'+feSyntax(esc(code), f.category)+'</div>';
+      return;
+    }
+    // Fallback
+    el.innerHTML = '<div class="flex flex-col items-center justify-center h-full text-gray-500">' +
+      '<div class="w-20 h-20 rounded-2xl bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center mb-4"><span class="text-4xl">'+f.icon+'</span></div>' +
+      '<p class="text-lg font-medium text-gray-400">'+esc(f.name)+'</p><p class="text-sm mt-1">'+f.sizeHuman+' • '+f.category+'</p>' +
+      '<button onclick="feDownload()" class="mt-5 px-6 py-2.5 bg-gradient-to-r from-[#FF6B35] to-[#F7931A] text-white font-semibold rounded-lg hover:opacity-90 shadow-lg shadow-orange-900/20">⬇️ Download File</button></div>';
+  }
+
+  function feSyntax(code, cat) {
+    if (cat==='json') {
+      return code.replace(/(&quot;.*?&quot;)\s*:/g,'<span style="color:#FF6B35">$1</span>:')
+        .replace(/:\s*(&quot;.*?&quot;)/g,': <span style="color:#98c379">$1</span>')
+        .replace(/:\s*(true|false|null)/g,': <span style="color:#e5c07b">$1</span>')
+        .replace(/:\s*(\d+\.?\d*)/g,': <span style="color:#d19a66">$1</span>');
+    }
+    if (cat==='script') {
+      return code.replace(/(#.*?)(\n|$)/g,'<span style="color:#5c6370">$1</span>$2')
+        .replace(/\b(if|then|else|fi|for|do|done|while|case|esac|function|return|local|echo|set|export|mkdir|cp|rm|find|cat|chmod)\b/g,'<span style="color:#c678dd">$1</span>');
+    }
+    if (cat==='style') {
+      return code.replace(/([\w-]+)\s*:/g,'<span style="color:#d19a66">$1</span>:')
+        .replace(/(\{|\})/g,'<span style="color:#c678dd">$1</span>');
+    }
+    return code;
+  }
+
+  window.feDownload = window.feDownloadFile = function() {
+    if (!FE_CURRENT) return;
+    if (FE_CURRENT.content) {
+      const blob = new Blob([FE_CURRENT.content],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download=FE_CURRENT.name;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } else {
+      const a = document.createElement('a'); a.href='downloads/files/'+FE_CURRENT.path; a.download=FE_CURRENT.name;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+  };
+
+  window.feToggleRaw = function() {
+    if (!FE_CURRENT) return;
+    FE_RAW = !FE_RAW;
+    document.getElementById('fe-raw-btn').textContent = FE_RAW ? '✨ Preview' : '{ } Raw';
+    fePreview(FE_CURRENT);
+  };
+
+  window.feHome = function() {
+    FE_CURRENT = null; FE_RAW = false;
+    document.getElementById('fe-download-btn').classList.add('hidden');
+    document.getElementById('fe-raw-btn').classList.add('hidden');
+    document.getElementById('fe-info').style.display = 'none';
+    document.getElementById('fe-breadcrumb').innerHTML = '<span class="text-gray-500">Select a file to preview</span>';
+    if (FE_VIEW==='grid') {
+      feGridHome();
+    } else {
+      document.getElementById('fe-preview').innerHTML = 
+        '<div class="flex flex-col items-center justify-center h-full text-gray-600">' +
+        '<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#FF6B35]/20 to-[#F7931A]/10 flex items-center justify-center mb-4"><span class="text-4xl">📂</span></div>' +
+        '<p class="text-lg font-semibold text-gray-400">File Explorer</p>' +
+        '<p class="text-sm mt-1 text-gray-600">'+FE_FILES.length+' files across '+Object.keys(FE_TREE).length+' folders</p>' +
+        '<p class="text-xs mt-3 text-gray-700">Click a folder or file in the sidebar</p></div>';
+    }
+    feRenderSidebar(document.getElementById('fe-search').value.trim()||null);
+  };
+
+  function feGridHome() {
+    const el = document.getElementById('fe-preview');
+    const folders = Object.keys(FE_TREE).sort();
+    el.innerHTML = '<div class="fe-grid">'+folders.map(f => {
+      const dn = f==='root'?'Root Files':f.split('/').pop();
+      return '<div class="fe-grid-item" onclick="feGridFolder(\''+f+'\')"><div class="fe-grid-icon">📁</div><div class="fe-grid-name font-medium text-white">'+esc(dn)+'</div><div class="fe-grid-size">'+FE_TREE[f].length+' files</div></div>';
+    }).join('')+'</div>';
+  }
+
+  window.feGridFolder = function(folder) {
+    FE_OPEN.add(folder);
+    const files = FE_TREE[folder]||[];
+    const el = document.getElementById('fe-preview');
+    el.innerHTML = '<div class="mb-4"><span class="text-sm text-gray-400 cursor-pointer hover:text-[#FF6B35]" onclick="feHome()">← Back</span><span class="text-white font-medium ml-3">'+esc(folder)+'</span></div>' +
+      '<div class="fe-grid">'+files.map(f => '<div class="fe-grid-item" onclick="feSelect(\''+f.path.replace(/'/g,"\\'")+'\')">' +
+        '<div class="fe-grid-icon">'+f.icon+'</div><div class="fe-grid-name">'+esc(f.name)+'</div><div class="fe-grid-size">'+f.sizeHuman+'</div></div>').join('')+'</div>';
+  };
+
+  window.feSetView = function(m) {
+    FE_VIEW = m;
+    document.getElementById('fe-view-list').className = 'flex-1 py-1.5 text-xs font-medium rounded-lg transition-all '+(m==='list'?'bg-[#FF6B35]/20 text-[#FF6B35]':'bg-[#2a2a2a] text-gray-500');
+    document.getElementById('fe-view-grid').className = 'flex-1 py-1.5 text-xs font-medium rounded-lg transition-all '+(m==='grid'?'bg-[#FF6B35]/20 text-[#FF6B35]':'bg-[#2a2a2a] text-gray-500');
+    if (!FE_CURRENT) feHome();
+  };
+
+  document.getElementById('fe-search').addEventListener('input', e => feRenderSidebar(e.target.value.trim()||null));
+
+  // Load when tab is clicked
+  document.querySelector('[data-tab="downloads"]').addEventListener('click', () => { if (!FE_LOADED) feInit(); });
+  // Pre-load after 1.5s
+  setTimeout(feInit, 1500);
+})();
+// ═══════════════════════════════════════════
 
 // Initial load
 loadData();
-feLoadIndex(); // Pre-load file index
 
 // Auto-refresh every 60 seconds
 setInterval(() => {
@@ -977,13 +1049,5 @@ setInterval(() => {
   loadData().then(() => setTimeout(() => dot.classList.replace('bg-yellow-500', 'bg-green-500'), 500));
 }, 60000);
 </script>
-<style>
-/* File Explorer additional styles */
-.fe-markdown table { border-collapse: collapse; }
-.fe-markdown th { background: #1a1a1a; font-weight: 600; color: #fff; }
-.fe-markdown pre code { color: #e2e8f0; }
-.fe-markdown blockquote { border-left: 3px solid #FF6B35; }
-.folder-group + .folder-group { margin-top: 2px; }
-</style>
 </body>
 </html>
