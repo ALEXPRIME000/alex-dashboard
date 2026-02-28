@@ -36,8 +36,10 @@
 
 ### 🟡 IN PROGRESS
 
-- [ ] **Showcase Website Templates** — 🔨 Building overnight (Feb 27-28)
-  - **Salon Coiffure Template** → for Bopha Coiffure (#5) + 4 other salons — BUILDING NOW
+- [ ] **Showcase Website Templates** — 🔨 In Progress
+  - **Salon Coiffure Template** → ✅ V1 COMPLETE (Feb 28) — `showcase/salon-coiffure/index.html`
+    - Premium design: gold/cream palette, glass-morphism, Playfair+Inter, scroll animations
+    - For: Bopha Coiffure (#5), Nina (#6), New Look (#8), Mon Coiffeur (#17), Glamour (#19)
   - **Boulangerie Template** → for C.C.P Fournil (#1) + 2 bakeries — NEXT
   - **Restaurant Template** → for Le Trente-Six (#3) — PLANNED
   - **Strategy:** Build template → present to prospect → if accepted, customize → if not, keep as portfolio
