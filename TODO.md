@@ -40,7 +40,10 @@
   - **Salon Coiffure Template** → ✅ V1 COMPLETE (Feb 28) — `showcase/salon-coiffure/index.html`
     - Premium design: gold/cream palette, glass-morphism, Playfair+Inter, scroll animations
     - For: Bopha Coiffure (#5), Nina (#6), New Look (#8), Mon Coiffeur (#17), Glamour (#19)
-  - **Boulangerie Template** → for C.C.P Fournil (#1) + 2 bakeries — NEXT
+  - **Boulangerie Template** → ✅ V1 COMPLETE (Feb 28) — `showcase/boulangerie/index.html`
+    - Warm rustic-elegant design: wheat/chocolate/terracotta palette, Playfair+Lato
+    - 8 product cards, category filter, specials/traiteur banner, hours table
+    - For: C.C.P Fournil (#1), Le Belvédère (#2), Ambiance Gourmande (#12)
   - **Restaurant Template** → for Le Trente-Six (#3) — PLANNED
   - **Strategy:** Build template → present to prospect → if accepted, customize → if not, keep as portfolio
 

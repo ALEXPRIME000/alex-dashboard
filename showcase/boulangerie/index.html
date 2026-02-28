@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.C.P Fournil — Boulangerie Pâtisserie Artisanale à Torcy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       PULSE GRAPHIX — Boulangerie Showcase Template
+       Design: Warm, rustic-elegant, artisanal feel
+       Target: C.C.P Fournil (#1), Le Belvédère (#2),
+               Ambiance Gourmande (#12)
+       ═══════════════════════════════════════════════════════ */
+
+    :root {
+      --wheat: #D4A373;
+      --wheat-light: #E8CDAF;
+      --wheat-pale: #F5E6D0;
+      --chocolate: #6B4226;
+      --chocolate-dark: #4A2E1A;
+      --cream: #FFF8F0;
+      --cream-dark: #F5ECD8;
+      --flour: #FEFCF7;
+      --charcoal: #2C2118;
+      --charcoal-light: #3D3028;
+      --text-dark: #2C2118;
+      --text-mid: #6B5E52;
+      --text-light: #9B8E82;
+      --white: #FFFFFF;
+      --terracotta: #C47653;
+      --sage: #8B9A6B;
+      --sage-light: #D4DEC4;
+
+      --glass-bg: rgba(255, 248, 240, 0.75);
+      --glass-border: rgba(212, 163, 115, 0.25);
+      --glass-blur: 20px;
+
+      --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px;
+      --s5: 40px; --s6: 48px; --s8: 64px; --s10: 80px;
+      --s12: 96px; --s16: 128px;
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--s4); }
+    section { padding: var(--s12) 0; }
+
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wheat);
+      margin-bottom: var(--s2);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--charcoal);
+      margin-bottom: var(--s3);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: var(--s3) 0;
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 248, 240, 0.94);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      box-shadow: 0 1px 0 rgba(212, 163, 115, 0.2);
+      padding: var(--s2) 0;
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--wheat); }
+
+    .nav-links { display: flex; gap: var(--s4); list-style: none; align-items: center; }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--wheat);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--chocolate) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      border-radius: 100px;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover { background: var(--terracotta) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 32px; height: 24px; position: relative;
+    }
+
+    .nav-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--charcoal); position: absolute; left: 0;
+      transition: all 0.3s;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .nav-toggle span:nth-child(3) { bottom: 0; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, var(--cream) 0%, var(--wheat-pale) 40%, var(--cream-dark) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -15%; right: -5%;
+      width: 55%; height: 130%;
+      background: radial-gradient(ellipse, rgba(212, 163, 115, 0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Decorative grain texture overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a373' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content { position: relative; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s1);
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--chocolate);
+      margin-bottom: var(--s4);
+    }
+
+    .hero-badge::before {
+      content: '🥖';
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      color: var(--charcoal);
+      margin-bottom: var(--s3);
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--chocolate); }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: var(--s5);
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: var(--s1);
+      background: var(--chocolate); color: var(--white);
+      padding: 14px 32px; border-radius: 100px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none; transition: all 0.3s;
+      border: none; cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(107, 66, 38, 0.25);
+    }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: var(--s1);
+      background: transparent; color: var(--chocolate);
+      padding: 14px 32px; border-radius: 100px;
+      font-size: 0.95rem; font-weight: 500;
+      text-decoration: none; transition: all 0.3s;
+      border: 1.5px solid var(--wheat-light);
+    }
+
+    .btn-outline:hover { border-color: var(--wheat); background: rgba(212, 163, 115, 0.08); }
+
+    .hero-features {
+      display: flex; gap: var(--s4); margin-top: var(--s5);
+      padding-top: var(--s4);
+      border-top: 1px solid rgba(212, 163, 115, 0.2);
+    }
+
+    .hero-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.85rem; color: var(--text-mid); font-weight: 400;
+    }
+
+    .hero-feature-icon {
+      width: 36px; height: 36px;
+      background: var(--wheat-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+
+    /* Hero visual: artisan image composition */
+    .hero-visual { position: relative; display: flex; justify-content: center; }
+
+    .hero-img-wrapper {
+      width: 440px; height: 540px;
+      background: linear-gradient(155deg, var(--wheat-light) 0%, var(--cream-dark) 50%, var(--wheat-pale) 100%);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 32px 64px rgba(44, 33, 24, 0.1),
+        0 0 0 1px rgba(212, 163, 115, 0.15);
+    }
+
+    .hero-img-wrapper::before {
+      content: '🍞';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 7rem;
+      opacity: 0.12;
+    }
+
+    .hero-float {
+      position: absolute;
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: var(--s2) var(--s3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .float-open {
+      top: 60px; right: -20px;
+      text-align: center;
+    }
+
+    .float-open .time {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .float-open .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .float-open .dot {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.75rem; color: var(--sage);
+      font-weight: 600; margin-top: 6px;
+    }
+
+    .float-open .dot::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--sage); border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .float-fresh {
+      bottom: 80px; left: -30px;
+      display: flex; align-items: center; gap: var(--s2);
+    }
+
+    .float-fresh-icon {
+      width: 44px; height: 44px;
+      background: var(--wheat-pale);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .float-fresh .title {
+      font-weight: 700; font-size: 0.85rem; color: var(--charcoal);
+    }
+
+    .float-fresh .sub {
+      font-size: 0.75rem; color: var(--text-light);
+    }
+
+    /* ── Products ── */
+    .products { background: var(--flour); }
+
+    .products-header { text-align: center; margin-bottom: var(--s8); }
+    .products-header .section-subtitle { margin: 0 auto; }
+
+    .product-categories {
+      display: flex;
+      justify-content: center;
+      gap: var(--s2);
+      margin-bottom: var(--s6);
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      padding: 10px 22px;
+      border: 1.5px solid var(--wheat-light);
+      border-radius: 100px;
+      background: transparent;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--chocolate);
+      border-color: var(--chocolate);
+      color: var(--white);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s3);
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(212, 163, 115, 0.1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(44, 33, 24, 0.08);
+    }
+
+    .product-img {
+      width: 100%; height: 200px;
+      background: linear-gradient(135deg, var(--wheat-pale), var(--cream-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--terracotta);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .product-info { padding: var(--s3); }
+
+    .product-info h3 {
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .product-info p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: var(--s2);
+    }
+
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--chocolate);
+      font-weight: 700;
+    }
+
+    /* ── Story / About ── */
+    .story {
+      background: var(--charcoal);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(212, 163, 115, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(196, 118, 83, 0.08) 0%, transparent 50%);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-image {
+      width: 100%; height: 450px;
+      background: linear-gradient(145deg, var(--charcoal-light) 0%, var(--chocolate-dark) 100%);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-image::before {
+      content: '🧑‍🍳';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      opacity: 0.15;
+    }
+
+    .story .section-label { color: var(--wheat-light); }
+    .story .section-title { color: var(--white); }
+
+    .story-text {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.8;
+      margin-bottom: var(--s3);
+      font-weight: 300;
+    }
+
+    .story-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+      margin-top: var(--s5);
+    }
+
+    .highlight {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: var(--s3);
+      text-align: center;
+    }
+
+    .highlight .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--wheat);
+    }
+
+    .highlight .txt {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* ── Specials Banner ── */
+    .specials {
+      background: linear-gradient(135deg, var(--wheat) 0%, var(--terracotta) 100%);
+      padding: var(--s6) 0;
+      text-align: center;
+    }
+
+    .specials h2 {
+      color: var(--white);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: var(--s2);
+    }
+
+    .specials p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.05rem;
+      font-weight: 300;
+      margin-bottom: var(--s4);
+    }
+
+    .specials-items {
+      display: flex;
+      gap: var(--s4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .special-item {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 100px;
+      padding: 10px 24px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { background: var(--cream); }
+
+    .testimonials-header { text-align: center; margin-bottom: var(--s8); }
+    .testimonials-header .section-subtitle { margin: 0 auto; }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s4);
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: var(--s5);
+      position: relative;
+      border: 1px solid rgba(212, 163, 115, 0.1);
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--wheat-pale);
+      position: absolute;
+      top: 16px; right: 24px;
+      line-height: 1;
+    }
+
+    .testimonial-stars {
+      color: var(--wheat);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: var(--s2);
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: var(--s3);
+      font-style: italic;
+    }
+
+    .testimonial-author { display: flex; align-items: center; gap: var(--s2); }
+
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--wheat-pale), var(--cream-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; color: var(--chocolate);
+    }
+
+    .testimonial-name { font-weight: 700; font-size: 0.9rem; color: var(--charcoal); }
+    .testimonial-date { font-size: 0.75rem; color: var(--text-light); }
+
+    /* ── Visit / Location ── */
+    .visit { background: var(--flour); }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    .visit-map {
+      width: 100%; height: 420px;
+      background: var(--cream-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+
+    .visit-map iframe { width: 100%; height: 100%; border: 0; }
+
+    .visit-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--s4);
+      color: var(--charcoal);
+    }
+
+    .visit-item {
+      display: flex; gap: var(--s3);
+      margin-bottom: var(--s4);
+      align-items: flex-start;
+    }
+
+    .visit-icon {
+      width: 48px; height: 48px;
+      background: var(--wheat-pale);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .visit-item h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .visit-item p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+    .hours-table {
+      width: 100%;
+      margin-top: var(--s2);
+      border-collapse: collapse;
+    }
+
+    .hours-table tr { border-bottom: 1px solid rgba(212, 163, 115, 0.12); }
+    .hours-table td {
+      padding: 8px 0;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    .hours-table td:last-child { text-align: right; font-weight: 500; }
+
+    .hours-table .closed { color: var(--terracotta); font-weight: 600; }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: var(--chocolate);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(212, 163, 115, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 50%, rgba(196, 118, 83, 0.1) 0%, transparent 50%);
+    }
+
+    .cta-content { position: relative; z-index: 1; }
+
+    .cta-banner .section-label { color: var(--wheat-light); }
+    .cta-banner .section-title { color: var(--white); max-width: 600px; margin: 0 auto var(--s3); }
+    .cta-banner .section-subtitle { color: rgba(255, 255, 255, 0.6); margin: 0 auto var(--s5); }
+
+    .btn-wheat {
+      display: inline-flex; align-items: center; gap: var(--s1);
+      background: linear-gradient(135deg, var(--wheat), var(--terracotta));
+      color: var(--white);
+      padding: 16px 36px; border-radius: 100px;
+      font-size: 1rem; font-weight: 700;
+      text-decoration: none; transition: all 0.3s;
+      border: none; cursor: pointer;
+    }
+
+    .btn-wheat:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(212, 163, 115, 0.35);
+    }
+
+    .cta-phone {
+      display: block;
+      margin-top: var(--s3);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .cta-phone:hover { color: var(--wheat-light); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--charcoal);
+      padding: var(--s8) 0 var(--s4);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--s6);
+      margin-bottom: var(--s6);
+    }
+
+    .footer-brand .nav-logo {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: var(--s2);
+      display: block;
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.7;
+      margin-top: var(--s2);
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: var(--s3);
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: var(--s2); }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--wheat-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: var(--s4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: rgba(255, 255, 255, 0.25); }
+
+    .footer-copy a { color: var(--wheat-light); text-decoration: none; }
+
+    .footer-socials { display: flex; gap: var(--s2); }
+
+    .footer-socials a {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .footer-socials a:hover { background: var(--chocolate); color: var(--white); }
+
+    /* Pulse Graphix Badge */
+    .pg-badge {
+      position: fixed;
+      bottom: var(--s3); right: var(--s3);
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s;
+      z-index: 50;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .pg-badge:hover {
+      background: var(--white);
+      color: var(--chocolate);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .pg-badge strong { font-weight: 700; color: var(--charcoal); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto var(--s5); }
+      .hero-actions { justify-content: center; }
+      .hero-features { justify-content: center; }
+      .hero-visual { display: none; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-image { height: 300px; }
+      .visit-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s4); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: var(--s8) 0; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--cream);
+        padding: var(--s3) var(--s4);
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .products-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-features { flex-direction: column; align-items: center; }
+      .story-highlights { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.15s; }
+    .stagger-3 { transition-delay: 0.2s; }
+    .stagger-4 { transition-delay: 0.25s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Navigation ═══ -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">CCP Fournil<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#produits">Nos Produits</a></li>
+        <li><a href="#histoire">Notre Histoire</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Nous Trouver</a></li>
+        <li><a href="tel:0160052884" class="nav-cta">📞 01 60 05 28 84</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Boulangerie Artisanale — Torcy depuis 2014</div>
+        <h1>Le goût de la <em>tradition</em>, chaque matin</h1>
+        <p class="hero-desc">
+          Pain artisanal, pâtisseries fines, viennoiseries dorées et traiteur 
+          sur mesure — tout est fait maison au cœur de Torcy.
+        </p>
+        <div class="hero-actions">
+          <a href="#produits" class="btn-primary">Découvrir nos produits →</a>
+          <a href="tel:0160052884" class="btn-outline">📞 Commander</a>
+        </div>
+        <div class="hero-features">
+          <div class="hero-feature">
+            <div class="hero-feature-icon">🌅</div>
+            Ouvert dès 6h30
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">🤲</div>
+            100% Artisanal
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">🎂</div>
+            Sur commande
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrapper">
+          <!-- Replace with bakery hero photo -->
+        </div>
+        <div class="hero-float float-open">
+          <div class="time">6h30</div>
+          <div class="label">Ouverture</div>
+          <div class="dot">Ouvert maintenant</div>
+        </div>
+        <div class="hero-float float-fresh">
+          <div class="float-fresh-icon">🥐</div>
+          <div>
+            <div class="title">Fournée fraîche</div>
+            <div class="sub">Sortie du four à l'instant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Products ═══ -->
+  <section class="products" id="produits">
+    <div class="container">
+      <div class="products-header">
+        <div class="section-label fade-in">Nos Produits</div>
+        <h2 class="section-title fade-in">De la baguette au <em>traiteur</em></h2>
+        <p class="section-subtitle fade-in">
+          Une gamme complète de produits artisanaux, préparés chaque jour 
+          avec des ingrédients sélectionnés avec soin.
+        </p>
+      </div>
+      <div class="product-categories fade-in">
+        <button class="cat-btn active">Tout</button>
+        <button class="cat-btn">Pains</button>
+        <button class="cat-btn">Pâtisseries</button>
+        <button class="cat-btn">Viennoiseries</button>
+        <button class="cat-btn">Traiteur</button>
+        <button class="cat-btn">Confiserie</button>
+      </div>
+      <div class="products-grid">
+        <div class="product-card fade-in stagger-1">
+          <div class="product-img">
+            🥖
+            <div class="product-badge">Incontournable</div>
+          </div>
+          <div class="product-info">
+            <h3>Baguette Tradition</h3>
+            <p>Farine de tradition française, fermentation lente, croûte dorée et mie alvéolée.</p>
+            <div class="product-price">1,20 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-2">
+          <div class="product-img">🍞</div>
+          <div class="product-info">
+            <h3>Pain au Levain</h3>
+            <p>Levain naturel, longue fermentation. Un goût authentique et une conservation exceptionnelle.</p>
+            <div class="product-price">3,80 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-3">
+          <div class="product-img">
+            🥐
+            <div class="product-badge">Best-seller</div>
+          </div>
+          <div class="product-info">
+            <h3>Croissant Pur Beurre</h3>
+            <p>Feuilletage croustillant, beurre AOP. Le classique parfait pour bien commencer la journée.</p>
+            <div class="product-price">1,40 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-4">
+          <div class="product-img">🎂</div>
+          <div class="product-info">
+            <h3>Pièce Montée</h3>
+            <p>Sur commande pour vos événements. Choux caramélisés, décors personnalisés.</p>
+            <div class="product-price">Sur devis</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-1">
+          <div class="product-img">🧁</div>
+          <div class="product-info">
+            <h3>Macarons</h3>
+            <p>Coques craquantes, garnitures variées. Chocolat, framboise, pistache, caramel.</p>
+            <div class="product-price">1,80 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-2">
+          <div class="product-img">🥧</div>
+          <div class="product-info">
+            <h3>Quiche Lorraine</h3>
+            <p>Pâte brisée maison, appareil crémeux, lardons fumés. Idéale pour le déjeuner.</p>
+            <div class="product-price">3,50 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-3">
+          <div class="product-img">🍫</div>
+          <div class="product-info">
+            <h3>Chocolats Artisanaux</h3>
+            <p>Ganaches, pralinés, truffes. Fabriqués sur place avec du cacao grand cru.</p>
+            <div class="product-price">Dès 2,50 €</div>
+          </div>
+        </div>
+        <div class="product-card fade-in stagger-4">
+          <div class="product-img">
+            🍨
+            <div class="product-badge">Saison</div>
+          </div>
+          <div class="product-info">
+            <h3>Glaces Artisanales</h3>
+            <p>Sorbets et crèmes glacées maison. Fruits frais de saison, sans additifs.</p>
+            <div class="product-price">Dès 2,80 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Story ═══ -->
+  <section class="story" id="histoire">
+    <div class="container story-grid">
+      <div class="story-image">
+        <!-- Replace with baker/interior photo -->
+      </div>
+      <div>
+        <div class="section-label fade-in">Notre Histoire</div>
+        <h2 class="section-title fade-in">Artisans boulangers <em>depuis 2014</em></h2>
+        <p class="story-text fade-in">
+          Fondé en 2014 au 34 Rue de Paris à Torcy, CCP Fournil est né d'une passion 
+          simple : offrir chaque jour du pain fait avec amour et des pâtisseries 
+          qui racontent une histoire.
+        </p>
+        <p class="story-text fade-in">
+          Bien plus qu'une boulangerie, nous sommes un lieu de vie. Salon de thé, 
+          traiteur, confiserie, chocolaterie — notre gamme s'est élargie au fil 
+          des années pour devenir votre adresse gourmande incontournable à Torcy.
+        </p>
+        <div class="story-highlights fade-in">
+          <div class="highlight">
+            <div class="num">10+</div>
+            <div class="txt">Ans d'expertise</div>
+          </div>
+          <div class="highlight">
+            <div class="num">1,642</div>
+            <div class="txt">Fans Facebook</div>
+          </div>
+          <div class="highlight">
+            <div class="num">4.5★</div>
+            <div class="txt">Note moyenne</div>
+          </div>
+          <div class="highlight">
+            <div class="num">6j/7</div>
+            <div class="txt">À votre service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Specials Banner ═══ -->
+  <section class="specials">
+    <div class="container">
+      <h2>🎂 Commandes Spéciales & Traiteur</h2>
+      <p>Pièces montées, gâteaux d'anniversaire, buffets — faites de chaque événement un moment inoubliable.</p>
+      <div class="specials-items">
+        <div class="special-item">👰 Mariages</div>
+        <div class="special-item">🎈 Anniversaires</div>
+        <div class="special-item">🎓 Cérémonies</div>
+        <div class="special-item">🏢 Entreprises</div>
+        <div class="special-item">🥂 Buffets</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Testimonials ═══ -->
+  <section class="testimonials" id="avis">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="section-label fade-in">Avis Clients</div>
+        <h2 class="section-title fade-in">Ils nous font <em>confiance</em></h2>
+        <p class="section-subtitle fade-in">
+          La fidélité de nos clients est notre plus grande fierté.
+        </p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card fade-in stagger-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "La meilleure baguette tradition de Torcy, et de loin ! 
+            Les croissants sont un pur bonheur. On y va chaque matin."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PD</div>
+            <div>
+              <div class="testimonial-name">Philippe D.</div>
+              <div class="testimonial-date">Google Avis</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in stagger-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Leur pièce montée pour notre mariage était spectaculaire. 
+            Tout le monde en parlait. Merci CCP Fournil !"
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-date">Facebook</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in stagger-3">
+          <div class="testimonial-stars">★★★★☆</div>
+          <p class="testimonial-text">
+            "Grand choix de produits, du pain au chocolat en passant 
+            par les glaces artisanales. Un vrai régal pour toute la famille."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KR</div>
+            <div>
+              <div class="testimonial-name">Karim R.</div>
+              <div class="testimonial-date">Google Avis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Visit / Location ═══ -->
+  <section class="visit" id="contact">
+    <div class="container">
+      <div class="section-label fade-in">Nous Trouver</div>
+      <h2 class="section-title fade-in">Passez nous <em>rendre visite</em></h2>
+      <div class="visit-grid" style="margin-top: var(--s5);">
+        <div class="visit-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.5!2d2.6556!3d48.8505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e4260d70285%3A0x0!2s34+Rue+de+Paris%2C+77200+Torcy!5e0!3m2!1sfr!2sfr!4v1"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="visit-info">
+          <h3>CCP Fournil</h3>
+
+          <div class="visit-item fade-in">
+            <div class="visit-icon">📍</div>
+            <div>
+              <h4>Adresse</h4>
+              <p>34 Rue de Paris<br>77200 Torcy</p>
+            </div>
+          </div>
+
+          <div class="visit-item fade-in">
+            <div class="visit-icon">📞</div>
+            <div>
+              <h4>Téléphone</h4>
+              <p><a href="tel:0160052884" style="color: var(--chocolate); text-decoration: none; font-weight: 600;">01 60 05 28 84</a></p>
+            </div>
+          </div>
+
+          <div class="visit-item fade-in">
+            <div class="visit-icon">🕐</div>
+            <div>
+              <h4>Horaires d'ouverture</h4>
+              <table class="hours-table">
+                <tr><td>Lundi</td><td>6h30 – 20h00</td></tr>
+                <tr><td>Mardi</td><td>6h30 – 20h00</td></tr>
+                <tr><td>Mercredi</td><td class="closed">Fermé</td></tr>
+                <tr><td>Jeudi</td><td>6h30 – 20h00</td></tr>
+                <tr><td>Vendredi</td><td>6h30 – 20h00</td></tr>
+                <tr><td>Samedi</td><td>6h30 – 20h00</td></tr>
+                <tr><td>Dimanche</td><td>6h30 – 20h00</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="visit-item fade-in">
+            <div class="visit-icon">♿</div>
+            <div>
+              <h4>Accessibilité</h4>
+              <p>Parking disponible · Accès handicapés</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA Banner ═══ -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <div class="section-label fade-in">Commandez</div>
+      <h2 class="section-title fade-in">Envie d'une <em>pièce montée</em> ?</h2>
+      <p class="section-subtitle fade-in">
+        Pâtisseries sur commande, traiteur pour vos événements — 
+        contactez-nous pour réaliser vos envies gourmandes.
+      </p>
+      <a href="tel:0160052884" class="btn-wheat fade-in">Appeler maintenant →</a>
+      <a href="https://facebook.com/BoulangeriePâtisserieCCPFournil" class="cta-phone fade-in" target="_blank">
+        ou retrouvez-nous sur Facebook →
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">CCP Fournil<span>.</span></a>
+          <p class="footer-desc">
+            Votre boulangerie-pâtisserie artisanale au cœur de Torcy. 
+            Pain, pâtisseries, traiteur et confiserie depuis 2014.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Produits</h4>
+          <ul>
+            <li><a href="#produits">Pains</a></li>
+            <li><a href="#produits">Pâtisseries</a></li>
+            <li><a href="#produits">Viennoiseries</a></li>
+            <li><a href="#produits">Traiteur</a></li>
+            <li><a href="#produits">Confiserie</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Boulangerie</h4>
+          <ul>
+            <li><a href="#histoire">Notre Histoire</a></li>
+            <li><a href="#avis">Avis Clients</a></li>
+            <li><a href="#contact">Nous Trouver</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <ul>
+            <li><a href="https://facebook.com/BoulangeriePâtisserieCCPFournil" target="_blank">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 CCP Fournil. Tous droits réservés.
+          Site créé par <a href="https://pulsegraphix.com">Pulse Graphix</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://facebook.com/BoulangeriePâtisserieCCPFournil" aria-label="Facebook" target="_blank">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Pulse Graphix Badge -->
+  <a href="https://pulsegraphix.com" class="pg-badge" target="_blank">
+    Créé par <strong>Pulse Graphix</strong>
+  </a>
+
+  <!-- ═══ Scripts ═══ -->
+  <script>
+    // Scroll nav
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('navLinks').classList.remove('open');
+        }
+      });
+    });
+
+    // Category filter buttons (visual toggle)
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

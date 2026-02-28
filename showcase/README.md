@@ -22,9 +22,21 @@ Strategy: Build template → Present to prospect → If accepted, customize → 
 - **Design:** Playfair Display + Inter, gold/cream/charcoal palette
 - **Customization points:** Logo, photos, colors, prices, phone, address, reviews
 
-### 🥖 Boulangerie (PLANNED)
-- **Target:** C.C.P Fournil (#1), Le Belvédère (#2), Ambiance Gourmande (#12)
-- **Status:** 🔲 Not started
+### 🥖 Boulangerie (`boulangerie/`)
+- **Target prospects:** C.C.P Fournil (#1), Le Belvédère (#2), Ambiance Gourmande (#12)
+- **Status:** ✅ V1 Complete (Feb 28, 2026)
+- **Features:**
+  - Warm rustic-elegant design (wheat/chocolate/terracotta palette)
+  - 8 product cards with category filter buttons
+  - Specials/Traiteur banner (weddings, birthdays, corporate)
+  - Floating glass cards (opening hours, fresh batch)
+  - Full hours table with "Fermé mercredi" highlighted
+  - Click-to-call CTA, Facebook integration
+  - Google Maps embed, accessibility info
+  - Scroll animations, fully responsive
+  - "Créé par Pulse Graphix" badge
+- **Design:** Playfair Display + Lato, grain texture overlay
+- **Customization points:** Logo, photos, products, prices, phone, address, hours
 
 ### 🍽️ Restaurant (PLANNED)
 - **Target:** Le Trente-Six (#3), Pho Quynh (#4)
