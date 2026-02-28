@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Trente-Six — Bistrot Restaurant à Torcy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       PULSE GRAPHIX — Restaurant Bistrot Showcase Template
+       Design: Classic French bistrot — warm, convivial, authentic
+       Target: Le Trente-Six (#3), Pho Quynh (#4 — adapt)
+       Palette: Bistrot red, cream, navy, copper
+       ═══════════════════════════════════════════════════════ */
+
+    :root {
+      --bistrot-red: #8B0000;
+      --bistrot-red-light: #A52A2A;
+      --cream: #FFFDD0;
+      --cream-warm: #FFF8E7;
+      --cream-dark: #F5ECCE;
+      --navy: #1B2838;
+      --navy-light: #2A3A4E;
+      --copper: #B87333;
+      --copper-light: #D4956A;
+      --copper-pale: #E8C9A8;
+      --charcoal: #1C1C1C;
+      --slate: #2D3436;
+      --text-dark: #1C1C1C;
+      --text-mid: #5D5D5D;
+      --text-light: #8C8C8C;
+      --white: #FFFFFF;
+      --blackboard: #2C3E2D;
+      --blackboard-light: #3D5240;
+      --chalk: #E8E4D4;
+
+      --glass-bg: rgba(255, 253, 208, 0.75);
+      --glass-border: rgba(184, 115, 51, 0.2);
+      --glass-blur: 20px;
+
+      --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px;
+      --s5: 40px; --s6: 48px; --s8: 64px; --s10: 80px;
+      --s12: 96px; --s16: 128px;
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--cream-warm);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--s4); }
+    section { padding: var(--s12) 0; }
+
+    .section-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: var(--s2);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--navy);
+      margin-bottom: var(--s3);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: var(--s3) 0;
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(27, 40, 56, 0.96);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+      padding: var(--s2) 0;
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span { color: var(--copper); }
+
+    .nav-links { display: flex; gap: var(--s4); list-style: none; align-items: center; }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--copper);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--bistrot-red) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      border-radius: 4px;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      font-size: 0.8rem !important;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover { background: var(--bistrot-red-light) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 32px; height: 24px; position: relative;
+    }
+
+    .nav-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--white); position: absolute; left: 0;
+      transition: all 0.3s;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .nav-toggle span:nth-child(3) { bottom: 0; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(27, 40, 56, 0.3) 0%, rgba(27, 40, 56, 0.8) 100%),
+        radial-gradient(ellipse at 30% 40%, rgba(184, 115, 51, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+    }
+
+    /* Subtle bistrot pattern */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: var(--s4);
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--copper);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--white);
+      margin-bottom: var(--s3);
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--copper-light);
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto var(--s5);
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex; gap: var(--s3);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-red {
+      display: inline-flex; align-items: center; gap: var(--s1);
+      background: var(--bistrot-red);
+      color: var(--white);
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none; cursor: pointer;
+    }
+
+    .btn-red:hover {
+      background: var(--bistrot-red-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 0, 0, 0.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: var(--s1);
+      background: transparent;
+      color: var(--white);
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--copper);
+      color: var(--copper-light);
+      background: rgba(184, 115, 51, 0.08);
+    }
+
+    .hero-info {
+      display: flex;
+      gap: var(--s6);
+      justify-content: center;
+      margin-top: var(--s8);
+      padding-top: var(--s5);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-info-item {
+      text-align: center;
+    }
+
+    .hero-info-item .icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--s1);
+    }
+
+    .hero-info-item .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 4px;
+    }
+
+    .hero-info-item .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--copper-light);
+    }
+
+    /* ── Menu Section (Blackboard Style) ── */
+    .menu-section {
+      background: var(--blackboard);
+      color: var(--chalk);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    }
+
+    /* Chalk dust texture */
+    .menu-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3Ccircle cx='80' cy='40' r='0.5'/%3E%3Ccircle cx='40' cy='80' r='0.8'/%3E%3Ccircle cx='60' cy='10' r='0.6'/%3E%3Ccircle cx='10' cy='60' r='0.7'/%3E%3Ccircle cx='90' cy='90' r='0.4'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .menu-content { position: relative; z-index: 1; }
+
+    .menu-header { text-align: center; margin-bottom: var(--s8); }
+
+    .menu-header .section-label { color: var(--copper-light); }
+    .menu-header .section-title { color: var(--chalk); }
+    .menu-header .section-subtitle { color: rgba(232, 228, 212, 0.6); margin: 0 auto; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s6);
+    }
+
+    .menu-category h3 {
+      font-size: 1.6rem;
+      color: var(--copper-light);
+      margin-bottom: var(--s3);
+      padding-bottom: var(--s2);
+      border-bottom: 1px solid rgba(184, 115, 51, 0.3);
+      font-style: italic;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: var(--s2) 0;
+      border-bottom: 1px dotted rgba(232, 228, 212, 0.15);
+    }
+
+    .menu-item-info { flex: 1; padding-right: var(--s3); }
+
+    .menu-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--chalk);
+    }
+
+    .menu-item-desc {
+      font-size: 0.8rem;
+      color: rgba(232, 228, 212, 0.5);
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    .menu-item-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--copper);
+      white-space: nowrap;
+    }
+
+    .menu-formula {
+      background: rgba(184, 115, 51, 0.12);
+      border: 1px solid rgba(184, 115, 51, 0.25);
+      border-radius: var(--radius-sm);
+      padding: var(--s4);
+      text-align: center;
+      margin-top: var(--s6);
+      grid-column: 1 / -1;
+    }
+
+    .menu-formula h3 {
+      font-size: 1.4rem;
+      color: var(--copper-light);
+      margin-bottom: var(--s1);
+      border: none;
+      padding: 0;
+    }
+
+    .menu-formula p {
+      font-size: 0.9rem;
+      color: rgba(232, 228, 212, 0.6);
+      margin-bottom: var(--s2);
+    }
+
+    .menu-formula .formula-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--copper);
+    }
+
+    .menu-formula .formula-price span {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(232, 228, 212, 0.5);
+    }
+
+    /* ── About / Story ── */
+    .story { background: var(--cream-warm); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: center;
+    }
+
+    .story-image-group { position: relative; }
+
+    .story-img-main {
+      width: 100%; height: 420px;
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-img-main::before {
+      content: '🍷';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      opacity: 0.15;
+    }
+
+    .story-img-accent {
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 200px; height: 200px;
+      background: linear-gradient(135deg, var(--bistrot-red) 0%, var(--bistrot-red-light) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(139, 0, 0, 0.2);
+    }
+
+    .story-img-accent .year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      line-height: 1;
+    }
+
+    .story-img-accent .year span {
+      display: block;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 6px;
+    }
+
+    .story-text {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: var(--s3);
+      font-weight: 300;
+    }
+
+    .story-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+      margin-top: var(--s5);
+    }
+
+    .story-feature {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+    }
+
+    .story-feature-icon {
+      width: 44px; height: 44px;
+      background: var(--cream-dark);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .story-feature-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ── Terrace / Gallery ── */
+    .gallery { background: var(--white); }
+
+    .gallery-header { text-align: center; margin-bottom: var(--s8); }
+    .gallery-header .section-subtitle { margin: 0 auto; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 220px;
+      gap: var(--s3);
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover { transform: scale(1.02); }
+
+    .gallery-item:first-child {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .gallery-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .gallery-item:nth-child(1) .gallery-img {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+
+    .gallery-item:nth-child(2) .gallery-img {
+      background: linear-gradient(135deg, var(--copper-pale) 0%, var(--cream-dark) 100%);
+    }
+
+    .gallery-item:nth-child(3) .gallery-img {
+      background: linear-gradient(135deg, var(--bistrot-red) 0%, var(--bistrot-red-light) 100%);
+    }
+
+    .gallery-item:nth-child(4) .gallery-img {
+      background: linear-gradient(135deg, var(--blackboard) 0%, var(--blackboard-light) 100%);
+    }
+
+    .gallery-item:nth-child(5) .gallery-img {
+      background: linear-gradient(135deg, var(--cream-dark) 0%, var(--copper-pale) 100%);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+      padding: var(--s4) var(--s3) var(--s3);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { background: var(--navy); color: var(--white); position: relative; }
+
+    .testimonials::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(184, 115, 51, 0.08) 0%, transparent 60%);
+    }
+
+    .testimonials-content { position: relative; z-index: 1; }
+
+    .testimonials-header { text-align: center; margin-bottom: var(--s8); }
+    .testimonials-header .section-label { color: var(--copper-light); }
+    .testimonials-header .section-title { color: var(--white); }
+    .testimonials-header .section-subtitle { color: rgba(255, 255, 255, 0.5); margin: 0 auto; }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s4);
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: var(--s5);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--copper);
+      opacity: 0.4;
+      position: absolute;
+      top: 16px; right: 24px;
+      line-height: 1;
+    }
+
+    .testimonial-stars {
+      color: var(--copper);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: var(--s2);
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: var(--s3);
+      font-style: italic;
+    }
+
+    .testimonial-author { display: flex; align-items: center; gap: var(--s2); }
+
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--copper), var(--copper-light));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; color: var(--white);
+    }
+
+    .testimonial-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .testimonial-source { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); }
+
+    /* ── Reservation CTA ── */
+    .reservation {
+      background: var(--cream-warm);
+      position: relative;
+    }
+
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: center;
+    }
+
+    .reservation-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--s6);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(184, 115, 51, 0.1);
+    }
+
+    .reservation-form h3 {
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: var(--s4);
+    }
+
+    .form-group {
+      margin-bottom: var(--s3);
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--s1);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 8px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: var(--cream-warm);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--copper);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s2);
+    }
+
+    .btn-reserve {
+      width: 100%;
+      display: flex; align-items: center; justify-content: center; gap: var(--s1);
+      background: var(--bistrot-red);
+      color: var(--white);
+      padding: 16px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none; cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-reserve:hover {
+      background: var(--bistrot-red-light);
+      box-shadow: 0 8px 24px rgba(139, 0, 0, 0.25);
+    }
+
+    .reservation-info { padding: var(--s4) 0; }
+
+    .reservation-info h2 { margin-bottom: var(--s3); }
+
+    .reservation-info .section-subtitle { margin-bottom: var(--s5); }
+
+    .info-item {
+      display: flex; gap: var(--s3);
+      margin-bottom: var(--s4);
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 52px; height: 52px;
+      background: var(--cream-dark);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .info-item h4 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .info-item p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+    .info-item a {
+      color: var(--bistrot-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .info-item a:hover { color: var(--bistrot-red-light); }
+
+    /* ── Location ── */
+    .location { background: var(--white); }
+
+    .location-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    .location-map {
+      width: 100%; height: 420px;
+      background: var(--cream-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+
+    .location-map iframe { width: 100%; height: 100%; border: 0; }
+
+    .hours-card {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: var(--s5);
+      color: var(--white);
+    }
+
+    .hours-card h3 {
+      font-size: 1.3rem;
+      color: var(--copper-light);
+      margin-bottom: var(--s4);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
+    }
+
+    .hours-row .day { color: rgba(255, 255, 255, 0.6); }
+    .hours-row .time { font-weight: 600; color: var(--white); }
+    .hours-row .closed { color: var(--bistrot-red-light); font-weight: 600; }
+
+    .hours-card .payment {
+      margin-top: var(--s4);
+      padding-top: var(--s3);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hours-card .payment-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: var(--s2);
+    }
+
+    .payment-icons {
+      display: flex; gap: var(--s2); flex-wrap: wrap;
+    }
+
+    .payment-icon {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--charcoal);
+      padding: var(--s8) 0 var(--s4);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--s6);
+      margin-bottom: var(--s6);
+    }
+
+    .footer-brand .nav-logo {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: var(--s2);
+      display: block;
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.7;
+      margin-top: var(--s2);
+    }
+
+    .footer-col h4 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: var(--s3);
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: var(--s2); }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--copper-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: var(--s4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: rgba(255, 255, 255, 0.2); }
+    .footer-copy a { color: var(--copper-light); text-decoration: none; }
+
+    /* Pulse Graphix Badge */
+    .pg-badge {
+      position: fixed;
+      bottom: var(--s3); right: var(--s3);
+      background: rgba(27, 40, 56, 0.9);
+      backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid rgba(184, 115, 51, 0.2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: all 0.3s;
+      z-index: 50;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .pg-badge:hover {
+      background: var(--navy);
+      color: var(--copper-light);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .pg-badge strong { font-weight: 700; color: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-image-group { max-width: 500px; margin: 0 auto; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-column: 1 / -1; }
+      .reservation-grid { grid-template-columns: 1fr; }
+      .location-wrapper { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s4); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: var(--s8) 0; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--navy);
+        padding: var(--s3) var(--s4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .hero-info { flex-direction: column; align-items: center; gap: var(--s3); }
+      .hero-actions { flex-direction: column; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-column: 1; grid-row: 1; }
+      .form-row { grid-template-columns: 1fr; }
+      .story-features { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.15s; }
+    .stagger-3 { transition-delay: 0.2s; }
+    .stagger-4 { transition-delay: 0.25s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Navigation ═══ -->
+  <nav id="navbar" class="scrolled">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">Le <span>36</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#carte">La Carte</a></li>
+        <li><a href="#histoire">Notre Histoire</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#reservation" class="nav-cta">Réserver</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-eyebrow">Bistrot • Restaurant • Torcy</div>
+      <h1>Le Trente-Six,<br><em>votre bistrot de quartier</em></h1>
+      <p class="hero-desc">
+        Cuisine française traditionnelle, terrasse ensoleillée et ambiance conviviale 
+        au cœur de Torcy — du petit-déjeuner au dîner.
+      </p>
+      <div class="hero-actions">
+        <a href="#reservation" class="btn-red">Réserver une table →</a>
+        <a href="#carte" class="btn-ghost">Voir la carte</a>
+      </div>
+      <div class="hero-info">
+        <div class="hero-info-item">
+          <div class="icon">📍</div>
+          <div class="label">Adresse</div>
+          <div class="value">36 Rue de Paris</div>
+        </div>
+        <div class="hero-info-item">
+          <div class="icon">🕐</div>
+          <div class="label">Horaires</div>
+          <div class="value">7h – 20h</div>
+        </div>
+        <div class="hero-info-item">
+          <div class="icon">📞</div>
+          <div class="label">Réservation</div>
+          <div class="value">01 60 05 31 44</div>
+        </div>
+        <div class="hero-info-item">
+          <div class="icon">⭐</div>
+          <div class="label">Note</div>
+          <div class="value">4.0 / 5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Menu / La Carte (Blackboard) ═══ -->
+  <section class="menu-section" id="carte">
+    <div class="container menu-content">
+      <div class="menu-header">
+        <div class="section-label fade-in">La Carte</div>
+        <h2 class="section-title fade-in">Notre cuisine <em>traditionnelle</em></h2>
+        <p class="section-subtitle fade-in">
+          Des produits frais, des recettes authentiques — le meilleur 
+          de la cuisine française de bistrot.
+        </p>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-category fade-in stagger-1">
+          <h3>Entrées</h3>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Soupe à l'oignon gratinée</div>
+              <div class="menu-item-desc">Oignons caramélisés, bouillon maison, croûtons, gruyère</div>
+            </div>
+            <div class="menu-item-price">8,50 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Salade de chèvre chaud</div>
+              <div class="menu-item-desc">Mesclun, toast de chèvre, miel, noix</div>
+            </div>
+            <div class="menu-item-price">9,00 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Terrine du Chef</div>
+              <div class="menu-item-desc">Terrine de campagne maison, cornichons, pain grillé</div>
+            </div>
+            <div class="menu-item-price">7,50 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Œuf cocotte forestière</div>
+              <div class="menu-item-desc">Champignons des bois, crème, ciboulette</div>
+            </div>
+            <div class="menu-item-price">8,00 €</div>
+          </div>
+        </div>
+        <div class="menu-category fade-in stagger-2">
+          <h3>Plats</h3>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Bavette à l'échalote</div>
+              <div class="menu-item-desc">Bavette grillée, sauce échalote au vin rouge, frites maison</div>
+            </div>
+            <div class="menu-item-price">16,50 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Confit de canard</div>
+              <div class="menu-item-desc">Cuisse confite, pommes sarladaises, salade</div>
+            </div>
+            <div class="menu-item-price">17,00 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Burger Le 36</div>
+              <div class="menu-item-desc">Bœuf charolais, cheddar affiné, oignons caramélisés, frites</div>
+            </div>
+            <div class="menu-item-price">15,00 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Plat du jour</div>
+              <div class="menu-item-desc">Selon l'inspiration du chef et le marché</div>
+            </div>
+            <div class="menu-item-price">13,50 €</div>
+          </div>
+        </div>
+        <div class="menu-category fade-in stagger-3">
+          <h3>Desserts</h3>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Crème brûlée à la vanille</div>
+              <div class="menu-item-desc">Vanille de Madagascar, sucre caramélisé</div>
+            </div>
+            <div class="menu-item-price">7,00 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Mousse au chocolat</div>
+              <div class="menu-item-desc">Chocolat noir 70%, chantilly maison</div>
+            </div>
+            <div class="menu-item-price">6,50 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Tarte Tatin</div>
+              <div class="menu-item-desc">Pommes caramélisées, glace vanille</div>
+            </div>
+            <div class="menu-item-price">8,00 €</div>
+          </div>
+        </div>
+        <div class="menu-category fade-in stagger-4">
+          <h3>Boissons</h3>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Vin rouge — Côtes du Rhône</div>
+              <div class="menu-item-desc">Verre 25cl</div>
+            </div>
+            <div class="menu-item-price">4,50 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Bière pression</div>
+              <div class="menu-item-desc">Blonde artisanale, 33cl</div>
+            </div>
+            <div class="menu-item-price">4,00 €</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Café gourmand</div>
+              <div class="menu-item-desc">Espresso, mini crème brûlée, mousse chocolat, macaron</div>
+            </div>
+            <div class="menu-item-price">8,50 €</div>
+          </div>
+        </div>
+        <div class="menu-formula fade-in">
+          <h3>🍽️ Formule Déjeuner</h3>
+          <p>Entrée + Plat ou Plat + Dessert — Du lundi au vendredi, midi uniquement</p>
+          <div class="formula-price">14,90 € <span>/ personne</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Story ═══ -->
+  <section class="story" id="histoire">
+    <div class="container story-grid">
+      <div class="story-image-group fade-in">
+        <div class="story-img-main">
+          <!-- Replace with bistrot interior photo -->
+        </div>
+        <div class="story-img-accent">
+          <div class="year">
+            Le 36
+            <span>Depuis toujours</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label fade-in">Notre Histoire</div>
+        <h2 class="section-title fade-in">Un bistrot <em>d'exception</em></h2>
+        <p class="story-text fade-in">
+          Au 36 Rue de Paris, Le Trente-Six incarne l'esprit du bistrot français 
+          dans toute sa splendeur. Un lieu où le café du matin côtoie le déjeuner 
+          entre collègues et les dîners en terrasse.
+        </p>
+        <p class="story-text fade-in">
+          Notre cuisine puise dans la tradition française avec des produits frais 
+          et de saison. Ici, on prend le temps de bien manger, de bien boire, 
+          et de partager un moment de convivialité.
+        </p>
+        <div class="story-features fade-in">
+          <div class="story-feature">
+            <div class="story-feature-icon">☀️</div>
+            <div class="story-feature-text">Terrasse ensoleillée</div>
+          </div>
+          <div class="story-feature">
+            <div class="story-feature-icon">🍳</div>
+            <div class="story-feature-text">Petit-déjeuner dès 7h</div>
+          </div>
+          <div class="story-feature">
+            <div class="story-feature-icon">🎉</div>
+            <div class="story-feature-text">Privatisation & événements</div>
+          </div>
+          <div class="story-feature">
+            <div class="story-feature-icon">♿</div>
+            <div class="story-feature-text">Accessible PMR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Gallery ═══ -->
+  <section class="gallery" id="galerie">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="section-label fade-in">Ambiance</div>
+        <h2 class="section-title fade-in">Terrasse & <em>intérieur</em></h2>
+        <p class="section-subtitle fade-in">
+          Un cadre chaleureux entre zinc authentique et terrasse ombragée.
+        </p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <div class="gallery-img" style="background: linear-gradient(135deg, var(--navy), var(--navy-light));">🪑</div>
+          <div class="gallery-caption">Notre terrasse — Rue de Paris</div>
+        </div>
+        <div class="gallery-item fade-in stagger-1">
+          <div class="gallery-img" style="background: linear-gradient(135deg, var(--copper-pale), var(--cream-dark));">🍽️</div>
+          <div class="gallery-caption">Table dressée</div>
+        </div>
+        <div class="gallery-item fade-in stagger-2">
+          <div class="gallery-img" style="background: linear-gradient(135deg, var(--bistrot-red), var(--bistrot-red-light));">🍷</div>
+          <div class="gallery-caption">Notre bar</div>
+        </div>
+        <div class="gallery-item fade-in stagger-3">
+          <div class="gallery-img" style="background: linear-gradient(135deg, var(--blackboard), var(--blackboard-light));">👨‍🍳</div>
+          <div class="gallery-caption">En cuisine</div>
+        </div>
+        <div class="gallery-item fade-in stagger-4">
+          <div class="gallery-img" style="background: linear-gradient(135deg, var(--cream-dark), var(--copper-pale));">☕</div>
+          <div class="gallery-caption">Coin café</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Testimonials ═══ -->
+  <section class="testimonials" id="avis">
+    <div class="container testimonials-content">
+      <div class="testimonials-header">
+        <div class="section-label fade-in">Avis Clients</div>
+        <h2 class="section-title fade-in">Ce qu'en disent <em>nos habitués</em></h2>
+        <p class="section-subtitle fade-in">
+          Du premier café au dernier dessert, nos clients reviennent toujours.
+        </p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card fade-in stagger-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Mon bistrot préféré à Torcy. La bavette à l'échalote est un pur régal, 
+            et le service est toujours chaleureux. On s'y sent comme à la maison."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div>
+              <div class="testimonial-name">Jean-Michel P.</div>
+              <div class="testimonial-source">TripAdvisor</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in stagger-2">
+          <div class="testimonial-stars">★★★★☆</div>
+          <p class="testimonial-text">
+            "La formule déjeuner à 14,90€ est imbattable. Entrée + plat copieux, 
+            et toujours un plat du jour qui surprend. La terrasse en été, c'est le bonheur."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <div class="testimonial-name">Sandrine B.</div>
+              <div class="testimonial-source">Google Avis</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in stagger-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Nous avons privatisé Le 36 pour un anniversaire — tout était parfait. 
+            Buffet, service, ambiance. L'équipe s'est vraiment surpassée."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">NK</div>
+            <div>
+              <div class="testimonial-name">Nadia K.</div>
+              <div class="testimonial-source">Facebook</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Reservation ═══ -->
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <div class="reservation-grid">
+        <div class="reservation-info">
+          <div class="section-label fade-in">Réservation</div>
+          <h2 class="section-title fade-in">Réservez votre <em>table</em></h2>
+          <p class="section-subtitle fade-in">
+            Pour un déjeuner entre amis, un dîner en famille ou un événement 
+            privé — nous vous accueillons avec plaisir.
+          </p>
+          <div style="margin-top: var(--s5);">
+            <div class="info-item fade-in">
+              <div class="info-icon">📞</div>
+              <div>
+                <h4>Par téléphone</h4>
+                <p><a href="tel:0160053144">01 60 05 31 44</a></p>
+              </div>
+            </div>
+            <div class="info-item fade-in">
+              <div class="info-icon">👥</div>
+              <div>
+                <h4>Groupes & Événements</h4>
+                <p>Privatisation possible à partir de 20 personnes.<br>Contactez-nous pour un devis personnalisé.</p>
+              </div>
+            </div>
+            <div class="info-item fade-in">
+              <div class="info-icon">🍽️</div>
+              <div>
+                <h4>Traiteur</h4>
+                <p>Buffets et plateaux repas pour vos événements professionnels et privés.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reservation-form fade-in">
+          <h3>Formulaire de réservation</h3>
+          <form onsubmit="event.preventDefault(); alert('Merci ! Nous vous confirmerons par téléphone.');">
+            <div class="form-group">
+              <label>Nom complet</label>
+              <input type="text" placeholder="Votre nom" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date</label>
+                <input type="date" required>
+              </div>
+              <div class="form-group">
+                <label>Heure</label>
+                <select required>
+                  <option value="">Choisir</option>
+                  <option>12:00</option>
+                  <option>12:30</option>
+                  <option>13:00</option>
+                  <option>13:30</option>
+                  <option>19:00</option>
+                  <option>19:30</option>
+                  <option>20:00</option>
+                  <option>20:30</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre de personnes</label>
+                <select required>
+                  <option value="">Choisir</option>
+                  <option>1 personne</option>
+                  <option>2 personnes</option>
+                  <option>3 personnes</option>
+                  <option>4 personnes</option>
+                  <option>5 personnes</option>
+                  <option>6+ personnes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Téléphone</label>
+                <input type="tel" placeholder="06 XX XX XX XX" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message (optionnel)</label>
+              <textarea rows="3" placeholder="Allergies, occasion spéciale, terrasse..."></textarea>
+            </div>
+            <button type="submit" class="btn-reserve">Réserver ma table →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Location + Hours ═══ -->
+  <section class="location" id="contact">
+    <div class="container">
+      <div class="section-label fade-in">Nous Trouver</div>
+      <h2 class="section-title fade-in">Au cœur de <em>Torcy</em></h2>
+      <div class="location-wrapper" style="margin-top: var(--s5);">
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.5!2d2.6558!3d48.8505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e4260d70285%3A0x0!2s36+Rue+de+Paris%2C+77200+Torcy!5e0!3m2!1sfr!2sfr!4v1"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="hours-card fade-in">
+          <h3>Horaires d'ouverture</h3>
+          <div class="hours-row"><span class="day">Lundi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Mardi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Mercredi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Jeudi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Vendredi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Samedi</span><span class="time">7h00 – 20h00</span></div>
+          <div class="hours-row"><span class="day">Dimanche</span><span class="closed">Fermé</span></div>
+
+          <div class="payment">
+            <div class="payment-label">Moyens de paiement</div>
+            <div class="payment-icons">
+              <span class="payment-icon">💳 CB</span>
+              <span class="payment-icon">Visa</span>
+              <span class="payment-icon">Mastercard</span>
+              <span class="payment-icon">🎫 Ticket Resto</span>
+              <span class="payment-icon"> Apple Pay</span>
+              <span class="payment-icon">Sans contact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">Le <span>36</span></a>
+          <p class="footer-desc">
+            Bistrot-restaurant au cœur de Torcy. Cuisine française traditionnelle, 
+            terrasse, événements privés. Ouvert du lundi au samedi.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>La Carte</h4>
+          <ul>
+            <li><a href="#carte">Entrées</a></li>
+            <li><a href="#carte">Plats</a></li>
+            <li><a href="#carte">Desserts</a></li>
+            <li><a href="#carte">Boissons</a></li>
+            <li><a href="#carte">Formule Déjeuner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Le Bistrot</h4>
+          <ul>
+            <li><a href="#histoire">Notre Histoire</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#avis">Avis</a></li>
+            <li><a href="#reservation">Réserver</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">TripAdvisor</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 Le Trente-Six. Tous droits réservés.
+          Site créé par <a href="https://pulsegraphix.com">Pulse Graphix</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Pulse Graphix Badge -->
+  <a href="https://pulsegraphix.com" class="pg-badge" target="_blank">
+    Créé par <strong>Pulse Graphix</strong>
+  </a>
+
+  <!-- ═══ Scripts ═══ -->
+  <script>
+    // Scroll nav
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50 || true);
+    });
+
+    // Mobile toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('navLinks').classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

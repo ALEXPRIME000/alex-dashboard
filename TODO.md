@@ -44,7 +44,10 @@
     - Warm rustic-elegant design: wheat/chocolate/terracotta palette, Playfair+Lato
     - 8 product cards, category filter, specials/traiteur banner, hours table
     - For: C.C.P Fournil (#1), Le Belvédère (#2), Ambiance Gourmande (#12)
-  - **Restaurant Template** → for Le Trente-Six (#3) — PLANNED
+  - **Restaurant Bistrot Template** → ✅ V1 COMPLETE (Feb 28) — `showcase/restaurant-bistrot/index.html`
+    - Classic French bistrot design: navy/bistrot-red/copper/cream, Cormorant Garamond+Source Sans
+    - Blackboard-style menu with 4 categories + formule déjeuner, reservation form, gallery grid
+    - For: Le Trente-Six (#3), adaptable for Pho Quynh (#4)
   - **Strategy:** Build template → present to prospect → if accepted, customize → if not, keep as portfolio
 
 - [ ] **Telegram Project Groups Setup** — ⏳ Waiting on Kabundji

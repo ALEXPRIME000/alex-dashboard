@@ -38,9 +38,22 @@ Strategy: Build template → Present to prospect → If accepted, customize → 
 - **Design:** Playfair Display + Lato, grain texture overlay
 - **Customization points:** Logo, photos, products, prices, phone, address, hours
 
-### 🍽️ Restaurant (PLANNED)
-- **Target:** Le Trente-Six (#3), Pho Quynh (#4)
-- **Status:** 🔲 Not started
+### 🍽️ Restaurant Bistrot (`restaurant-bistrot/`)
+- **Target prospects:** Le Trente-Six (#3), Pho Quynh (#4 — adapt design)
+- **Status:** ✅ V1 Complete (Feb 28, 2026)
+- **Features:**
+  - Classic French bistrot design (navy/bistrot-red/copper/cream)
+  - Blackboard-style menu section (4 categories + formule déjeuner €14.90)
+  - Reservation form (date, time, guests, phone, message)
+  - Photo gallery grid (5 images, masonry-style layout)
+  - Dark hero with centered typography + info bar
+  - Hours card with payment methods
+  - Testimonials on dark background
+  - Scroll animations, fully responsive
+  - "Créé par Pulse Graphix" badge
+- **Design:** Cormorant Garamond + Source Sans 3, chalk dust texture, diamond pattern
+- **Customization points:** Logo, photos, menu items/prices, phone, address, hours
+- **Real data used:** Le Trente-Six address, phone (01 60 05 31 44), hours, services
 
 ---
 *Built by Alex Prime for Pulse Graphix prospect outreach*
