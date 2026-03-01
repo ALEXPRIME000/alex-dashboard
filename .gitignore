@@ -9,6 +9,9 @@ credentials/
 .DS_Store
 Thumbs.db
 
+# Backups
+backups/
+
 # Logs
 *.log
 logs/
