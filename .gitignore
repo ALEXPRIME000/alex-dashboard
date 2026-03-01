@@ -28,3 +28,9 @@ venv/
 # IDE
 .vscode/
 .idea/
+
+# Separate dashboard repos (sub-projects)
+dashboard-next/
+pulse-architects-dashboard/
+unified-portal/
+invest-in-congo-dashboard/
