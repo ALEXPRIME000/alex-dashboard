@@ -1,992 +1,1376 @@
-# 🌐 Pulse Graphix — Website Proposal Briefs (PRP)
-## All 20 Prospect Businesses — Torcy & Marne-la-Vallée
+# 🎯 PULSE GRAPHIX — Website Proposal Briefs (PRP)
+## 20 Prospect Businesses — Torcy / Marne-la-Vallée
 
-**Prepared for:** Kabundji — Pulse Graphix
-**Date:** 27 février 2026
-**Strategy:** Build beautiful showcase websites → present to prospects → if accepted, customize to brand → if not, keep as portfolio/reusable templates
-
----
-
-## 📊 MASTER SUMMARY TABLE
-
-| # | Business | Type | Site Type | Key Features | Budget (€) | Template Reuse | Priority |
-|---|----------|------|-----------|--------------|------------|----------------|----------|
-| 1 | C.C.P Fournil | Boulangerie-Pâtisserie | Vitrine + Menu | Gallery, hours, specials, FB sync | 1,400-1,800 | → #2, #12 | ⭐⭐⭐⭐⭐ |
-| 2 | Le Belvédère | Boulangerie-Pâtisserie | Vitrine + Menu | Online ordering, gallery, loyalty | 1,400-1,800 | → #1, #12 | ⭐⭐⭐⭐ |
-| 3 | Le Trente-Six | Bistrot-Restaurant | Vitrine + Menu + Résa | Menu digital, reservation, events | 1,500-2,200 | → standalone | ⭐⭐⭐⭐ |
-| 4 | Pho Quynh | Restaurant Vietnamien | Vitrine + Menu + Commande | Online ordering, UberEats link, gallery | 1,500-2,500 | → standalone | ⭐⭐⭐ |
-| 5 | Bopha Coiffure | Salon Coiffure | Vitrine + Booking | Direct booking (bypass Planity), gallery, tarifs | 1,200-1,800 | → #6, #8, #16, #19 | ⭐⭐⭐⭐⭐ |
-| 6 | Nina Coiffure | Salon Coiffure | Vitrine + Booking | Direct booking (bypass Treatwell), portfolio | 1,200-1,800 | → #5, #8, #16, #19 | ⭐⭐⭐⭐ |
-| 7 | Oukhouya Zakaria Daniel | Barbier-Coiffeur | Vitrine + Booking | Barber-specific, appointment, tarifs | 1,000-1,500 | → #16 | ⭐⭐⭐ |
-| 8 | New Look Coiffure | Salon Coiffure | Vitrine + Booking | Gallery, booking, products | 1,200-1,800 | → #5, #6, #19 | ⭐⭐⭐⭐ |
-| 9 | Soleil de Bali | Institut Beauté | Vitrine + Booking + E-shop | Treatments catalog, booking, products | 1,500-2,500 | → #10, #11, #15 | ⭐⭐⭐⭐ |
-| 10 | Maison Julia | Institut Beauté | Vitrine + Booking | Soins catalog, booking, testimonials | 1,200-2,000 | → #9, #11, #15 | ⭐⭐⭐ |
-| 11 | AM Clinic | Institut Beauté | Vitrine + Booking Premium | Medical aesthetic, before/after, booking | 1,800-3,000 | → #9, #10 | ⭐⭐⭐ |
-| 12 | Ambiance Gourmande | Boulangerie-Pâtisserie | Vitrine + Menu | Menu, gallery, hours | 1,200-1,600 | → #1, #2 | ⭐⭐⭐ |
-| 13 | Allo Pizza | Pizzeria/Livraison | Vitrine + Commande en ligne | Online ordering, delivery zones, menu | 1,500-2,500 | → standalone | ⭐⭐⭐⭐ |
-| 14 | Alix Chocolatier | Chocolatier Artisan | E-commerce + Vitrine | Product catalog, seasonal collections, gift boxes | 2,000-3,000 | → standalone (premium) | ⭐⭐⭐⭐ |
-| 15 | Institut Elisabeth | Institut Beauté | Redesign Modern | Refresh existing site, add booking | 1,000-1,800 | → #9, #10 | ⭐⭐⭐ |
-| 16 | MVS Barbier | Barbier | Vitrine + Booking | Barber-focused, services, booking | 1,000-1,500 | → #7 | ⭐⭐⭐ |
-| 17 | Mon Coiffeur Exclusif | Salon (VOG franchise) | Vitrine personnalisée | Franchise branding, local focus | 800-1,200 | → limited (franchise) | ⭐⭐ |
-| 18 | MLV Optique | Opticien | Vitrine + Catalogue | Products, brands, insurance info | 1,500-2,500 | → standalone | ⭐⭐⭐ |
-| 19 | Salon Glamour | Salon Coiffure | Vitrine + Booking | Gallery, services, booking | 1,200-1,800 | → #5, #6, #8 | ⭐⭐⭐ |
-| 20 | Actuel Flors | Fleuriste | E-commerce + Vitrine | Online ordering, seasonal, delivery | 2,000-3,200 | → standalone | ⭐⭐⭐⭐ |
-
-**💰 Total Pipeline: €26,600 - €42,400**
-**🎯 At 25% conversion (5 clients): €6,650 - €10,600**
+**Prepared by:** Alex Prime, Executive Director Agent  
+**Agency:** Pulse Graphix Creative Agency  
+**Date:** February 27, 2026  
+**For:** Kabundji (Creative Director & Founder)
 
 ---
 
-## 🎨 TEMPLATE FAMILIES (Reusability Map)
+## 📊 EXECUTIVE SUMMARY TABLE
 
-| Template | Niche | Prospects Using It | Build Once, Sell Multiple |
-|----------|-------|--------------------|--------------------------|
-| **🥖 Boulangerie Template** | Bakeries | #1, #2, #12 | 3 prospects + any bakery in Île-de-France |
-| **💇 Salon Coiffure Template** | Hair salons | #5, #6, #8, #16, #19 | 5 prospects + massive market |
-| **💆 Institut Beauté Template** | Beauty institutes | #9, #10, #11, #15 | 4 prospects + growing niche |
-| **🍽️ Restaurant Template** | Restaurants | #3, #4 | 2 prospects + customize per cuisine |
-| **🍕 Livraison Template** | Delivery/takeaway | #13 | Reusable for any delivery business |
-| **🍫 Artisan Premium Template** | Artisan food | #14 | Chocolatiers, pâtissiers, etc. |
-| **💐 Fleuriste Template** | Florists | #20 | Any florist with delivery |
-| **👓 Commerce Spécialisé Template** | Specialty retail | #18 | Opticians, pharmacies, etc. |
+| # | Business | Type | Rating | Has Website? | Budget Est. | Template Group | Priority |
+|---|----------|------|--------|-------------|-------------|----------------|----------|
+| 1 | C.C.P Fournil | Boulangerie-Pâtisserie | ~4.5★ | ❌ Facebook only | €1,500 | 🥖 Bakery | ⭐⭐⭐ |
+| 2 | Le Belvédère | Boulangerie-Pâtisserie | ~4.0★ | ❌ Uber Eats only | €1,500 | 🥖 Bakery | ⭐⭐⭐ |
+| 3 | Le Trente-Six | Bistrot-Restaurant | ~4.0★ | ❌ edan.io stub | €2,000 | 🍽️ Restaurant | ⭐⭐⭐ |
+| 4 | Pho Quynh | Restaurant Vietnamien | 3.9★ (598 reviews) | ⚠️ Google Sites (basic) | €2,200 | 🍜 Restaurant | ⭐⭐⭐ |
+| 5 | Bopha Coiffure | Salon Coiffure | 4.9★ | ❌ Planity + Facebook | €1,200 | ✂️ Salon | ⭐⭐⭐ |
+| 6 | Nina Coiffure | Salon Coiffure | 5.0★ (3 avis) | ❌ Treatwell only | €1,200 | ✂️ Salon | ⭐⭐ |
+| 7 | Oukhouya Zakaria Daniel | Barbier-Coiffeur | N/A | ❌ None found | €1,000 | 💈 Barber | ⭐⭐ |
+| 8 | New Look Coiffure | Salon Coiffure | 4.9★ | ❌ Fresha only | €1,200 | ✂️ Salon | ⭐⭐⭐ |
+| 9 | Soleil de Bali | Institut de Beauté/Spa | 4.3★ (129 reviews) | ⚠️ soleildebali.fr (down?) | €2,500 | 💆 Spa/Beauty | ⭐⭐⭐ |
+| 10 | Maison Julia | Institut de Beauté | N/A | ❌ None | €1,500 | 💆 Beauty | ⭐⭐ |
+| 11 | AM Clinic | Esthétique Laser | N/A | ✅ amclinic.fr (decent) | €2,500 | 🏥 Clinic | ⭐⭐ |
+| 12 | Ambiance Gourmande | Boulangerie-Pâtisserie | ~4.0★ | ⚠️ ambiance-gourmande.fr | €1,500 | 🥖 Bakery | ⭐⭐ |
+| 13 | Allo Pizza | Pizzeria/Livraison | 4.0★ (89 reviews) | ❌ Delivery platforms | €1,800 | 🍕 Pizza/Delivery | ⭐⭐ |
+| 14 | Alix Chocolatier | Chocolatier Artisan | 5.0★ (49 avis) | ❌ La Ruche qui dit Oui | €1,800 | 🍫 Artisan Food | ⭐⭐⭐ |
+| 15 | Institut Elisabeth | Institut de Beauté | N/A | ⚠️ institut-elisa-elisa.fr (outdated) | €1,500 | 💆 Beauty | ⭐ |
+| 16 | MVS Barbier | Barbier | N/A | ❌ None found | €1,000 | 💈 Barber | ⭐ |
+| 17 | Mon Coiffeur Exclusif | Salon VOG Franchise | N/A | ⚠️ hairnet.fr booking | €1,200 | ✂️ Salon | ⭐ |
+| 18 | MLV Optique | Opticien | N/A | ❌ None | €2,000 | 👓 Optical | ⭐⭐ |
+| 19 | Salon Glamour | Salon Coiffure | 4.7★ (9 avis) | ❌ L'Oréal directory only | €1,200 | ✂️ Salon | ⭐ |
+| 20 | Actuel Flors | Fleuriste | N/A | ⚠️ actuelflors.fr (down) | €1,800 | 🌸 Florist | ⭐⭐ |
 
-**→ 8 templates to build. Cover 20 prospects + unlimited future clients in same niches.**
+### Template Groups Summary
+| Template | Businesses | Dev Cost (1st) | Adaptation Cost | Total Potential Revenue |
+|----------|-----------|---------------|-----------------|----------------------|
+| 🥖 Bakery Vitrine | #1, #2, #12 | €1,500 | €800 each | €3,100 |
+| 🍽️ Restaurant Bistrot | #3, #4 | €2,200 | €1,200 | €3,400 |
+| ✂️ Salon Coiffure | #5, #6, #8, #17, #19 | €1,200 | €800 each | €4,400 |
+| 💈 Barber Modern | #7, #16 | €1,000 | €800 | €1,800 |
+| 💆 Spa & Beauty | #9, #10, #15 | €2,500 | €1,200 each | €4,900 |
+| 🏥 Aesthetic Clinic | #11 | €2,500 | — | €2,500 |
+| 🍕 Pizza Delivery | #13 | €1,800 | — | €1,800 |
+| 🍫 Artisan Food | #14 | €1,800 | — | €1,800 |
+| 👓 Optical | #18 | €2,000 | — | €2,000 |
+| 🌸 Florist | #20 | €1,800 | — | €1,800 |
+| **TOTAL POTENTIAL** | **20 businesses** | | | **~€27,500** |
+
+---
+---
+
+# 🏆 TIER 1 — ORIGINAL LEADS (Detailed Proposals)
 
 ---
 
-## TIER 1 — ORIGINAL LEADS (Top Priority)
+## 1. 🥖 C.C.P FOURNIL — Boulangerie-Pâtisserie
 
----
+### 1.1 Business Profile
 
-### 1. C.C.P FOURNIL 🥖
-**Boulangerie-Pâtisserie**
-
-#### Business Profile
 | Field | Details |
 |-------|---------|
+| **Name** | C.C.P Fournil (Boulangerie Pâtisserie CCP Fournil) |
+| **Type** | Boulangerie-Pâtisserie artisanale |
 | **Address** | 34 Rue de Paris, 77200 Torcy |
 | **Phone** | 01 60 05 28 84 |
-| **Hours** | 6h30 – 20h00, fermé mercredi |
-| **Legal** | SARL → SAS | SIREN 804 761 856 | RCS Meaux |
-| **Founded** | 2014 |
-| **Open Sunday** | ✅ Oui |
+| **Hours** | Lun-Dim: 6h30 – 20h00 (fermé mercredi) |
+| **Google Rating** | ~4.5★ (5 avis on FranceBoulangerie) |
+| **Founded** | 2014 (SAS, SIREN 804761856) |
+| **Specialties** | Pain artisanal, pâtisserie, viennoiserie, traiteur, salon de thé, glaces, confiserie, chocolaterie |
+| **Products** | Pain complet, pain campagne, pain levain, macarons, crêpes, glaces, quiches, pizzas, sandwichs, pièces montées, confiserie, chocolat |
+| **Facilities** | Parking, accès handicapés |
+| **Services** | Boissons à emporter, traiteur, pâtisserie sur commande |
 
-#### Current Web Presence
-- **Website:** ❌ NONE
-- **Facebook:** ✅ "Boulangerie pâtisserie CCP fournil" — **1,642 likes**
-- **Google:** Listed on Maps, Pages Jaunes, Mappy, Kompass
-- **Instagram:** ❌ Not found
-- **Assessment:** Strong local reputation but ZERO web presence beyond Facebook and directories
+### 1.2 Current Web Presence
 
-#### Business Analysis
-- **Unique:** Strategically located on Rue de Paris (main commercial street of Torcy), next to RER A Torcy station
-- **Brand Vibe:** Traditional French bakery, family-oriented, daily neighborhood stop
-- **Target Clientele:** Commuters (RER A), local residents, families
-- **Competitive Edge:** Prime location, open Sundays, strong Facebook following for an independent bakery
-- **Key Insight:** 1,642 Facebook fans = proven engaged audience. Converting even 10% to website visitors would drive significant orders
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ❌ None | — |
+| **Facebook** | ✅ @BoulangeriePâtisserieCCPFournil (1,642 likes) | Active, decent presence |
+| **Google Business** | ✅ Listed | Basic info, few reviews |
+| **Pages Jaunes** | ✅ Listed | Standard directory listing |
+| **Mappy** | ✅ Listed | Complete with hours |
+| **Uber Eats** | ❌ Not listed | Missed opportunity |
+| **myboulange.fr** | ✅ Listed as "Le Fournil" | Basic directory |
 
-#### Website Proposal (PRP)
+**Assessment:** Facebook is their primary online presence with 1,642 likes — decent for a local boulangerie. However, they have NO website, relying entirely on directories and Facebook. This is a major gap for a business with 10+ years of history and a wide product range.
 
-**Site Type:** Site Vitrine + Menu Digital + Commandes Spéciales
+### 1.3 Business Analysis
 
-**Pages:**
-1. **Accueil** — Hero with stunning bakery photos, tagline, hours, location
-2. **Nos Produits** — Menu categorized: Pains, Viennoiseries, Pâtisseries, Glaces, Confiserie
-3. **Commandes Spéciales** — Form for birthday cakes, event orders, pre-orders
-4. **Galerie** — Photo gallery of artisan creations
-5. **À Propos** — Story, team, artisan values
-6. **Contact** — Map, phone, hours, social links
+- **What makes them unique:** Very wide product range — not just bread but also traiteur, salon de thé, glaces, confiserie, chocolaterie. Essentially a one-stop gourmet shop.
+- **Brand vibe:** Traditional artisan bakery with a modern twist. Family-oriented, neighborhood anchor.
+- **Target clientele:** Local residents (Rue de Paris is a main commercial street), families, office workers for lunch (sandwiches, quiches), event planners (pièces montées).
+- **Competitive positioning:** Strong location on Rue de Paris. Wide product range sets them apart from typical boulangeries. Open 7 days (except Wednesday) from 6h30.
+- **Strengths:** Diversity of products, early opening, long history, good Facebook following.
+- **Weaknesses:** No website, no online ordering, limited visibility beyond Facebook.
+
+### 1.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec catalogue produits
+
+**Key Pages:**
+1. **Accueil** — Hero with artisan bread/pastry imagery, daily specials
+2. **Notre Boulangerie** — History since 2014, artisan philosophy, team
+3. **Nos Produits** — Organized catalog: Pains, Pâtisseries, Viennoiseries, Traiteur, Glaces, Confiserie
+4. **Sur Commande** — Pièces montées, gâteaux personnalisés, traiteur events
+5. **Galerie** — Photo gallery of products and shop interior
+6. **Horaires & Contact** — Map, hours, phone, contact form
 
 **Design Direction:**
-- **Colors:** Warm wheat gold (#D4A843), dark chocolate (#3D2B1F), cream white (#FFF8F0)
-- **Mood:** Warm, artisanal, inviting — "fresh bread at dawn" feeling
-- **Typography:** Serif headings (Playfair Display), sans-serif body (Inter)
-- **Photography:** Full-width hero images of bread/pastries, close-up textures
-- **Style:** Clean, elegant, appetizing — think upscale Parisian bakery meets neighborhood charm
+- **Colors:** Warm wheat/golden (#D4A373), chocolate brown (#6B4226), cream white (#FFF8F0)
+- **Mood:** Chaleureux, artisanal, authentique — warm lighting, rustic wood textures
+- **Typography:** Serif heading (Playfair Display), clean sans-serif body (Lato)
+- **Style:** Rustic-elegant, lots of bread/pastry photography, warm tones
 
 **Key Features:**
-- 📍 Google Maps integration with directions from RER Torcy
-- 📸 Instagram-style product gallery (auto-sync from Facebook if possible)
-- 🎂 Special order form (cakes, events)
-- ⏰ Dynamic hours display (open/closed indicator)
-- 📱 Mobile-first (commuters check on phone)
-- 🔗 Facebook feed integration
+- 📸 Product gallery with categories
+- 🎂 Order form for custom cakes/traiteur
+- 📍 Interactive Google Maps embed
+- ⏰ Opening hours widget (with "fermé mercredi" alert)
+- 📱 Mobile-responsive (many customers check on-the-go)
+- 🔗 Facebook integration / feed widget
+- 📞 Click-to-call button (mobile)
 
-**Suggested Hero Message:**
-> *"Artisans boulangers depuis 2014 — Du four à votre table, chaque jour à Torcy"*
+**USPs to Highlight:**
+- "Artisan depuis 2014" — established credibility
+- Wide product range: "De la baguette au traiteur"
+- Open 6 days, 6h30 start
+- Made-to-order cakes and events catering
+- Parking and handicap accessibility
 
-**Pitch Angle:**
-"You already have 1,642 fans on Facebook who love your bread. But when someone searches 'boulangerie Torcy' on Google, they can't find you — only directory listings. A professional website will capture those searches and turn them into customers. Plus, your special order requests (birthday cakes, events) can come in 24/7 through an online form instead of phone calls during rush hour."
+**Suggested Tagline:**
+> *"L'art du pain, le goût de la tradition — Votre boulangerie-pâtisserie au cœur de Torcy"*
 
-**Budget:** €1,400 – €1,800
-**Timeline:** 2-3 weeks
+### 1.5 Pitch Angle
 
-**Template Reusability:** → Le Belvédère (#2), Ambiance Gourmande (#12), any Île-de-France bakery
+**Pain points to address:**
+1. "You have 1,642 Facebook followers but nowhere to send them for menus, ordering, or event inquiries"
+2. "Customers searching 'boulangerie Torcy' on Google find directory listings — not YOUR story"
+3. "Your traiteur and custom cake services need a proper showcase — Facebook posts get buried"
+4. "A website works for you 24/7, even when you're up at 4am baking"
+
+**Approach:** Walk in during a slow afternoon (~15h), bring a tablet with the mockup, order something. Show them how their competitors look online vs. how they could look.
+
+### 1.6 Estimated Budget
+
+| Component | Cost |
+|-----------|------|
+| Design & Development | €1,200 |
+| Photography (if needed) | €200 |
+| Content writing (FR) | €100 |
+| **Total** | **€1,500** |
+| Monthly hosting/maintenance | €30/month |
+
+### 1.7 Template Reusability
+
+**Bakery Template → Reuse for:**
+- **#2 Le Belvédère** (same business type, different brand)
+- **#12 Ambiance Gourmande** (same business type)
+- Can also adapt for any boulangerie-pâtisserie in the region
+
+**Adaptation cost:** €800 per business (new colors, branding, content)
 
 ---
 
-### 2. LE BELVÉDÈRE 🥐
-**Boulangerie-Pâtisserie**
+## 2. 🥖 LE BELVÉDÈRE — Boulangerie-Pâtisserie
 
-#### Business Profile
+### 2.1 Business Profile
+
 | Field | Details |
 |-------|---------|
+| **Name** | Le Belvédère |
+| **Type** | Boulangerie-Pâtisserie + Snacking |
 | **Address** | 17 Promenade du Belvédère, 77200 Torcy |
-| **Phone** | 09 87 32 46 79 |
-| **Hours** | Jusqu'à 21h (vérifier jours) |
-| **Legal** | SAS | SIREN 917 789 463 | RCS Meaux | Capital: 4,000€ |
-| **Founded** | Recent (SAS structure suggests professional management) |
-| **Purchase Price** | €585,000 (fonds de commerce) — serious investment |
+| **Phone** | Not found (check Google) |
+| **Hours** | Standard bakery hours (likely 6h30-20h) |
+| **Google Rating** | ~4.0★ estimated |
+| **Founded** | Location since 2013 (La Fournée de Torcy). Current "Le Belvédère" brand since 2022 (new ownership, SAS 917789463) |
+| **Specialties** | Boulangerie, pâtisserie, viennoiserie, snacking (tacos, sandwichs, salades) |
+| **Legal entity** | Capital: €4,000 — indicates small/new business |
 
-#### Current Web Presence
-- **Website:** ❌ NONE
-- **Facebook:** ❌ Not found (or very limited)
-- **Google:** Listed on Maps, Pages Jaunes, Mappy
-- **Assessment:** Despite €585K investment in the business, ZERO online presence. High-value prospect.
+### 2.2 Current Web Presence
 
-#### Business Analysis
-- **Unique:** Located on Promenade du Belvédère — residential area with captive audience
-- **Brand Vibe:** Modern, professional (SAS structure, significant capital investment)
-- **Target Clientele:** Residential neighborhood families, local workers
-- **Competitive Edge:** €585K purchase price indicates a serious, well-capitalized business — they can afford and should invest in digital presence
-- **Key Insight:** SAS with €4K capital + €585K fonds de commerce = this is a REAL business that needs a REAL website
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ❌ None | — |
+| **Uber Eats** | ✅ Active | Delivery menu available (tacos, sandwichs, salades, pâtisseries) |
+| **Facebook** | Not confirmed | Needs verification |
+| **Google Business** | ✅ Listed | Basic |
+| **Pages Jaunes** | ✅ Listed | Minimal info |
 
-#### Website Proposal (PRP)
+**Assessment:** Very minimal web presence. The Uber Eats listing suggests a modern, snacking-oriented bakery concept. New ownership (2022) means they may be open to building their brand digitally.
 
-**Site Type:** Site Vitrine Premium + Menu + Click & Collect
+### 2.3 Business Analysis
 
-**Pages:**
-1. **Accueil** — Modern hero, daily specials highlight, location
-2. **Nos Pains & Viennoiseries** — Product catalog with photos
-3. **Pâtisseries** — Showcase cakes and pastries
-4. **Click & Collect** — Order online, pick up at shop
-5. **Notre Histoire** — Brand story, investment in quality
-6. **Contact & Horaires** — Map, phone, extended hours (21h!)
+- **What makes them unique:** Hybrid boulangerie + snacking concept. They sell tacos alongside traditional pastries — unusual for a boulangerie. New ownership brings fresh energy.
+- **Brand vibe:** Modern, youthful, casual dining + bakery hybrid. "Belvédère" suggests elevated views/aspirations.
+- **Target clientele:** Young professionals, students, families in the Belvédère residential area. Uber Eats delivery users.
+- **Competitive positioning:** Different from CCP Fournil (more traditional). Appeals to a younger, snacking-oriented crowd. Location on the Promenade suggests a more residential, community-focused area.
+- **Strengths:** Uber Eats presence (modern delivery), diverse menu, new ownership = energy
+- **Weaknesses:** No website, no clear branding, very new business
+
+### 2.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec menu et commande
+
+**Key Pages:**
+1. **Accueil** — Hero split: Bakery on one side, Snacking on other
+2. **Notre Concept** — The hybrid boulangerie-snacking story
+3. **La Carte** — Full menu: Boulangerie, Pâtisserie, Snacking (tacos, sandwichs, salades)
+4. **Commander** — Link to Uber Eats + phone ordering
+5. **Galerie** — Products and ambiance photos
+6. **Contact** — Map, hours, delivery info
 
 **Design Direction:**
-- **Colors:** Deep navy (#1B2845), warm bread gold (#C6993E), off-white (#FAFAF5)
-- **Mood:** Premium, modern, confident — "new generation bakery"
-- **Typography:** Modern sans-serif (Montserrat headings, Inter body)
-- **Style:** Clean lines, ample whitespace, high-quality product photography
+- **Colors:** Modern teal (#2B9EB3), warm yellow (#F5B041), white (#FFFFFF), dark charcoal (#2D2D2D)
+- **Mood:** Fresh, modern, young — clean lines, bold typography
+- **Typography:** Modern geometric (Montserrat heading, Open Sans body)
+- **Style:** Contemporary, street-food-meets-bakery vibes
 
 **Key Features:**
-- 🛒 Click & Collect ordering system
-- 📸 High-quality product gallery
-- ⏰ Extended hours highlight (open until 21h — competitive advantage!)
-- 📍 Map integration for Promenade du Belvédère
-- 📱 Progressive Web App potential (regular customers save to phone)
-- ⭐ Customer testimonials section
+- 🛵 Uber Eats deep link integration
+- 📋 Digital menu with categories and photos
+- 📍 Map + delivery zone indicator
+- 📱 Mobile-first design (delivery audience)
+- 📞 Click-to-call
+- ⏰ Dynamic hours display
 
-**Suggested Hero Message:**
-> *"Le Belvédère — Votre boulangerie artisanale, ouverte jusqu'à 21h"*
+**USPs to Highlight:**
+- "Boulangerie + Snacking — Le meilleur des deux mondes"
+- Fresh new concept under new ownership
+- Delivery via Uber Eats
+- Located in the Belvédère neighborhood
 
-**Pitch Angle:**
-"You invested €585,000 in this bakery — but without a website, you're invisible to anyone searching online. Your late hours (until 21h) are a major competitive advantage that no one knows about unless they walk past. A website puts that front and center. Plus, Click & Collect will bring in orders from people who want to secure their bread/pastries before you sell out."
+**Suggested Tagline:**
+> *"Pain frais, saveurs modernes — Votre pause gourmande au Belvédère"*
 
-**Budget:** €1,400 – €1,800
-**Timeline:** 2-3 weeks
+### 2.5 Pitch Angle
 
-**Template Reusability:** → C.C.P Fournil (#1), Ambiance Gourmande (#12)
+**Pain points:**
+1. "You're already on Uber Eats — but when people Google you, they find nothing"
+2. "New ownership needs a fresh digital identity to build the brand"
+3. "Your hybrid bakery-snacking concept is unique — show it off!"
+4. "Compete with the established boulangeries with a modern web presence"
+
+### 2.6 Estimated Budget
+
+| Component | Cost |
+|-----------|------|
+| Design & Development (adapt Bakery template) | €1,200 |
+| Content + photos | €300 |
+| **Total** | **€1,500** |
+
+### 2.7 Template Reusability
+→ Same **Bakery Template** as CCP Fournil, adapted for modern snacking angle.
 
 ---
 
-### 3. LE TRENTE-SIX 🍽️
-**Bistrot-Restaurant — Cuisine Française**
+## 3. 🍽️ LE TRENTE-SIX — Bistrot-Restaurant
 
-#### Business Profile
+### 3.1 Business Profile
+
 | Field | Details |
 |-------|---------|
+| **Name** | Bistro Le Trente-Six (Brasserie "Le 36") |
+| **Type** | Bistrot-Restaurant, Cuisine Française |
 | **Address** | 36 Rue de Paris, 77200 Torcy |
 | **Phone** | 01 60 05 31 44 |
-| **Hours** | Lun-Sam 6h30 – 21h00 |
-| **Cuisine** | Française traditionnelle, cuisine maison |
-| **TripAdvisor** | Listed (12 reviews on restaurant-autour-de-moi) |
-| **Petit Futé** | ✅ Listed — "Réservation recommandée" |
+| **Hours** | Lun-Sam: 7h00 – 20h00 (Dimanche fermé) |
+| **Google Rating** | ~4.0★ |
+| **Founded** | Long-established (traditional bistrot) |
+| **Specialties** | Cuisine française traditionnelle, café, bière, restauration |
+| **Services** | Repas sur place, livraison, terrasse, traiteur, petit-déjeuner, déjeuner, réservations |
+| **Payment** | Cash, CB, Visa, Mastercard, Ticket Restaurant, Apple Pay, sans contact |
+| **Accessibility** | Fauteuil roulant (entrance + parking) |
 
-#### Current Web Presence
-- **Website:** ❌ NO REAL WEBSITE (directory listings only)
-- **TripAdvisor:** ✅ Listed but few reviews
-- **Petit Futé:** ✅ Listed
-- **Sluurpy:** 78/100 score, 9 recommendations
-- **Assessment:** Present on review platforms but no owned website. Good starting reputation to build on.
+### 3.2 Current Web Presence
 
-#### Business Analysis
-- **Unique:** Classic French bistrot on Torcy's main street, opens early (6h30 for coffee/breakfast)
-- **Brand Vibe:** Convivial, traditional, neighborhood bistrot — "le bar-tabac du coin" upgraded
-- **Target Clientele:** Local workers (breakfast/lunch), families (dinner), commuters (after-work)
-- **Competitive Edge:** Opens at 6h30 (breakfast crowd), cuisine maison, central location next to CCP Fournil
-- **Key Insight:** "Réservation recommandée" (Petit Futé) = they're already busy. A website with online reservation would streamline and grow this.
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ⚠️ le-36-torcy.edan.io (auto-generated stub) | Very basic, NOT a real website |
+| **TripAdvisor** | ✅ Listed | Few reviews |
+| **Facebook** | ✅ Has page | Basic |
+| **Petit Futé** | ✅ Listed | Good description |
+| **Tourisme Seine-et-Marne** | ✅ Listed | Tourism directory |
+| **Restaurant Guru** | ✅ Listed with menu | User-contributed |
+| **eatbu.com** | ✅ Profile page | Hours, payment, gallery |
 
-#### Website Proposal (PRP)
+**Assessment:** Multiple directory listings but NO real website. The edan.io page is auto-generated. The business is referenced by tourism boards, suggesting importance in the local scene. A proper website is clearly missing.
 
-**Site Type:** Site Vitrine + Menu + Réservation en ligne
+### 3.3 Business Analysis
 
-**Pages:**
-1. **Accueil** — Atmospheric hero photo, "cuisine maison" tagline, today's specials
-2. **La Carte** — Full menu with categories: Formules Midi, Plats, Desserts, Boissons
-3. **Réserver** — Online reservation form (date, time, number of guests)
-4. **Événements** — Private events, group bookings
-5. **Notre Bistrot** — Story, atmosphere, team
-6. **Contact** — Map, phone, hours
+- **What makes them unique:** Classic French bistrot on a busy commercial street, near Place de l'Église. Terrace seating. Open for breakfast through dinner. Traditional atmosphere.
+- **Brand vibe:** Authentic, convivial, neighborhood institution. "Bistrot traditionnel dans une rue passante" — the quintessential French café-bistrot.
+- **Target clientele:** Local regulars, office workers (lunch), families, tourists passing through (Disneyland proximity).
+- **Competitive positioning:** The "go-to" traditional French bistrot in Torcy centre. Competes more on atmosphere and regulars than cuisine trends.
+- **Strengths:** Prime location, terrace, long opening hours, traditional French appeal
+- **Weaknesses:** No website, limited online presence, not on modern platforms
+
+### 3.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec menu et réservation
+
+**Key Pages:**
+1. **Accueil** — Hero: terrace shot or interior ambiance, "Votre bistrot de quartier"
+2. **Notre Histoire** — The story of Le Trente-Six, the team, philosophy
+3. **La Carte** — Full menu: Entrées, Plats, Desserts, Boissons, Vins
+4. **Nos Formules** — Lunch formula, group events, traiteur
+5. **Terrasse & Ambiance** — Photo gallery, terrace, events
+6. **Réservation & Contact** — Phone, reservation form, map, hours
 
 **Design Direction:**
-- **Colors:** Bistrot red (#8B2332), charcoal (#2D2D2D), cream (#F5F0E8), copper accents (#B87333)
-- **Mood:** Warm, bustling, authentic French bistrot — chalkboard aesthetic
-- **Typography:** Handwritten headings (Caveat or similar), clean body (Lato)
-- **Style:** Rustic-elegant, menu could mimic chalkboard style, warm photography
+- **Colors:** Bistrot red (#8B0000), cream (#FFFDD0), dark navy (#1B2838), copper accent (#B87333)
+- **Mood:** Chaleureux, convivial, authentique — zinc bar aesthetic, warm lighting
+- **Typography:** Classic serif (Cormorant Garamond) + readable body (Source Sans Pro)
+- **Style:** Classic French bistrot — blackboard menu aesthetic, warm wood tones
 
 **Key Features:**
-- 📋 Digital menu with daily specials (easy to update)
-- 📅 Online reservation system
-- 🍷 Wine/drinks list
-- 📸 Atmosphere gallery (interior, dishes, ambiance)
-- 🎉 Event booking form
-- ⭐ Integration of TripAdvisor/Google reviews
-- 📍 GPS directions from RER Torcy
+- 📋 Digital menu (blackboard-style design)
+- 📞 Reservation by phone (click-to-call) + simple form
+- 🍷 Wine selection showcase
+- 📸 Ambiance gallery (terrace, interior, plats)
+- 📍 Google Maps embed
+- ⭐ TripAdvisor widget/reviews
+- 🗓️ Events section (group bookings, private events)
+- 📱 Mobile responsive
 
-**Suggested Hero Message:**
-> *"Le Trente-Six — Bistrot de quartier, cuisine maison depuis Torcy"*
+**USPs to Highlight:**
+- "Bistrot de quartier depuis des années"
+- Terrace dining on Rue de Paris
+- Traditional French cuisine with seasonal products
+- Open early (7h) for coffee/breakfast
+- Group events and traiteur service
+- Central location near Place de l'Église
 
-**Pitch Angle:**
-"Petit Futé already recommends reservations at your bistrot — but there's no way to reserve online! Right now, you're losing dinner bookings every time someone calls and gets a busy signal during service. An online reservation system captures those bookings 24/7. Plus, your daily specials can be posted online every morning — regulars will check before coming in."
+**Suggested Tagline:**
+> *"Le goût de la convivialité — Votre bistrot au cœur de Torcy depuis toujours"*
 
-**Budget:** €1,500 – €2,200
-**Timeline:** 3 weeks
+### 3.5 Pitch Angle
 
-**Template Reusability:** Standalone bistrot template — reusable for similar French restaurants
+**Pain points:**
+1. "Tourists searching for restaurants near Disneyland find you on TripAdvisor but can't see your menu or book"
+2. "Your terrace is a selling point — showcase it online"
+3. "When someone Googles 'restaurant Torcy', a real website ranks above directory listings"
+4. "Private events and group bookings need a proper page — not just a phone number"
+
+### 3.6 Estimated Budget
+
+| Component | Cost |
+|-----------|------|
+| Design & Development | €1,600 |
+| Menu photography | €200 |
+| Content writing | €200 |
+| **Total** | **€2,000** |
+
+### 3.7 Template Reusability
+→ **Restaurant Bistrot Template** — could adapt for other French restaurants in the area. Limited direct reuse in this prospect list.
 
 ---
 
-### 4. PHO QUYNH 🍜
-**Restaurant Vietnamien**
+## 4. 🍜 PHO QUYNH — Restaurant Vietnamien
 
-#### Business Profile
+### 4.1 Business Profile
+
 | Field | Details |
 |-------|---------|
+| **Name** | Pho Quynh |
+| **Type** | Restaurant vietnamien (+ japonais/asiatique) |
 | **Address** | 22 Rue Pierre Mendès France, 77200 Torcy |
 | **Phone** | 01 60 17 26 32 |
-| **Hours** | 12h-14h30, 19h-22h30 (fermé mercredi) |
-| **Cuisine** | Vietnamienne traditionnelle |
-| **Facebook** | 218 likes, 85 check-ins |
-| **TripAdvisor** | ✅ Listed |
-| **Delivery** | UberEats (livraison jusqu'à 22h30) |
+| **Hours** | Tous les jours sauf mercredi: 12h00-14h30, 19h00-22h30 |
+| **Google Rating** | 3.9★ on TripAdvisor (598 reviews!) — #4/37 restaurants in Torcy |
+| **Uber Eats** | 4.47★ |
+| **Founded** | 2010 (15+ years!) |
+| **Specialties** | Phô, Bun Bœuf, Bo Luc Lac, cuisine vietnamienne authentique, plats thaï, plats wok |
+| **Budget** | €15-30 per person |
+| **Delivery** | Uber Eats (until 22h30) |
 
-#### Current Web Presence
-- **Website:** ⚠️ Basic Google Sites page (sites.google.com/view/pho-quynh) — very minimal
-- **Facebook:** ✅ 218 likes — active but small following
-- **TripAdvisor:** ✅ Listed with reviews — "MEILLEUR RESTAURANT VIETNAMIEN DE PARIS ET DE LA MARNE LA VALLÉE"
-- **UberEats:** ✅ Listed for delivery
-- **Tourism Office:** ✅ Listed on tourisme-pvm.fr
-- **Assessment:** Has a basic Google Sites page but it's not professional. Glowing reviews suggest quality product needs quality presentation.
+### 4.2 Current Web Presence
 
-#### Business Analysis
-- **Unique:** Authentic Vietnamese — rare in Torcy area. Exceptional reviews calling it "best Vietnamese in Marne-la-Vallée"
-- **Brand Vibe:** Authentic, family-run, traditional Vietnamese flavors
-- **Target Clientele:** Vietnamese food lovers, local residents seeking variety, delivery customers
-- **Competitive Edge:** Unique cuisine in the area, already on UberEats, excellent word-of-mouth
-- **Key Insight:** The rave reviews are a GOLDMINE. A proper website showcasing these testimonials + beautiful food photography would convert browsers to diners.
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ⚠️ Google Sites page (sites.google.com/view/pho-quynh) | Very basic, amateur |
+| **Facebook** | ✅ @pho.quynh.torcy (218 likes, 85 check-ins) | Active but small |
+| **Instagram** | ✅ @phoquynh.torcy | Present |
+| **TripAdvisor** | ✅ 598 reviews, 3.9★ | Strong presence |
+| **Uber Eats** | ✅ Active delivery | 4.47★ rating |
+| **Google Business** | ✅ Listed | Good |
+| **La Carte (lacarte.menu)** | ✅ 87 dishes listed | Full menu |
 
-#### Website Proposal (PRP)
+**Assessment:** This is the most established business with the WORST website. A Google Sites page with basic text and links to menu sub-pages. With 598 TripAdvisor reviews, this is clearly a popular restaurant that deserves a professional web presence. The Google Sites page actually hurts their brand — it looks amateur for a 15-year-old restaurant.
 
-**Site Type:** Site Vitrine + Menu Digital + Commande en Ligne
+### 4.3 Business Analysis
 
-**Pages:**
-1. **Accueil** — Atmospheric hero (steaming pho bowl), Vietnamese-inspired design
-2. **La Carte** — Full menu with photos, categories: Soupes (Pho), Plats, Nems, Bobuns, Desserts, Boissons
-3. **Commander** — Online ordering for pickup + UberEats redirect for delivery
-4. **Notre Histoire** — Vietnamese culinary tradition, family story
-5. **Avis Clients** — Showcase TripAdvisor reviews prominently
-6. **Contact** — Map, phone, hours, UberEats link
+- **What makes them unique:** 15+ years of authentic Vietnamese cuisine. Massive TripAdvisor presence (598 reviews!). Wide menu (87 dishes). Near RER Torcy station — convenient location.
+- **Brand vibe:** Authentic, family-owned, neighborhood institution. Generous portions, affordable. Warm and convivial.
+- **Target clientele:** Asian food lovers, commuters (near RER), families, Uber Eats users, tourists.
+- **Competitive positioning:** THE Vietnamese reference in Marne-la-Vallée. 598 TripAdvisor reviews is exceptional for a local restaurant. Main competition is from Asian restaurants in Val d'Europe area.
+- **Strengths:** Massive reputation (598 reviews!), long history, wide menu, delivery via Uber Eats, near RER
+- **Weaknesses:** Terrible Google Sites "website", small social media following relative to reputation
+
+### 4.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine premium avec menu interactif et commande en ligne
+
+**Key Pages:**
+1. **Accueil** — Stunning hero: steaming pho bowl, "Authentique depuis 2010"
+2. **Notre Histoire** — 15 years of passion, family story, Vietnamese roots
+3. **La Carte** — Interactive menu with 6 categories: Entrées/Salades, Soupes/Vermicelles, Brochettes/Plats, Sautés/Wok, Plats Thaï, Spécialités Vietnamiennes + Menus, Boissons, Desserts
+4. **Commander** — Uber Eats integration + phone order
+5. **Galerie** — Food photography, ambiance, behind the scenes
+6. **Avis** — TripAdvisor reviews showcase (598 reviews!)
+7. **Contact & Accès** — Map, parking, RER proximity, hours
 
 **Design Direction:**
-- **Colors:** Vietnamese red (#C41E3A), dark wood (#3A2618), warm gold (#D4A843), rice paper white (#FFF9F0)
-- **Mood:** Authentic, warm, exotic — "a taste of Vietnam in Torcy"
-- **Typography:** Clean modern (Poppins headings, Nunito body) — avoid stereotypical "Asian" fonts
-- **Photography:** Steaming dishes close-up, ingredients, chopsticks, atmosphere
-- **Style:** Modern Asian fusion design — clean but warm, minimalist but flavorful
+- **Colors:** Deep red (#C0392B), golden saffron (#F1C40F), dark brown (#4A2F12), bamboo green (#7CB342), warm white
+- **Mood:** Authentique, chaleureux, asiatique — lanterns, wood, steam, chopsticks
+- **Typography:** Modern with Asian influence (Josefin Sans heading, Nunito body)
+- **Style:** Modern Asian restaurant — clean but warm, food-forward photography
 
 **Key Features:**
-- 🥢 Full photo menu with descriptions in French
-- 📱 Online ordering for pickup
-- 🛵 UberEats integration/redirect for delivery
-- ⭐ Customer review showcase (TripAdvisor quotes)
-- 🗺️ Direction from RER Torcy (5 min walk)
-- 📸 Food photography gallery
-- 🎌 Cultural touches (Vietnamese design elements)
+- 🍜 Interactive menu with photos and descriptions (6 categories)
+- 🛵 Uber Eats deep link for delivery
+- 📞 Click-to-call ordering
+- ⭐ TripAdvisor review widget (598 reviews = massive social proof!)
+- 📸 Food gallery (phô, bo luc lac, etc.)
+- 🗺️ Map with RER Torcy walking directions
+- ⏰ Hours with "fermé mercredi" alert
+- 📱 Mobile-first (delivery audience)
+- 🌐 Bilingual potential (FR/EN for tourists)
 
-**Suggested Hero Message:**
-> *"Pho Quynh — Les saveurs authentiques du Vietnam à Torcy depuis des années"*
+**USPs to Highlight:**
+- "Authentique depuis 2010" — 15 years of tradition
+- 598 avis TripAdvisor — social proof
+- 87 plats — incredibly wide menu
+- Near RER Torcy — convenience
+- Delivery via Uber Eats
+- Fresh ingredients, generous portions
 
-**Pitch Angle:**
-"Your customers are already saying you're the BEST Vietnamese restaurant in all of Marne-la-Vallée — but your Google Sites page doesn't reflect that quality. A professional website with beautiful food photos and your incredible reviews front-and-center will turn online searchers into diners. Plus, direct online ordering means you keep 100% of the revenue instead of paying 30% UberEats commission on pickup orders."
+**Suggested Tagline:**
+> *"Le goût authentique du Vietnam à Torcy — Phô, saveurs et tradition depuis 2010"*
 
-**Budget:** €1,500 – €2,500
-**Timeline:** 3 weeks
+### 4.5 Pitch Angle
 
-**Template Reusability:** Asian restaurant template — adaptable for other cuisine types with color/photo changes
+**Pain points:**
+1. "You have 598 TripAdvisor reviews but your 'website' is a Google Sites page — this hurts your credibility"
+2. "New customers Google you and find an amateur page. They might choose a competitor with a nicer site"
+3. "Your 87-dish menu deserves a beautiful, organized, mobile-friendly showcase"
+4. "A real website with your TripAdvisor reviews displayed prominently will convert more visitors to diners"
+5. "You're near RER Torcy — tourists coming from Disneyland search for restaurants online"
+
+**Approach:** This is a HIGH-VALUE pitch. Show them their Google Sites page vs. a professional mockup. The contrast will be stark. Bring TripAdvisor stats.
+
+### 4.6 Estimated Budget
+
+| Component | Cost |
+|-----------|------|
+| Design & Development (premium) | €1,800 |
+| Food photography session | €250 |
+| Content + menu digitization | €150 |
+| **Total** | **€2,200** |
+
+### 4.7 Template Reusability
+→ **Asian Restaurant Template** — could adapt for other Vietnamese/Asian restaurants in the region. Currently no direct matches in prospect list, but high reusability for similar businesses.
+
+---
+---
+
+# 💇 TIER 2 — SALONS & BEAUTY (Detailed Proposals)
 
 ---
 
-## TIER 2 — SALONS & BEAUTY (High Potential)
+## 5. ✂️ BOPHA COIFFURE VISAGISTE — Salon Coiffure
 
----
+### 5.1 Business Profile
 
-### 5. BOPHA COIFFURE VISAGISTE 💇‍♀️
-**Salon de Coiffure Mixte**
-
-#### Business Profile
 | Field | Details |
 |-------|---------|
+| **Name** | Bopha Coiffure Visagiste Mixte |
+| **Type** | Salon de coiffure mixte (visagiste) |
 | **Address** | 12 Grande Rue, 77200 Torcy |
-| **Legal** | BOPHA COIFFURE VISAGISTE MIXTE | SIREN 912 061 132 |
-| **Founded** | 2022 (registered in La République Seine-et-Marne, April 2022) |
-| **Booking** | Via Planity (planity.com/bopha-coiffure-77200-torcy) |
-| **Google Rating** | 4.9★ (30+ avis) |
-
-#### Current Web Presence
-- **Website:** ❌ NO OWN WEBSITE
-- **Planity:** ✅ Active — handles all bookings (taking commission)
-- **Pages Jaunes:** ✅ Listed
-- **Mappy:** ✅ Listed
-- **Google:** 4.9★ — outstanding reputation
-- **Assessment:** Excellent reputation but 100% dependent on Planity for bookings. Losing significant revenue to platform commissions.
-
-#### Business Analysis
-- **Unique:** "Visagiste" = face-shape analysis for perfect haircut — premium positioning
-- **Brand Vibe:** Professional, quality-focused, expert consultation approach
-- **Target Clientele:** Quality-conscious clients willing to pay for expertise, both men and women (mixte)
-- **Competitive Edge:** 4.9★ rating is exceptional. "Visagiste" specialization differentiates from generic salons
-- **Key Insight:** Every booking through Planity costs ~20-30% commission. A website with direct booking = immediate ROI
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Réservation Directe
-
-**Pages:**
-1. **Accueil** — Elegant hero, 4.9★ rating badge, "Visagiste" expertise highlight
-2. **Nos Services** — Full price list: coupes, couleurs, soins, visagisme consultation
-3. **Galerie** — Before/after transformations, styling portfolio
-4. **Réserver** — Direct online booking system (bypass Planity!)
-5. **L'Équipe** — Stylists presentation, specializations
-6. **Tarifs** — Clear pricing table
-7. **Contact** — Map, phone, hours, social links
-
-**Design Direction:**
-- **Colors:** Soft rose gold (#B76E79), charcoal black (#1A1A1A), warm white (#FAF7F5), blush pink (#F8E8E8)
-- **Mood:** Elegant, feminine yet inclusive (mixte), professional — "your hair deserves an expert"
-- **Typography:** Elegant serif (Cormorant Garamond headings), clean sans (Inter body)
-- **Photography:** Close-up hair transformations, salon interior, styling details
-- **Style:** Luxury salon aesthetic — clean, sophisticated, Instagram-worthy
-
-**Key Features:**
-- 📅 Direct online booking (no Planity commission!)
-- 💇 Service catalog with prices
-- 📸 Before/after gallery
-- ⭐ Google reviews integration (4.9★ — show it!)
-- 👤 Stylist profiles with specializations
-- 🎁 Gift card / loyalty program integration
-- 📱 Mobile-first (clients book from phone)
-
-**Suggested Hero Message:**
-> *"Bopha Coiffure — L'art du visagisme à Torcy | 4.9★ sur Google"*
-
-**Pitch Angle:**
-"You have a 4.9-star rating — your clients LOVE you. But right now, Planity takes a commission on every booking. With your own website and direct booking system, you keep 100% of that revenue. Plus, a portfolio of your before/after transformations will attract new clients who see your work online. Your 'visagiste' expertise deserves a professional showcase."
-
-**Budget:** €1,200 – €1,800
-**Timeline:** 2-3 weeks
-
-**Template Reusability:** → Nina Coiffure (#6), New Look Coiffure (#8), MVS Barbier (#16), Salon Glamour (#19) — THIS IS YOUR HIGHEST-VALUE TEMPLATE (5 prospects!)
-
----
-
-### 6. NINA COIFFURE 💇‍♀️
-**Salon de Coiffure**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 1 Promenade du Belvédère, 77200 Torcy |
-| **Booking** | Via Treatwell |
-| **Google** | Listed on Pages Jaunes |
-
-#### Current Web Presence
-- **Website:** ❌ NO OWN WEBSITE
-- **Treatwell:** ✅ Active — handles all bookings (commission-based)
-- **Pages Jaunes:** ✅ Listed
-- **Assessment:** Fully dependent on Treatwell. Similar situation to Bopha but with Treatwell instead of Planity.
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Réservation Directe
-
-**Pages:** Same structure as Bopha (#5) — salon template
-
-**Design Direction:**
-- **Colors:** Elegant teal (#2C7A7B), dark (#1A1A1A), cream (#FFF8F0), gold accents (#C9A96E)
-- **Mood:** Modern, fresh, approachable
-- **Style:** Clean and welcoming — neighborhood salon with a professional touch
-
-**Key Features:**
-- 📅 Direct booking (bypass Treatwell!)
-- 💇 Full service catalog with prices
-- 📸 Style gallery
-- 📍 Location near Le Belvédère bakery — cross-referral potential
-- 📱 Mobile booking optimized
-
-**Suggested Hero Message:**
-> *"Nina Coiffure — Votre salon de confiance, Promenade du Belvédère"*
-
-**Pitch Angle:**
-"Stop giving 20-30% of each booking to Treatwell. A professional website with your own booking system pays for itself within months. Your location on Promenade du Belvédère has great foot traffic — make sure people searching 'coiffeur Torcy' online find YOU, not Treatwell."
-
-**Budget:** €1,200 – €1,800
-**Timeline:** 2 weeks (reuse salon template from #5)
-
----
-
-### 7. OUKHOUYA ZAKARIA DANIEL ✂️
-**Barbier-Coiffeur**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 26 Rue de Valmy, 77200 Torcy |
-| **Type** | Barbier-coiffeur, family-friendly |
-| **Google** | Listed on Pages Jaunes |
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Réservation
-
-**Pages:**
-1. **Accueil** — Bold masculine design, barber aesthetic
-2. **Services** — Coupes, barbe, soins, tarifs
-3. **Galerie** — Barber work portfolio (fades, beards, classic cuts)
-4. **Réserver** — Online appointment booking
-5. **Contact** — Map, hours
-
-**Design Direction:**
-- **Colors:** Matte black (#0D0D0D), gold (#C6993E), dark leather brown (#4A3728), cream (#F0E6D3)
-- **Mood:** Classic barbershop meets modern — vintage barber pole vibes
-- **Typography:** Bold sans (Oswald headings), clean body (Roboto)
-- **Style:** Masculine, confident, traditional craftsmanship
-
-**Key Features:**
-- ✂️ Service list with prices
-- 📅 Online booking
-- 📸 Portfolio of cuts and styles
-- 👨‍👩‍👦 Family-friendly messaging
-- 📍 Rue de Valmy location map
-
-**Suggested Hero Message:**
-> *"L'art du barbier — Coupes précises, accueil familial à Torcy"*
-
-**Pitch Angle:**
-"A professional website positions you as THE barber in Torcy. When men search 'barbier Torcy' on Google, you need to be the first result with a site that shows your skills. Booking online means fewer no-shows and a full schedule."
-
-**Budget:** €1,000 – €1,500
-**Timeline:** 2 weeks
-
-**Template Reusability:** → MVS Barbier (#16)
-
----
-
-### 8. NEW LOOK COIFFURE 💇
-**Salon de Coiffure**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 88 Rue de Paris, 77200 Torcy |
-| **Google Rating** | 4.9★ (20+ avis) |
-| **Google** | Listed on Pages Jaunes |
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Réservation Directe (same salon template as #5)
-
-**Design Direction:**
-- **Colors:** Electric violet (#6C3BAA), soft pink (#F5E1F0), dark (#1C1C1C), white
-- **Mood:** Trendy, youthful, fashion-forward — "new look, new you"
-- **Style:** Bold, Instagram-inspired, dynamic
-
-**Key Features:** Same as salon template + trend-focused content section
-
-**Suggested Hero Message:**
-> *"New Look Coiffure — Révélez votre style | 4.9★ Google"*
-
-**Pitch Angle:**
-"4.9 stars and no website? Your excellent reputation deserves a digital home. Clients searching 'salon coiffure Torcy' should land on YOUR beautiful site, not on a directory listing."
-
-**Budget:** €1,200 – €1,800
-**Timeline:** 2 weeks (reuse salon template)
-
----
-
-### 9. SOLEIL DE BALI 🌺
-**Institut de Beauté**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 99 Rue de Paris, 77200 Torcy |
-| **Legal** | SARL, founded 2005 |
-| **Experience** | 20+ years in business — established institution |
-| **Google** | Listed on Pages Jaunes |
-
-#### Business Analysis
-- **Unique:** Balinese/Asian-inspired beauty — unique positioning in the area
-- **Brand Vibe:** Zen, exotic, relaxation, escape
-- **Competitive Edge:** 20+ years = trust, established clientele, premium positioning
-- **Key Insight:** "Bali" theme is a strong brand differentiator — the website should transport clients
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine Premium + Booking + E-shop
-
-**Pages:**
-1. **Accueil** — Immersive hero with Balinese spa imagery, zen atmosphere
-2. **Nos Soins** — Full treatment catalog: visage, corps, massages, épilation, etc.
-3. **Forfaits** — Package deals, seasonal promotions
-4. **Boutique** — Products for sale (if applicable)
-5. **Réserver** — Online booking for treatments
-6. **Notre Philosophie** — 20 years of expertise, Balinese inspiration, team
-7. **Témoignages** — Client reviews
-8. **Contact** — Map, hours, gift certificates
-
-**Design Direction:**
-- **Colors:** Balinese gold (#C5A356), deep teal (#006D6F), tropical cream (#FFF5E9), bamboo green (#5A7247)
-- **Mood:** Zen, tropical, luxurious escape — "Bali in Torcy"
-- **Typography:** Elegant serif (Cormorant headings), light sans (Nunito body)
-- **Photography:** Spa ambiance, frangipani flowers, bamboo, treatment rooms, relaxation
-- **Style:** Luxury spa — immersive, calming, escape from the everyday
-
-**Key Features:**
-- 🌸 Immersive Balinese design theme
-- 📅 Online treatment booking
-- 💆 Full treatment catalog with descriptions and prices
-- 🎁 Gift certificate purchasing
-- ⭐ Testimonials
-- 📸 Spa atmosphere gallery
-- 📱 Mobile-optimized
-- 🛍️ Product boutique (optional e-shop)
-
-**Suggested Hero Message:**
-> *"Soleil de Bali — 20 ans d'évasion beauté au cœur de Torcy"*
-
-**Pitch Angle:**
-"20 years of expertise and zero online presence? Every day, potential clients search 'institut beauté Torcy' and find nothing about your unique Balinese concept. A stunning website that transports visitors to Bali will convert browsers into bookings. Your 20-year track record is the ultimate social proof — let's showcase it."
-
-**Budget:** €1,500 – €2,500
-**Timeline:** 3 weeks
-
-**Template Reusability:** → Maison Julia (#10), Institut Elisabeth (#15) with different theming
-
----
-
-### 10. MAISON JULIA 💆‍♀️
-**Institut de Beauté**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 11 Rue Jules Vallès, 77200 Torcy |
-| **Specialties** | Soins visage, soins corps |
-| **Status** | ⚠️ Verify web presence |
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Booking
-
-**Design Direction:**
-- **Colors:** Mauve pink (#C2A5C5), soft gold (#D4B896), white (#FFFFFF), dark plum (#3B2C44)
-- **Mood:** Elegant, feminine, intimate — "your beauty maison"
-- **Style:** Soft, luxurious, personal care
-
-**Pages:** Same beauty institute template as #9 (adapted)
-
-**Suggested Hero Message:**
-> *"Maison Julia — Votre institut beauté, soins visage & corps à Torcy"*
-
-**Pitch Angle:**
-"A 'Maison' implies exclusivity and personal care. Your website should reflect that intimate, boutique experience. Clients searching for facial and body treatments in Torcy should find an elegant online presence that matches the quality of your services."
-
-**Budget:** €1,200 – €2,000
-**Timeline:** 2 weeks (reuse beauty template)
-
----
-
-### 11. AM CLINIC 💉
-**Institut de Beauté / Clinique Esthétique**
-
-#### Business Profile
-| Field | Details |
-|-------|---------|
-| **Address** | 11-15 Place de l'Église, 77200 Torcy |
-| **Legal** | SAS | RCS 987 566 056 — professional corporate structure |
-| **Type** | Medical/aesthetic beauty clinic |
-
-#### Business Analysis
-- **Unique:** "Clinic" positioning = medical-aesthetic, higher-end than typical beauty institute
-- **Brand Vibe:** Clinical precision meets beauty — professional, trust, expertise
-- **Competitive Edge:** SAS structure + Place de l'Église location (prestigious address)
-- **Key Insight:** "Clinic" + SAS = higher budget potential, premium positioning, more complex website needs
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine Premium + Booking + Before/After
-
-**Pages:**
-1. **Accueil** — Clean, clinical-chic hero, credibility badges
-2. **Nos Traitements** — Detailed catalog: aesthetic treatments, skin care, body contouring
-3. **Avant/Après** — Before/after photo gallery (powerful for medical aesthetic)
-4. **L'Équipe** — Practitioners with qualifications and certifications
-5. **Réserver une Consultation** — Booking for consultation (not direct treatment)
-6. **FAQ** — Common questions about treatments, safety, recovery
-7. **Tarifs** — Transparent pricing (builds trust)
-8. **Contact** — Map, phone, consultation request form
-
-**Design Direction:**
-- **Colors:** Clinical white (#FFFFFF), medical blue (#2A5B84), platinum grey (#E8E8E8), accent rose (#E8A0BF)
-- **Mood:** Professional, medical-grade trust, premium aesthetic — "science meets beauty"
-- **Typography:** Clean sans-serif throughout (DM Sans or similar)
-- **Photography:** Clinical-clean imagery, treatment rooms, before/after
-- **Style:** Medical-spa aesthetic — trust, expertise, results-driven
-
-**Key Features:**
-- 📸 Before/After gallery (most powerful feature for aesthetic clinics)
-- 📅 Consultation booking (not direct treatment booking — proper medical approach)
-- 👩‍⚕️ Team credentials display
-- 📋 Treatment descriptions with details, duration, pricing
-- ❓ FAQ section addressing safety concerns
-- ⭐ Testimonials / Google reviews
-- 🔒 HTTPS + privacy compliance (medical data)
-
-**Suggested Hero Message:**
-> *"AM Clinic — L'expertise esthétique médicale à Torcy"*
-
-**Pitch Angle:**
-"As a medical aesthetic clinic, trust is everything. Potential clients research extensively before booking treatments. A professional website with before/after results, practitioner credentials, and transparent information converts researchers into clients. Your SAS structure shows you're serious — your website should match."
-
-**Budget:** €1,800 – €3,000
-**Timeline:** 3-4 weeks
-
----
-
-## TIER 3 — FOOD BUSINESSES
-
----
-
-### 12. AMBIANCE GOURMANDE 🥐
-**Boulangerie-Pâtisserie**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 9 Rue du Cèdre, 77200 Torcy |
-| **Status** | ⚠️ Verify web presence |
-
-**Website Proposal:** Use Boulangerie Template (from #1)
-**Design Variation:** Softer, warmer — "gourmande" = indulgent, cozy
-**Colors:** Warm caramel (#C68B59), chocolate (#4A2C2A), vanilla cream (#FFF5E6)
-**Hero:** *"Ambiance Gourmande — Douceurs artisanales, Rue du Cèdre, Torcy"*
-**Budget:** €1,200 – €1,600
-**Template Reusability:** Boulangerie template with #1, #2
-
----
-
-### 13. ALLO PIZZA 🍕
-**Pizzeria / Livraison**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 101 Rue de Paris, 77200 Torcy |
-| **Phone** | 01 60 17 17 17 (easy to remember!) |
-| **Google** | 4★ (89 avis), Halal |
-| **Status** | Has basic site — redesign opportunity |
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Commande en Ligne + Livraison
-
-**Pages:**
-1. **Accueil** — Bold, appetizing hero, ORDER NOW CTA, delivery zones
-2. **La Carte** — Full pizza menu with photos, sizes, prices + sides, drinks, desserts
-3. **Commander** — Online ordering system with delivery/pickup options
-4. **Livraison** — Delivery zones map, minimum order, delivery times
-5. **Nos Engagements** — Halal certification, fresh ingredients, quality
-6. **Contact** — Easy-to-remember phone (01 60 17 17 17), hours
-
-**Design Direction:**
-- **Colors:** Pizza red (#D32F2F), warm yellow (#FFC107), dark (#1A1A1A), white
-- **Mood:** Bold, appetizing, fast — "order in 2 clicks"
-- **Style:** Modern food delivery — large photos, prominent CTAs, minimal friction
-
-**Key Features:**
-- 🛒 Online ordering system (pickup + delivery)
-- 🗺️ Delivery zone map
-- 📸 Large food photos for each item
-- 🕐 Real-time open/closed status
-- 📱 Mobile-first (most orders come from phones)
-- ☪️ Halal certification badge prominently displayed
-- ⭐ 89 Google reviews showcase
-
-**Suggested Hero Message:**
-> *"Allo Pizza Torcy — Pizzas artisanales, livrées chez vous | Halal"*
-
-**Pitch Angle:**
-"89 reviews and a memorable phone number — your clients already love you. But a proper online ordering system means MORE orders with LESS phone work. Every order through the website saves you a phone call and reduces errors. Plus, you stop paying delivery platform commissions."
-
-**Budget:** €1,500 – €2,500
-**Timeline:** 3 weeks
-
----
-
-### 14. ALIX CHOCOLATIER CONFISEUR 🍫
-**Chocolatier Artisan**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 3 Allée des Charmes, 77200 Torcy |
-| **Type** | Artisan chocolatier — premium niche |
-| **Status** | ⚠️ Verify web presence |
-
-#### Website Proposal (PRP)
-
-**Site Type:** E-commerce + Site Vitrine Premium
-
-**Pages:**
-1. **Accueil** — Luxurious hero, seasonal collection highlight, gift boxes
-2. **Nos Chocolats** — Full product catalog: bonbons, tablettes, truffes, pralinés
-3. **Coffrets Cadeaux** — Gift box collections for every occasion
-4. **Collections Saisonnières** — Noël, Pâques, Saint-Valentin, Fête des Mères
-5. **Boutique en Ligne** — E-commerce with cart, payment, delivery
-6. **Notre Artisan** — Chocolatier's story, savoir-faire, sourcing
-7. **Contact** — Shop location, custom orders
-
-**Design Direction:**
-- **Colors:** Rich chocolate (#2C1810), gold leaf (#D4AF37), cream (#FFF8F0), burgundy accent (#722F37)
-- **Mood:** Luxury, artisanal, gift-worthy — "chocolate as art"
-- **Typography:** Elegant serif (Playfair Display), refined
-- **Photography:** Close-up chocolate textures, gift boxes, artisan at work
-- **Style:** Premium artisan — think Pierre Hermé or Patrick Roger website vibes
-
-**Key Features:**
-- 🛒 E-commerce: order chocolates online with delivery
-- 🎁 Gift box configurator
-- 📅 Seasonal collection pages (auto-rotate)
-- 📸 Product photography gallery
-- 🏆 "Artisan" credentials and sourcing story
-- 💌 Newsletter for seasonal promotions
-
-**Suggested Hero Message:**
-> *"Alix Chocolatier — L'art du chocolat artisanal à Torcy"*
-
-**Pitch Angle:**
-"Chocolate is a luxury product — it deserves a luxury presentation. An e-commerce website means you can sell gift boxes online for Christmas, Easter, Valentine's Day. These seasonal peaks could double your revenue. Plus, corporate gift orders can come in from all over Île-de-France, not just walk-ins."
-
-**Budget:** €2,000 – €3,000
-**Timeline:** 4 weeks
-
----
-
-## TIER 4 — SERVICES & REMAINING
-
----
-
-### 15. INSTITUT ELISABETH 💆
-**Institut de Beauté**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 3 Rue de la Chapelle, 77200 Torcy |
-| **Phone** | 01 60 05 21 51 |
-| **Website** | ⚠️ Has outdated site (institut-elisa-elisa.fr) |
-
-**Proposal:** Modern **REDESIGN** — keep existing SEO, modernize design
-**Template:** Beauty institute template from #9
-**Colors:** Soft lavender (#B8A9C9), rose (#E8B4B8), white, dark purple (#2D1B4E)
-**Hero:** *"Institut Elisabeth — Beauté & bien-être depuis Torcy"*
-**Pitch:** "Your current website looks dated — visitors judge your quality by your website. A modern redesign with online booking will bring in clients who currently pass you by."
-**Budget:** €1,000 – €1,800 (redesign = slightly less work)
-
----
-
-### 16. MVS BARBIER ✂️
-**Barbier**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 12 Grande Rue, 77200 Torcy |
-| **Hours** | Mar-Dim (open 6 days) |
-| **Booking** | Via Planity only |
-
-**Proposal:** Barber template from #7
-**Colors:** Same barbershop aesthetic — black, gold, leather
-**Hero:** *"MVS Barbier — L'excellence de la coupe, Grande Rue Torcy"*
-**Pitch:** Same as #7 — direct booking, stop paying Planity
-**Budget:** €1,000 – €1,500
-
----
-
-### 17. MON COIFFEUR EXCLUSIF (VOG) 💇
-**Salon Coiffure — Franchise VOG**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 27 Rue de Paris, 77200 Torcy |
-| **Phone** | 01 60 17 53 78 |
-| **Type** | Franchise VOG — may have corporate website |
-
-**Proposal:** ⚠️ LOWER PRIORITY — franchise may restrict independent websites
-**Option:** Local landing page within VOG branding guidelines
-**Budget:** €800 – €1,200 (simpler scope due to franchise constraints)
-**Note:** Verify franchise policy before approaching. May need VOG approval.
-
----
-
-### 18. MLV OPTIQUE 👓
-**Opticien Indépendant**
-
-| Field | Details |
-|-------|---------|
-| **Address** | 3 Allée Jean-Baptiste Colbert, 77200 Torcy |
-| **Phone** | 01 64 68 05 33 |
-
-#### Website Proposal (PRP)
-
-**Site Type:** Site Vitrine + Catalogue Marques
-
-**Pages:**
-1. **Accueil** — Professional hero, brands displayed, insurance info
-2. **Nos Lunettes** — Catalog by type: solaires, optiques, enfants, sport
-3. **Nos Marques** — Brand logos and collections
-4. **Mutuelles** — Insurance/mutuelle partnership info
-5. **Prise de RDV** — Book eye exam
+| **Phone** | 01 87 07 43 25 |
+| **Hours** | Lun-Sam: 9h00-19h00 |
+| **Google Rating** | 4.9★ |
+| **Founded** | April 1, 2022 |
+| **Owner** | Bopha MOENG (Présidente) |
+| **Specialties** | Coupe homme/femme/enfant, brushing, mèches, balayage, ombré, permanente, lissage, coloration |
+| **Booking** | Via Planity (online booking) |
+| **Accessibility** | Accès handicapés |
+
+### 5.2 Current Web Presence
+
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ❌ None | — |
+| **Planity** | ✅ Active booking page with full price list | Excellent — complete with all services & prices |
+| **Facebook** | ✅ @BopaCoiffure (basic page) | Minimal activity |
+| **Pages Jaunes** | ✅ Listed | Good description |
+| **Mappy** | ✅ Listed | Hours + services |
+| **Google Business** | ✅ Listed, 4.9★ | Strong |
+
+**Assessment:** The Planity page is their best online asset — it has full service list with prices, online booking, and salon description. However, Planity is a third-party platform. No own website means no brand control. Facebook is barely used.
+
+**Planity Price List (key prices):**
+- Shampoing + Brushing: €26-35
+- Coupe + Brushing: €40-48
+- Couleur + Brushing: from €65-78
+- Mèches + Brushing: €95-120
+- Balayage: €75-100
+- Ombré: €110-140
+- Lissage: €90-155
+
+### 5.3 Business Analysis
+
+- **What makes them unique:** "Visagiste" positioning — not just haircuts but face-framing expertise. 4.9★ rating. Personal, welcoming salon run by Bopha herself.
+- **Brand vibe:** Convivial, personnalisé, accessible. "Un salon convivial, accessible à tous, où chacun trouve une attention personnalisée."
+- **Target clientele:** Mixed (homme/femme/enfant), neighborhood residents, walk-ins + Planity bookings.
+- **Competitive positioning:** New (2022) but already 4.9★. Located on Grande Rue. Competes with Nina Coiffure, New Look, and several others on Rue de Paris.
+- **Strengths:** Excellent rating, online booking via Planity, wide service range, visagiste expertise
+- **Weaknesses:** Very new brand (3 years), no website, weak social media
+
+### 5.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec intégration Planity booking
+
+**Key Pages:**
+1. **Accueil** — Hero: Salon interior + happy client, "Votre visagiste à Torcy"
+2. **Le Salon** — About Bopha, her expertise, salon vibe
+3. **Nos Prestations** — Full service list with prices (mirror Planity but more beautiful)
+4. **Galerie** — Before/after photos, hairstyles portfolio
+5. **Réserver** — Planity embed/link for online booking
 6. **Contact** — Map, phone, hours
 
 **Design Direction:**
-- **Colors:** Navy (#1B2838), lens blue (#4A90D9), silver (#C0C0C0), white
-- **Mood:** Professional, precise, trustworthy — healthcare meets fashion
-- **Style:** Clean, modern, brand-focused
+- **Colors:** Soft rose gold (#B76E79), cream white (#FFF5EE), charcoal (#333333), blush pink (#FFE4E1)
+- **Mood:** Élégant yet accessible, warm, feminine but also welcoming to men
+- **Typography:** Elegant (Cormorant heading, Poppins body)
+- **Style:** Clean, modern salon — soft colors, before/after focus
 
 **Key Features:**
-- 👓 Product catalog by category
-- 🏷️ Brand gallery
-- 📋 Insurance/mutuelle information
-- 📅 Eye exam appointment booking
-- 📸 Try-on gallery or style guide
+- 🗓️ Planity booking integration (iframe or deep link)
+- 💰 Clear price list
+- 📸 Before/after gallery
+- ⭐ Google reviews showcase (4.9★!)
+- 📍 Map + directions
+- 📞 Click-to-call
+- 📱 Mobile responsive
 
-**Suggested Hero Message:**
-> *"MLV Optique — Votre vision, notre expertise à Torcy"*
+**USPs to Highlight:**
+- "Visagiste" expertise — personalized styling
+- 4.9★ Google rating
+- All types: homme, femme, enfant
+- Online booking via Planity
+- Walk-ins welcome
+- Accessible (handicap access)
 
-**Budget:** €1,500 – €2,500
-**Timeline:** 3 weeks
+**Suggested Tagline:**
+> *"Votre coiffure, votre personnalité — Bopha Coiffure Visagiste à Torcy"*
+
+### 5.5 Pitch Angle
+1. "Your Planity page works for booking but doesn't tell YOUR story"
+2. "4.9 stars is incredible — let's build a website that showcases those reviews"
+3. "A before/after gallery will attract new clients who want to see your work"
+4. "You're competing with 10+ salons in Torcy — a professional website makes you stand out"
+
+### 5.6 Estimated Budget
+| Component | Cost |
+|-----------|------|
+| Design & Development | €1,000 |
+| Content + photos | €200 |
+| **Total** | **€1,200** |
+
+### 5.7 Template Reusability
+→ **Salon Coiffure Template** → Reuse for #6 Nina, #8 New Look, #17 Mon Coiffeur Exclusif, #19 Salon Glamour (€800 adaptation each)
 
 ---
 
-### 19. SALON GLAMOUR 💫
-**Salon de Coiffure**
+## 6. ✂️ NINA COIFFURE — Salon Coiffure
+
+### 6.1 Business Profile
 
 | Field | Details |
 |-------|---------|
-| **Address** | Torcy centre (exact address TBD) |
-| **Status** | ❌ No website, listed in mairie.com directory |
+| **Name** | Nina Coiffure |
+| **Type** | Salon de coiffure |
+| **Address** | 1 Promenade du Belvédère, 77200 Torcy (some sources say 6 Promenade) |
+| **Phone** | 01 64 11 04 05 |
+| **Email** | ksvn1369@gmail.com |
+| **Hours** | Opens 10h00 |
+| **Google Rating** | 5.0★ (3 avis on Mappy) |
+| **Founded** | 1990 — Over 35 years! |
+| **Specialties** | Coiffure mixte, événementiel |
+| **Eco-commitment** | Member of "Coiffeurs Justes" (recycling hair program) |
 
-**Proposal:** Salon template from #5
-**Colors:** Glamorous — black, hot pink (#FF1493), gold, silver sparkle
-**Hero:** *"Salon Glamour — Style audacieux, résultat glamour à Torcy"*
-**Budget:** €1,200 – €1,800
-**Note:** Need to verify exact address and confirm business is still active
+### 6.2 Current Web Presence
 
----
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ❌ None | — |
+| **Treatwell** | ✅ Listed but temporarily unavailable | Cannot book currently |
+| **Google Business** | ✅ Listed | Basic |
+| **Coiffeurs Justes** | ✅ Listed | Eco-commitment badge |
+| **it-beaute.com** | ✅ Listed | Basic directory |
 
-### 20. ACTUEL FLORS 💐
-**Fleuriste**
+**Assessment:** Minimal online presence for a 35-year-old business! The Treatwell listing is even currently unavailable. This is a classic case of an established business that has never needed a website because of loyal clientele — but is now invisible to new potential customers.
 
-| Field | Details |
-|-------|---------|
-| **Address** | Near Rue de Paris, 77200 Torcy |
-| **Status** | Listed on OpenStreetMap, needs verification |
+### 6.3 Business Analysis
 
-#### Website Proposal (PRP)
+- **What makes them unique:** 35+ years in business — incredible longevity. Member of Coiffeurs Justes (eco-responsible). 5★ rating (small sample but perfect).
+- **Brand vibe:** Established, trustworthy, community institution. The kind of salon where everyone knows your name.
+- **Target clientele:** Loyal neighborhood clients, families. Belvédère residential area.
+- **Competitive positioning:** Legacy salon. Competes on trust and history rather than trends.
 
-**Site Type:** E-commerce + Vitrine
+### 6.4 Website Proposal (PRP)
 
-**Pages:**
-1. **Accueil** — Stunning floral hero, seasonal highlights, delivery CTA
-2. **Nos Bouquets** — Product catalog: bouquets, compositions, plantes
-3. **Événements** — Wedding flowers, funerals, corporate, events
-4. **Commander** — E-commerce with delivery options
-5. **Livraison** — Delivery zones and pricing
-6. **Notre Atelier** — Florist's story, artisanal approach
-7. **Contact** — Shop location, custom order requests
+**Recommended site type:** Simple site vitrine
+
+**Key Pages:**
+1. **Accueil** — "Votre coiffeur de confiance depuis 1990"
+2. **Notre Salon** — 35 years of history, eco-commitment (Coiffeurs Justes)
+3. **Prestations & Tarifs** — Service list with prices
+4. **Contact & RDV** — Phone, map, hours
 
 **Design Direction:**
-- **Colors:** Botanical green (#2D5A27), blush pink (#F8C8DC), white (#FFFFFF), earth brown (#6B4226)
-- **Mood:** Fresh, natural, elegant — "nature's beauty, arranged"
-- **Typography:** Elegant serif (Cormorant Garamond), light and airy
-- **Photography:** Close-up flowers, bouquet arrangements, seasonal displays
-- **Style:** Natural luxury — think Interflora premium meets local artisan
+- **Colors:** Classic green (#2E7D32, eco nod), warm beige (#F5F0EB), gold (#C9A84C)
+- **Mood:** Trustworthy, established, warm — emphasize longevity
+- **Style:** Clean, classic, not trendy — matches a 35-year salon
+
+**Suggested Tagline:**
+> *"Depuis 1990, votre coiffeur de confiance au Belvédère — Nina Coiffure"*
+
+### 6.5 Pitch Angle
+1. "35 years of trust deserves a proper online presence"
+2. "Your Coiffeurs Justes eco-commitment is a unique selling point — highlight it!"
+3. "New residents in Belvédère search online for salons — they can't find you"
+
+### 6.6 Estimated Budget: **€1,200** (adapt Salon template)
+
+### 6.7 Template Reusability → Same **Salon Coiffure Template** as #5
+
+---
+
+## 7. 💈 OUKHOUYA ZAKARIA DANIEL — Barbier-Coiffeur
+
+### 7.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Oukhouya Zakaria Daniel |
+| **Type** | Barbier-coiffeur |
+| **Address** | 26 Rue de Valmy, 77200 Torcy |
+| **Phone** | Unknown |
+| **Hours** | Opens 10h00 |
+| **Google Rating** | N/A |
+| **Founded** | Unknown |
+
+### 7.2 Current Web Presence
+
+| Platform | Status |
+|----------|--------|
+| **Website** | ❌ None |
+| **Social Media** | ❌ Not found |
+| **Google Business** | Minimal |
+
+**Assessment:** Very limited online information. Possibly a newer or very small barbershop. Located in a residential area (Rue de Valmy) rather than the main commercial strip.
+
+### 7.3 Business Analysis
+- **What makes them unique:** Unknown — need in-person visit to assess
+- **Brand vibe:** Likely traditional/masculine barbershop
+- **Target clientele:** Local men in the Valmy neighborhood
+
+### 7.4 Website Proposal (PRP)
+
+**Recommended site type:** Simple one-page site vitrine
+
+**Key Pages (single page):**
+1. Hero section with barbershop identity
+2. Services & prices
+3. Gallery (hairstyles)
+4. Location & hours
+5. Phone/booking
+
+**Design Direction:**
+- **Colors:** Black (#000000), gold (#D4AF37), dark wood (#5C3A21)
+- **Mood:** Masculine, modern barbershop
+- **Style:** Bold, dark, edgy — Instagram-style portfolio
+
+**Suggested Tagline:**
+> *"L'art du barbier — Style et précision à Torcy"*
+
+### 7.5 Pitch Angle
+"Every barbershop needs a digital presence — even a simple one-pager puts you on the map."
+
+### 7.6 Estimated Budget: **€1,000** (simple one-pager)
+
+### 7.7 Template Reusability → **Barber Template** → Reuse for #16 MVS Barbier
+
+---
+
+## 8. ✂️ NEW LOOK COIFFURE — Salon Coiffure
+
+### 8.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | New Look Coiffure 77 |
+| **Type** | Salon de coiffure (SAS) |
+| **Address** | 88 Rue de Paris, 77200 Torcy |
+| **Phone** | 09 88 49 89 39 |
+| **Hours** | Lun-Sam: 9h00-20h00, Dimanche: horaires variables |
+| **Google Rating** | 4.9★ (20+ notes) |
+| **Founded** | June 2022 |
+| **Owner** | Kalil Yakhlef (Président) |
+| **Specialties** | Coiffure, blow dry, hair coloring |
+
+### 8.2 Current Web Presence
+
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ❌ None | — |
+| **Fresha** | ✅ Listed | Basic listing, call-to-book |
+| **Google Business** | ✅ 4.9★, 20+ reviews | Strong |
+| **Mappy** | ✅ Listed | Basic |
+| **Pappers** | ✅ Company info | Legal data |
+
+**Assessment:** Strong Google rating (4.9★ with 20+ reviews) but absolutely no website. Fresha listing exists but requires calling to book. Long hours (until 20h) suggest a busy, modern salon.
+
+### 8.3 Business Analysis
+- **What makes them unique:** 4.9★ with 20+ reviews is exceptional. Open until 20h (great for workers). "New Look" branding suggests modern, trend-forward approach.
+- **Brand vibe:** Modern, trendy, young. Late opening hours = after-work crowd.
+- **Target clientele:** Young professionals, trend-conscious, after-work appointments.
+
+### 8.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec galerie et booking
+
+**Key Pages:**
+1. **Accueil** — Modern salon hero, "Votre nouveau look commence ici"
+2. **Le Salon** — Team, atmosphere, philosophy
+3. **Prestations** — Services with prices
+4. **Galerie** — Portfolio of looks
+5. **RDV** — Booking (Fresha or phone)
+6. **Contact** — Map, hours (highlight late hours!)
+
+**Design Direction:**
+- **Colors:** Electric blue (#0077B6), white (#FFFFFF), black (#111111), silver (#C0C0C0)
+- **Mood:** Sleek, modern, urban
+- **Style:** Minimalist with bold typography — Instagram-meets-website
+
+**USPs to Highlight:**
+- 4.9★ Google rating
+- Open until 20h — "Votre coiffeur après le travail"
+- Modern techniques and trends
+- Located on Rue de Paris (high visibility)
+
+**Suggested Tagline:**
+> *"Révélez votre style — New Look Coiffure, ouvert jusqu'à 20h à Torcy"*
+
+### 8.5 Pitch Angle
+1. "4.9 stars but no website — you're leaving money on the table"
+2. "Your late hours (until 20h) are a competitive advantage — promote it!"
+3. "A portfolio website converts Instagram browsers into salon clients"
+
+### 8.6 Estimated Budget: **€1,200** (adapt Salon template)
+
+### 8.7 Template Reusability → Same **Salon Coiffure Template**
+
+---
+
+## 9. 💆 SOLEIL DE BALI — Institut de Beauté / Spa
+
+### 9.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Soleil de Bali |
+| **Type** | Institut de beauté / Spa / Centre de bronzage |
+| **Address** | 99 Rue de Paris, 77200 Torcy |
+| **Phone** | 01 60 05 45 00 |
+| **Email** | frederic.brotte@yahoo.fr |
+| **Hours** | Lun-Sam: 10h00-19h00 (Dimanche fermé) |
+| **Google Rating** | 4.3★ (129 avis) |
+| **Founded** | 2005 (SIREN 487494171 — 20+ years!) |
+| **Size** | 200 m² spa |
+| **Specialties** | Balnéothérapie, hammam, bronzage, épilation, soins corps/visage, massages (ayurvedic, chinese, deep tissue, hot stone, lymphatic, prenatal, reflexology, relaxing, remedial), amincissement (Cellu M6 + Alice), manucure, hydrothérapie |
+| **Website (claimed)** | soleildebali.fr (appears DOWN or unreachable) |
+| **Platforms** | Fresha (listed), Facebook |
+| **Payment** | CB, NFC, cartes de crédit |
+
+### 9.2 Current Web Presence
+
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ⚠️ soleildebali.fr — appears down/unreachable | CRITICAL issue |
+| **Facebook** | ✅ Active page | Spa/beauty content |
+| **Fresha** | ✅ Listed with services | Good listing |
+| **Google Business** | ✅ 4.3★, 129 reviews | Strong |
+| **Pages Jaunes** | ✅ Listed | Standard |
+
+**Assessment:** This is a MASSIVE opportunity. A 200m² spa with 20+ years of business has a DEAD website. With 129 Google reviews and a wide range of high-end services, they desperately need a professional web presence. This is likely the highest-value prospect in the list.
+
+### 9.3 Business Analysis
+- **What makes them unique:** ENORMOUS for a local business — 200m² spa with balnéothérapie, hammam, multiple massage types, high-tech body treatments (Cellu M6, cryoesthétique). 20+ years in business.
+- **Brand vibe:** Luxurious escape, Balinese-inspired wellness, professional treatments. "Invitation au voyage et à la relaxation."
+- **Target clientele:** Women (primarily), couples, wellness-seekers, post-work de-stress, gift-givers (spa vouchers).
+- **Competitive positioning:** THE premium spa/wellness destination in Torcy. No direct competitor of this scale locally.
+- **Strengths:** Huge space (200m²), 20+ years reputation, wide service range, 129 reviews
+- **Weaknesses:** Dead website = massive lost business, needs digital refresh
+
+### 9.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine premium avec catalogue soins et réservation
+
+**Key Pages:**
+1. **Accueil** — Full-screen hero: Balinese-inspired spa imagery, "Votre oasis de bien-être"
+2. **L'Institut** — 20 years of history, the 200m² space, philosophy
+3. **Nos Soins** (multi-section):
+   - Massages (8+ types)
+   - Soins du visage
+   - Soins du corps
+   - Épilation
+   - Balnéothérapie & Hammam
+   - Bronzage
+   - Amincissement (Cellu M6, Alice)
+   - Manucure
+4. **Galerie** — Spa photos: hammam, treatment rooms, relaxation areas
+5. **Offres & Cartes Cadeaux** — Gift vouchers, packages, seasonal offers
+6. **Avis Clients** — Showcase 129 Google reviews
+7. **Réservation** — Online booking (Fresha integration or custom)
+8. **Contact** — Map, phone, hours, email
+
+**Design Direction:**
+- **Colors:** Deep teal (#006D77), warm gold (#EEBA4A), sand beige (#E8DCC8), dark wood (#3E2723), white
+- **Mood:** Luxurious, zen, Balinese-inspired — tropical flowers, natural materials, candlelight
+- **Typography:** Elegant (Didot/Playfair Display heading, Light Roboto body)
+- **Style:** Spa-luxury — parallax scrolling, full-width images, breathing space
 
 **Key Features:**
-- 🛒 E-commerce: order bouquets online
-- 🚚 Delivery service with zone map
-- 💒 Wedding & events section (high-value orders)
-- 📸 Portfolio/gallery of arrangements
-- 📅 Seasonal collections (Valentine's, Fête des Mères, Toussaint)
-- 💌 Newsletter for occasions reminders
+- 💆 Detailed service catalog with descriptions and prices
+- 🎁 Gift card/voucher system (huge revenue driver)
+- 🗓️ Online booking integration (Fresha or custom)
+- ⭐ Reviews showcase (129 Google reviews)
+- 📸 Immersive gallery (spa atmosphere)
+- 📞 Click-to-call
+- 💌 Newsletter signup (seasonal offers)
+- 📱 Mobile responsive
+- 🌐 SEO optimized for "spa Torcy", "institut beauté Marne-la-Vallée"
 
-**Suggested Hero Message:**
-> *"Actuel Flors — L'élégance florale livrée à Torcy et environs"*
+**USPs to Highlight:**
+- "200 m² dédiés à votre bien-être"
+- 20+ years of expertise
+- Unique: balnéothérapie + hammam
+- Advanced body treatments (Cellu M6)
+- 10+ types of massage
+- Proximity to Disneyland (tourist spa visits!)
+- 129 avis clients satisfaits
 
-**Pitch Angle:**
-"Florists who sell online see 3x more revenue during peak seasons (Valentine's, Mother's Day, Christmas). An e-commerce website with delivery means orders come in 24/7 — even while you're sleeping. Wedding and event inquiries through the site can bring in €500-2,000 per booking."
+**Suggested Tagline:**
+> *"200 m² de bien-être au cœur de Torcy — Soleil de Bali, votre évasion beauté depuis 2005"*
 
-**Budget:** €2,000 – €3,200
-**Timeline:** 4 weeks
+### 9.5 Pitch Angle
+1. "Your website is DOWN. Every day without it, you're losing potential clients to competitors"
+2. "129 Google reviews = huge trust, but people can't find your services or book online"
+3. "A gift voucher system alone could generate thousands in additional revenue"
+4. "Tourists near Disneyland search for 'spa near Marne-la-Vallée' — you should be #1"
+5. "Your 200m² space is impressive — let's showcase it properly"
 
----
+**Approach:** HIGH PRIORITY. Contact immediately. Their dead website creates urgency.
 
-## 🎯 RECOMMENDED BUILD ORDER
+### 9.6 Estimated Budget
 
-### Phase 1: Build 3 Core Templates (Week 1-2)
-1. **🥖 Boulangerie Template** → Showcase to C.C.P Fournil (#1) first
-2. **💇 Salon Coiffure Template** → Showcase to Bopha Coiffure (#5) first
-3. **🍽️ Restaurant Template** → Showcase to Le Trente-Six (#3) first
+| Component | Cost |
+|-----------|------|
+| Design & Development (premium) | €2,000 |
+| Professional spa photography | €300 |
+| Content + service descriptions | €200 |
+| **Total** | **€2,500** |
 
-### Phase 2: Adapt & Present (Week 2-3)
-4. Adapt boulangerie template → Le Belvédère (#2)
-5. Adapt salon template → New Look (#8), Nina (#6)
-6. Create bistrot version → Le Trente-Six (#3)
-7. Create Vietnamese version → Pho Quynh (#4)
-
-### Phase 3: Specialty Templates (Week 3-4)
-8. **💆 Beauty Institute Template** → Soleil de Bali (#9) first
-9. **🍕 Delivery Template** → Allo Pizza (#13)
-10. **🍫 Artisan Premium Template** → Alix Chocolatier (#14)
-11. **💐 Fleuriste Template** → Actuel Flors (#20)
-
-### Phase 4: Remaining Adaptations (Week 4-5)
-12. Adapt beauty template → Maison Julia (#10), AM Clinic (#11), Institut Elisabeth (#15)
-13. Adapt barber template → MVS Barbier (#16), Oukhouya (#7)
-14. Adapt salon template → Salon Glamour (#19)
-15. Specialty → MLV Optique (#18), Mon Coiffeur Exclusif (#17)
-
----
-
-## 💰 REVENUE SUMMARY
-
-| Scenario | Conversion | Revenue |
-|----------|-----------|---------|
-| Conservative (3/20) | 15% | €4,200 – €6,600 |
-| Realistic (5/20) | 25% | €7,000 – €11,000 |
-| Optimistic (8/20) | 40% | €11,200 – €17,600 |
-| Best case (12/20) | 60% | €16,800 – €26,400 |
-
-**Template resale value:** Each template can be resold to 5-10 similar businesses in surrounding communes (Noisiel, Lognes, Bussy-Saint-Georges, Champs-sur-Marne) = **additional €10K-30K potential**
+### 9.7 Template Reusability
+→ **Spa/Beauty Premium Template** → Adapt for #10 Maison Julia, #15 Institut Elisabeth (€1,200 each)
 
 ---
 
-*Compiled by Alex Prime | 27 February 2026*
-*Ready for Kabundji to start building showcase websites*
+## 10. 💆 MAISON JULIA — Institut de Beauté
+
+### 10.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Maison Julia |
+| **Type** | Institut de beauté |
+| **Address** | 11 Rue Jules Vallès, 77200 Torcy |
+| **Phone** | 01 64 61 79 16 |
+| **Hours** | Standard beauty institute hours |
+| **Google Rating** | N/A (limited reviews found) |
+| **Founded** | Unknown |
+| **Specialties** | Soins du visage, soins du corps, épilations, manucures, maquillage |
+
+### 10.2 Current Web Presence
+
+| Platform | Status |
+|----------|--------|
+| **Website** | ❌ None |
+| **Social Media** | ❌ Not found |
+| **Pages Jaunes** | ✅ Listed (detailed) |
+| **Mappy** | ✅ Listed |
+
+**Assessment:** Virtually invisible online. PagesJaunes descriptions suggest quality services for men and women with professional products. Located on a residential street (Jules Vallès), relies on foot traffic and word of mouth.
+
+### 10.3 Business Analysis
+- **What makes them unique:** "Maison Julia" naming suggests intimate, personalized experience. Men + women services.
+- **Brand vibe:** Intimate, professional, boutique beauty. "Maison" = home-like, personal.
+- **Target clientele:** Local residents, men and women seeking personalized beauty treatments.
+
+### 10.4 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine avec catalogue soins
+
+**Key Pages:**
+1. **Accueil** — "Bienvenue à la Maison Julia"
+2. **L'Institut** — Philosophy, expertise, products used
+3. **Nos Soins** — Face, body, waxing, nails, makeup
+4. **Galerie** — Treatment rooms, ambiance
+5. **Contact & RDV** — Phone, map, hours
+
+**Design Direction:**
+- **Colors:** Dusty rose (#D4A5A5), cream (#FFF8F0), dark taupe (#6D5B4B), gold accent
+- **Mood:** Intimate, feminine, luxurious but accessible
+- **Style:** Boutique beauty — soft, inviting, "maison" feel
+
+**Suggested Tagline:**
+> *"Maison Julia — Votre écrin de beauté au cœur de Torcy"*
+
+### 10.5 Pitch Angle
+"You have zero online presence. New residents in the neighborhood literally can't find you. A simple, beautiful website changes that."
+
+### 10.6 Estimated Budget: **€1,500** (adapt Spa/Beauty template)
+
+### 10.7 Template Reusability → Adapted from **Spa/Beauty Premium Template** (#9)
+
+---
+
+## 11. 🏥 AM CLINIC — Institut Esthétique Laser
+
+### 11.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | AM Clinic |
+| **Type** | Centre laser et esthétique |
+| **Address** | 11 Place de l'Église, 77200 Torcy |
+| **Email** | contact@amclinic.fr |
+| **Phone** | Unknown (check site) |
+| **Hours** | Unknown |
+| **Google Rating** | N/A |
+| **Website** | ✅ amclinic.fr (exists and functional!) |
+| **Specialties** | Cryolipolyse, électrostimulation magnétique, laser diode focalisé, Hydrafacial, luminothérapie LED, radiofréquence, épilation laser |
+
+### 11.2 Current Web Presence
+
+| Platform | Status | Quality |
+|----------|--------|---------|
+| **Website** | ✅ amclinic.fr | Functional, modern, but basic — single page with service descriptions |
+| **Google Business** | ✅ Listed | Basic |
+| **Mappy** | ✅ Listed | Basic |
+
+**Assessment:** AM Clinic already has a decent website! It's modern, clean, and describes their services well. However, it could be improved with more content, before/after photos, detailed pricing, and booking integration. This is a LOWER priority prospect — they already have something functional.
+
+### 11.3 Business Analysis
+- **What makes them unique:** Advanced aesthetic technology (cryolipolyse, laser diode, Hydrafacial, radiofréquence). Positioned as a medical-aesthetic center, not just a beauty salon.
+- **Brand vibe:** Clinical, professional, high-tech beauty. "L'art de la beauté redéfini."
+- **Target clientele:** Women (25-55) seeking non-invasive aesthetic treatments, anti-aging, body contouring.
+
+### 11.4 Website Proposal (PRP)
+
+**NOTE:** They already have a website. Proposal is for an UPGRADE.
+
+**Recommended improvements:**
+- Add before/after gallery
+- Add detailed pricing
+- Add online booking system
+- Add client testimonials
+- Add blog/content (SEO)
+- Improve SEO for "laser Torcy", "cryolipolyse Marne-la-Vallée"
+
+**Design Direction:** Keep their existing clean/modern style but add depth and content.
+
+**Suggested Tagline:**
+> *"Révélez votre beauté naturelle — Technologies de pointe, résultats visibles"*
+
+### 11.5 Pitch Angle
+"Your site exists but it's surface-level. Adding before/after photos, pricing, and online booking would significantly increase conversions."
+
+### 11.6 Estimated Budget: **€2,500** (premium upgrade with booking system)
+
+### 11.7 Template Reusability → Unique **Clinic Template** — could sell to similar aesthetic clinics in MLV area
+
+---
+---
+
+# 🍕 TIER 3 — FOOD (Standard Proposals)
+
+---
+
+## 12. 🥖 AMBIANCE GOURMANDE — Boulangerie-Pâtisserie
+
+### 12.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Ambiance Gourmande (Legal: Créations Gourmandes) |
+| **Address** | 9 Rue du Cèdre, 77200 Torcy |
+| **Phone** | 01 72 99 56 18 |
+| **Hours** | Mar-Dim: 7h00-20h00 (Lundi fermé) |
+| **Google Rating** | ~4.0★ |
+| **Website** | ⚠️ ambiance-gourmande.fr (exists, not verified if active) |
+| **Price range** | €9-23/person |
+
+### 12.2 Current Web Presence
+- Website: ambiance-gourmande.fr (claimed but quality unknown — couldn't verify)
+- Listed on Google, Mappy, PagesJaunes, Restaurant Guru
+- No strong social media presence found
+
+### 12.3 Website Proposal (PRP)
+
+**Recommended:** Bakery template adaptation (same as #1 CCP Fournil)
+
+**Design Direction:** Warm, artisan, "gourmande" emphasis — rich gold and chocolate tones
+
+**Suggested Tagline:**
+> *"Ambiance Gourmande — L'art du goût, chaque jour, au cœur de Torcy"*
+
+### 12.4 Estimated Budget: **€1,500** (Bakery template adaptation)
+### 12.5 Template Reusability → Same **Bakery Template** as #1
+
+---
+
+## 13. 🍕 ALLO PIZZA — Pizzeria / Livraison
+
+### 13.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Allo Pizza |
+| **Address** | 101 Rue de Paris, 77200 Torcy |
+| **Phone** | 01 60 17 17 17 |
+| **Hours** | Standard pizza hours (evening delivery focus) |
+| **Google Rating** | 4.0★ (89+ reviews) |
+| **Rating (Sluurpy)** | 87/100 (445 evaluations!) |
+| **Specialties** | Pizza, hamburgers, livraison |
+| **Delivery** | Own delivery + possibly Uber Eats |
+
+### 13.2 Current Web Presence
+- ❌ No website
+- Listed on TripAdvisor (5 reviews), Sluurpy (445 evaluations!), lacarte.menu, multiple directories
+- Phone: memorably simple (01 60 17 17 17)
+- Mixed reviews: praised for taste, criticized for delivery service
+
+### 13.3 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine + menu + commande en ligne
+
+**Key Pages:**
+1. Accueil — Pizza hero imagery, delivery zone, phone number prominent
+2. La Carte — Full pizza + burger menu with photos and prices
+3. Commander — Phone ordering + potential online order form
+4. Zone de Livraison — Map of delivery coverage
+5. Contact — Address, phone, hours
+
+**Design Direction:**
+- **Colors:** Pizza red (#E53935), warm orange (#FF8F00), dark charcoal (#212121), white
+- **Mood:** Bold, appetizing, fast — pizza box aesthetic
+- **Style:** High-energy, food-forward, delivery-focused
+
+**Key Features:**
+- 📋 Visual menu with categories and prices
+- 🛵 Delivery zone map
+- 📞 Click-to-call (01 60 17 17 17 — easy to remember!)
+- 🕐 Real-time hours display
+- 📱 Mobile-first (delivery orders often from phones)
+
+**Suggested Tagline:**
+> *"Allo Pizza Torcy — La vraie pizza, livrée chez vous ! 01 60 17 17 17"*
+
+### 13.4 Pitch Angle
+"You have 445 Sluurpy evaluations but no website. Online ordering would reduce phone load and increase orders."
+
+### 13.5 Estimated Budget: **€1,800** (includes basic ordering system)
+### 13.6 Template Reusability → **Pizza/Delivery Template** — unique but adaptable to other delivery restaurants
+
+---
+
+## 14. 🍫 ALIX CHOCOLATIER CONFISEUR — Chocolatier Artisan
+
+### 14.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Alix Chocolatier Confiseur |
+| **Address** | 3 Allée des Charmes, 77200 Torcy |
+| **Phone** | 06 78 96 56 25 |
+| **Hours** | Opens 10h, Tue-Sat |
+| **Google Rating** | 5.0★ (49 avis!) |
+| **Founded** | 2020 (SAS 919414219) |
+| **Specialties** | Chocolat artisanal, confiserie |
+| **Employees** | 1 full-time |
+| **Distribution** | Also sells via La Ruche qui dit Oui! |
+| **Tourism** | Listed by Tourisme Seine-et-Marne and Petit Futé |
+
+### 14.2 Current Web Presence
+- ❌ No standalone website
+- ✅ La Ruche qui dit Oui! (producer page)
+- ✅ Tourisme Seine-et-Marne listing
+- ✅ Petit Futé listing
+- ✅ Google Business (5.0★, 49 avis!)
+
+**Assessment:** PERFECT 5.0★ rating with 49 reviews! Listed by tourism boards. A artisan chocolatier with this rating desperately needs an elegant website. La Ruche qui dit Oui presence suggests market/circuit court orientation.
+
+### 14.3 Website Proposal (PRP)
+
+**Recommended site type:** Site vitrine artisan avec catalogue + e-commerce léger
+
+**Key Pages:**
+1. **Accueil** — Rich chocolate imagery, "Artisan chocolatier à Torcy"
+2. **L'Artisan** — Story of Alix, chocolate-making philosophy
+3. **Nos Créations** — Chocolate catalog with photos, descriptions, prices
+4. **Commander** — Order form or light e-commerce (seasonal boxes, gift sets)
+5. **Points de Vente** — Boutique + La Ruche qui dit Oui locations
+6. **Ateliers** — If they offer workshops/tastings
+7. **Contact** — Map, phone, hours
+
+**Design Direction:**
+- **Colors:** Rich dark chocolate (#3E2723), gold (#D4AF37), cream (#FFF8E1), burgundy (#800020)
+- **Mood:** Luxurious, artisanal, gift-worthy — like opening a box of fine chocolates
+- **Typography:** Elegant script (Great Vibes) + clean serif
+- **Style:** Premium artisan — close-up chocolate photography, rich textures
+
+**Key Features:**
+- 🍫 Beautiful product catalog
+- 🎁 Gift box ordering system (especially for Christmas, Easter, Valentine's)
+- ⭐ Review showcase (5.0★, 49 reviews!)
+- 🏪 La Ruche qui dit Oui link
+- 📞 Phone ordering
+- 🎄 Seasonal collections (chocolat de Noël, Pâques)
+
+**Suggested Tagline:**
+> *"Alix Chocolatier — L'art du chocolat, fait main à Torcy"*
+
+### 14.4 Pitch Angle
+1. "5 stars, 49 reviews, listed by tourism boards — you deserve a website worthy of your craft"
+2. "An online ordering system for gift boxes could double holiday revenue"
+3. "Tourists near Disneyland search for artisan food — your chocolates are a perfect find"
+4. "The Ruche qui dit Oui sends customers to their platform, not yours — own your presence"
+
+### 14.5 Estimated Budget: **€1,800** (includes light e-commerce for gift boxes)
+### 14.6 Template Reusability → **Artisan Food Template** — adaptable to other artisan food producers
+
+---
+---
+
+# 🔧 TIER 4 — SERVICES (Concise Proposals)
+
+---
+
+## 15. 💆 INSTITUT ELISABETH — Institut de Beauté
+
+### 15.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Institut Elisabeth |
+| **Address** | 3 Rue de la Chapelle, 77200 Torcy |
+| **Phone** | 01 60 05 21 51 |
+| **Email** | elisainstitut77@orange.fr |
+| **Hours** | Mar-Ven: 9h30-19h00, Sam: 9h30-13h/14h-18h, Lun+Dim: Fermé |
+| **Website** | ⚠️ institut-elisa-elisa.fr (reportedly outdated) |
+| **Specialties** | Soins de beauté, manucure, soins visage, maquillage |
+
+### 15.2 Proposal Summary
+- **Type:** Website redesign (replace outdated site)
+- **Template:** Adapt **Spa/Beauty Template** from #9
+- **Budget:** €1,500
+- **Tagline:** *"Institut Elisabeth — Votre beauté, notre passion, depuis toujours"*
+- **Pitch:** "Your current website is outdated and may actually hurt your image. A modern refresh is overdue."
+
+---
+
+## 16. 💈 MVS BARBIER — Barbier
+
+### 16.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | MVS Barbier |
+| **Address** | 12 Grande Rue, 77200 Torcy |
+| **Phone** | Unknown |
+| **Notes** | Very little online information found. Same address as Bopha Coiffure — may be same location or next door. |
+
+### 16.2 Proposal Summary
+- **Type:** Simple one-page barber site
+- **Template:** Adapt **Barber Template** from #7
+- **Budget:** €1,000
+- **Tagline:** *"MVS Barbier — Le style au masculin, au cœur de Torcy"*
+- **Pitch:** Basic digital presence to appear in local searches.
+- **Note:** Verify if this is a separate business or same as Bopha Coiffure (same address).
+
+---
+
+## 17. ✂️ MON COIFFEUR EXCLUSIF — Salon VOG Franchise
+
+### 17.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Mon Coiffeur Exclusif Torcy (Franchise VOG) |
+| **Legal** | VALCOIFF SARL (429157704) |
+| **Address** | 27 Rue de Paris, 77200 Torcy |
+| **Phone** | 01 60 17 53 78 |
+| **Hours** | Mar: 9h30-19h, Mer: 9h30-12h30/14h-18h30, Jeu-Ven: 9h30-19h, Sam: 9h30-18h |
+| **Booking** | rendezvous2.hairnet.fr (franchise booking system) |
+| **Facebook** | @moncoiffeurexclusiftorcy |
+
+### 17.2 Proposal Summary
+- **Type:** Local franchise landing page (complement to VOG national presence)
+- **Template:** Adapt **Salon Coiffure Template** from #5
+- **Budget:** €1,200
+- **Tagline:** *"Mon Coiffeur Exclusif — L'expertise VOG à votre service, à Torcy"*
+- **Pitch:** "The VOG franchise page is generic. A local site with YOUR team, YOUR photos, YOUR local reviews will attract Torcy clients."
+- **Note:** May need franchise approval for branding. Worth checking.
+
+---
+
+## 18. 👓 MLV OPTIQUE — Opticien
+
+### 18.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | MLV Optique (SAS) |
+| **Address** | 3 Allée Jean-Baptiste Colbert, 77200 Torcy |
+| **Phone** | 01 64 68 05 33 / 09 67 26 05 33 |
+| **Capital** | €10,000 |
+| **SIREN** | 752324640 |
+| **Founded** | Pre-2017 (registered restructuring 2017) |
+| **Website** | ❌ None |
+| **Listed by** | ville-torcy.fr (city website) |
+
+### 18.2 Proposal Summary
+- **Type:** Professional vitrine with product showcase
+- **Key Pages:** Home, Services (lunettes, lentilles, examen), Marques, Tiers Payant, Contact
+- **Design:** Clean, professional, medical-optical — blue/white/silver
+- **Budget:** €2,000
+- **Tagline:** *"MLV Optique — Votre vision, notre expertise, à Torcy"*
+- **Key Features:** Brand showcase, insurance/mutuelle info, appointment booking, product gallery
+- **Pitch:** "Opticiens are one of the most searched local services. Without a website, you're invisible to anyone comparing options."
+
+---
+
+## 19. ✂️ SALON GLAMOUR — Salon Coiffure
+
+### 19.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Salon Glamour (Legal: Zephirella) |
+| **Address** | 99 Rue de Paris, 77200 Torcy |
+| **Phone** | 01 64 80 73 25 |
+| **Hours** | Standard salon hours |
+| **Google Rating** | 4.7★ (9 avis) |
+| **Founded** | January 2011 |
+| **Network** | L'Oréal Professionnel partner salon |
+
+### 19.2 Proposal Summary
+- **Type:** Salon vitrine with L'Oréal branding
+- **Template:** Adapt **Salon Coiffure Template** from #5
+- **Budget:** €1,200
+- **Tagline:** *"Glamour Coiffure — L'élégance L'Oréal Professionnel à Torcy"*
+- **Pitch:** "L'Oréal partner status is a major trust signal — showcase it! 15 years in business with great reviews deserves a proper site."
+- **USP:** L'Oréal Professionnel products + 15 years experience
+- **Note:** Same address (99 Rue de Paris) as Soleil de Bali — may be in same commercial building. Could pitch both together!
+
+---
+
+## 20. 🌸 ACTUEL FLORS — Fleuriste
+
+### 20.1 Business Profile
+
+| Field | Details |
+|-------|---------|
+| **Name** | Actuel Flors |
+| **Legal** | SARL (408270122) |
+| **Address** | 28 Rue de Paris, 77200 Torcy |
+| **Phone** | 01 60 06 19 63 |
+| **Hours** | Mar-Ven: 9h30-19h30, Sam: 9h-19h30, Dim: 9h30-13h(?), Lun: Fermé |
+| **Website** | ⚠️ actuelflors.fr (exists but DNS issues — unreachable) |
+| **Also** | actuelflors.com mentioned |
+| **Email** | Via Cylex listing |
+| **Specialties** | Arrangements floraux, livraison à domicile, cours d'art floral, événements |
+
+### 20.2 Proposal Summary
+- **Type:** Florist vitrine with online ordering capability
+- **Key Pages:** Home, Nos Créations (par occasion: Mariage, Deuil, Anniversaire, Fêtes), Livraison, Cours d'Art Floral, Contact
+- **Design Direction:** Fresh greens (#4CAF50), blush pink (#F8BBD0), white, natural textures
+- **Budget:** €1,800 (includes order form)
+- **Tagline:** *"Actuel Flors — L'art floral pour tous vos moments, livré à Torcy et environs"*
+- **Key Features:**
+  - 🌹 Gallery by occasion (mariage, deuil, anniversaire, fêtes)
+  - 🚚 Delivery zone + online ordering
+  - 🎓 Art floral workshop calendar
+  - 📞 Remote secure payment (they already offer this!)
+  - 💐 Seasonal collections
+- **Pitch:** "Your website is down! You're losing online orders every day. Florists who can take orders online earn significantly more."
+- **Note:** They already offer remote payment by phone — an online ordering system would be a natural upgrade.
+
+---
+---
+
+# 📋 STRATEGIC RECOMMENDATIONS
+
+## Priority Ranking (by opportunity value)
+
+| Rank | Business | Why Priority | Action |
+|------|----------|-------------|--------|
+| 🥇 1 | **Soleil de Bali** (#9) | Dead website, 200m² spa, 129 reviews, 20 years | CONTACT IMMEDIATELY |
+| 🥇 2 | **Pho Quynh** (#4) | 598 TripAdvisor reviews, terrible Google Sites page | HIGH PRIORITY |
+| 🥈 3 | **Alix Chocolatier** (#14) | 5.0★/49 reviews, artisan charm, tourism appeal | STRONG PITCH |
+| 🥈 4 | **CCP Fournil** (#1) | 1,642 FB likes, wide product range, no website | STRONG PITCH |
+| 🥈 5 | **Actuel Flors** (#20) | Dead website, delivery service, art floral workshops | CONTACT SOON |
+| 🥉 6 | **New Look Coiffure** (#8) | 4.9★, late hours USP, no website | GOOD OPPORTUNITY |
+| 🥉 7 | **Bopha Coiffure** (#5) | 4.9★, Planity active, needs own site | GOOD OPPORTUNITY |
+| 🥉 8 | **Le Trente-Six** (#3) | No website, traditional bistrot appeal | GOOD OPPORTUNITY |
+| 🥉 9 | **Le Belvédère** (#2) | New ownership, modern concept, Uber Eats | MODERATE |
+| 🥉 10 | **Allo Pizza** (#13) | 445 evaluations, no website, delivery focus | MODERATE |
+
+## Template Development Strategy
+
+**Phase 1 — Build 4 core templates:**
+1. 🥖 **Bakery Template** → Deploy for #1, #2, #12
+2. ✂️ **Salon/Coiffure Template** → Deploy for #5, #6, #8, #17, #19
+3. 💆 **Spa/Beauty Template** → Deploy for #9, #10, #15
+4. 🍽️ **Restaurant Template** → Deploy for #3, #4
+
+**Phase 2 — Specialty templates:**
+5. 🍕 **Pizza/Delivery Template** → #13
+6. 🍫 **Artisan Food Template** → #14
+7. 👓 **Optical/Medical Template** → #18
+8. 🌸 **Florist Template** → #20
+
+## Revenue Projection
+
+| Scenario | # Clients | Avg. Revenue | Total |
+|----------|----------|-------------|-------|
+| Conservative (25% conversion) | 5 | €1,500 | €7,500 |
+| Moderate (40% conversion) | 8 | €1,600 | €12,800 |
+| Optimistic (60% conversion) | 12 | €1,700 | €20,400 |
+
+Plus monthly maintenance contracts: 5-12 clients × €30/month = €150-360/month recurring.
+
+## Key Talking Points for ALL Pitches
+
+1. **"Votre concurrent a un site web, pas vous"** — competitive pressure
+2. **"85% des consommateurs recherchent en ligne avant de visiter un commerce local"** — data-driven
+3. **"Pas un coût, un investissement"** — ROI framing
+4. **"On vous montre d'abord, vous payez après"** — our showcase strategy (low risk for them)
+5. **"Si ça vous plaît, on l'adapte à votre marque. Sinon, aucune obligation"** — no commitment pitch
+
+---
+
+*Document prepared by Alex Prime for Pulse Graphix. Ready for Kabundji's review and showcase website development.*
+
+**Next steps:**
+1. Kabundji reviews and prioritizes
+2. Start building templates (Bakery + Salon first)
+3. Create showcase sites for top 5 prospects
+4. Begin in-person prospecting with tablet presentations
