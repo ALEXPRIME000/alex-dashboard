@@ -162,6 +162,7 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="services">Services</button>
       <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="gallery">Gallery</button>
  <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="downloads">📁 Files</button>
+      <button class="tab-btn px-3 py-2 text-sm font-medium whitespace-nowrap" data-tab="nexusai">🤖 NexusAi</button>
     </nav>
   </div>
 </header>
@@ -408,6 +409,104 @@ if (localStorage.getItem('alexprime-auth') === 'true') {
     </div>
   </section>
 
+  <!-- NEXUSAI BUSINESS TAB -->
+  <section id="tab-nexusai" class="tab-content fade-in">
+    <div class="hero-glow rounded-2xl p-8 mb-8 border border-[#2a2a2a]">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-3xl">🤖</div>
+        <div>
+          <h2 class="text-3xl font-black" style="background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">NexusAi Platform</h2>
+          <p class="text-gray-400">AI Agent Hosting Business — Cost Analysis & Pricing Strategy</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="nexus-hero-stats"></div>
+    </div>
+
+    <!-- Current AWS Analysis -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-red-400 uppercase tracking-wider mb-4">🔴 Current AWS Cost (m7i-flex.large)</h3>
+        <div class="space-y-3" id="nexus-current-cost"></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-4">🟢 Recommended Migration</h3>
+        <div class="space-y-3" id="nexus-recommended"></div>
+      </div>
+    </div>
+
+    <!-- Hosting Comparison -->
+    <div class="card p-6 mb-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">☁️ VPS Price Comparison — Run OpenClaw 24/7</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[#2a2a2a]">
+              <th class="text-left py-2 px-3 text-gray-400 font-medium">Provider</th>
+              <th class="text-left py-2 px-3 text-gray-400 font-medium">Plan</th>
+              <th class="text-left py-2 px-3 text-gray-400 font-medium">Specs</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Monthly</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Agents</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">$/Agent</th>
+              <th class="text-center py-2 px-3 text-gray-400 font-medium">Rating</th>
+            </tr>
+          </thead>
+          <tbody id="nexus-hosting-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- LLM Costs -->
+    <div class="card p-6 mb-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">🧠 LLM API Costs Per Agent (The Real Cost)</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[#2a2a2a]">
+              <th class="text-left py-2 px-3 text-gray-400 font-medium">Model</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Input/1M</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Output/1M</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Light Use</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Medium Use</th>
+              <th class="text-right py-2 px-3 text-gray-400 font-medium">Heavy Use</th>
+              <th class="text-center py-2 px-3 text-gray-400 font-medium">Best For</th>
+            </tr>
+          </thead>
+          <tbody id="nexus-llm-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pricing Tiers -->
+    <div class="card p-6 mb-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">💰 NexusAi Pricing Tiers — Cost vs Revenue</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" id="nexus-tiers"></div>
+    </div>
+
+    <!-- Revenue Projections -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">📊 Revenue Projections (100 Agents)</h3>
+        <div class="space-y-4" id="nexus-revenue"></div>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">⚡ Smart Routing Strategy</h3>
+        <div class="space-y-3" id="nexus-routing"></div>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="card p-6 mb-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">🏗️ Platform Architecture</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="nexus-architecture"></div>
+    </div>
+
+    <!-- Action Items -->
+    <div class="card p-6">
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">🎯 Immediate Actions — Save $1,000/year</h3>
+      <div class="space-y-3" id="nexus-actions"></div>
+    </div>
+  </section>
+
 </main>
 
 <!-- LIGHTBOX MODAL -->
@@ -490,6 +589,7 @@ function render() {
   renderIntegrations();
   renderServices();
   renderGallery();
+  renderNexusAi();
 }
 
 function renderOverview() {
@@ -769,6 +869,196 @@ document.addEventListener('keydown', e => {
 });
 
 function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// ═══════════════════════════════════════════
+//  NEXUSAI BUSINESS TAB
+// ═══════════════════════════════════════════
+function renderNexusAi() {
+  // Hero stats
+  const heroStats = document.getElementById('nexus-hero-stats');
+  if (heroStats) heroStats.innerHTML = [
+    {icon:'💰',label:'Current AWS Cost',value:'$83/mo',color:'#ef4444'},
+    {icon:'🎯',label:'Optimal Cost',value:'$4-15/mo',color:'#22c55e'},
+    {icon:'📈',label:'Annual Savings',value:'$816-948',color:'#3b82f6'},
+    {icon:'🤖',label:'Agents/Server',value:'35-50',color:'#a855f7'},
+  ].map(s=>`<div class="stat-card rounded-xl p-4 border border-[#2a2a2a]">
+    <div class="text-2xl mb-1">${s.icon}</div>
+    <div class="text-xl font-bold" style="color:${s.color}">${s.value}</div>
+    <div class="text-xs text-gray-500">${s.label}</div>
+  </div>`).join('');
+
+  // Current AWS cost breakdown
+  const currentCost = document.getElementById('nexus-current-cost');
+  if (currentCost) currentCost.innerHTML = [
+    {item:'EC2 m7i-flex.large (on-demand)',cost:'~$70.00',pct:84},
+    {item:'Public IPv4 Address',cost:'~$3.65',pct:4},
+    {item:'EBS 30GB gp3 Volume',cost:'~$2.40',pct:3},
+    {item:'Data Transfer (est.)',cost:'~$3-5',pct:5},
+    {item:'Snapshots / Other',cost:'~$2-3',pct:4},
+  ].map(c=>`<div class="flex items-center justify-between p-3 rounded-lg bg-[#1a1a1a]">
+    <div>
+      <div class="text-sm text-gray-300">${c.item}</div>
+      <div class="progress-bar h-1.5 w-32 mt-1"><div class="progress-fill" style="width:${c.pct}%;background:linear-gradient(90deg,#ef4444,#f97316)"></div></div>
+    </div>
+    <span class="text-sm font-semibold text-red-400">${c.cost}</span>
+  </div>`).join('') + `<div class="flex items-center justify-between p-3 rounded-lg bg-red-500/10 border border-red-500/20 mt-2">
+    <span class="text-sm font-bold text-white">TOTAL</span>
+    <span class="text-lg font-black text-red-400">~$83/mo</span>
+  </div>
+  <p class="text-xs text-gray-500 mt-2">Instance: m7i-flex.large | Region: eu-north-1 (Stockholm) | 2 vCPU, 8GB RAM — <strong class="text-red-400">using &lt;1GB</strong></p>`;
+
+  // Recommended actions
+  const recommended = document.getElementById('nexus-recommended');
+  if (recommended) recommended.innerHTML = [
+    {action:'Downsize to t4g.small (ARM)',from:'$83',to:'~$15',save:'$816/yr',badge:'⚡ Quick Win'},
+    {action:'Switch to AWS Lightsail 2GB',from:'$83',to:'$12',save:'$852/yr',badge:'🔄 Easy'},
+    {action:'Migrate to Hetzner CX22',from:'$83',to:'€3.79',save:'$948/yr',badge:'🏆 Best Value'},
+    {action:'Oracle Cloud Free Tier',from:'$83',to:'$0',save:'$996/yr',badge:'🆓 Free'},
+  ].map(r=>`<div class="flex items-center justify-between p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#222] transition-colors">
+    <div class="flex-1">
+      <div class="flex items-center gap-2">
+        <span class="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-medium">${r.badge}</span>
+        <span class="text-sm text-gray-300">${r.action}</span>
+      </div>
+      <div class="text-xs text-gray-500 mt-1"><span class="text-red-400 line-through">${r.from}</span> → <span class="text-green-400 font-bold">${r.to}/mo</span></div>
+    </div>
+    <span class="text-sm font-bold text-green-400">Save ${r.save}</span>
+  </div>`).join('');
+
+  // Hosting comparison table
+  const hostingTable = document.getElementById('nexus-hosting-table');
+  if (hostingTable) hostingTable.innerHTML = [
+    {provider:'Oracle Cloud',plan:'Always Free ARM',specs:'4 cores, 24GB',monthly:'$0',agents:'25-30',perAgent:'$0.00',rating:'🏆🏆🏆',cls:'text-green-400'},
+    {provider:'Hetzner',plan:'CX22',specs:'2 vCPU, 4GB',monthly:'€3.79',agents:'10-15',perAgent:'$0.27',rating:'🏆🏆🏆',cls:'text-green-400'},
+    {provider:'Hetzner',plan:'CX32',specs:'4 vCPU, 8GB',monthly:'€6.80',agents:'25-40',perAgent:'$0.19',rating:'🏆🏆🏆',cls:'text-green-400'},
+    {provider:'Contabo',plan:'VPS S',specs:'4 vCPU, 8GB',monthly:'€5.80',agents:'25-40',perAgent:'$0.16',rating:'🏆🏆',cls:'text-green-400'},
+    {provider:'Hetzner',plan:'CX42',specs:'8 vCPU, 16GB',monthly:'€13.80',agents:'50-80',perAgent:'$0.19',rating:'🏆🏆🏆',cls:'text-yellow-400'},
+    {provider:'Vultr',plan:'Cloud Compute',specs:'2 vCPU, 4GB',monthly:'$12',agents:'10-15',perAgent:'$0.80',rating:'🏆🏆',cls:'text-yellow-400'},
+    {provider:'DigitalOcean',plan:'Droplet',specs:'2 vCPU, 2GB',monthly:'$12',agents:'8-12',perAgent:'$1.00',rating:'🏆🏆',cls:'text-yellow-400'},
+    {provider:'AWS Lightsail',plan:'2GB Linux',specs:'2 vCPU, 2GB',monthly:'$12',agents:'8-12',perAgent:'$1.00',rating:'🏆',cls:'text-yellow-400'},
+    {provider:'AWS Lightsail',plan:'4GB Linux',specs:'2 vCPU, 4GB',monthly:'$24',agents:'15-25',perAgent:'$1.00',rating:'🏆',cls:'text-orange-400'},
+    {provider:'Google Cloud',plan:'e2-small',specs:'2 vCPU, 2GB',monthly:'~$25',agents:'8-12',perAgent:'$2.10',rating:'❌',cls:'text-red-400'},
+    {provider:'AWS EC2',plan:'m7i-flex.large ❌',specs:'2 vCPU, 8GB',monthly:'$83',agents:'15-25',perAgent:'$3.30',rating:'❌❌',cls:'text-red-400'},
+  ].map(h=>`<tr class="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
+    <td class="py-2 px-3 font-medium text-white">${h.provider}</td>
+    <td class="py-2 px-3 text-gray-400">${h.plan}</td>
+    <td class="py-2 px-3 text-gray-400 text-xs">${h.specs}</td>
+    <td class="py-2 px-3 text-right font-semibold ${h.cls}">${h.monthly}</td>
+    <td class="py-2 px-3 text-right text-gray-400">${h.agents}</td>
+    <td class="py-2 px-3 text-right font-medium ${h.cls}">${h.perAgent}</td>
+    <td class="py-2 px-3 text-center">${h.rating}</td>
+  </tr>`).join('');
+
+  // LLM Cost table
+  const llmTable = document.getElementById('nexus-llm-table');
+  if (llmTable) llmTable.innerHTML = [
+    {model:'GPT-4o-mini',input:'$0.15',output:'$0.60',light:'$0.27',medium:'$0.81',heavy:'$2.70',best:'Ultra Budget',cls:'text-green-400'},
+    {model:'Groq Llama 3.3 70B',input:'$0.59',output:'$0.79',light:'$0.59',medium:'$1.77',heavy:'$5.90',best:'Budget + Quality',cls:'text-green-400'},
+    {model:'DeepSeek V3',input:'$0.27',output:'$1.10',light:'$0.49',medium:'$1.47',heavy:'$4.90',best:'Value',cls:'text-green-400'},
+    {model:'Claude Haiku 4.5',input:'$1.00',output:'$5.00',light:'$2.10',medium:'$6.30',heavy:'$21.00',best:'Smart Router',cls:'text-yellow-400'},
+    {model:'GPT-4o',input:'$2.50',output:'$10.00',light:'$4.50',medium:'$13.50',heavy:'$45.00',best:'Premium Alt',cls:'text-yellow-400'},
+    {model:'Claude Sonnet 4.5',input:'$3.00',output:'$15.00',light:'$6.30',medium:'$18.90',heavy:'$63.00',best:'Standard Pro',cls:'text-orange-400'},
+    {model:'Claude Opus 4.5',input:'$5.00',output:'$25.00',light:'$10.50',medium:'$31.50',heavy:'$105',best:'Enterprise Only',cls:'text-red-400'},
+  ].map(m=>`<tr class="border-b border-[#1a1a1a] hover:bg-[#1a1a1a]/50">
+    <td class="py-2 px-3 font-medium text-white">${m.model}</td>
+    <td class="py-2 px-3 text-right text-gray-400">${m.input}</td>
+    <td class="py-2 px-3 text-right text-gray-400">${m.output}</td>
+    <td class="py-2 px-3 text-right ${m.cls}">${m.light}</td>
+    <td class="py-2 px-3 text-right ${m.cls}">${m.medium}</td>
+    <td class="py-2 px-3 text-right ${m.cls}">${m.heavy}</td>
+    <td class="py-2 px-3 text-center text-xs text-gray-500">${m.best}</td>
+  </tr>`).join('');
+
+  // Pricing tiers
+  const tiers = document.getElementById('nexus-tiers');
+  if (tiers) tiers.innerHTML = [
+    {name:'Spark',price:'€29',cost:'~$2',margin:'93%',model:'GPT-4o-mini / Haiku',features:['Basic agent','1 channel','Light use','30 msg/day'],color:'from-gray-500 to-gray-600',border:'border-gray-600'},
+    {name:'Core',price:'€79',cost:'~$10',margin:'87%',model:'Smart Routing',features:['Full agent','3 channels','Medium use','100 msg/day'],color:'from-blue-500 to-blue-600',border:'border-blue-500'},
+    {name:'Pro',price:'€149',cost:'~$25',margin:'83%',model:'Sonnet 4.5',features:['All channels','Heavy use','Custom tools','300 msg/day'],color:'from-purple-500 to-purple-600',border:'border-purple-500'},
+    {name:'Ultra',price:'€249',cost:'~$40',margin:'84%',model:'Sonnet + Opus mix',features:['Priority support','All pipelines','Custom skills','500 msg/day'],color:'from-orange-500 to-orange-600',border:'border-orange-500'},
+    {name:'Apex',price:'€499',cost:'~$55',margin:'89%',model:'Full Opus 4.5',features:['White label','Unlimited','SLA 99.9%','Dedicated resources'],color:'from-yellow-500 to-red-500',border:'border-yellow-500'},
+  ].map(t=>`<div class="rounded-xl border ${t.border}/30 overflow-hidden">
+    <div class="bg-gradient-to-r ${t.color} p-4 text-center">
+      <h4 class="text-lg font-black text-white">${t.name}</h4>
+      <div class="text-3xl font-black text-white mt-1">${t.price}<span class="text-sm font-normal opacity-80">/mo</span></div>
+    </div>
+    <div class="p-4 bg-[#1a1a1a] space-y-2">
+      <div class="flex justify-between text-xs"><span class="text-gray-500">Your cost:</span><span class="text-red-400">${t.cost}</span></div>
+      <div class="flex justify-between text-xs"><span class="text-gray-500">Margin:</span><span class="text-green-400 font-bold">${t.margin}</span></div>
+      <div class="flex justify-between text-xs"><span class="text-gray-500">Model:</span><span class="text-gray-400">${t.model}</span></div>
+      <hr class="border-[#2a2a2a] my-2">
+      ${t.features.map(f=>`<div class="text-xs text-gray-400 flex items-center gap-1.5"><span class="text-green-400">✓</span>${f}</div>`).join('')}
+    </div>
+  </div>`).join('');
+
+  // Revenue projections
+  const revenue = document.getElementById('nexus-revenue');
+  if (revenue) revenue.innerHTML = [
+    {scenario:'Conservative',mix:'50 Spark + 30 Core + 15 Pro + 5 Ultra',rev:'€5,570',cost:'~$750',profit:'~€4,750',color:'text-blue-400'},
+    {scenario:'Mid-Range',mix:'30 Spark + 40 Core + 20 Pro + 10 Ultra',rev:'€7,520',cost:'~$1,200',profit:'~€6,200',color:'text-purple-400'},
+    {scenario:'Optimistic',mix:'20 Spark + 30 Core + 30 Pro + 20 Apex',rev:'€15,450',cost:'~$2,000',profit:'~€13,200',color:'text-green-400'},
+  ].map(r=>`<div class="p-4 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-sm font-bold ${r.color}">${r.scenario}</span>
+      <span class="text-lg font-black text-green-400">${r.profit}/mo</span>
+    </div>
+    <div class="text-xs text-gray-500 mb-2">${r.mix}</div>
+    <div class="flex gap-4 text-xs">
+      <span class="text-gray-400">Revenue: <strong class="text-white">${r.rev}</strong></span>
+      <span class="text-gray-400">Cost: <strong class="text-red-400">${r.cost}</strong></span>
+    </div>
+  </div>`).join('');
+
+  // Smart routing
+  const routing = document.getElementById('nexus-routing');
+  if (routing) routing.innerHTML = `
+    <div class="p-4 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+      <p class="text-sm text-gray-300 mb-3">Route queries by complexity to minimize cost:</p>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between"><span class="text-xs text-gray-400">70% Simple → Haiku/GPT-4o-mini</span><span class="text-xs text-green-400 font-bold">$0.15-1/M tokens</span></div>
+        <div class="flex items-center justify-between"><span class="text-xs text-gray-400">25% Complex → Sonnet 4.5</span><span class="text-xs text-yellow-400 font-bold">$3-15/M tokens</span></div>
+        <div class="flex items-center justify-between"><span class="text-xs text-gray-400">5% Premium → Opus 4.5</span><span class="text-xs text-red-400 font-bold">$5-25/M tokens</span></div>
+      </div>
+    </div>
+    <div class="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+      <div class="text-sm font-bold text-green-400 mb-1">💡 Result: ~60% cost reduction</div>
+      <div class="text-xs text-gray-400">Effective cost: ~$6-10/agent/mo (medium use) vs $19/agent with Sonnet-only</div>
+    </div>
+    <div class="p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
+      <div class="text-sm font-bold text-purple-400 mb-1">🧠 Prompt Caching: Extra 30-50% savings</div>
+      <div class="text-xs text-gray-400">Anthropic's 90% cache discount on repeated system prompts across 100 agents</div>
+    </div>`;
+
+  // Architecture
+  const architecture = document.getElementById('nexus-architecture');
+  if (architecture) architecture.innerHTML = [
+    {title:'Backend',icon:'⚙️',items:['FastAPI control plane','Docker container per agent','PostgreSQL + Redis','Caddy auto-SSL']},
+    {title:'Agent Runtime',icon:'🤖',items:['OpenClaw in Docker','Isolated workspace','Multi-channel (TG/WA/Slack/Discord)','Smart model routing']},
+    {title:'Frontend',icon:'🖥️',items:['Next.js 16 dashboard','Stripe billing (5 tiers)','Avatar system','Admin diagnostics']},
+  ].map(a=>`<div class="p-4 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a]">
+    <div class="text-2xl mb-2">${a.icon}</div>
+    <h4 class="text-sm font-bold text-white mb-3">${a.title}</h4>
+    ${a.items.map(i=>`<div class="text-xs text-gray-400 flex items-center gap-1.5 mb-1.5"><span class="text-purple-400">▸</span>${i}</div>`).join('')}
+  </div>`).join('');
+
+  // Action items
+  const actions = document.getElementById('nexus-actions');
+  if (actions) actions.innerHTML = [
+    {step:'1',action:'Stop EC2 → Change to t4g.small → Start',time:'5 min',save:'$68/mo saved instantly',priority:'high'},
+    {step:'2',action:'Or migrate to Hetzner CX22 (€3.79/mo)',time:'30 min',save:'$79/mo saved',priority:'high'},
+    {step:'3',action:'Try Oracle Cloud Always Free (4 ARM cores)',time:'1 hour',save:'$83/mo → $0 (if available)',priority:'medium'},
+    {step:'4',action:'Implement smart model routing in NexusAi',time:'2-3 hours',save:'60% LLM cost reduction',priority:'medium'},
+    {step:'5',action:'Set up prompt caching for shared system prompts',time:'1-2 hours',save:'Extra 30-50% on LLM',priority:'medium'},
+    {step:'6',action:'Deploy 3× Hetzner CX42 for 100-agent capacity',time:'Half day',save:'$45/mo hosts all clients',priority:'low'},
+  ].map(a=>`<div class="flex items-center gap-4 p-3 rounded-lg bg-[#1a1a1a] border-l-3 ${a.priority==='high'?'border-l-red-500':'border-l-yellow-500'}">
+    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-sm font-bold text-white flex-shrink-0">${a.step}</div>
+    <div class="flex-1">
+      <div class="text-sm text-gray-300">${a.action}</div>
+      <div class="text-xs text-gray-500 mt-0.5">⏱ ${a.time}</div>
+    </div>
+    <span class="text-xs font-semibold ${a.priority==='high'?'text-green-400':'text-yellow-400'} whitespace-nowrap">${a.save}</span>
+  </div>`).join('');
+}
 
 // ═══════════════════════════════════════════
 //  FILE EXPLORER (v2)
