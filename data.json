@@ -1,45 +1,45 @@
 {
-  "lastGenerated": "2026-03-02T17:29:24.798Z",
+  "lastGenerated": "2026-03-16T16:30:00.000Z",
   "tasks": {
     "completed": [
       {
-        "name": "Website Proposal Briefs (PRP) for 20 Prospects — ✅ Created Feb 27",
+        "name": "Website Proposal Briefs (PRP) for 20 Prospects \u2014 \u2705 Created Feb 27",
         "date": "2026-03-02"
       },
       {
-        "name": "Dashboard File Explorer — ✅ Deployed Feb 27",
+        "name": "Dashboard File Explorer \u2014 \u2705 Deployed Feb 27",
         "date": "2026-03-02"
       },
       {
-        "name": "Dashboard Auto-Sync Cron — ✅ Running every 2 hours",
+        "name": "Dashboard Auto-Sync Cron \u2014 \u2705 Running every 2 hours",
         "date": "2026-03-02"
       },
       {
-        "name": "Create Client Proposal Template — ✅ Created Feb 19",
+        "name": "Create Client Proposal Template \u2014 \u2705 Created Feb 19",
         "date": "2026-03-02"
       },
       {
-        "name": "Expand Prospect List to 20 — ✅ Compiled Feb 20",
+        "name": "Expand Prospect List to 20 \u2014 \u2705 Compiled Feb 20",
         "date": "2026-03-02"
       },
       {
-        "name": "Create 5 LinkedIn Posts (Batch 1) — ✅ Created Feb 20",
+        "name": "Create 5 LinkedIn Posts (Batch 1) \u2014 \u2705 Created Feb 20",
         "date": "2026-03-02"
       },
       {
-        "name": "Create LinkedIn Posts (Batch 2) — ✅ Created Feb 21",
+        "name": "Create LinkedIn Posts (Batch 2) \u2014 \u2705 Created Feb 21",
         "date": "2026-03-02"
       },
       {
-        "name": "Cold Call Scripts Kit (French) — ✅ Created Mar 1",
+        "name": "Cold Call Scripts Kit (French) \u2014 \u2705 Created Mar 1",
         "date": "2026-03-02"
       },
       {
-        "name": "Pulse Graphix Sales Flyer (HTML) — ✅ Created Mar 1",
+        "name": "Pulse Graphix Sales Flyer (HTML) \u2014 \u2705 Created Mar 1",
         "date": "2026-03-02"
       },
       {
-        "name": "Showcase Website Templates — ✅ COMPLETE Feb 28 (ready for prospect presentations)",
+        "name": "Showcase Website Templates \u2014 \u2705 COMPLETE Feb 28 (ready for prospect presentations)",
         "date": "2026-03-02"
       },
       {
@@ -123,7 +123,7 @@
         "date": "2026-03-02"
       },
       {
-        "name": "Template Business Strategy (€10k/mo target)",
+        "name": "Template Business Strategy (\u20ac10k/mo target)",
         "date": "2026-03-02"
       },
       {
@@ -150,47 +150,47 @@
     "inProgress": [],
     "pending": [
       {
-        "name": "Telegram Project Groups Setup — ⏳ Waiting on Kabundji",
+        "name": "Telegram Project Groups Setup \u2014 \u23f3 Waiting on Kabundji",
         "priority": "medium"
       },
       {
-        "name": "Close first client from outreach — Target: 1 signed project (€3K+)",
+        "name": "Close first client from outreach \u2014 Target: 1 signed project (\u20ac3K+)",
         "priority": "medium"
       },
       {
-        "name": "First Cold Calls — Call top 4 qualified leads (if approved)",
+        "name": "First Cold Calls \u2014 Call top 4 qualified leads (if approved)",
         "priority": "medium"
       },
       {
-        "name": "Present showcase websites to prospects — Show templates to Bopha, CCP Fournil, Le Trente-Six",
+        "name": "Present showcase websites to prospects \u2014 Show templates to Bopha, CCP Fournil, Le Trente-Six",
         "priority": "medium"
       },
       {
-        "name": "YouTube channel launch — First 2 videos",
+        "name": "YouTube channel launch \u2014 First 2 videos",
         "priority": "medium"
       },
       {
-        "name": "LinkedIn: First week of posting — 5+ posts from approved batches",
+        "name": "LinkedIn: First week of posting \u2014 5+ posts from approved batches",
         "priority": "medium"
       },
       {
-        "name": "Social media accounts — Set up YouTube, TikTok, Facebook",
+        "name": "Social media accounts \u2014 Set up YouTube, TikTok, Facebook",
         "priority": "medium"
       },
       {
-        "name": "Aura account setup — AI template builder ($20/mo)",
+        "name": "Aura account setup \u2014 AI template builder ($20/mo)",
         "priority": "medium"
       },
       {
-        "name": "Unicorn Studio setup — WebGL backgrounds for premium templates",
+        "name": "Unicorn Studio setup \u2014 WebGL backgrounds for premium templates",
         "priority": "medium"
       },
       {
-        "name": "Deploy Subagent Pyramid — 4 manager agents + specialized subagents",
+        "name": "Deploy Subagent Pyramid \u2014 4 manager agents + specialized subagents",
         "priority": "medium"
       },
       {
-        "name": "Close first client (€3K+)",
+        "name": "Close first client (\u20ac3K+)",
         "priority": "medium"
       },
       {
@@ -252,43 +252,111 @@
       {
         "name": "First affiliate partnerships",
         "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udd34 Set up Amazon KDP Account \u2014 kdp.amazon.com (add IBAN + tax info)",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udd34 Apply for Amazon Merch on Demand \u2014 merch.amazon.com (waitlist)",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udd34 Create BookFunnel Account \u2014 Mid-List plan ($20/mo)",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udd34 Create MailerLite Account \u2014 Free plan",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udd34 Choose Pen Name(s) \u2014 1 for fiction, 1 for coloring books",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udd34 Tell Alex Prime about existing book \u2014 genre, length, status",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udfe1 Create Etsy Shop \u2014 backup channel for POD merch",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udfe1 Subscribe to Creative Fabrica ($3.99/mo) \u2014 design elements + ShapeCloud",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udfe1 Install Merch Dominator Chrome Extension \u2014 POD research tool",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udcda Alex Prime: Create Easter Coloring Book (40-50 pages)",
+        "priority": "high"
+      },
+      {
+        "name": "\ud83d\udcda Alex Prime: Create Butterfly Coloring Book (evergreen)",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udcda Alex Prime: Write 10K word lead magnet (romance novella)",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udcda Alex Prime: Build MailerLite welcome email sequence (5 emails)",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udc55 Alex Prime: Generate 15 Easter t-shirt concepts with SEO titles",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udc55 Alex Prime: Generate Autism Awareness design concepts (April)",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udce7 Alex Prime: Set up BookFunnel landing page for lead magnet",
+        "priority": "medium"
+      },
+      {
+        "name": "\ud83d\udce7 Alex Prime: Configure email automation in MailerLite",
+        "priority": "medium"
       }
     ],
     "blocked": [
       {
         "name": "Telegram Groups",
         "need": "Add bot to groups + disable BotFather privacy mode",
-        "priority": "🔴 HIGH"
+        "priority": "\ud83d\udd34 HIGH"
       },
       {
         "name": "LinkedIn Profile Optimization",
         "need": "LinkedIn credentials or approval to draft",
-        "priority": "🟡 MEDIUM"
+        "priority": "\ud83d\udfe1 MEDIUM"
       },
       {
         "name": "Google OAuth Fix",
         "need": "Browser re-auth session",
-        "priority": "🟡 MEDIUM"
+        "priority": "\ud83d\udfe1 MEDIUM"
       },
       {
         "name": "UFW Firewall",
         "need": "Approval to enable",
-        "priority": "🟡 MEDIUM"
+        "priority": "\ud83d\udfe1 MEDIUM"
       },
       {
         "name": "Framer Account",
         "need": "Create account at framer.com",
-        "priority": "🟡 MEDIUM"
+        "priority": "\ud83d\udfe1 MEDIUM"
       },
       {
         "name": "LinkedIn Posts Review",
         "need": "Approve batch 1 & 2 for posting",
-        "priority": "🟡 MEDIUM"
+        "priority": "\ud83d\udfe1 MEDIUM"
       },
       {
         "name": "First Cold Calls",
         "need": "Green light to start calling prospects",
-        "priority": "🔴 HIGH"
+        "priority": "\ud83d\udd34 HIGH"
       },
       {
         "name": "Goal",
@@ -297,7 +365,7 @@
       },
       {
         "name": "Monthly recurring revenue",
-        "need": "€3,000/mo",
+        "need": "\u20ac3,000/mo",
         "priority": "June 30"
       },
       {
@@ -334,6 +402,36 @@
         "name": "Projects closed",
         "need": "5",
         "priority": "June 30"
+      },
+      {
+        "name": "Amazon KDP Account",
+        "need": "Kabundji must create at kdp.amazon.com \u2014 needs IBAN + tax info",
+        "priority": "\ud83d\udd34 HIGH"
+      },
+      {
+        "name": "Amazon Merch Application",
+        "need": "Kabundji must apply at merch.amazon.com \u2014 link Pulse Graphix portfolio",
+        "priority": "\ud83d\udd34 HIGH"
+      },
+      {
+        "name": "BookFunnel Account",
+        "need": "Kabundji must sign up \u2014 Mid-List plan $20/mo \u2014 share credentials",
+        "priority": "\ud83d\udd34 HIGH"
+      },
+      {
+        "name": "MailerLite Account",
+        "need": "Kabundji must create \u2014 free plan \u2014 share credentials or API key",
+        "priority": "\ud83d\udd34 HIGH"
+      },
+      {
+        "name": "Pen Name Decision",
+        "need": "Choose 1-2 pen names for publishing",
+        "priority": "\ud83d\udfe1 MEDIUM"
+      },
+      {
+        "name": "Existing Book Details",
+        "need": "Tell Alex Prime: genre, word count, where published",
+        "priority": "\ud83d\udfe1 MEDIUM"
       }
     ]
   },
@@ -392,89 +490,89 @@
     {
       "name": "batch-2-next-5",
       "path": "prospects/batch-2-next-5.md",
-      "preview": "# Prospect Batch 2 — Next 5 Leads\n*Researched: Feb 26, 2026 | Location: Torcy / Marne-la-Vallée (77200)*\n\n---\n\n## 1. Les Délices de Torcy\n**Address:** 7 Rue du Général de Gaulle, 77200 Torcy\n**Phone:*"
+      "preview": "# Prospect Batch 2 \u2014 Next 5 Leads\n*Researched: Feb 26, 2026 | Location: Torcy / Marne-la-Vall\u00e9e (77200)*\n\n---\n\n## 1. Les D\u00e9lices de Torcy\n**Address:** 7 Rue du G\u00e9n\u00e9ral de Gaulle, 77200 Torcy\n**Phone:*"
     },
     {
       "name": "call-kit-ready",
       "path": "prospects/call-kit-ready.md",
-      "preview": "# 📞 PROSPECT CALL KIT — Ready to Dial\n**Prepared:** 2026-02-17  \n**Status:** ✅ APPROVED — Kabundji gave green light Feb 16  \n**Target:** 4 qualified leads in Torcy/Seine-et-Marne  \n\n---\n\n## 🎯 TODAY'"
+      "preview": "# \ud83d\udcde PROSPECT CALL KIT \u2014 Ready to Dial\n**Prepared:** 2026-02-17  \n**Status:** \u2705 APPROVED \u2014 Kabundji gave green light Feb 16  \n**Target:** 4 qualified leads in Torcy/Seine-et-Marne  \n\n---\n\n## \ud83c\udfaf TODAY'"
     },
     {
       "name": "call-sheet-next-5",
       "path": "prospects/call-sheet-next-5.md",
-      "preview": "# Prospect Call Sheet — Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## 📞 Priority Queue\n\n### 1. C.C.P Fournil — ★★★★★ TOP PRIORITY\n| Field"
+      "preview": "# Prospect Call Sheet \u2014 Next 5 Priority Calls\n**Prepared:** 2026-02-14 01:35 UTC  \n**Status:** Ready for Kabundji approval\n\n---\n\n## \ud83d\udcde Priority Queue\n\n### 1. C.C.P Fournil \u2014 \u2605\u2605\u2605\u2605\u2605 TOP PRIORITY\n| Field"
     },
     {
       "name": "expanded-prospect-list-20",
       "path": "prospects/expanded-prospect-list-20.md",
-      "preview": "# Expanded Prospect List — 20 Local Businesses\n**Compiled:** 2026-02-20 04:35 UTC\n**Area:** Torcy, Noisiel, Lognes, Marne-la-Vallée (77200)\n**Goal:** Expand from 4 → 20 qualified leads for Pulse Graph"
+      "preview": "# Expanded Prospect List \u2014 20 Local Businesses\n**Compiled:** 2026-02-20 04:35 UTC\n**Area:** Torcy, Noisiel, Lognes, Marne-la-Vall\u00e9e (77200)\n**Goal:** Expand from 4 \u2192 20 qualified leads for Pulse Graph"
     },
     {
       "name": "expanded-prospect-list",
       "path": "prospects/expanded-prospect-list.md",
-      "preview": "# Prospects Élargis — Torcy, Noisiel, Lognes & Environs\n**Créé:** 2026-02-19 22:00 UTC | **Statut:** DRAFT — Recherche en cours\n**Objectif:** Passer de 5 à 20+ prospects qualifiés\n\n---\n\n## ✅ PROSPECTS"
+      "preview": "# Prospects \u00c9largis \u2014 Torcy, Noisiel, Lognes & Environs\n**Cr\u00e9\u00e9:** 2026-02-19 22:00 UTC | **Statut:** DRAFT \u2014 Recherche en cours\n**Objectif:** Passer de 5 \u00e0 20+ prospects qualifi\u00e9s\n\n---\n\n## \u2705 PROSPECTS"
     },
     {
       "name": "follow-up-email-templates",
       "path": "prospects/follow-up-email-templates.md",
-      "preview": "# 📧 TEMPLATES EMAIL DE SUIVI — PULSE GRAPHIX\n**Kabundji — Post-Appel Prospects**  \n**Dernière mise à jour:** 16 Février 2026\n\n---\n\n## 📩 TEMPLATE A — \"Ravi d'avoir discuté\" (Lead CHAUD)\n\n**Objet:** ["
+      "preview": "# \ud83d\udce7 TEMPLATES EMAIL DE SUIVI \u2014 PULSE GRAPHIX\n**Kabundji \u2014 Post-Appel Prospects**  \n**Derni\u00e8re mise \u00e0 jour:** 16 F\u00e9vrier 2026\n\n---\n\n## \ud83d\udce9 TEMPLATE A \u2014 \"Ravi d'avoir discut\u00e9\" (Lead CHAUD)\n\n**Objet:** ["
     },
     {
       "name": "paris-boulangeries-research",
       "path": "prospects/paris-boulangeries-research.md",
-      "preview": "# 🥖 Prospection Boulangeries — Paris & Île-de-France\n*Recherche active — Dernière mise à jour: 12 Février 2026*\n\n## 📊 Critères de Sélection\n- **Zone:** Paris intra-muros + Seine-et-Marne (77) — proc"
+      "preview": "# \ud83e\udd56 Prospection Boulangeries \u2014 Paris & \u00cele-de-France\n*Recherche active \u2014 Derni\u00e8re mise \u00e0 jour: 12 F\u00e9vrier 2026*\n\n## \ud83d\udcca Crit\u00e8res de S\u00e9lection\n- **Zone:** Paris intra-muros + Seine-et-Marne (77) \u2014 proc"
     },
     {
       "name": "paris-leads",
       "path": "prospects/paris-leads.md",
-      "preview": "# Paris Prospecting List - AI Automation, n8n & Web Development\n\n**Generated:** February 2026  \n**Target Services:** AI automation, n8n workflows, web development, MVP development\n\n---\n\n## 🎯 Priority"
+      "preview": "# Paris Prospecting List - AI Automation, n8n & Web Development\n\n**Generated:** February 2026  \n**Target Services:** AI automation, n8n workflows, web development, MVP development\n\n---\n\n## \ud83c\udfaf Priority"
     },
     {
       "name": "proposal-template-boulangerie",
       "path": "prospects/proposal-template-boulangerie.md",
-      "preview": "# 🥖 PROPOSITION COMMERCIALE — SITE WEB BOULANGERIE\n\n**Client:** [NOM DE LA BOULANGERIE]  \n**Contact:** [Prénom Nom] — [Téléphone]  \n**Adresse:** [Adresse complète]  \n**Date:** [Date du jour]  \n**Réfé"
+      "preview": "# \ud83e\udd56 PROPOSITION COMMERCIALE \u2014 SITE WEB BOULANGERIE\n\n**Client:** [NOM DE LA BOULANGERIE]  \n**Contact:** [Pr\u00e9nom Nom] \u2014 [T\u00e9l\u00e9phone]  \n**Adresse:** [Adresse compl\u00e8te]  \n**Date:** [Date du jour]  \n**R\u00e9f\u00e9"
     },
     {
       "name": "proposal-template-restaurant",
       "path": "prospects/proposal-template-restaurant.md",
-      "preview": "# 🍽️ PROPOSITION COMMERCIALE — SITE WEB RESTAURANT\n\n**Client:** [NOM DU RESTAURANT]  \n**Contact:** [Prénom Nom] — [Téléphone]  \n**Adresse:** [Adresse complète]  \n**Date:** [Date du jour]  \n**Référenc"
+      "preview": "# \ud83c\udf7d\ufe0f PROPOSITION COMMERCIALE \u2014 SITE WEB RESTAURANT\n\n**Client:** [NOM DU RESTAURANT]  \n**Contact:** [Pr\u00e9nom Nom] \u2014 [T\u00e9l\u00e9phone]  \n**Adresse:** [Adresse compl\u00e8te]  \n**Date:** [Date du jour]  \n**R\u00e9f\u00e9renc"
     },
     {
       "name": "torcy-boulangeries-leads",
       "path": "prospects/torcy-boulangeries-leads.md",
-      "preview": "# 🥖 Prospects Boulangeries — Torcy & Environs (77200)\n*Recherche Alex Prime — 12 Février 2026*\n*Document interne — À revoir par Kabundji avant contact*\n\n---\n\n## 📍 Prospects Identifiés (Zone Torcy)\n\n"
+      "preview": "# \ud83e\udd56 Prospects Boulangeries \u2014 Torcy & Environs (77200)\n*Recherche Alex Prime \u2014 12 F\u00e9vrier 2026*\n*Document interne \u2014 \u00c0 revoir par Kabundji avant contact*\n\n---\n\n## \ud83d\udccd Prospects Identifi\u00e9s (Zone Torcy)\n\n"
     },
     {
       "name": "torcy-boulangeries",
       "path": "prospects/torcy-boulangeries.md",
-      "preview": "# Prospect Research — Boulangeries Torcy (77200)\n*Last Updated: 2026-02-13*\n\n---\n\n## 🥖 Le Belvédère — DETAILED PROFILE\n\n### Contact Information\n| Field | Value |\n|-------|-------|\n| **Nom** | Le Belv"
+      "preview": "# Prospect Research \u2014 Boulangeries Torcy (77200)\n*Last Updated: 2026-02-13*\n\n---\n\n## \ud83e\udd56 Le Belv\u00e9d\u00e8re \u2014 DETAILED PROFILE\n\n### Contact Information\n| Field | Value |\n|-------|-------|\n| **Nom** | Le Belv"
     },
     {
       "name": "torcy-expanded",
       "path": "prospects/torcy-expanded.md",
-      "preview": "# 🎯 Expanded Prospect Research — Torcy & Surrounds\n*Last Updated: 2026-02-13*\n\n---\n\n## NEW PROSPECTS\n\n### 🍽️ Bistro Le Trente-Six (Restaurant)\n| Field | Value |\n|-------|-------|\n| **Type** | Bistro"
+      "preview": "# \ud83c\udfaf Expanded Prospect Research \u2014 Torcy & Surrounds\n*Last Updated: 2026-02-13*\n\n---\n\n## NEW PROSPECTS\n\n### \ud83c\udf7d\ufe0f Bistro Le Trente-Six (Restaurant)\n| Field | Value |\n|-------|-------|\n| **Type** | Bistro"
     },
     {
       "name": "torcy-full-pipeline",
       "path": "prospects/torcy-full-pipeline.md",
-      "preview": "# Pulse Graphix - Prospects Pipeline\n## Torcy (77200) & Villes Voisines - Businesses Sans Site Web\n\n**Date de Recherche:** 13 février 2026  \n**Objectif:** Trouver des commerces indépendants sans site "
+      "preview": "# Pulse Graphix - Prospects Pipeline\n## Torcy (77200) & Villes Voisines - Businesses Sans Site Web\n\n**Date de Recherche:** 13 f\u00e9vrier 2026  \n**Objectif:** Trouver des commerces ind\u00e9pendants sans site "
     },
     {
       "name": "website-proposals-all-20",
       "path": "prospects/website-proposals-all-20.md",
-      "preview": "# 🎯 PULSE GRAPHIX — Website Proposal Briefs (PRP)\n## 20 Prospect Businesses — Torcy / Marne-la-Vallée\n\n**Prepared by:** Alex Prime, Executive Director Agent  \n**Agency:** Pulse Graphix Creative Agenc"
+      "preview": "# \ud83c\udfaf PULSE GRAPHIX \u2014 Website Proposal Briefs (PRP)\n## 20 Prospect Businesses \u2014 Torcy / Marne-la-Vall\u00e9e\n\n**Prepared by:** Alex Prime, Executive Director Agent  \n**Agency:** Pulse Graphix Creative Agenc"
     },
     {
       "name": "website-proposals",
       "path": "prospects/website-proposals.md",
-      "preview": "# 🌐 Pulse Graphix - Propositions Sites Web\n## Prospects Torcy & Communes Voisines\n\n**Document préparé pour:** Kabundji - Pulse Graphix  \n**Date:** 13 février 2026  \n**Contact Pulse Graphix:**  \n📍 3 "
+      "preview": "# \ud83c\udf10 Pulse Graphix - Propositions Sites Web\n## Prospects Torcy & Communes Voisines\n\n**Document pr\u00e9par\u00e9 pour:** Kabundji - Pulse Graphix  \n**Date:** 13 f\u00e9vrier 2026  \n**Contact Pulse Graphix:**  \n\ud83d\udccd 3 "
     }
   ],
   "prospectLeads": [
     {
       "id": 1,
       "name": "C.C.P Fournil",
-      "type": "Boulangerie-Pâtisserie",
+      "type": "Boulangerie-P\u00e2tisserie",
       "address": "34 Rue de Paris, 77200 Torcy",
       "phone": "01 60 05 28 84",
       "webStatus": "NO WEBSITE",
@@ -482,9 +580,9 @@
     },
     {
       "id": 2,
-      "name": "Le Belvédère",
-      "type": "Boulangerie-Pâtisserie",
-      "address": "17 Promenade du Belvédère, 77200 Torcy",
+      "name": "Le Belv\u00e9d\u00e8re",
+      "type": "Boulangerie-P\u00e2tisserie",
+      "address": "17 Promenade du Belv\u00e9d\u00e8re, 77200 Torcy",
       "phone": "09 87 32 46 79",
       "webStatus": "NO WEBSITE",
       "tier": "hot"
@@ -502,7 +600,7 @@
       "id": 4,
       "name": "Pho Quynh",
       "type": "Restaurant vietnamien",
-      "address": "22 Rue Pierre Mendès France, 77200 Torcy",
+      "address": "22 Rue Pierre Mend\u00e8s France, 77200 Torcy",
       "phone": "01 60 17 26 32",
       "webStatus": "NO WEBSITE (FB only)",
       "tier": "hot"
@@ -520,7 +618,7 @@
       "id": 6,
       "name": "Nina Coiffure",
       "type": "Salon coiffure",
-      "address": "1 Promenade du Belvédère, 77200 Torcy",
+      "address": "1 Promenade du Belv\u00e9d\u00e8re, 77200 Torcy",
       "phone": "Via Pages Jaunes",
       "webStatus": "NO OWN WEBSITE (uses Treatwell)",
       "tier": "warm"
@@ -546,7 +644,7 @@
     {
       "id": 9,
       "name": "Soleil de Bali",
-      "type": "Institut de beauté",
+      "type": "Institut de beaut\u00e9",
       "address": "99 Rue de Paris, 77200 Torcy",
       "phone": "Via Pages Jaunes",
       "webStatus": "NO WEBSITE",
@@ -555,8 +653,8 @@
     {
       "id": 10,
       "name": "Maison Julia",
-      "type": "Institut de beauté",
-      "address": "11 Rue Jules Vallès, 77200 Torcy",
+      "type": "Institut de beaut\u00e9",
+      "address": "11 Rue Jules Vall\u00e8s, 77200 Torcy",
       "phone": "Via Pages Jaunes",
       "webStatus": "VERIFY",
       "tier": "warm"
@@ -564,8 +662,8 @@
     {
       "id": 11,
       "name": "AM Clinic",
-      "type": "Institut de beauté",
-      "address": "11-15 Place de l'Église, 77200 Torcy",
+      "type": "Institut de beaut\u00e9",
+      "address": "11-15 Place de l'\u00c9glise, 77200 Torcy",
       "phone": "Via Pages Jaunes",
       "webStatus": "VERIFY",
       "tier": "warm"
@@ -573,8 +671,8 @@
     {
       "id": 12,
       "name": "Ambiance Gourmande",
-      "type": "Boulangerie-Pâtisserie",
-      "address": "9 Rue du Cèdre, 77200 Torcy",
+      "type": "Boulangerie-P\u00e2tisserie",
+      "address": "9 Rue du C\u00e8dre, 77200 Torcy",
       "phone": "Via Mappy",
       "webStatus": "VERIFY",
       "tier": "new"
@@ -592,7 +690,7 @@
       "id": 14,
       "name": "Alix Chocolatier Confiseur",
       "type": "Chocolatier",
-      "address": "3 Allée des Charmes, 77200 Torcy",
+      "address": "3 All\u00e9e des Charmes, 77200 Torcy",
       "phone": "Via Mappy",
       "webStatus": "VERIFY",
       "tier": "new"
@@ -600,7 +698,7 @@
     {
       "id": 15,
       "name": "Institut Elisabeth",
-      "type": "Institut de beauté",
+      "type": "Institut de beaut\u00e9",
       "address": "3 Rue de la Chapelle, 77200 Torcy",
       "phone": "01 60 05 21 51",
       "webStatus": "OUTDATED SITE (institut-elisa-elisa.fr)",
@@ -621,14 +719,14 @@
       "type": "Salon (franchise VOG)",
       "address": "27 Rue de Paris, 77200 Torcy",
       "phone": "01 60 17 53 78",
-      "webStatus": "FRANCHISE — lower priority",
+      "webStatus": "FRANCHISE \u2014 lower priority",
       "tier": "cold"
     },
     {
       "id": 18,
       "name": "MLV Optique",
       "type": "Opticien",
-      "address": "3 Allée Jean-Baptiste Colbert, 77200 Torcy",
+      "address": "3 All\u00e9e Jean-Baptiste Colbert, 77200 Torcy",
       "phone": "01 64 68 05 33",
       "webStatus": "VERIFY",
       "tier": "cold"
@@ -773,6 +871,36 @@
       {
         "name": "Brave Search",
         "status": "connected"
+      },
+      {
+        "name": "Amazon KDP",
+        "status": "pending",
+        "notes": "Account creation needed"
+      },
+      {
+        "name": "Amazon Merch",
+        "status": "pending",
+        "notes": "Application needed (waitlist)"
+      },
+      {
+        "name": "BookFunnel",
+        "status": "pending",
+        "notes": "Mid-List plan $20/mo needed"
+      },
+      {
+        "name": "MailerLite",
+        "status": "pending",
+        "notes": "Free plan \u2014 email automation"
+      },
+      {
+        "name": "Etsy",
+        "status": "pending",
+        "notes": "POD merch backup channel"
+      },
+      {
+        "name": "Creative Fabrica",
+        "status": "pending",
+        "notes": "$3.99/mo design elements"
       }
     ],
     "models": [
@@ -806,18 +934,18 @@
     "life": [
       {
         "goal": "Buy house in France",
-        "target": "€300k-500k",
+        "target": "\u20ac300k-500k",
         "progress": 0
       },
       {
         "goal": "Holiday home abroad",
-        "target": "€100k-200k",
+        "target": "\u20ac100k-200k",
         "progress": 0
       }
     ],
     "business": [
       {
-        "goal": "€10k/mo template revenue",
+        "goal": "\u20ac10k/mo template revenue",
         "target": "6 months",
         "progress": 5
       },
@@ -835,6 +963,31 @@
         "goal": "YouTube channel",
         "target": "Q2 2026",
         "progress": 0
+      },
+      {
+        "goal": "Amazon KDP: \u20ac2,000/mo book royalties",
+        "target": "Sep 2026",
+        "progress": 2
+      },
+      {
+        "goal": "Print on Demand: \u20ac1,000/mo merch",
+        "target": "Sep 2026",
+        "progress": 2
+      },
+      {
+        "goal": "Email list: 2,000 subscribers",
+        "target": "Jun 2026",
+        "progress": 0
+      },
+      {
+        "goal": "Publish 10+ books on Amazon",
+        "target": "Dec 2026",
+        "progress": 0
+      },
+      {
+        "goal": "Coloring books: 5 published",
+        "target": "May 2026",
+        "progress": 0
       }
     ]
   },
@@ -843,8 +996,8 @@
       "name": "Prospect Pipeline (Torcy)",
       "status": "active",
       "progress": 75,
-      "description": "20 local businesses identified, call scripts ready, expanded from 4→20 leads",
-      "revenue": "€4,500-12,000 pipeline"
+      "description": "20 local businesses identified, call scripts ready, expanded from 4\u219220 leads",
+      "revenue": "\u20ac4,500-12,000 pipeline"
     },
     {
       "name": "LinkedIn Marketing",
@@ -864,7 +1017,7 @@
       "status": "planning",
       "progress": 15,
       "description": "AI-powered templates for Framer/Webflow marketplace",
-      "revenue": "€10k/mo target"
+      "revenue": "\u20ac10k/mo target"
     },
     {
       "name": "Client Proposal System",
@@ -885,6 +1038,34 @@
       "progress": 80,
       "description": "Call kit ready, email follow-up templates, objection handling scripts",
       "revenue": "First calls pending approval"
+    },
+    {
+      "name": "\ud83d\udcda KDP Fiction (Romance Novels)",
+      "status": "planning",
+      "progress": 10,
+      "description": "AI-assisted romance novels via Amazon Kindle. Lead magnet \u2192 email list \u2192 paid books. Near-zero production cost.",
+      "revenue": "\u20ac1,500-3,000/mo target"
+    },
+    {
+      "name": "\ud83c\udfa8 KDP Low-Content (Coloring Books)",
+      "status": "active",
+      "progress": 15,
+      "description": "Coloring books, dot marker books, activity books. Easter + evergreen niches. $9.99 price point, AI-generated interiors.",
+      "revenue": "\u20ac1,000-5,000/mo target"
+    },
+    {
+      "name": "\ud83d\udc55 Print on Demand (Merch)",
+      "status": "planning",
+      "progress": 5,
+      "description": "T-shirts via Amazon Merch + Etsy. Seasonal + evergreen niches. SEO-first text-based designs.",
+      "revenue": "\u20ac500-2,000/mo target"
+    },
+    {
+      "name": "\ud83d\udce7 Email Funnel (BookFunnel + MailerLite)",
+      "status": "planning",
+      "progress": 0,
+      "description": "Lead magnet \u2192 BookFunnel landing page \u2192 MailerLite email capture \u2192 automated welcome sequence \u2192 launch emails \u2192 sales.",
+      "revenue": "Revenue multiplier for all KDP businesses"
     }
   ],
   "skills": [
@@ -923,7 +1104,7 @@
         "title": "Value Checklist (High-engagement format)",
         "type": "\"Save this\" content",
         "status": "draft",
-        "preview": ": Value Checklist (High-engagement format)\nType: \"Save this\" content  Hook: \"Bookmark this\"  CTA: Follow for more\n\n Draft:\n\n\"🚨 Graphic design red flags that scream 'amateur':\n\nIf you"
+        "preview": ": Value Checklist (High-engagement format)\nType: \"Save this\" content  Hook: \"Bookmark this\"  CTA: Follow for more\n\n Draft:\n\n\"\ud83d\udea8 Graphic design red flags that scream 'amateur':\n\nIf you"
       },
       {
         "id": 4,
@@ -937,7 +1118,7 @@
         "title": "Poll / Engagement Starter",
         "type": "Poll",
         "status": "draft",
-        "preview": ": Poll / Engagement Starter\nType: Poll  Hook: \"Quick poll\"  CTA: Vote + explain in comments\n\n Draft:\n\n\"Quick poll for my fellow agency owners and freelancers 🎯\n\nYou're onboarding a n"
+        "preview": ": Poll / Engagement Starter\nType: Poll  Hook: \"Quick poll\"  CTA: Vote + explain in comments\n\n Draft:\n\n\"Quick poll for my fellow agency owners and freelancers \ud83c\udfaf\n\nYou're onboarding a n"
       }
     ],
     "strategy": []
@@ -949,7 +1130,7 @@
       "name": "Profile Picture V1",
       "filename": "profile-picture-v1.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v1.png"
     },
     {
@@ -958,7 +1139,7 @@
       "name": "Profile Picture V2",
       "filename": "profile-picture-v2.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/profile-picture-v2.png"
     },
     {
@@ -967,7 +1148,7 @@
       "name": "LinkedIn Banner V1",
       "filename": "banner-linkedin-v1.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v1.png"
     },
     {
@@ -976,7 +1157,7 @@
       "name": "LinkedIn Banner V2",
       "filename": "banner-linkedin-v2.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-linkedin-v2.png"
     },
     {
@@ -985,7 +1166,7 @@
       "name": "Facebook Banner V1",
       "filename": "banner-facebook-v1.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v1.png"
     },
     {
@@ -994,7 +1175,7 @@
       "name": "Facebook Banner V2",
       "filename": "banner-facebook-v2.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-facebook-v2.png"
     },
     {
@@ -1003,7 +1184,7 @@
       "name": "YouTube Banner V1",
       "filename": "banner-youtube-v1.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v1.png"
     },
     {
@@ -1012,7 +1193,7 @@
       "name": "YouTube Banner V2",
       "filename": "banner-youtube-v2.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/banner-youtube-v2.png"
     },
     {
@@ -1021,7 +1202,7 @@
       "name": "Post Template V1",
       "filename": "post-template-v1.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v1.png"
     },
     {
@@ -1030,7 +1211,7 @@
       "name": "Post Template V2",
       "filename": "post-template-v2.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/post-template-v2.png"
     },
     {
@@ -1039,7 +1220,7 @@
       "name": "Story Template V1",
       "filename": "story-template-v1.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v1.png"
     },
     {
@@ -1048,7 +1229,7 @@
       "name": "Story Template V2",
       "filename": "story-template-v2.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-graphix/story-template-v2.png"
     },
     {
@@ -1057,7 +1238,7 @@
       "name": "Profile Picture V1",
       "filename": "profile-picture-v1.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v1.png"
     },
     {
@@ -1066,7 +1247,7 @@
       "name": "Profile Picture V2",
       "filename": "profile-picture-v2.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/profile-picture-v2.png"
     },
     {
@@ -1075,7 +1256,7 @@
       "name": "LinkedIn Banner V1",
       "filename": "banner-linkedin-v1.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v1.png"
     },
     {
@@ -1084,7 +1265,7 @@
       "name": "LinkedIn Banner V2",
       "filename": "banner-linkedin-v2.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-linkedin-v2.png"
     },
     {
@@ -1093,7 +1274,7 @@
       "name": "Facebook Banner V1",
       "filename": "banner-facebook-v1.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v1.png"
     },
     {
@@ -1102,7 +1283,7 @@
       "name": "Facebook Banner V2",
       "filename": "banner-facebook-v2.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-facebook-v2.png"
     },
     {
@@ -1111,7 +1292,7 @@
       "name": "YouTube Banner V1",
       "filename": "banner-youtube-v1.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v1.png"
     },
     {
@@ -1120,7 +1301,7 @@
       "name": "YouTube Banner V2",
       "filename": "banner-youtube-v2.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/banner-youtube-v2.png"
     },
     {
@@ -1129,7 +1310,7 @@
       "name": "Post Template V1",
       "filename": "post-template-v1.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v1.png"
     },
     {
@@ -1138,7 +1319,7 @@
       "name": "Post Template V2",
       "filename": "post-template-v2.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/post-template-v2.png"
     },
     {
@@ -1147,7 +1328,7 @@
       "name": "Story Template V1",
       "filename": "story-template-v1.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v1.png"
     },
     {
@@ -1156,7 +1337,7 @@
       "name": "Story Template V2",
       "filename": "story-template-v2.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/nexus-ai-academy/story-template-v2.png"
     },
     {
@@ -1165,7 +1346,7 @@
       "name": "Profile Picture V1",
       "filename": "profile-picture-v1.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v1.png"
     },
     {
@@ -1174,7 +1355,7 @@
       "name": "Profile Picture V2",
       "filename": "profile-picture-v2.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/profile-picture-v2.png"
     },
     {
@@ -1183,7 +1364,7 @@
       "name": "LinkedIn Banner V1",
       "filename": "banner-linkedin-v1.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v1.png"
     },
     {
@@ -1192,7 +1373,7 @@
       "name": "LinkedIn Banner V2",
       "filename": "banner-linkedin-v2.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-linkedin-v2.png"
     },
     {
@@ -1201,7 +1382,7 @@
       "name": "Facebook Banner V1",
       "filename": "banner-facebook-v1.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v1.png"
     },
     {
@@ -1210,7 +1391,7 @@
       "name": "Facebook Banner V2",
       "filename": "banner-facebook-v2.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-facebook-v2.png"
     },
     {
@@ -1219,7 +1400,7 @@
       "name": "YouTube Banner V1",
       "filename": "banner-youtube-v1.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v1.png"
     },
     {
@@ -1228,7 +1409,7 @@
       "name": "YouTube Banner V2",
       "filename": "banner-youtube-v2.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/banner-youtube-v2.png"
     },
     {
@@ -1237,7 +1418,7 @@
       "name": "Post Template V1",
       "filename": "post-template-v1.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v1.png"
     },
     {
@@ -1246,7 +1427,7 @@
       "name": "Post Template V2",
       "filename": "post-template-v2.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/post-template-v2.png"
     },
     {
@@ -1255,7 +1436,7 @@
       "name": "Story Template V1",
       "filename": "story-template-v1.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v1.png"
     },
     {
@@ -1264,7 +1445,7 @@
       "name": "Story Template V2",
       "filename": "story-template-v2.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/invest-in-congo/story-template-v2.png"
     },
     {
@@ -1273,7 +1454,7 @@
       "name": "Profile Picture V1",
       "filename": "profile-picture-v1.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v1.png"
     },
     {
@@ -1282,7 +1463,7 @@
       "name": "Profile Picture V2",
       "filename": "profile-picture-v2.png",
       "type": "Profile",
-      "dimensions": "800×800",
+      "dimensions": "800\u00d7800",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/profile-picture-v2.png"
     },
     {
@@ -1291,7 +1472,7 @@
       "name": "LinkedIn Banner V1",
       "filename": "banner-linkedin-v1.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v1.png"
     },
     {
@@ -1300,7 +1481,7 @@
       "name": "LinkedIn Banner V2",
       "filename": "banner-linkedin-v2.png",
       "type": "Banner",
-      "dimensions": "1584×396",
+      "dimensions": "1584\u00d7396",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-linkedin-v2.png"
     },
     {
@@ -1309,7 +1490,7 @@
       "name": "Facebook Banner V1",
       "filename": "banner-facebook-v1.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v1.png"
     },
     {
@@ -1318,7 +1499,7 @@
       "name": "Facebook Banner V2",
       "filename": "banner-facebook-v2.png",
       "type": "Banner",
-      "dimensions": "851×315",
+      "dimensions": "851\u00d7315",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-facebook-v2.png"
     },
     {
@@ -1327,7 +1508,7 @@
       "name": "YouTube Banner V1",
       "filename": "banner-youtube-v1.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v1.png"
     },
     {
@@ -1336,7 +1517,7 @@
       "name": "YouTube Banner V2",
       "filename": "banner-youtube-v2.png",
       "type": "Banner",
-      "dimensions": "2560×1440",
+      "dimensions": "2560\u00d71440",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/banner-youtube-v2.png"
     },
     {
@@ -1345,7 +1526,7 @@
       "name": "Post Template V1",
       "filename": "post-template-v1.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v1.png"
     },
     {
@@ -1354,7 +1535,7 @@
       "name": "Post Template V2",
       "filename": "post-template-v2.png",
       "type": "Post",
-      "dimensions": "1080×1080",
+      "dimensions": "1080\u00d71080",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/post-template-v2.png"
     },
     {
@@ -1363,7 +1544,7 @@
       "name": "Story Template V1",
       "filename": "story-template-v1.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v1.png"
     },
     {
@@ -1372,13 +1553,13 @@
       "name": "Story Template V2",
       "filename": "story-template-v2.png",
       "type": "Story",
-      "dimensions": "1080×1920",
+      "dimensions": "1080\u00d71920",
       "url": "https://raw.githubusercontent.com/ALEXPRIME000/social-media-assets/main/pulse-architects/story-template-v2.png"
     }
   ],
   "approvals": [
     {
-      "item": "5 LinkedIn Posts — Review & Approve",
+      "item": "5 LinkedIn Posts \u2014 Review & Approve",
       "file": "marketing/linkedin/posts-batch-1.md",
       "priority": "high",
       "created": "Feb 20"
@@ -1412,6 +1593,30 @@
       "file": "drafts/LINKEDIN_PROFILE_FINAL.md",
       "priority": "medium",
       "created": "Feb 14"
+    },
+    {
+      "item": "Amazon KDP Account Setup \u2014 Create account + add banking",
+      "file": "projects/amazon-empire/MASTER-STRATEGY.md",
+      "priority": "high",
+      "created": "Mar 16"
+    },
+    {
+      "item": "Amazon Merch Application \u2014 Apply for print on demand",
+      "file": "projects/amazon-empire/MASTER-STRATEGY.md",
+      "priority": "high",
+      "created": "Mar 16"
+    },
+    {
+      "item": "BookFunnel + MailerLite \u2014 Email funnel infrastructure",
+      "file": "projects/amazon-empire/MASTER-STRATEGY.md",
+      "priority": "high",
+      "created": "Mar 16"
+    },
+    {
+      "item": "Pen Name Selection \u2014 Choose author names for publishing",
+      "file": "projects/kdp-publishing/STRATEGY.md",
+      "priority": "medium",
+      "created": "Mar 16"
     }
   ]
 }
